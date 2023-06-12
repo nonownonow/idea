@@ -7,7 +7,9 @@
     "start": "remix-serve build",
     "typecheck": "tsc",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test-storybook": "test-storybook",
+    "chromatic": "dotenv -- cross-var npx chromatic --project-token=%CHROMATIC_PROJECT_TOKEN%"
   },
   "dependencies": {
     "@remix-run/css-bundle": "^1.17.0",
@@ -24,15 +26,19 @@
     "@babel/preset-typescript": "^7.22.5",
     "@remix-run/dev": "^1.17.0",
     "@remix-run/eslint-config": "^1.17.0",
+    "@storybook/addon-coverage": "^0.0.8",
     "@storybook/addon-essentials": "^7.0.20",
     "@storybook/addon-interactions": "^7.0.20",
     "@storybook/addon-links": "^7.0.20",
     "@storybook/blocks": "^7.0.20",
     "@storybook/react": "^7.0.20",
     "@storybook/react-webpack5": "^7.0.20",
+    "@storybook/test-runner": "^0.10.0",
     "@storybook/testing-library": "^0.0.14-next.2",
     "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
+    "cross-env": "^7.0.3",
+    "cross-var": "^1.1.0",
     "eslint": "^8.38.0",
     "eslint-plugin-storybook": "^0.6.12",
     "prop-types": "^15.8.1",
@@ -44,7 +50,6 @@
   },
   "workspaces": [
     "packages/fxtsx",
-    "packages/fxtsx-html",
-    "packages/a"
+    "packages/fxtsx-html"
   ]
 }

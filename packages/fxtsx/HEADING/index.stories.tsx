@@ -26,23 +26,13 @@ const meta = {
 } satisfies Meta<typeof HEADING>;
 export default meta;
 type Story = StoryObj<typeof meta>;
-const ch = <em>Hello</em>;
 export const HEADING_Default: Story = {
   args: {
-    data: "heading",
     level: 1,
-    children: ch,
   },
   argTypes: {
     level: {
       control: { type: "number", min: 1, max: 6 },
-    },
-    children: {
-      options: ["문자열"],
-      control: { type: "radio" },
-      mapping: {
-        문자열: ch,
-      },
     },
   },
 };

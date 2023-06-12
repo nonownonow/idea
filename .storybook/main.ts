@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/react-webpack5";
+
 const config: StorybookConfig = {
   stories: [
     {
@@ -12,6 +13,7 @@ const config: StorybookConfig = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    "@storybook/addon-coverage",
   ],
   framework: {
     name: "@storybook/react-webpack5",

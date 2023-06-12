@@ -8,7 +8,6 @@ export interface HeadingProps extends heading, ComponentPropsWithoutRef<"h1"> {}
 
 const $Heading = forwardRef<HTMLHeadingElement, HeadingProps>((props, ref) => {
   const { level = 1, data, children, ...etcProps } = props;
-  debugger;
   return createElement(`h${level}`, {
     ...(children
       ? {
