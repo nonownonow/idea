@@ -1,6 +1,7 @@
 node_modules
 .idea
 coverage
+build-storybook.log
 
 /.cache
 /build
