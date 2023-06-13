@@ -20,3 +20,28 @@ export function html(html: ReactNode): {
     children: html,
   };
 }
+
+const defaultRootPropsKeys = [
+  "className",
+  "id",
+  "tabIndex",
+  "style",
+  /data-.+/,
+];
+
+export function separateProps<T>(props: T, rootPropsKeys: string[] = []) {
+  const nodeProps: Record<string, any> = {};
+  const rootProps: Record<string, any> = {};
+  for (const key in props) {
+    if (
+      [...rootPropsKeys, ...defaultRootPropsKeys].findIndex((a) =>
+        RegExp(a).test(key)
+      ) > -1
+    ) {
+      rootProps[key] = props[key];
+    } else {
+      nodeProps[key] = props[key];
+    }
+  }
+  return { rootProps, nodeProps };
+}

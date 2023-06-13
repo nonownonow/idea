@@ -7,5 +7,6 @@ module.exports = {
   ],
   rules: {
     "react/display-name": 0,
+    "react/jsx-pascal-case": 0,
   },
 };
