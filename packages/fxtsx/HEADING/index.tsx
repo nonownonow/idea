@@ -26,5 +26,5 @@ export const HEADING = forwardRef<HTMLHeadingElement, HEADINGProps>(function (
   { Heading = ComponentWithRef, ...etcProps },
   ref
 ) {
-  return <Heading {...etcProps} {...{ ref }} />;
+  return <Heading data-heading {...etcProps} {...{ ref }} />;
 });
