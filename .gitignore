@@ -2,7 +2,7 @@ node_modules
 .idea
 coverage
 build-storybook.log
-
+.jest-test-results.json
 /.cache
 /build
 /public/build

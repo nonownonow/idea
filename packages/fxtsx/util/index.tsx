@@ -1,5 +1,6 @@
 import DOMPurify from "isomorphic-dompurify";
 import type { ReactNode } from "react";
+import React from "react";
 
 export function html(html: ReactNode): {
   children?: ReactNode | undefined;
@@ -45,3 +46,5 @@ export function separateProps<T>(props: T, rootPropsKeys: string[] = []) {
   }
   return { rootProps, nodeProps };
 }
+
+export const MockComponent = (props: any) => <div {...props} />;

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Heading } from "fxtsx-html/Heading";
+import { Heading } from "./Heading";
 import type { ReactNode } from "react";
 
 const meta = {
@@ -7,7 +7,7 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     children: {
-      options: ["없음", "부제", "제목과 관련된 내용"],
+      options: ["없음", "부제목", "제목과 관련된 내용"],
       control: { type: "select" },
     },
   },

@@ -1,4 +1,8 @@
-import type { Preview } from "@storybook/react";
+import type { Decorator, Preview } from "@storybook/react";
+import results from "../.jest-test-results.json";
+import { withTests } from "@storybook/addon-jest";
+
+export const decorators: Decorator = [withTests({ results })];
 
 const preview: Preview = {
   parameters: {

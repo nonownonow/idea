@@ -3,13 +3,12 @@
   "sideEffects": false,
   "scripts": {
     "test": "jest",
-    "test:generate-output": "jest --json --outputFile=.jest-test-results.json || true",
+    "test:generate-output": "jest --json --outputFile=.jest-test-results.json --watch || true",
     "build": "remix build",
     "dev": "remix dev",
     "start": "remix-serve build",
     "typecheck": "tsc",
-    "prestorybook": "npm run test:generate-output -- --watch",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "npm run test:generate-output & storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test-storybook": "test-storybook",
     "chromatic": "dotenv -- cross-var npx chromatic --project-token=%CHROMATIC_PROJECT_TOKEN%"
@@ -35,6 +34,7 @@
     "@storybook/addon-interactions": "^7.0.20",
     "@storybook/addon-jest": "^7.0.21",
     "@storybook/addon-links": "^7.0.20",
+    "@storybook/addon-storyshots": "^7.0.24",
     "@storybook/blocks": "^7.0.20",
     "@storybook/jest": "^0.1.0",
     "@storybook/react": "^7.0.20",

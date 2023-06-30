@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import React, { createElement, forwardRef } from "react";
-import type { HeadingProps as $HeadingProps } from "fxtsx/HEADING";
-import { HEADING } from "fxtsx/HEADING";
+import type { HeadingProps as $HeadingProps } from "fxtsx/HEADING/HEADING";
+import { HEADING } from "fxtsx/HEADING/HEADING";
 import { html, separateProps } from "fxtsx/util";
 
 export interface HeadingProps
