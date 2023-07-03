@@ -25,14 +25,7 @@ export interface HEADINGProps extends HeadingProps {
     children: ReactNode;
   }>;
 }
-/*return children === null ? (
-    <Heading data-testid={"HEADING"} data-heading {...etcProps} ref={ref} />
-) : (
-    <Hgroup data-testid={"HEADING"} data-heading>
-      <Heading {...etcProps} ref={ref} />
-      {children}
-    </Hgroup>
-);*/
+
 /**
  * 헤딩(h1 ~ h6)태그와 대응하는 컴포넌트 구현을 위한 인터페이스*/
 export const HEADING = forwardRef<HTMLHeadingElement, HEADINGProps>(function (
@@ -40,11 +33,11 @@ export const HEADING = forwardRef<HTMLHeadingElement, HEADINGProps>(function (
   ref
 ) {
   return children ? (
-    <Hgroup>
+    <Hgroup data-fx-heading>
       <Heading data={data} level={level} ref={ref} />
       {children}
     </Hgroup>
   ) : (
-    <Heading data-heading data={data} level={level} ref={ref} />
+    <Heading data-fx-heading data={data} level={level} ref={ref} />
   );
 });
