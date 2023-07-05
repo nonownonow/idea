@@ -1,26 +1,21 @@
-import DOMPurify from "isomorphic-dompurify";
 import type { ReactNode } from "react";
 import React from "react";
 import { map, partition, pipe, some, toArray } from "@fxts/core";
 
-export function innerHtml(html: ReactNode): {
-  children?: ReactNode | undefined;
-  dangerouslySetInnerHTML?:
-    | {
-        __html: string;
-      }
-    | undefined;
-} {
+export function htmlChildren(html: ReactNode) {
+  let result;
   if (typeof html === "string") {
-    return {
+    result = {
       dangerouslySetInnerHTML: {
-        __html: DOMPurify.sanitize(html),
+        __html: html,
       },
     };
+  } else {
+    result = {
+      children: html,
+    };
   }
-  return {
-    children: html,
-  };
+  return result;
 }
 
 export const separateProps = <T extends Record<string, any>>(

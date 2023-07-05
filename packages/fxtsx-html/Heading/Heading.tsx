@@ -5,7 +5,7 @@ import type {
   HeadingProps as $HeadingProps,
 } from "fxtsx/HEADING/HEADING";
 import { HEADING } from "fxtsx/HEADING/HEADING";
-import { innerHtml } from "fxtsx/util/util";
+import { htmlChildren } from "fxtsx/util/util";
 
 export interface HeadingProps
   extends $HeadingProps,
@@ -21,7 +21,7 @@ export interface HeadingProps
 }
 
 const $Heading: HEADINGProps["Heading"] = forwardRef(({ level, data }, ref) =>
-  createElement(`h${level}`, { ...innerHtml(data), ref })
+  createElement(`h${level}`, { ...htmlChildren(data), ref })
 );
 
 const $Hgroup: HEADINGProps["Hgroup"] = (props) => <hgroup {...props} />;
