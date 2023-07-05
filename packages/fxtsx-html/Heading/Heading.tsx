@@ -5,7 +5,7 @@ import type {
   HeadingProps as $HeadingProps,
 } from "fxtsx/HEADING/HEADING";
 import { HEADING } from "fxtsx/HEADING/HEADING";
-import { html } from "fxtsx/util/util";
+import { innerHtml } from "fxtsx/util/util";
 
 export interface HeadingProps
   extends $HeadingProps,
@@ -20,28 +20,9 @@ export interface HeadingProps
   children?: ReactNode;
 }
 
-/*const $Heading = forwardRef<HTMLHeadingElement, $HeadingProps>((props, ref) => {
-  const { level, data, children, ...etcProps } = props;
-  return createElement(`h${level}`, {
-    ...html(data),
-    ...etcProps,
-    ref,
-  });
-});*/
-const $Heading: HEADINGProps["Heading"] = forwardRef(({ level, title }, ref) =>
-  createElement(`h${level}`, { ...html(title), ref })
+const $Heading: HEADINGProps["Heading"] = forwardRef(({ level, data }, ref) =>
+  createElement(`h${level}`, { ...innerHtml(data), ref })
 );
-
-/*const $HGroup = forwardRef<HTMLHeadingElement, $HeadingProps>((props, ref) => {
-  const { rootProps, nodeProps } = separateProps(props);
-  const { level = 1, data, children, ...etcProps } = nodeProps;
-  return (
-    <hgroup {...rootProps}>
-      <$Heading data={data} level={level} {...etcProps} ref={ref} />
-      {children}
-    </hgroup>
-  );
-});*/
 
 const $Hgroup: HEADINGProps["Hgroup"] = (props) => <hgroup {...props} />;
 

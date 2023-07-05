@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import React from "react";
 import { map, partition, pipe, some, toArray } from "@fxts/core";
 
-export function html(html: ReactNode): {
+export function innerHtml(html: ReactNode): {
   children?: ReactNode | undefined;
   dangerouslySetInnerHTML?:
     | {
