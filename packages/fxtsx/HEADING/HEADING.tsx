@@ -1,5 +1,6 @@
-import type { FC, ReactNode, Ref } from "react";
+import type { ComponentPropsWithoutRef, FC, ReactNode, Ref } from "react";
 import React, { forwardRef } from "react";
+import { separateProps } from "../util";
 
 export interface HeadingProps {
   /**
@@ -12,7 +13,9 @@ export interface HeadingProps {
   level: 1 | 2 | 3 | 4 | 5 | 6;
   children?: ReactNode;
 }
-export interface HEADINGProps extends HeadingProps {
+export interface HEADINGProps
+  extends HeadingProps,
+    ComponentPropsWithoutRef<"div"> {
   /**
    * 헤딩을 구현하는 컨포넌트
    */
@@ -29,15 +32,16 @@ export interface HEADINGProps extends HeadingProps {
 /**
  * 헤딩(h1 ~ h6)태그와 대응하는 컴포넌트 구현을 위한 인터페이스*/
 export const HEADING = forwardRef<HTMLHeadingElement, HEADINGProps>(function (
-  { Heading, Hgroup, children, data, level, ...etcProps },
+  { Heading, Hgroup, children, data, level, ...props },
   ref
 ) {
+  const [rootProps, headingProps] = separateProps(props);
   return children ? (
-    <Hgroup data-fx-heading>
-      <Heading data={data} level={level} ref={ref} />
+    <Hgroup data-fx-heading {...rootProps}>
+      <Heading data={data} level={level} {...headingProps} ref={ref} />
       {children}
     </Hgroup>
   ) : (
-    <Heading data-fx-heading data={data} level={level} ref={ref} />
+    <Heading data-fx-heading {...props} data={data} level={level} ref={ref} />
   );
 });

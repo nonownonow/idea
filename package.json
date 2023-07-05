@@ -14,6 +14,7 @@
     "chromatic": "dotenv -- cross-var npx chromatic --project-token=%CHROMATIC_PROJECT_TOKEN%"
   },
   "dependencies": {
+    "@fxts/core": "^0.17.0",
     "@remix-run/css-bundle": "^1.17.0",
     "@remix-run/node": "^1.17.0",
     "@remix-run/react": "^1.17.0",
