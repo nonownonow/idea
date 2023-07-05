@@ -22,7 +22,7 @@ export const Normal: Story = {
       case "없음":
         realChildren = null;
         break;
-      case "부제":
+      case "부제목":
         realChildren = <p>부제목</p>;
         break;
       case "제목과 관련된 내용":
