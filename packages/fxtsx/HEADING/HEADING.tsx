@@ -6,7 +6,7 @@ export interface HeadingProps {
   /**
    * 헤딩의 내용.
    */
-  data: string;
+  title: string;
   /**
    * 헤딩의 레벨
    */
@@ -20,7 +20,7 @@ export interface HEADINGProps
    * 헤딩을 구현하는 컨포넌트
    */
   Heading: FC<{
-    data: HeadingProps["data"];
+    title: HeadingProps["title"];
     level: HeadingProps["level"];
     ref: Ref<HTMLHeadingElement>;
   }>;
@@ -32,16 +32,16 @@ export interface HEADINGProps
 /**
  * 헤딩(h1 ~ h6)태그와 대응하는 컴포넌트 구현을 위한 인터페이스*/
 export const HEADING = forwardRef<HTMLHeadingElement, HEADINGProps>(function (
-  { Heading, Hgroup, children, data, level, ...props },
+  { Heading, Hgroup, children, title, level, ...props },
   ref
 ) {
   const [rootProps, headingProps] = separateProps(props);
   return children ? (
     <Hgroup data-fx-heading {...rootProps}>
-      <Heading data={data} level={level} {...headingProps} ref={ref} />
+      <Heading title={title} level={level} {...headingProps} ref={ref} />
       {children}
     </Hgroup>
   ) : (
-    <Heading data-fx-heading {...props} data={data} level={level} ref={ref} />
+    <Heading data-fx-heading {...props} title={title} level={level} ref={ref} />
   );
 });

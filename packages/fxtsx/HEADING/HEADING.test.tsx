@@ -23,7 +23,7 @@ const HeadingTest = forwardRef<HTMLHeadingElement, HEADINGProps>(function (
 });
 describe("HEADING", () => {
   const HeadingComp = jest.fn((props, ref) => (
-    //   중복 속성 체크를 위해서 props를 컴포넌트에 전달한다 예: data-heading속성을 단 하나의 하위컴포넌트에서 받는 지 테스트할 때
+    //   중복 속성 체크를 위해서 props 를 컴포넌트에 전달한다 예: data-heading 속성을 단 하나의 하위컴포넌트에서 받는 지 테스트할 때
     <h1 data-testid={"Heading"} {...props} />
   ));
   const HgroupComp = jest.fn((props) => (
@@ -35,17 +35,18 @@ describe("HEADING", () => {
     beforeEach(() => {
       renderResult = render(
         <HeadingTest
-          data={"Hello Heading!"}
+          title={"Hello Heading!"}
           level={1}
           Heading={forwardRef(HeadingComp)}
           Hgroup={HgroupComp}
-          ref={(el) => {}}
+          ref={() => {}}
         />
       );
     });
     commonTest();
-    test("data, level, ref 는 Heading 의 속성으로 전달된다.", () => {
-      expect(HeadingComp.mock.calls[0][0]).toHaveProperty("data");
+
+    test("title, level, ref 는 Heading 의 속성으로 전달된다.", () => {
+      expect(HeadingComp.mock.calls[0][0]).toHaveProperty("title");
       expect(HeadingComp.mock.calls[0][0]).toHaveProperty("level");
       expect(HeadingComp.mock.calls[0][1]).toHaveProperty("name", "ref");
     });
@@ -67,11 +68,11 @@ describe("HEADING", () => {
     beforeEach(() => {
       renderResult = render(
         <HeadingTest
-          data={"Hello Heading!"}
+          title={"Hello Heading!"}
           level={1}
           Heading={forwardRef(HeadingComp)}
           Hgroup={HgroupComp}
-          ref={(el) => {}}
+          ref={() => {}}
         >
           <p data-testid={"children"}>부제목</p>
         </HeadingTest>
