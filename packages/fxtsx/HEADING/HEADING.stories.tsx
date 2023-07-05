@@ -2,7 +2,7 @@ import { expect } from "@storybook/jest";
 import type { Meta, StoryObj } from "@storybook/react";
 import { HEADING } from "./HEADING";
 import { within } from "@storybook/testing-library";
-import { MockComponent } from "../util";
+import { MockComponent } from "../util/util";
 
 const meta: Meta<typeof HEADING> = {
   component: HEADING,

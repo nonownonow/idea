@@ -23,23 +23,6 @@ export function html(html: ReactNode): {
   };
 }
 
-/*export function separateProps<T>(props: T, rootPropsKeys: string[] = []) {
-  const nodeProps: Record<string, any> = {};
-  const rootProps: Record<string, any> = {};
-  for (const key in props) {
-    if (
-      [...rootPropsKeys, ...defaultRootPropsKeys].findIndex((a) =>
-        RegExp(a).test(key)
-      ) > -1
-    ) {
-      rootProps[key] = props[key];
-    } else {
-      nodeProps[key] = props[key];
-    }
-  }
-  return { rootProps, nodeProps };
-}*/
-
 export const separateProps = <T extends Record<string, any>>(
   props: T,
   rootPropsKeys: (string | RegExp)[] = [

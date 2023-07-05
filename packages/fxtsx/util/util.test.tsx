@@ -1,4 +1,4 @@
-import { separateProps } from "./index";
+import { separateProps } from "./util";
 
 describe("separateProps", () => {
   test("props 와 rootPropsKeys(root 컴포넌트에서 사용될 props 의 키 배열)을 받아서 rootPropsKeys 에 매핑된 props 와 그렇지 않은 props 로 나눈다", () => {

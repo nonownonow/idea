@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, FC, ReactNode, Ref } from "react";
 import React, { forwardRef } from "react";
-import { separateProps } from "../util";
+import { separateProps } from "../util/util";
 
 export interface HeadingProps {
   /**

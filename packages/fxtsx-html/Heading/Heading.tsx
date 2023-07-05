@@ -5,7 +5,7 @@ import type {
   HeadingProps as $HeadingProps,
 } from "fxtsx/HEADING/HEADING";
 import { HEADING } from "fxtsx/HEADING/HEADING";
-import { html } from "fxtsx/util";
+import { html } from "fxtsx/util/util";
 
 export interface HeadingProps
   extends $HeadingProps,
