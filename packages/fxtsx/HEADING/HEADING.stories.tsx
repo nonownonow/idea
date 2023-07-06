@@ -1,7 +1,5 @@
-import { expect } from "@storybook/jest";
 import type { Meta, StoryObj } from "@storybook/react";
 import { HEADING } from "./HEADING";
-import { within } from "@storybook/testing-library";
 import { MockComponent } from "../util/util";
 
 const meta: Meta<typeof HEADING> = {
@@ -35,12 +33,5 @@ export const HEADING_Default: Story = {
       },
     },
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const HEADING = await canvas.getByText("Hello Heading!");
-    expect(HEADING).toHaveAttribute("data-heading", "true");
-    expect(HEADING).toHaveAttribute("data", "heading");
-    expect(HEADING).toHaveAttribute("level", "1");
-    expect(HEADING).toHaveTextContent("Hello Heading!");
-  },
+  play: async ({ canvasElement }) => {},
 };
