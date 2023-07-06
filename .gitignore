@@ -7,4 +7,4 @@ build-storybook.log
 /build
 /public/build
 .env
-storybook-static
+storybook-stat
