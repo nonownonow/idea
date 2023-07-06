@@ -1,6 +1,7 @@
-import type { ComponentPropsWithoutRef, FC, ReactNode, Ref } from "react";
+import type { FC, ReactNode, Ref } from "react";
 import React, { forwardRef } from "react";
 import { separateProps } from "../util/util";
+import type { HTMLElementProps } from "../ fxtsx.type";
 
 export interface HeadingProps {
   /**
@@ -14,7 +15,7 @@ export interface HeadingProps {
   children?: ReactNode;
 }
 export type HEADINGProps = HeadingProps &
-  ComponentPropsWithoutRef<"div"> & {
+  HTMLElementProps & {
     /**
      * 헤딩을 구현하는 컨포넌트
      */
