@@ -13,21 +13,20 @@ export interface HeadingProps {
   level: 1 | 2 | 3 | 4 | 5 | 6;
   children?: ReactNode;
 }
-export interface HEADINGProps
-  extends HeadingProps,
-    ComponentPropsWithoutRef<"div"> {
-  /**
-   * 헤딩을 구현하는 컨포넌트
-   */
-  Heading: FC<{
-    title: HeadingProps["title"];
-    level: HeadingProps["level"];
-    ref: Ref<HTMLHeadingElement>;
-  }>;
-  Hgroup: FC<{
-    children: ReactNode;
-  }>;
-}
+export type HEADINGProps = HeadingProps &
+  ComponentPropsWithoutRef<"div"> & {
+    /**
+     * 헤딩을 구현하는 컨포넌트
+     */
+    Heading: FC<{
+      title: HeadingProps["title"];
+      level: HeadingProps["level"];
+      ref: Ref<HTMLHeadingElement>;
+    }>;
+    Hgroup: FC<{
+      children: ReactNode;
+    }>;
+  };
 
 /**
  * 헤딩(h1 ~ h6)태그와 대응하는 컴포넌트 구현을 위한 인터페이스*/
