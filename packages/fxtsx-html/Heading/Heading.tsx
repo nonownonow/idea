@@ -13,7 +13,7 @@ export interface HeadingProps
   /**
    * 헤딩의 내용. 문자 내부에 태그 사용 가능함.
    */
-  data: string;
+  title: string;
   /**
    * 헤딩그룹(hgroup)에 들어가는 헤딩(h1-h6)에 연관된 내용
    * */
@@ -28,8 +28,8 @@ export interface HeadingProps
     ref,
   });
 });*/
-const $Heading: HEADINGProps["Heading"] = forwardRef(({ level, data }, ref) =>
-  createElement(`h${level}`, { ...html(data), ref })
+const $Heading: HEADINGProps["Heading"] = forwardRef(({ level, title }, ref) =>
+  createElement(`h${level}`, { ...html(title), ref })
 );
 
 /*const $HGroup = forwardRef<HTMLHeadingElement, $HeadingProps>((props, ref) => {

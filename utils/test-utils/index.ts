@@ -8,13 +8,19 @@ const allQueries = {
   ...customQueries,
 };
 
-const customScreen = within(document.body, allQueries);
+// const customScreen = within(document.body, customQueries);
+const customScreen = Object.create(
+  screen,
+  Object.getOwnPropertyDescriptors(within(document.body, allQueries))
+);
+
 const customWithin = (element: HTMLElement) => within(element, allQueries);
 const customRender = (
   ui: ReactElement,
   options?: Omit<RenderOptions, "queries">
-) => render(ui, { ...options, queries: allQueries });
+) => render(ui, { queries: allQueries, ...options });
 
+export * from "@testing-library/react";
 export {
   customScreen as screen,
   customWithin as within,

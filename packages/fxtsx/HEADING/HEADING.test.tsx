@@ -1,7 +1,7 @@
 import type { HEADINGProps } from "./HEADING";
 import { HEADING } from "./HEADING";
 import type { RenderResult } from "@testing-library/react";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import React, { forwardRef } from "react";
 
 const HeadingTest = forwardRef<HTMLHeadingElement, HEADINGProps>(function (
@@ -106,7 +106,6 @@ describe("HEADING", () => {
       const { container } = renderResult;
       const rootProps = ["id", "class", "tabindex", "style", "data-test"];
 
-      screen.debug();
       rootProps.forEach((a) => {
         expect(container.firstChild).toHaveAttribute(a);
       });
