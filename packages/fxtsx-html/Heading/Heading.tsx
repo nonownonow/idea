@@ -20,8 +20,8 @@ export interface HeadingProps
   children?: ReactNode;
 }
 
-const $Heading: HEADINGProps["Heading"] = forwardRef(({ level, data }, ref) =>
-  createElement(`h${level}`, { ...htmlChildren(data), ref })
+const $Heading: HEADINGProps["Heading"] = forwardRef(({ level, title }, ref) =>
+  createElement(`h${level}`, { ...htmlChildren(title), ref })
 );
 
 const $Hgroup: HEADINGProps["Hgroup"] = (props) => <hgroup {...props} />;
