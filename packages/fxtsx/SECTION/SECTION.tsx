@@ -1,7 +1,9 @@
-import type { ReactNode } from "react";
+import type { FC, ReactNode } from "react";
 import React from "react";
+import { fxtsx } from "../util/util";
+import type { $HEADINGProps } from "../HEADING/HEADING";
 
-export interface SectionProps {
+export interface $SECTIONProps {
   /**
    * 헤딩의 내용.
    */
@@ -13,19 +15,37 @@ export interface SectionProps {
   /**
    * 헤딩의 보조 내용, 이 속성이 전달되면 heading 은 hgroup 을 사용하여 표현된다.
    */
-  titleSubContents: ReactNode;
+  subTitle?: ReactNode;
   /**
    * 현재 레벨의 내용
    */
-  contents: ReactNode;
+  contents?: ReactNode;
   /**
    * 하위 레벨의 내용
    */
   children?: ReactNode;
 }
-export default function SECTION(props: any) {
-  return <div data-testid={"SECTION"}>Section</div>;
-}
+
+export type SECTIONProps = $SECTIONProps & {
+  /**
+   * 섹션을 구현하는 컨포넌트
+   */
+  $Section: FC<{
+    children?: ReactNode;
+  }>;
+  $Heading: FC<$HEADINGProps>;
+};
+export const SECTION = fxtsx<HTMLElement, SECTIONProps>((rootProps) => {
+  return (
+    <div data-testid={"SECTION"} {...rootProps}>
+      Section
+    </div>
+  );
+});
+
+/*fxtsx((rootProps, sectionProps, ref)=>{
+
+})*/
 /*let i = 0;
 <Article
     content={<><Heading title={"title"} level={i + 1} /></>}

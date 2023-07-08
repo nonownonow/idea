@@ -1,4 +1,5 @@
-import { htmlChildren, separateProps } from "./util";
+import { fxtsx, htmlChildren, separateProps } from "./util";
+import { render } from "@testing-library/react";
 
 describe("util", () => {
   describe("separateProps", () => {
@@ -47,7 +48,30 @@ describe("util", () => {
       });
     });
   });
+  describe("fxtsx", () => {
+    /*
+     * 루트 컴포넌트 프로퍼티 = id, class data-* 등 루트 컴포넌트에 전달 되는 프로퍼티 목록
+     * 자식 컴포넌트 프로퍼티 = 루트 컴포넌트에 속하지 않은 프로퍼티로 자식 컴포넌트로 전달되는 프로퍼티 목록
+     * */
+    describe("랜더링 함수를 파라미터로 받아서 컴포넌트를 리턴한다.", () => {
+      test("컴포넌트에 프로퍼티를 전달하면 루트컴포넌트 프로퍼티와 자식컴포넌트 프로퍼티로 분리하며 랜더링 함수의 파라미터로 전달한다.", () => {});
+      const renderFn = jest.fn((rootProps, childProps, ref) => (
+        <div {...rootProps} {...childProps} ref={ref} />
+      ));
+      const FxComp = fxtsx(renderFn);
+      render(
+        <FxComp
+          id={"myId"}
+          className={"myClassName"}
+          testAttr={"myTestAttr"}
+          data-test={"myDataTest"}
+        />
+      );
+      expect(renderFn.mock.calls[0][0]).toHaveProperty("id");
+      expect(renderFn.mock.calls[0][0]).toHaveProperty("className");
+      expect(renderFn.mock.calls[0][0]).toHaveProperty("data-test");
+      expect(renderFn.mock.calls[0][0]).not.toHaveProperty("testAttr");
+      expect(renderFn.mock.calls[0][1]).toHaveProperty("testAttr");
+    });
+  });
 });
-
-const r = <div>e</div>;
-console.log(typeof r);

@@ -6,5 +6,6 @@ build-storybook.log
 /.cache
 /build
 /public/build
-.env
+.envÅ
+.run
 storybook-stat

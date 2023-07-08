@@ -3,28 +3,25 @@ import { HEADING } from "./HEADING";
 import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
 import React, { forwardRef } from "react";
+import type { RootElementProps } from "../ fxtsx.type";
 
 const HeadingTest = forwardRef<HTMLHeadingElement, HEADINGProps>(function (
   props,
   ref
 ) {
-  return (
-    <HEADING
-      id={"id"}
-      className={"class"}
-      tabIndex={0}
-      style={{ fontSize: "1rem" }}
-      data-test={"test"}
-      hidden={true}
-      {...props}
-      ref={ref}
-    />
-  );
+  const rootProps: RootElementProps = {
+    id: "myId",
+    className: "myClassName",
+    tabIndex: 0,
+    style: { fontSize: "1rem" },
+    "data-test": "myDataTest",
+  };
+  return <HEADING {...rootProps} {...props} ref={ref} />;
 });
 describe("HEADING", () => {
   const HeadingComp = jest.fn((props, ref) => (
     //   중복 속성 체크를 위해서 props 를 컴포넌트에 전달한다 예: data-heading 속성을 단 하나의 하위컴포넌트에서 받는 지 테스트할 때
-    <h1 data-testid={"Heading"} {...props} />
+    <h1 data-testid={"Heading"} {...props} ref={ref} />
   ));
   const HgroupComp = jest.fn((props) => (
     <hgroup data-testid={"Hgroup"} {...props} />
@@ -37,8 +34,8 @@ describe("HEADING", () => {
         <HeadingTest
           title={"Hello Heading!"}
           level={1}
-          Heading={forwardRef(HeadingComp)}
-          Hgroup={HgroupComp}
+          $Heading={forwardRef(HeadingComp)}
+          $Hgroup={HgroupComp}
           ref={() => {}}
         />
       );
@@ -70,8 +67,8 @@ describe("HEADING", () => {
         <HeadingTest
           title={"Hello Heading!"}
           level={1}
-          Heading={forwardRef(HeadingComp)}
-          Hgroup={HgroupComp}
+          $Heading={forwardRef(HeadingComp)}
+          $Hgroup={HgroupComp}
           ref={() => {}}
         >
           <p data-testid={"children"}>부제목</p>
@@ -111,7 +108,7 @@ describe("HEADING", () => {
       });
     });
     test("core-element props 는 Heading component 에 전달된다.", () => {
-      const coreProps = ["hidden"];
+      const coreProps = ["title"];
 
       coreProps.forEach((a) => {
         expect(HeadingComp.mock.calls[0][0]).toHaveProperty(a);

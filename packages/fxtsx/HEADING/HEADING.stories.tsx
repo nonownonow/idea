@@ -11,7 +11,7 @@ type Story = StoryObj<typeof meta>;
 export const HEADING_Default: Story = {
   args: {
     level: 1,
-    data: "heading",
+    title: "heading",
     children: "Hello Heading!", // @ts-ignore
     Heading: "없음", // @ts-ignore
     Hgroup: "없음",
@@ -20,18 +20,18 @@ export const HEADING_Default: Story = {
     level: {
       control: { type: "number", min: 1, max: 6 },
     },
-    Heading: {
+    $Heading: {
       options: ["없음"],
       mapping: {
         없음: MockComponent,
       },
     },
-    Hgroup: {
+    $Hgroup: {
       options: ["없음"],
       mapping: {
         없음: MockComponent,
       },
     },
   },
-  play: async ({ canvasElement }) => {},
+  play: async () => {},
 };
