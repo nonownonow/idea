@@ -48,14 +48,9 @@ export function separateProps<P extends Record<string, any>>(
   );
 }
 
-export const MockComponent = forwardRef((props: any, ref: any) => (
-  <div {...props} ref={ref} />
-));
-/*
-export declare function fxtsx<T, P extends HTMLElementProps = {}>(
-  render: FXTSXRenderFunction<T, P>
-): ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>>;
-*/
+export const MockComponent = (testId: string) => (props: any) =>
+  <div data-testid={testId} {...props} />;
+
 export function fxtsx<T, P extends Record<string, any>>(
   render: FXTSXRenderFunction<T, P>
 ): ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {

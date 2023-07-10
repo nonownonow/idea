@@ -1,4 +1,4 @@
-import type { FC, ReactNode } from "react";
+import type { FC, ReactNode, Ref } from "react";
 import React from "react";
 import { fxtsx } from "../util/util";
 import type { $HEADINGProps } from "../HEADING/HEADING";
@@ -32,38 +32,50 @@ export type SECTIONProps = $SECTIONProps & {
    */
   $Section: FC<{
     children?: ReactNode;
+    ref?: Ref<HTMLElement>;
   }>;
   $Heading: FC<$HEADINGProps>;
 };
-export const SECTION = fxtsx<HTMLElement, SECTIONProps>((rootProps) => {
-  return (
-    <div data-testid={"SECTION"} {...rootProps}>
-      Section
-    </div>
-  );
-});
+export const SECTION = fxtsx<HTMLElement, SECTIONProps>(
+  (rootProps, restProps, ref) => {
+    const {
+      $Section,
+      $Heading,
+      title,
+      level,
+      subTitle,
+      children,
+      contents,
+      ...sectionProps
+    } = restProps;
+    return (
+      <$Section data-fx-section {...rootProps} {...sectionProps} ref={ref}>
+        <$Heading title={title} level={level} children={subTitle} />
+        <div data-fx-section-contents>{contents}</div>
+        {children}
+      </$Section>
+    );
+  }
+);
 
-/*fxtsx((rootProps, sectionProps, ref)=>{
-
-})*/
-/*let i = 0;
-<Article
-    content={<><Heading title={"title"} level={i + 1} /></>}
-  <Section
-    heading={
-      <Heading title={"title"} level={i + 1}>
-        <p>sub title</p>
-      </Heading>
-    }
-    content={<></>}
-  >
-    <Heading />
+/* let i = 0;
+  <Article
+      content={<><Heading title={"title"} level={i + 1} /></>}
     <Section
-      content={
-        <>
-          <p></p>
-        </>
+      heading={
+        <Heading title={"title"} level={i + 1}>
+          <p>sub title</p>
+        </Heading>
       }
-    ></Section>
-  </Section>
-</Article>;*/
+      content={<></>}
+    >
+      <Heading />
+      <Section
+        content={
+          <>
+            <p></p>
+          </>
+        }
+      ></Section>
+    </Section>
+  </Article>;*/

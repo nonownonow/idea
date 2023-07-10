@@ -63,15 +63,15 @@ describe("util", () => {
         <FxComp
           id={"myId"}
           className={"myClassName"}
-          testAttr={"myTestAttr"}
+          test-attr={"myTestAttr"}
           data-test={"myDataTest"}
         />
       );
       expect(renderFn.mock.calls[0][0]).toHaveProperty("id");
       expect(renderFn.mock.calls[0][0]).toHaveProperty("className");
       expect(renderFn.mock.calls[0][0]).toHaveProperty("data-test");
-      expect(renderFn.mock.calls[0][0]).not.toHaveProperty("testAttr");
-      expect(renderFn.mock.calls[0][1]).toHaveProperty("testAttr");
+      expect(renderFn.mock.calls[0][0]).not.toHaveProperty("test-attr");
+      expect(renderFn.mock.calls[0][1]).toHaveProperty("test-attr");
     });
   });
 });
