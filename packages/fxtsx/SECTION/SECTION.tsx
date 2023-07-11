@@ -1,7 +1,8 @@
-import type { FC, ReactNode, Ref } from "react";
+import type { FC, ReactNode } from "react";
 import React from "react";
-import { fxtsx } from "../util/util";
 import type { $HEADINGProps } from "../HEADING/HEADING";
+import type { FFC } from "../ fxtsx.type";
+import { Fxtsx } from "../FxTsx/FxTsx";
 
 export interface $SECTIONProps {
   /**
@@ -25,18 +26,24 @@ export interface $SECTIONProps {
    */
   children?: ReactNode;
 }
-
 export type SECTIONProps = $SECTIONProps & {
   /**
    * 섹션을 구현하는 컨포넌트
    */
-  $Section: FC<{
-    children?: ReactNode;
-    ref?: Ref<HTMLElement>;
-  }>;
+  $Section: FFC<
+    HTMLElement,
+    {
+      children?: ReactNode;
+    }
+  >;
   $Heading: FC<$HEADINGProps>;
 };
-export const SECTION = fxtsx<HTMLElement, SECTIONProps>(
+
+/**
+ * 섹션(section) 태그와 대응하는 컴포넌트 구현을 위한 인터페이스
+ * */
+
+export const SECTION = Fxtsx<HTMLElement, SECTIONProps>(
   (rootProps, restProps, ref) => {
     const {
       $Section,

@@ -1,15 +1,14 @@
 import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
-import type { FC } from "react";
-import React from "react";
+import React, { createRef } from "react";
 import type { SECTIONProps } from "./SECTION";
 import { SECTION } from "./SECTION";
-import { MockComponent } from "../util/util";
+import { ComponentWithoutRef, ComponentWithRef } from "../util/util";
 
 describe("SECTION", () => {
   let renderResult: RenderResult;
-  const $Section = MockComponent("$Section");
-  const $Heading = MockComponent("$Heading");
+  const $Section = ComponentWithRef<HTMLElement>("$Section");
+  const $Heading = ComponentWithoutRef("$Heading");
   const props: SECTIONProps = {
     title: "myTitle",
     level: 1,
@@ -18,18 +17,18 @@ describe("SECTION", () => {
     $Section,
     $Heading,
   };
+  const ref = createRef<any>();
   beforeEach(() => {
     renderResult = render(
-      <SECTION {...props}>
+      <SECTION {...props} ref={ref}>
         <section>
           <h2>하위 레벨의 내용</h2>
         </section>
       </SECTION>
     );
   });
-  beforeAll(() => {});
   describe("렌더링", () => {
-    test("루트 컴포넌트는 $Section 이며 data-fx-section 프로퍼티를 전달 받는다.", () => {
+    test("루트 컴포넌트 조각은 $Section 이며 data-fx-section 프로퍼티를 전달 받는다. 컴포넌트 조각 $Section, $Heading 에 적절한 프로퍼티를 전달한다", () => {
       const { asFragment } = renderResult;
       expect(asFragment()).toMatchInlineSnapshot(`
         <DocumentFragment>
@@ -58,33 +57,8 @@ describe("SECTION", () => {
         </DocumentFragment>
       `);
     });
+    test("ref 프로퍼티는 section 엘레멘트를 참조한다", () => {
+      expect(ref.current.dataset.testid).toEqual("$Section");
+    });
   });
-  fxtsxComponentTest(SECTION, props);
 });
-
-function fxtsxComponentTest<P>(Component: FC<P>, props: P) {
-  describe("fxtsx 컴포넌트 공통 테스트", () => {
-    let renderResult: RenderResult;
-    beforeEach(() => {
-      renderResult = render(
-        <Component
-          id={"id"}
-          className={"class"}
-          tabIndex={0}
-          style={{ fontSize: "1rem" }}
-          data-test={"test"}
-          hidden={true}
-          {...props}
-        />
-      );
-    });
-    test("root props(className, id 등)는 root component 에 전달된다.", () => {
-      const { container } = renderResult;
-      const rootProps = ["id", "class", "tabindex", "style", "data-test"];
-
-      rootProps.forEach((a) => {
-        expect(container.firstChild).toHaveAttribute(a);
-      });
-    });
-  });
-}

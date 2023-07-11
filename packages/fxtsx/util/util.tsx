@@ -1,12 +1,5 @@
-import type {
-  ForwardRefExoticComponent,
-  PropsWithoutRef,
-  ReactNode,
-  RefAttributes,
-} from "react";
+import type { ReactNode } from "react";
 import React, { forwardRef } from "react";
-import { map, partition, pipe, some, toArray } from "@fxts/core";
-import type { FXTSXRenderFunction } from "../ fxtsx.type";
 
 export function htmlChildren(html: ReactNode) {
   let result;
@@ -24,38 +17,12 @@ export function htmlChildren(html: ReactNode) {
   return result;
 }
 
-export function separateProps<P extends Record<string, any>>(
-  props: P,
-  rootPropsKeys: (string | RegExp)[] = [
-    "className",
-    "id",
-    "tabIndex",
-    "style",
-    /data-.+/,
-  ]
-) {
-  const rootPropsAndOtherProps = ([key]: string[]) =>
-    pipe(
-      rootPropsKeys,
-      some((matcher) => RegExp(matcher).test(key))
-    );
-
-  return pipe(
-    Object.entries(props),
-    partition(rootPropsAndOtherProps),
-    map(Object.fromEntries),
-    toArray
-  );
+export function ComponentWithRef<T, P = {}>(testId: string) {
+  return forwardRef<T, P>((props: any, ref: any) => (
+    <div data-testid={testId} {...props} ref={ref} />
+  ));
 }
 
-export const MockComponent = (testId: string) => (props: any) =>
-  <div data-testid={testId} {...props} />;
-
-export function fxtsx<T, P extends Record<string, any>>(
-  render: FXTSXRenderFunction<T, P>
-): ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
-  return forwardRef<T, P>((props, ref) => {
-    const [rootProps, restProps] = separateProps(props);
-    return render(rootProps, restProps, ref);
-  });
+export function ComponentWithoutRef(testId: string) {
+  return (props: any) => <div data-testid={testId} {...props} />;
 }

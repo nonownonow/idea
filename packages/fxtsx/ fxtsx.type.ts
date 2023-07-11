@@ -1,8 +1,9 @@
 import type {
   ComponentPropsWithoutRef,
   CSSProperties,
-  ForwardedRef,
-  ReactElement,
+  ForwardRefExoticComponent,
+  PropsWithoutRef,
+  RefAttributes,
 } from "react";
 
 export type HTMLElementProps = ComponentPropsWithoutRef<"div">;
@@ -13,15 +14,7 @@ export interface RootElementProps {
   style?: CSSProperties;
   [k: `data-${string}`]: string;
 }
-export interface FXTSXRenderFunction<
-  T,
-  P,
-  RootProps = RootElementProps,
-  RestProps = Omit<P, keyof RootElementProps>
-> {
-  (
-    rootProps: RootProps,
-    restProps: RestProps,
-    ref: ForwardedRef<T>
-  ): ReactElement | null;
-}
+
+export type FFC<T, P = {}> = ForwardRefExoticComponent<
+  PropsWithoutRef<P> & RefAttributes<T>
+>;

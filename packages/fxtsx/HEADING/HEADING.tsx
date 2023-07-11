@@ -1,6 +1,7 @@
 import type { FC, ReactNode, Ref } from "react";
 import React from "react";
-import { fxtsx } from "../util/util";
+
+import { Fxtsx } from "../FxTsx/FxTsx";
 
 export interface $HEADINGProps {
   /**
@@ -14,7 +15,7 @@ export interface $HEADINGProps {
   children?: ReactNode;
 }
 
-export type HEADINGProps = $HEADINGProps & {
+export interface HEADINGPiece {
   /**
    * 헤딩을 구현하는 컨포넌트
    */
@@ -24,13 +25,15 @@ export type HEADINGProps = $HEADINGProps & {
     ref: Ref<HTMLHeadingElement>;
   }>;
   $Hgroup: FC<{
-    children: ReactNode;
+    children: $HEADINGProps["children"];
   }>;
-};
+}
 
+export type HEADINGProps = $HEADINGProps & HEADINGPiece;
 /**
- * 헤딩(h1 ~ h6)태그와 대응하는 컴포넌트 구현을 위한 인터페이스*/
-export const HEADING = fxtsx<HTMLHeadingElement, HEADINGProps>(function (
+ * 헤딩(h1 ~ h6)태그와 대응하는 컴포넌트 구현을 위한 인터페이스
+ * */
+export const HEADING = Fxtsx<HTMLHeadingElement, HEADINGProps>(function (
   rootProps,
   restProps,
   ref
