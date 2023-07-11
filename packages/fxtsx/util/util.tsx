@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
-import React from "react";
-import { map, partition, pipe, some, toArray } from "@fxts/core";
+import React, { forwardRef } from "react";
 
 export function htmlChildren(html: ReactNode) {
   let result;
@@ -18,28 +17,12 @@ export function htmlChildren(html: ReactNode) {
   return result;
 }
 
-export const separateProps = <T extends Record<string, any>>(
-  props: T,
-  rootPropsKeys: (string | RegExp)[] = [
-    "className",
-    "id",
-    "tabIndex",
-    "style",
-    /data-.+/,
-  ]
-) => {
-  const rootPropsAndOtherProps = ([key]: string[]) =>
-    pipe(
-      rootPropsKeys,
-      some((matcher) => RegExp(matcher).test(key))
-    );
+export function ComponentWithRef<T, P = {}>(testId: string) {
+  return forwardRef<T, P>((props: any, ref: any) => (
+    <div data-testid={testId} {...props} ref={ref} />
+  ));
+}
 
-  return pipe(
-    Object.entries(props),
-    partition(rootPropsAndOtherProps),
-    map(Object.fromEntries),
-    toArray
-  );
-};
-
-export const MockComponent = (props: any) => <div {...props} />;
+export function ComponentWithoutRef(testId: string) {
+  return (props: any) => <div data-testid={testId} {...props} />;
+}

@@ -1,30 +1,16 @@
-import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import type { ComponentPropsWithoutRef } from "react";
 import React, { createElement, forwardRef } from "react";
-import type {
-  HEADINGProps,
-  HeadingProps as $HeadingProps,
-} from "fxtsx/HEADING/HEADING";
+import type { $HEADINGProps, HEADINGProps } from "fxtsx/HEADING/HEADING";
 import { HEADING } from "fxtsx/HEADING/HEADING";
 import { htmlChildren } from "fxtsx/util/util";
 
-export interface HeadingProps
-  extends $HeadingProps,
-    ComponentPropsWithoutRef<"h1"> {
-  /**
-   * 헤딩의 내용. 문자 내부에 태그 사용 가능함.
-   */
-  title: string;
-  /**
-   * 헤딩그룹(hgroup)에 들어가는 헤딩(h1-h6)에 연관된 내용
-   * */
-  children?: ReactNode;
-}
+export type HeadingProps = $HEADINGProps & ComponentPropsWithoutRef<"h1">;
 
-const $Heading: HEADINGProps["Heading"] = forwardRef(({ level, title }, ref) =>
+const $Heading: HEADINGProps["$Heading"] = forwardRef(({ level, title }, ref) =>
   createElement(`h${level}`, { ...htmlChildren(title), ref })
 );
 
-const $Hgroup: HEADINGProps["Hgroup"] = (props) => <hgroup {...props} />;
+const $Hgroup: HEADINGProps["$Hgroup"] = (props) => <hgroup {...props} />;
 
 /**
  * - [HTMLHeadingElement](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) 을 상속 받았기 때문에, 해당 속성을 모두 이용할 수 있음
@@ -34,5 +20,5 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(function (
   props,
   ref
 ) {
-  return <HEADING {...props} Heading={$Heading} Hgroup={$Hgroup} ref={ref} />;
+  return <HEADING {...props} $Heading={$Heading} $Hgroup={$Hgroup} ref={ref} />;
 });

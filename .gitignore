@@ -7,4 +7,5 @@ build-storybook.log
 /build
 /public/build
 .env
+.run
 storybook-stat
