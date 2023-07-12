@@ -4,7 +4,7 @@ import type { $HEADINGProps } from "../HEADING/HEADING";
 import type { FFC } from "../ fxtsx.type";
 import { Fxtsx } from "../FxTsx/FxTsx";
 
-export interface $SECTIONProps {
+export interface $SECTIONINGProps {
   /**
    * 헤딩의 내용.
    */
@@ -26,7 +26,7 @@ export interface $SECTIONProps {
    */
   children?: ReactNode;
 }
-export type SECTIONProps = $SECTIONProps & {
+export type SECTIONINGProps = $SECTIONINGProps & {
   /**
    * 섹션을 구현하는 컨포넌트
    */
@@ -43,7 +43,7 @@ export type SECTIONProps = $SECTIONProps & {
  * 섹션(section) 태그와 대응하는 컴포넌트 구현을 위한 인터페이스
  * */
 
-export const SECTION = Fxtsx<HTMLElement, SECTIONProps>(
+export const SECTIONING = Fxtsx<HTMLElement, SECTIONINGProps>(
   (rootProps, restProps, ref) => {
     const {
       $Section,
@@ -56,33 +56,11 @@ export const SECTION = Fxtsx<HTMLElement, SECTIONProps>(
       ...sectionProps
     } = restProps;
     return (
-      <$Section data-fx-section {...rootProps} {...sectionProps} ref={ref}>
+      <$Section data-fx-sectioning {...rootProps} {...sectionProps} ref={ref}>
         <$Heading title={title} level={level} children={subTitle} />
-        <div data-fx-section-contents>{contents}</div>
+        <div data-fx-sectioning-contents>{contents}</div>
         {children}
       </$Section>
     );
   }
 );
-
-/* let i = 0;
-  <Article
-      content={<><Heading title={"title"} level={i + 1} /></>}
-    <Section
-      heading={
-        <Heading title={"title"} level={i + 1}>
-          <p>sub title</p>
-        </Heading>
-      }
-      content={<></>}
-    >
-      <Heading />
-      <Section
-        content={
-          <>
-            <p></p>
-          </>
-        }
-      ></Section>
-    </Section>
-  </Article>;*/

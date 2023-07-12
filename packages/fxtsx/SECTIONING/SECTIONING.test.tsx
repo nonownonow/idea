@@ -1,39 +1,31 @@
 import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
 import React, { createRef } from "react";
-import type { SECTIONProps } from "./SECTION";
-import { SECTION } from "./SECTION";
+import type { SECTIONINGProps } from "./SECTIONING";
+import { SECTIONING } from "./SECTIONING";
 import { ComponentWithoutRef, ComponentWithRef } from "../util/util";
 
-const $Section = ComponentWithRef<HTMLElement>("$Section");
-const $Heading = ComponentWithoutRef("$Heading");
-export const sectionWithSubTitle: SECTIONProps = {
-  title: "myTitle",
-  level: 1,
-  contents: "현재 레벨의 내용",
-  subTitle: "해딩의 보조 내용",
-  $Section,
-  $Heading,
-};
-export const sectionWithoutSubTitle: SECTIONProps = {
-  title: "myTitle",
-  level: 1,
-  contents: "현재 레벨의 내용",
-  subTitle: "해딩의 보조 내용",
-  $Section,
-  $Heading,
-};
 describe("SECTION", () => {
   let renderResult: RenderResult;
+  const $Section = ComponentWithRef<HTMLElement>("$Section");
+  const $Heading = ComponentWithoutRef("$Heading");
+  const sectionWithSubTitle: SECTIONINGProps = {
+    title: "myTitle",
+    level: 1,
+    contents: "현재 레벨의 내용",
+    subTitle: "해딩의 보조 내용",
+    $Section,
+    $Heading,
+  };
 
   const ref = createRef<any>();
   beforeEach(() => {
     renderResult = render(
-      <SECTION {...sectionWithSubTitle} ref={ref}>
+      <SECTIONING {...sectionWithSubTitle} ref={ref}>
         <section>
           <h2>하위 레벨의 내용</h2>
         </section>
-      </SECTION>
+      </SECTIONING>
     );
   });
   describe("렌더링", () => {
@@ -42,7 +34,7 @@ describe("SECTION", () => {
       expect(asFragment()).toMatchInlineSnapshot(`
         <DocumentFragment>
           <div
-            data-fx-section="true"
+            data-fx-sectioning="true"
             data-testid="$Section"
           >
             <div
@@ -53,7 +45,7 @@ describe("SECTION", () => {
               해딩의 보조 내용
             </div>
             <div
-              data-fx-section-contents="true"
+              data-fx-sectioning-contents="true"
             >
               현재 레벨의 내용
             </div>

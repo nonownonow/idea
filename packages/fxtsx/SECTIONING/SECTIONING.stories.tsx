@@ -1,9 +1,9 @@
-import { SECTION } from "./SECTION";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ComponentWithRef } from "../util/util";
+import { SECTIONING } from "./SECTIONING";
 
-const meta: Meta<typeof SECTION> = {
-  component: SECTION,
+const meta: Meta<typeof SECTIONING> = {
+  component: SECTIONING,
   tags: ["autodocs"],
 };
 

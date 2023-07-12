@@ -12,7 +12,7 @@ describe("Section 랜더링", () => {
     expect(asFragment()).toMatchInlineSnapshot(`
       <DocumentFragment>
         <section
-          data-fx-section="true"
+          data-fx-sectioning="true"
         >
           <hgroup
             data-fx-heading="true"
@@ -28,7 +28,7 @@ describe("Section 랜더링", () => {
             </p>
           </hgroup>
           <div
-            data-fx-section-contents="true"
+            data-fx-sectioning-contents="true"
           >
             <p>
               섹션 레벨의 내용입니다.
