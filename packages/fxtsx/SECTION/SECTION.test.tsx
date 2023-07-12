@@ -5,22 +5,31 @@ import type { SECTIONProps } from "./SECTION";
 import { SECTION } from "./SECTION";
 import { ComponentWithoutRef, ComponentWithRef } from "../util/util";
 
+const $Section = ComponentWithRef<HTMLElement>("$Section");
+const $Heading = ComponentWithoutRef("$Heading");
+export const sectionWithSubTitle: SECTIONProps = {
+  title: "myTitle",
+  level: 1,
+  contents: "현재 레벨의 내용",
+  subTitle: "해딩의 보조 내용",
+  $Section,
+  $Heading,
+};
+export const sectionWithoutSubTitle: SECTIONProps = {
+  title: "myTitle",
+  level: 1,
+  contents: "현재 레벨의 내용",
+  subTitle: "해딩의 보조 내용",
+  $Section,
+  $Heading,
+};
 describe("SECTION", () => {
   let renderResult: RenderResult;
-  const $Section = ComponentWithRef<HTMLElement>("$Section");
-  const $Heading = ComponentWithoutRef("$Heading");
-  const props: SECTIONProps = {
-    title: "myTitle",
-    level: 1,
-    contents: "현재 레벨의 내용",
-    subTitle: "해딩의 보조 내용",
-    $Section,
-    $Heading,
-  };
+
   const ref = createRef<any>();
   beforeEach(() => {
     renderResult = render(
-      <SECTION {...props} ref={ref}>
+      <SECTION {...sectionWithSubTitle} ref={ref}>
         <section>
           <h2>하위 레벨의 내용</h2>
         </section>
