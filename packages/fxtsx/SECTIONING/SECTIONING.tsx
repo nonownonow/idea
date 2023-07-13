@@ -58,7 +58,7 @@ export const SECTIONING = Fxtsx<HTMLElement, SECTIONINGProps>(
     return (
       <$Section data-fx-sectioning {...rootProps} {...sectionProps} ref={ref}>
         <$Heading title={title} level={level} children={subTitle} />
-        <div data-fx-sectioning-contents>{contents}</div>
+        {contents && <div data-fx-sectioning-contents>{contents}</div>}
         {children}
       </$Section>
     );

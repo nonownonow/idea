@@ -13,6 +13,9 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    html: {
+      transform: (code: string) => code.replace(/data-testid=".+?"/g, ""),
+    },
   },
 };
 

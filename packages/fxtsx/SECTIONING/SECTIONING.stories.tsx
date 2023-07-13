@@ -10,12 +10,13 @@ const meta: Meta<typeof SECTIONING> = {
 type Story = StoryObj<typeof meta>;
 export default meta;
 
+const level = 1;
 export const Default: Story = {
   args: {
-    $Section: ComponentWithRef("$Section"),
-    $Heading: ComponentWithRef("$Heading"),
-    level: 1,
-    title: "my-title",
-    children: "my-children",
+    $Section: ComponentWithRef("$Section", `레벨${level} 섹션 구현`),
+    $Heading: ComponentWithRef("$Heading", `레벨${level} 해딩 구현`),
+    level: level,
+    title: "제목",
+    children: `레벨${level}의 하위 레벨 내용`,
   },
 };

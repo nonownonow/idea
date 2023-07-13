@@ -6,11 +6,14 @@ import { htmlChildren } from "fxtsx/util/util";
 
 export type HeadingProps = $HEADINGProps & ComponentPropsWithoutRef<"h1">;
 
-const $Heading: HEADINGProps["$Heading"] = forwardRef(({ level, title }, ref) =>
-  createElement(`h${level}`, { ...htmlChildren(title), ref })
+export const $Heading: HEADINGProps["$Heading"] = forwardRef(
+  ({ level, title }, ref) =>
+    createElement(`h${level}`, { ...htmlChildren(title), ref })
 );
 
-const $Hgroup: HEADINGProps["$Hgroup"] = (props) => <hgroup {...props} />;
+export const $Hgroup: HEADINGProps["$Hgroup"] = (props) => (
+  <hgroup {...props} />
+);
 
 /**
  * - [HTMLHeadingElement](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) 을 상속 받았기 때문에, 해당 속성을 모두 이용할 수 있음

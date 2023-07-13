@@ -17,12 +17,28 @@ export function htmlChildren(html: ReactNode) {
   return result;
 }
 
-export function ComponentWithRef<T, P = {}>(testId: string) {
-  return forwardRef<T, P>((props: any, ref: any) => (
-    <div data-testid={testId} {...props} ref={ref} />
-  ));
+export function ComponentWithRef<T, P = {}>(
+  testId: string,
+  description?: string
+) {
+  return forwardRef<T, P>((props: any, ref: any) => {
+    const { children, ...restProps } = props;
+    return (
+      <div data-testid={testId} {...restProps} ref={ref}>
+        {description}
+        {children}
+      </div>
+    );
+  });
 }
 
-export function ComponentWithoutRef(testId: string) {
-  return (props: any) => <div data-testid={testId} {...props} />;
-}
+export const ComponentWithoutRef =
+  (testId: string, description?: string) => (props: any) => {
+    const { children, ...restProps } = props;
+    return (
+      <div data-testid={testId} {...restProps}>
+        {description}
+        {children}
+      </div>
+    );
+  };

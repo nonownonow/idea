@@ -8,7 +8,23 @@ const meta: Meta<typeof Section> = {
 };
 export default meta;
 type Story = StoryObj<typeof meta>;
-export const Default: Story = {
+
+export const WithoutSubtitle: Story = {
+  args: {
+    level: 1,
+    title: "heading",
+    children: "Hello Heading!", // @ts-ignore
+    subTitle: "서브 타이틀",
+  },
+  argTypes: {
+    level: {
+      control: { type: "number", min: 1, max: 6 },
+    },
+  },
+  play: async () => {},
+};
+
+export const WithSubTitle: Story = {
   args: {
     level: 1,
     title: "heading",
