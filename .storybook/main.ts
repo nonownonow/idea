@@ -6,6 +6,10 @@ const config: StorybookConfig = {
       directory: "../packages",
       files: "**/*.stories.@(js|jsx|ts|tsx)",
     },
+    {
+      directory: "../packages",
+      files: "**/*.mdx",
+    },
     "../stories/**/*.mdx",
     "../stories/**/*.stories.@(js|jsx|ts|tsx)",
   ],

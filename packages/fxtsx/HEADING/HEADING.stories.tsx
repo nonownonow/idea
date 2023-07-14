@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { HEADING } from "./HEADING";
 import { ComponentWithoutRef, ComponentWithRef } from "../util/util";
+import { HEADING } from "./HEADING";
 import { $Heading, $Hgroup } from "fxtsx-html/sectioning/Heading/Heading";
 
 const meta: Meta<typeof HEADING> = {
