@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef } from "react";
 import React, { forwardRef } from "react";
-import { H } from "../Heading/Heading";
+import { H } from "fxtsx-html/sectioning/H/H";
 import type {
   $SECTIONINGProps,
   SECTIONINGProps,

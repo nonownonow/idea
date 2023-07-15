@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { H } from "./Heading";
+import { H } from "./H";
 import type { ReactNode } from "react";
 
 const meta = {

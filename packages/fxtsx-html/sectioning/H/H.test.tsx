@@ -1,5 +1,5 @@
-import type { HProps } from "./Heading";
-import { H } from "./Heading";
+import type { HProps } from "./H";
+import { H } from "./H";
 import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "test-utils";
 

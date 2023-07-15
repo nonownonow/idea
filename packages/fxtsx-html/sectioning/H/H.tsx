@@ -6,7 +6,7 @@ import { htmlChildren } from "fxtsx/util/util";
 
 export type HProps = HeadingProps & ComponentPropsWithoutRef<"h1">;
 
-export const $Heading: HEADINGProps["$H"] = forwardRef(
+export const $H: HEADINGProps["$H"] = forwardRef(
   ({ level, title }, ref) =>
     createElement(`h${level}`, { ...htmlChildren(title), ref })
 );
@@ -24,5 +24,5 @@ export const H = forwardRef<HTMLHeadingElement, HProps>(function Heading(
   ref
 ) {
   // 콜백 컴포넌트를 전달받아서 가상돔을 반환한다.
-  return <HEADING {...props} $H={$Heading} $Hgroup={$Hgroup} ref={ref} />;
+  return <HEADING {...props} $H={$H} $Hgroup={$Hgroup} ref={ref} />;
 });

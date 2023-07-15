@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ComponentWithoutRef, ComponentWithRef } from "../util/util";
 import { HEADING } from "./HEADING";
-import { $Heading, $Hgroup } from "fxtsx-html/sectioning/Heading/Heading";
+import { $H, $Hgroup } from "fxtsx-html/sectioning/H/H";
 
 const meta: Meta<typeof HEADING> = {
   component: HEADING,
@@ -26,7 +26,7 @@ export const WithoutChildren: Story = {
       options: ["목업", "html5"],
       mapping: {
         목업: ComponentWithRef("$Heading", `레벨${level} 헤딩 구현`),
-        html5: $Heading,
+        html5: $H,
       },
     },
     $Hgroup: {
