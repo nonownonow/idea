@@ -41,6 +41,7 @@ export type SECTIONINGProps = $SECTIONINGProps & {
 
 /**
  * 섹션(section) 태그와 대응하는 컴포넌트 구현을 위한 인터페이스
+ * todo: Fxtsx 내부에서 React.memo 를 이용하여 최적화 하기,
  * */
 
 export const SECTIONING = Fxtsx<HTMLElement, SECTIONINGProps>(

@@ -10,15 +10,14 @@ import { SECTIONING } from "fxtsx/SECTIONING/SECTIONING";
 export type ArticleProps = $SECTIONINGProps &
   ComponentPropsWithoutRef<"article">;
 
-export const Article = forwardRef<HTMLElement, ArticleProps>(function (
+const $Article: SECTIONINGProps["$Section"] = forwardRef((props, ref) => (
+  <article {...props} ref={ref} />
+));
+export const Article = forwardRef<HTMLElement, ArticleProps>(function Article(
   props,
   ref
 ) {
-  const $Section: SECTIONINGProps["$Section"] = forwardRef((props, ref) => {
-    return <article {...props} ref={ref} />;
-  });
-
   return (
-    <SECTIONING {...props} $Section={$Section} $Heading={Heading} ref={ref} />
+    <SECTIONING {...props} $Section={$Article} $Heading={Heading} ref={ref} />
   );
 });
