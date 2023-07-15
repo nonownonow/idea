@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef } from "react";
 import React, { forwardRef } from "react";
-import { Heading } from "../Heading/Heading";
+import { H } from "../Heading/Heading";
 import type {
   $SECTIONINGProps,
   SECTIONINGProps,
@@ -17,7 +17,5 @@ export const Article = forwardRef<HTMLElement, ArticleProps>(function Article(
   props,
   ref
 ) {
-  return (
-    <SECTIONING {...props} $Section={$Article} $Heading={Heading} ref={ref} />
-  );
+  return <SECTIONING {...props} $Section={$Article} $Heading={H} ref={ref} />;
 });

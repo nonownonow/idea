@@ -14,7 +14,7 @@ export const WithoutChildren: Story = {
   args: {
     level,
     title: "제목",
-    $Heading: "목업" as any,
+    $H: "목업" as any,
     $Hgroup: "목업" as any,
     children: "없음",
   },
@@ -22,7 +22,7 @@ export const WithoutChildren: Story = {
     level: {
       control: { type: "number", min: 1, max: 6 },
     },
-    $Heading: {
+    $H: {
       options: ["목업", "html5"],
       mapping: {
         목업: ComponentWithRef("$Heading", `레벨${level} 헤딩 구현`),
@@ -51,7 +51,7 @@ export const WithChildren: Story = {
   args: {
     level,
     title: "제목",
-    $Heading: "목업" as any,
+    $H: "목업" as any,
     $Hgroup: "목업" as any,
     children: "부제목",
   },

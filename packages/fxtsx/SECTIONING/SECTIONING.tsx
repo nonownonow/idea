@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from "react";
 import React from "react";
-import type { $HEADINGProps } from "../HEADING/HEADING";
+import type { HeadingProps } from "../HEADING/HEADING";
 import type { FFC } from "../ fxtsx.type";
 import { Fxtsx } from "../FxTsx/FxTsx";
 
@@ -36,7 +36,7 @@ export type SECTIONINGProps = $SECTIONINGProps & {
       children?: ReactNode;
     }
   >;
-  $Heading: FC<$HEADINGProps>;
+  $Heading: FC<HeadingProps>;
 };
 
 /**

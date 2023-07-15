@@ -6,7 +6,7 @@ import { rootProps } from "../FxTsx/FxTsx.test";
 import { ComponentWithoutRef, ComponentWithRef } from "../util/util";
 
 describe("HEADING", () => {
-  const HeadingComp = ComponentWithRef<HTMLHeadingElement>("$Heading");
+  const HComp = ComponentWithRef<HTMLHeadingElement>("$Heading");
   const HgroupComp = ComponentWithoutRef("$Hgroup");
   const ref = createRef<any>();
   let renderResult: RenderResult;
@@ -18,7 +18,7 @@ describe("HEADING", () => {
           {...rootProps}
           title={"Hello Heading!"}
           level={1}
-          $Heading={HeadingComp}
+          $H={HComp}
           $Hgroup={HgroupComp}
           ref={ref}
         />
@@ -50,7 +50,7 @@ describe("HEADING", () => {
           {...rootProps}
           title={"Hello Heading!"}
           level={1}
-          $Heading={HeadingComp}
+          $H={HComp}
           $Hgroup={HgroupComp}
           ref={ref}
         >

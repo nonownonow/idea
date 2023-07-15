@@ -3,33 +3,33 @@ import React from "react";
 
 import { Fxtsx } from "../FxTsx/FxTsx";
 
-export interface $HEADINGProps {
+export interface HEADINGProps {
   /**
-   * 헤딩의 내용.
+   * 제목.
    */
   title: string;
   /**
-   * 헤딩의 레벨
+   * 제목의 레벨
    */
   level: 1 | 2 | 3 | 4 | 5 | 6;
   children?: ReactNode;
-}
-
-export interface HEADINGPiece {
   /**
-   * 헤딩을 구현하는 컨포넌트
+   * 제목을 구현하는 컨포넌트
    */
-  $Heading: FC<{
-    title: $HEADINGProps["title"];
-    level: $HEADINGProps["level"];
+  $H: FC<{
+    title: HEADINGProps["title"];
+    level: HEADINGProps["level"];
     ref: Ref<HTMLHeadingElement>;
   }>;
+  /**
+   * 제목 그룹을 구현하는 컨포넌트
+   */
   $Hgroup: FC<{
-    children: $HEADINGProps["children"];
+    children: HEADINGProps["children"];
   }>;
 }
 
-export type HEADINGProps = $HEADINGProps & HEADINGPiece;
+export type HeadingProps = Omit<HEADINGProps, "$H" | "$Hgroup">;
 /**
  * 헤딩(h1 ~ h6)태그와 대응하는 컴포넌트 구현을 위한 인터페이스
  * */
@@ -38,13 +38,13 @@ export const HEADING = Fxtsx<HTMLHeadingElement, HEADINGProps>(function (
   restProps,
   ref
 ) {
-  const { $Heading, $Hgroup, children, ...headingProps } = restProps;
+  const { $H, $Hgroup, children, ...headingProps } = restProps;
   return children ? (
     <$Hgroup data-fx-heading {...rootProps}>
-      <$Heading {...headingProps} ref={ref} />
+      <$H {...headingProps} ref={ref} />
       {children}
     </$Hgroup>
   ) : (
-    <$Heading data-fx-heading {...rootProps} {...headingProps} ref={ref} />
+    <$H data-fx-heading {...rootProps} {...headingProps} ref={ref} />
   );
 });

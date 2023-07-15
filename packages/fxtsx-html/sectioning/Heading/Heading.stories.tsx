@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Heading } from "./Heading";
+import { H } from "./Heading";
 import type { ReactNode } from "react";
 
 const meta = {
-  component: Heading,
+  component: H,
   tags: ["autodocs"],
   argTypes: {
     children: {
@@ -11,7 +11,7 @@ const meta = {
       control: { type: "select" },
     },
   },
-} satisfies Meta<typeof Heading>;
+} satisfies Meta<typeof H>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const Normal: Story = {
@@ -29,7 +29,7 @@ export const Normal: Story = {
         realChildren = <p>제목과 관련된 내용</p>;
         break;
     }
-    return <Heading {...args} children={realChildren} />;
+    return <H {...args} children={realChildren} />;
   },
   args: {
     title: "Hello <em>Heading</em>!!",
