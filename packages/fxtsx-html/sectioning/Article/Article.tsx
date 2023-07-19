@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef } from "react";
 import React, { forwardRef } from "react";
-import { H } from "fxtsx-html/sectioning/H/H";
+import { Heading } from "fxtsx-html/sectioning/H/Heading";
 import { SECTIONING } from "fxtsx/SECTIONING/SECTIONING";
 import type { Callback } from "fxtsx/fxtsx.type";
 
@@ -14,6 +14,11 @@ export const Article = forwardRef<HTMLElement, ArticleProps>(function Article(
   ref
 ) {
   return (
-    <SECTIONING {...props} $Sectioning={$Article} $Heading={H} ref={ref} />
+    <SECTIONING
+      {...props}
+      $Sectioning={$Article}
+      $Heading={Heading}
+      ref={ref}
+    />
   );
 });

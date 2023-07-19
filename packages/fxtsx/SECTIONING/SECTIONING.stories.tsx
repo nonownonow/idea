@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SECTIONING } from "./SECTIONING";
 import { ComponentWithRef } from "fxtsx/util/util";
 
-import { H } from "fxtsx-html/sectioning/H/H";
+import { Heading } from "fxtsx-html/sectioning/H/Heading";
 import { $Section } from "fxtsx-html/sectioning/Section/Section";
 
 const meta: Meta<typeof SECTIONING> = {
@@ -36,7 +36,7 @@ export const Default: Story = {
       options: ["목업", "Heading"],
       mapping: {
         목업: ComponentWithRef("$Heading", `레벨${level} 헤딩 구현`),
-        Heading: H,
+        Heading: Heading,
       },
     },
     contents: {

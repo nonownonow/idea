@@ -1,7 +1,7 @@
 import { SECTIONING } from "fxtsx/SECTIONING/SECTIONING";
 import type { ComponentPropsWithoutRef } from "react";
 import { forwardRef } from "react";
-import { H } from "fxtsx-html/sectioning/H/H";
+import { Heading } from "fxtsx-html/sectioning/H/Heading";
 import type { Callback } from "fxtsx/fxtsx.type";
 
 export type NavProps = SECTIONING & ComponentPropsWithoutRef<"nav">;
@@ -10,6 +10,11 @@ export const $Section: Callback["$Sectioning"] = forwardRef((props, ref) => (
 ));
 export const Nav = forwardRef<HTMLElement, NavProps>((props, ref) => {
   return (
-    <SECTIONING $Sectioning={$Section} $Heading={H} {...props} ref={ref} />
+    <SECTIONING
+      $Sectioning={$Section}
+      $Heading={Heading}
+      {...props}
+      ref={ref}
+    />
   );
 });

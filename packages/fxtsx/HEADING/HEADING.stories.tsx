@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ComponentWithoutRef } from "../util/util";
 import { HEADING } from "./HEADING";
-import { $Heading, $HeadingGroup } from "fxtsx-html/sectioning/H/H";
+import { $Headline, $HeadlineGroup } from "fxtsx-html/sectioning/H/Heading";
 
 const level = 1;
 
@@ -16,7 +16,7 @@ const meta: Meta<typeof HEADING> = {
       options: ["없음", "Headline"],
       mapping: {
         없음: null,
-        Headline: $Heading,
+        Headline: $Headline,
       },
     },
     $HeadlineGroup: {
@@ -26,7 +26,7 @@ const meta: Meta<typeof HEADING> = {
           "$HeadlineGroup",
           `레벨${level} 헤딩 그룹 구현`
         ),
-        Hgroup: $HeadingGroup,
+        Hgroup: $HeadlineGroup,
       },
     },
     children: {
