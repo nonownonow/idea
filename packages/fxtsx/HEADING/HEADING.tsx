@@ -28,7 +28,7 @@ export type HEADINGCallback = {
   /**
    * 제목을 구현하는 컨포넌트
    */
-  $H?: FC<{
+  $Headline?: FC<{
     title: HEADINGProps["title"];
     level: HEADINGProps["level"];
     ref: Ref<HTMLHeadingElement>;
@@ -36,7 +36,7 @@ export type HEADINGCallback = {
   /**
    * 제목 그룹을 구현하는 컨포넌트
    */
-  $Hgroup?: FC<{
+  $HeadlineGroup?: FC<{
     children: HEADINGProps["children"];
   }>;
 };
@@ -50,18 +50,18 @@ export const HEADING = Fxtsx<HTMLHeadingElement, HEADINGProps>(function (
   ref
 ) {
   const {
-    $H = ComponentWithRef<HTMLHeadingElement>("$H"),
-    $Hgroup = ComponentWithoutRef("$Hgroup"),
+    $Headline = ComponentWithRef<HTMLHeadingElement>("$Headline"),
+    $HeadlineGroup = ComponentWithoutRef("$HeadlineGroup"),
     children,
     subTitle = children,
     ...headingProps
   } = restProps;
   return children ? (
-    <$Hgroup data-fx-heading {...rootProps}>
-      <$H {...headingProps} ref={ref} />
+    <$HeadlineGroup data-fx-heading {...rootProps}>
+      <$Headline {...headingProps} ref={ref} />
       {subTitle}
-    </$Hgroup>
+    </$HeadlineGroup>
   ) : (
-    <$H data-fx-heading {...rootProps} {...headingProps} ref={ref} />
+    <$Headline data-fx-heading {...rootProps} {...headingProps} ref={ref} />
   );
 });

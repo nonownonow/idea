@@ -12,7 +12,7 @@ describe("Article 랜더링", () => {
     level: 1,
     contents: "현재 레벨의 내용",
     subTitle: "해딩의 보조 내용",
-    $Section,
+    $Sectioning: $Section,
     $Heading,
   };
   const sectionWithoutSubTitle: SECTIONINGProps = {
@@ -20,7 +20,7 @@ describe("Article 랜더링", () => {
     level: 1,
     contents: "현재 레벨의 내용",
     subTitle: "해딩의 보조 내용",
-    $Section,
+    $Sectioning: $Section,
     $Heading,
   };
   let renderResult: RenderResult;

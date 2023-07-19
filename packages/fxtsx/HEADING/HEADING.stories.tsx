@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ComponentWithoutRef } from "../util/util";
 import { HEADING } from "./HEADING";
-import { $H, $Hgroup } from "fxtsx-html/sectioning/H/H";
+import { $Heading, $HeadingGroup } from "fxtsx-html/sectioning/H/H";
 
 const level = 1;
 
@@ -12,18 +12,21 @@ const meta: Meta<typeof HEADING> = {
     level: {
       control: { type: "number", min: 1, max: 6 },
     },
-    $H: {
-      options: ["없음", "H"],
+    $Headline: {
+      options: ["없음", "Headline"],
       mapping: {
         없음: null,
-        H: $H,
+        Headline: $Heading,
       },
     },
-    $Hgroup: {
-      options: ["목업", "Hgroup"],
+    $HeadlineGroup: {
+      options: ["목업", "HeadlineGroup"],
       mapping: {
-        목업: ComponentWithoutRef("$Hgroup", `레벨${level} 헤딩 그룹 구현`),
-        Hgroup: $Hgroup,
+        목업: ComponentWithoutRef(
+          "$HeadlineGroup",
+          `레벨${level} 헤딩 그룹 구현`
+        ),
+        Hgroup: $HeadingGroup,
       },
     },
     children: {
@@ -51,18 +54,18 @@ export const WithChildren: Story = {
   },
 };
 
-export const H: Story = {
+export const Headline: Story = {
   args: {
     ...WithoutChildren.args,
-    $H: "H" as any,
-    $Hgroup: "Hgroup" as any,
+    $Headline: "H" as any,
+    $HeadlineGroup: "Hgroup" as any,
   },
 };
 
-export const Hgroup: Story = {
+export const HeadlineGroup: Story = {
   args: {
     ...WithChildren.args,
-    $H: "H" as any,
-    $Hgroup: "Hgroup" as any,
+    $Headline: "H" as any,
+    $HeadlineGroup: "Hgroup" as any,
   },
 };

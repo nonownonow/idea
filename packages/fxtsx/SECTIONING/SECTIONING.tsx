@@ -27,7 +27,7 @@ export type SECTIONCallback = {
   /**
    * 섹션을 구현하는 컨포넌트
    */
-  $Section: FC<{
+  $Sectioning: FC<{
     children?: SECTIONINGProps["children"];
     ref: Ref<HTMLElement>;
   }>;
@@ -39,7 +39,7 @@ export type SECTIONCallback = {
 export const SECTIONING = Fxtsx<HTMLElement, SECTIONINGProps>(
   (rootProps, restProps, ref) => {
     const {
-      $Section,
+      $Sectioning,
       $Heading,
       title,
       level,
@@ -50,11 +50,16 @@ export const SECTIONING = Fxtsx<HTMLElement, SECTIONINGProps>(
       ...sectionProps
     } = restProps;
     return (
-      <$Section data-fx-sectioning {...rootProps} {...sectionProps} ref={ref}>
+      <$Sectioning
+        data-fx-sectioning
+        {...rootProps}
+        {...sectionProps}
+        ref={ref}
+      >
         <$Heading title={title} level={level} subTitle={subTitle} />
         {contents && <div data-fx-sectioning-contents>{contents}</div>}
         {children}
-      </$Section>
+      </$Sectioning>
     );
   }
 );

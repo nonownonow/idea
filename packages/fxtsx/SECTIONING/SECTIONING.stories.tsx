@@ -16,7 +16,7 @@ export default meta;
 const level = 1;
 export const Default: Story = {
   args: {
-    $Section: "목업" as any,
+    $Sectioning: "목업" as any,
     $Heading: "목업" as any,
     level: level,
     title: "제목",
@@ -25,18 +25,18 @@ export const Default: Story = {
     contents: "없음",
   },
   argTypes: {
-    $Section: {
+    $Sectioning: {
       options: ["목업", "Section"],
       mapping: {
-        목업: ComponentWithRef("$Section", `레벨${level} 섹션 구현`),
+        목업: ComponentWithRef("$Sectioning", `레벨${level} 섹션 구현`),
         Section: $Section,
       },
     },
     $Heading: {
-      options: ["목업", "H"],
+      options: ["목업", "Heading"],
       mapping: {
         목업: ComponentWithRef("$Heading", `레벨${level} 헤딩 구현`),
-        H,
+        Heading: H,
       },
     },
     contents: {
