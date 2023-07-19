@@ -1,7 +1,10 @@
+import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
 import React, { createRef } from "react";
+import type { FXTSXRenderFunction } from "./FxTsx";
 import { Fxtsx, separateProps } from "./FxTsx";
 import type { RootElementProps } from "../fxtsx.type";
+import { ComponentWithoutRef, ComponentWithRef } from "fxtsx/util/util";
 
 export const rootProps: RootElementProps = {
   id: "my-id",
@@ -14,22 +17,51 @@ export const rootProps: RootElementProps = {
 };
 export const componentProps = {
   ...rootProps,
-  "no-root-props": "my-no-root-props",
+  noRootProps: "my-no-root-props",
 };
-describe("FxTsx", () => {
-  const renderFn = jest.fn((rootProps, restProps, ref) => (
-    <div {...rootProps} {...restProps} ref={ref} />
-  ));
-  const FxTsxComponent = Fxtsx<unknown, any>(renderFn);
+describe("FxTsx - 랜더 함수를 전달 받으면", () => {
+  const CallbackComponentWithoutRef = ComponentWithoutRef("$CallbackComponent");
+  const CallbackComponentWithRef = ComponentWithRef(
+    "$CallbackComponentWithRef"
+  );
+  const renderFn: FXTSXRenderFunction<HTMLElement, any> = (
+    rootProps,
+    restProps,
+    ref
+  ) => (
+    <CallbackComponentWithRef {...rootProps} ref={ref}>
+      <CallbackComponentWithoutRef {...restProps} />
+    </CallbackComponentWithRef>
+  );
+  const FxTsxComponent = Fxtsx<any, any>(renderFn);
   const ref = createRef();
-  render(<FxTsxComponent {...componentProps} ref={ref} />);
-  test("함수를 전달 받고 루트프로퍼티와 비루트프로퍼티와 ref 를 전달 받은 함수에 넘겨준다", () => {
-    ["id", "className", "tabIndex", "data-test"].forEach((key) => {
-      expect(renderFn.mock.calls[0][0]).toHaveProperty(key);
-    });
-    expect(renderFn.mock.calls[0][0]).not.toHaveProperty("no-root-props");
-    expect(renderFn.mock.calls[0][1]).toHaveProperty("no-root-props");
-    expect(renderFn.mock.calls[0][2]).toHaveProperty("current");
+  let renderResult: RenderResult;
+  renderResult = render(
+    <FxTsxComponent {...componentProps} ref={ref}>
+      children
+    </FxTsxComponent>
+  );
+  test("루트프로퍼티와 비루트프로퍼티와 ref 를 전달 받은 함수에 넘겨준다", () => {
+    const { asFragment } = renderResult;
+    expect(asFragment()).toMatchInlineSnapshot(`
+      <DocumentFragment>
+        <div
+          class="my-class"
+          data-test="my-data-test"
+          data-testid="$CallbackComponentWithRef"
+          id="my-id"
+          style="font-size: 1rem;"
+          tab-index="0"
+        >
+          <div
+            data-testid="$CallbackComponent"
+            no-root-props="my-no-root-props"
+          >
+            children
+          </div>
+        </div>
+      </DocumentFragment>
+    `);
   });
 });
 

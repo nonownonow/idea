@@ -5,7 +5,7 @@ import { ComponentWithoutRef, ComponentWithRef } from "fxtsx/util/util";
 import type { SECTIONINGProps } from "fxtsx/SECTIONING/SECTIONING";
 
 describe("Article 랜더링", () => {
-  const $Section = ComponentWithRef<HTMLElement>("$Section");
+  const $Section = ComponentWithRef("$Section");
   const $Heading = ComponentWithoutRef("$Heading");
   const sectionWithSubTitle: SECTIONINGProps = {
     title: "myTitle",

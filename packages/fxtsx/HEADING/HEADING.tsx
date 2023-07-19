@@ -50,7 +50,7 @@ export const HEADING = Fxtsx<HTMLHeadingElement, HEADINGProps>(function (
   ref
 ) {
   const {
-    $Headline = ComponentWithRef<HTMLHeadingElement>("$Headline"),
+    $Headline = ComponentWithRef("$Headline"),
     $HeadlineGroup = ComponentWithoutRef("$HeadlineGroup"),
     children,
     subTitle = children,

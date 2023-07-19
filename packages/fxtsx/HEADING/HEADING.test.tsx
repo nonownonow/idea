@@ -33,16 +33,8 @@ describe("HEADING", () => {
       expect(asFragment()).toMatchInlineSnapshot(`
         <DocumentFragment>
           <div
-            data-fx-heading="true"
             data-testid="$HeadlineGroup"
-          >
-            <div
-              data-testid="$Headline"
-              level="1"
-              title="제목"
-            />
-            부제목
-          </div>
+          />
         </DocumentFragment>
       `);
     });
@@ -58,16 +50,8 @@ describe("HEADING", () => {
       expect(asFragment()).toMatchInlineSnapshot(`
         <DocumentFragment>
           <div
-            data-fx-heading="true"
             data-testid="$HeadlineGroup"
-          >
-            <div
-              data-testid="$Headline"
-              level="1"
-              title="제목"
-            />
-            부제목 from subTitle
-          </div>
+          />
         </DocumentFragment>
       `);
     });

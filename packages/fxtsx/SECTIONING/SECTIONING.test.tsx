@@ -7,7 +7,7 @@ import { ComponentWithoutRef, ComponentWithRef } from "../util/util";
 
 describe("SECTION", () => {
   let renderResult: RenderResult;
-  const $Section = ComponentWithRef<HTMLElement>("$Section");
+  const $Section = ComponentWithRef("$Section");
   const $Heading = ComponentWithoutRef("$Heading");
   const sectionWithSubTitle: SECTIONINGProps = {
     title: "myTitle",
@@ -39,8 +39,7 @@ describe("SECTION", () => {
           >
             <div
               data-testid="$Heading"
-              level="1"
-              subtitle="해딩의 보조 내용"
+              sub-title="해딩의 보조 내용"
               title="myTitle"
             />
             <div
