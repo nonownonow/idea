@@ -1,13 +1,13 @@
 import type {
+  ForwardedRef,
   ForwardRefExoticComponent,
   PropsWithoutRef,
-  RefAttributes,
-  ForwardedRef,
   ReactElement,
+  RefAttributes,
 } from "react";
 import { forwardRef } from "react";
 import { map, partition, pipe, some, toArray } from "@fxts/core";
-import type { RootElementProps } from "../ fxtsx.type";
+import type { RootElementProps } from "../fxtsx.type";
 
 export function separateProps<P extends Record<string, any>>(
   props: P,

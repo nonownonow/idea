@@ -14,19 +14,9 @@ describe("Section 랜더링", () => {
         <section
           data-fx-sectioning="true"
         >
-          <hgroup
-            data-fx-heading="true"
-          >
-            <h1>
-              my-title
-            </h1>
-            <p>
-              서브타이틀 입니다.
-            </p>
-            <p>
-              타이틀에 대한 부연 설명입니다.
-            </p>
-          </hgroup>
+          <h1>
+            my-title
+          </h1>
           <div
             data-fx-sectioning-contents="true"
           >

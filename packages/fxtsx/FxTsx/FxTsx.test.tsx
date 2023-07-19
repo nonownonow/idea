@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import React, { createRef } from "react";
 import { Fxtsx, separateProps } from "./FxTsx";
-import type { RootElementProps } from "../ fxtsx.type";
+import type { RootElementProps } from "../fxtsx.type";
 
 export const rootProps: RootElementProps = {
   id: "my-id",
@@ -14,7 +14,7 @@ export const rootProps: RootElementProps = {
 };
 export const componentProps = {
   ...rootProps,
-  noRootProps: "my-no-root-props",
+  "no-root-props": "my-no-root-props",
 };
 describe("FxTsx", () => {
   const renderFn = jest.fn((rootProps, restProps, ref) => (
@@ -27,8 +27,8 @@ describe("FxTsx", () => {
     ["id", "className", "tabIndex", "data-test"].forEach((key) => {
       expect(renderFn.mock.calls[0][0]).toHaveProperty(key);
     });
-    expect(renderFn.mock.calls[0][0]).not.toHaveProperty("noRootProps");
-    expect(renderFn.mock.calls[0][1]).toHaveProperty("noRootProps");
+    expect(renderFn.mock.calls[0][0]).not.toHaveProperty("no-root-props");
+    expect(renderFn.mock.calls[0][1]).toHaveProperty("no-root-props");
     expect(renderFn.mock.calls[0][2]).toHaveProperty("current");
   });
 });

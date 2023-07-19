@@ -1,14 +1,10 @@
 import type { ComponentPropsWithoutRef } from "react";
 import React, { forwardRef } from "react";
 import { H } from "fxtsx-html/sectioning/H/H";
-import type {
-  $SECTIONINGProps,
-  SECTIONINGProps,
-} from "fxtsx/SECTIONING/SECTIONING";
+import type { SECTIONINGProps } from "fxtsx/SECTIONING/SECTIONING";
 import { SECTIONING } from "fxtsx/SECTIONING/SECTIONING";
 
-export type ArticleProps = $SECTIONINGProps &
-  ComponentPropsWithoutRef<"article">;
+export type ArticleProps = SECTIONING & ComponentPropsWithoutRef<"article">;
 
 const $Article: SECTIONINGProps["$Section"] = forwardRef((props, ref) => (
   <article {...props} ref={ref} />

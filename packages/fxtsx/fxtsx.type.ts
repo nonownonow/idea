@@ -5,6 +5,8 @@ import type {
   PropsWithoutRef,
   RefAttributes,
 } from "react";
+import type { HEADINGCallback } from "fxtsx/HEADING/HEADING";
+import type { SECTIONCallback } from "fxtsx/SECTIONING/SECTIONING";
 
 export type HTMLElementProps = ComponentPropsWithoutRef<"div">;
 export interface RootElementProps {
@@ -18,3 +20,6 @@ export interface RootElementProps {
 export type FFC<T, P = {}> = ForwardRefExoticComponent<
   PropsWithoutRef<P> & RefAttributes<T>
 >;
+
+export interface Callback extends HEADINGCallback, SECTIONCallback {}
+export type WithoutCallback<T> = Omit<T, `$${string}`>;

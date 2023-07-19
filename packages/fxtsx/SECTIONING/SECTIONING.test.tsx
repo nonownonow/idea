@@ -40,10 +40,9 @@ describe("SECTION", () => {
             <div
               data-testid="$Heading"
               level="1"
+              subtitle="해딩의 보조 내용"
               title="myTitle"
-            >
-              해딩의 보조 내용
-            </div>
+            />
             <div
               data-fx-sectioning-contents="true"
             >

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import type { SectionProps } from "./Section";
 import { Section } from "./Section";
+import type { SECTIONING } from "fxtsx/SECTIONING/SECTIONING";
 
 const meta: Meta<typeof Section> = {
   component: Section,
@@ -39,11 +39,11 @@ export const WithSubTitle: Story = {
   play: async () => {},
 };
 
-export const SectionRequire: SectionProps = {
+export const SectionRequire: SECTIONING = {
   title: "my-title",
   level: 1,
 };
-export const SectionPropsWithSubtitle: SectionProps = {
+export const SectionPropsWithSubtitle: SECTIONING = {
   ...SectionRequire,
   subTitle: [
     <p key={1}>서브타이틀 입니다.</p>,

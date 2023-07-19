@@ -1,19 +1,16 @@
 import type { ComponentPropsWithoutRef } from "react";
 import React, { createElement, forwardRef } from "react";
-import type { HeadingProps, HEADINGProps } from "fxtsx/HEADING/HEADING";
-import { HEADING } from "fxtsx/HEADING/HEADING";
 import { htmlChildren } from "fxtsx/util/util";
+import type { Callback } from "fxtsx/fxtsx.type";
+import { HEADING } from "fxtsx/HEADING/HEADING";
 
-export type HProps = HeadingProps & ComponentPropsWithoutRef<"h1">;
+export type HProps = HEADING & ComponentPropsWithoutRef<"h1">;
 
-export const $H: HEADINGProps["$H"] = forwardRef(
-  ({ level, title }, ref) =>
-    createElement(`h${level}`, { ...htmlChildren(title), ref })
+export const $H: Callback["$H"] = forwardRef(({ level, title }, ref) =>
+  createElement(`h${level}`, { ...htmlChildren(title), ref })
 );
 
-export const $Hgroup: HEADINGProps["$Hgroup"] = (props) => (
-  <hgroup {...props} />
-);
+export const $Hgroup: Callback["$Hgroup"] = (props) => <hgroup {...props} />;
 
 /**
  * - [HTMLHeadingElement](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) 을 상속 받았기 때문에, 해당 속성을 모두 이용할 수 있음

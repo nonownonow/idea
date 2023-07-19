@@ -2,83 +2,71 @@ import { HEADING } from "./HEADING";
 import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
 import React, { createRef } from "react";
-import { rootProps } from "../FxTsx/FxTsx.test";
-import { ComponentWithoutRef, ComponentWithRef } from "../util/util";
+import { WithChildren, WithoutChildren } from "fxtsx/HEADING/HEADING.stories";
 
 describe("HEADING", () => {
-  const HComp = ComponentWithRef<HTMLHeadingElement>("$Heading");
-  const HgroupComp = ComponentWithoutRef("$Hgroup");
   const ref = createRef<any>();
   let renderResult: RenderResult;
 
   describe("렌더링", () => {
     beforeEach(() => {
       renderResult = render(
-        <HEADING
-          {...rootProps}
-          title={"Hello Heading!"}
-          level={1}
-          $H={HComp}
-          $Hgroup={HgroupComp}
-          ref={ref}
-        />
+        <HEADING {...(WithoutChildren.args as HEADING)} ref={ref} />
       );
     });
-
-    test("children 이 없을 때 루트 컴포넌트 조각은 $Heading 이며 data-fx-heading 프로퍼티를 전달 받는다. 컴포넌트 조각 $Heading, $Hgroup 에 적절한 프로퍼티를 전달한다", () => {
+    test("children 이 없을 때", () => {
       const { asFragment } = renderResult;
       expect(asFragment()).toMatchInlineSnapshot(`
         <DocumentFragment>
           <div
-            class="my-class"
             data-fx-heading="true"
-            data-test="my-data-test"
-            data-testid="$Heading"
-            id="my-id"
+            data-testid="$H"
             level="1"
-            style="font-size: 1rem;"
-            tabindex="0"
-            title="Hello Heading!"
+            title="제목"
           />
         </DocumentFragment>
       `);
     });
-    test("children 이 있을 때 루트 컴포넌트 조각은 $Hgroup 이며 data-fx-heading 프로퍼티를 전달 받는다. 컴포넌트 조각 $Heading, $Hgroup 에 적절한 프로퍼티를 전달한다", () => {
+    test("children 이 있을 때", () => {
       const { asFragment, rerender } = renderResult;
-      rerender(
-        <HEADING
-          {...rootProps}
-          title={"Hello Heading!"}
-          level={1}
-          $H={HComp}
-          $Hgroup={HgroupComp}
-          ref={ref}
-        >
-          <p data-testid={"children"}>부제목</p>
-        </HEADING>
-      );
-
+      rerender(<HEADING {...(WithChildren.args as HEADING)} />);
       expect(asFragment()).toMatchInlineSnapshot(`
         <DocumentFragment>
           <div
-            class="my-class"
             data-fx-heading="true"
-            data-test="my-data-test"
             data-testid="$Hgroup"
-            id="my-id"
-            style="font-size: 1rem;"
-            tabindex="0"
           >
             <div
-              data-testid="$Heading"
+              data-testid="$H"
               level="1"
-              title="Hello Heading!"
+              title="제목"
             />
-            <p
-              data-testid="children"
-            >
-              부제목
-            </p>
+            부제목
+          </div>
+        </DocumentFragment>
+      `);
+    });
+
+    test("subTitle 은 children 을 대체한다", () => {
+      const { asFragment, rerender } = renderResult;
+      rerender(
+        <HEADING
+          {...(WithChildren.args as HEADING)}
+          subTitle={"부제목 from subTitle"}
+        />
+      );
+      expect(asFragment()).toMatchInlineSnapshot(`
+        <DocumentFragment>
+          <div
+            data-fx-heading="true"
+            data-testid="$Hgroup"
+          >
+            <div
+              data-testid="$H"
+              level="1"
+              title="제목"
+            />
+            부제목 from subTitle
           </div>
         </DocumentFragment>
       `);

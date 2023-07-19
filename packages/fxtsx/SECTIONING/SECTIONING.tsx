@@ -1,22 +1,10 @@
-import type { FC, ReactNode } from "react";
+import type { FC, ReactNode, Ref } from "react";
 import React from "react";
-import type { HeadingProps } from "../HEADING/HEADING";
-import type { FFC } from "../ fxtsx.type";
+import type { HEADING } from "../HEADING/HEADING";
 import { Fxtsx } from "../FxTsx/FxTsx";
 
-export interface $SECTIONINGProps {
-  /**
-   * 헤딩의 내용.
-   */
-  title: string;
-  /**
-   * 헤딩의 레벨
-   */
-  level: 1 | 2 | 3 | 4 | 5 | 6;
-  /**
-   * 헤딩의 보조 내용, 이 속성이 전달되면 heading 은 hgroup 을 사용하여 표현된다.
-   */
-  subTitle?: ReactNode;
+export type SECTIONINGProps = SECTIONING & SECTIONCallback;
+export interface SECTIONING extends HEADING {
   /**
    * 현재 레벨의 내용
    */
@@ -24,26 +12,30 @@ export interface $SECTIONINGProps {
   /**
    * 하위 레벨의 내용
    */
+  lowerContents?: ReactNode;
+  /**
+   * = lowerContents 프로퍼티
+   */
   children?: ReactNode;
 }
-export type SECTIONINGProps = $SECTIONINGProps & {
+
+export type SECTIONCallback = {
+  /**
+   * [헤딩](http://localhost:6006/?path=/docs/fxtsx-html-sectioning-h--docs)을 구현하는 컴포넌트
+   */
+  $Heading: FC<HEADING>;
   /**
    * 섹션을 구현하는 컨포넌트
    */
-  $Section: FFC<
-    HTMLElement,
-    {
-      children?: ReactNode;
-    }
-  >;
-  $Heading: FC<HeadingProps>;
+  $Section: FC<{
+    children?: SECTIONINGProps["children"];
+    ref: Ref<HTMLElement>;
+  }>;
 };
 
 /**
  * 섹션(section) 태그와 대응하는 컴포넌트 구현을 위한 인터페이스
- * todo: Fxtsx 내부에서 React.memo 를 이용하여 최적화 하기,
  * */
-
 export const SECTIONING = Fxtsx<HTMLElement, SECTIONINGProps>(
   (rootProps, restProps, ref) => {
     const {
@@ -52,16 +44,19 @@ export const SECTIONING = Fxtsx<HTMLElement, SECTIONINGProps>(
       title,
       level,
       subTitle,
+      lowerContents,
       children,
       contents,
       ...sectionProps
     } = restProps;
     return (
       <$Section data-fx-sectioning {...rootProps} {...sectionProps} ref={ref}>
-        <$Heading title={title} level={level} children={subTitle} />
+        <$Heading title={title} level={level} subTitle={subTitle} />
         {contents && <div data-fx-sectioning-contents>{contents}</div>}
         {children}
       </$Section>
     );
   }
 );
+
+//todo: Fxtsx 내부에서 React.memo 를 이용하여 최적화 하기,
