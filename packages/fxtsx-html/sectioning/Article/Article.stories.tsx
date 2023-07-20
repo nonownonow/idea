@@ -14,7 +14,7 @@ export const Default: Story = {
     $level: 1,
     $title: "아티클 제목",
     $subTitle: "아티클 서브 타이틀",
-    contents: "현재 섹션 레벨의 내용",
+    $contents: "현재 섹션 레벨의 내용",
     children: "하위 섹션 레벨의 내용", // @ts-ignore
   },
   argTypes: {

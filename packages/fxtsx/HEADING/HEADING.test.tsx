@@ -2,7 +2,7 @@ import { HEADING } from "./HEADING";
 import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
 import React, { createRef } from "react";
-import { WithChildren, WithoutChildren } from "fxtsx/HEADING/HEADING.stories";
+import { HEADING_Default, WithChildren } from "fxtsx/HEADING/HEADING.stories";
 
 describe("HEADING", () => {
   const ref = createRef<any>();
@@ -10,7 +10,7 @@ describe("HEADING", () => {
 
   describe("렌더링", () => {
     beforeEach(() => {
-      renderResult = render(<HEADING {...WithoutChildren.args} ref={ref} />);
+      renderResult = render(<HEADING {...HEADING_Default.args} ref={ref} />);
     });
     test("children 이 없을 때", () => {
       const { asFragment } = renderResult;

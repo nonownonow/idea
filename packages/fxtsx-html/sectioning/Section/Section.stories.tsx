@@ -49,7 +49,7 @@ export const SectionPropsWithSubtitle: SECTIONING = {
     <p key={1}>서브타이틀 입니다.</p>,
     <p key={2}>타이틀에 대한 부연 설명입니다.</p>,
   ],
-  contents: [
+  $contents: [
     <p key={1}>섹션 레벨의 내용입니다.</p>,
     <p key={2}>현재 섹션 레벨의 타이틀과 직접적으로 연관된 내용입니다.</p>,
   ],

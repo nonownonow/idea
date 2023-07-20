@@ -3,43 +3,52 @@ import { SECTIONING } from "./SECTIONING";
 import { ComponentWithRef } from "fxtsx/util/util";
 
 import { Heading } from "fxtsx-html/sectioning/H/Heading";
-import { $Section } from "fxtsx-html/sectioning/Section/Section";
+import { Sectioning } from "fxtsx-html/sectioning/Section/Section";
+import { HEADING_Default } from "fxtsx/HEADING/HEADING.stories";
 
-const meta: Meta<typeof SECTIONING> = {
+const meta = {
   component: SECTIONING,
   tags: ["autodocs"],
-};
+} satisfies Meta<typeof SECTIONING>;
 
 type Story = StoryObj<typeof meta>;
 export default meta;
 
 const level = 1;
+
+export const SECIONING_Default: Story = {
+  args: {
+    ...HEADING_Default.args,
+    $lowerContents: "하위 컨텐츠",
+    $contents: "컨텐츠",
+  },
+};
 export const Default: Story = {
   args: {
-    $Sectioning: "목업" as any,
-    $Heading: "목업" as any,
+    Sectioning: "목업" as any,
+    Heading: "목업" as any,
     $level: level,
     $title: "제목",
     children: `레벨${level}의 하위 레벨 내용`,
-    lowerContents: "wow",
-    contents: "없음",
+    $lowerContents: "wow",
+    $contents: "없음",
   },
   argTypes: {
-    $Sectioning: {
+    Sectioning: {
       options: ["목업", "Section"],
       mapping: {
         목업: ComponentWithRef("$Sectioning", `레벨${level} 섹션 구현`),
-        Section: $Section,
+        Section: Sectioning,
       },
     },
-    $Heading: {
+    Heading: {
       options: ["목업", "Heading"],
       mapping: {
         목업: ComponentWithRef("$Heading", `레벨${level} 헤딩 구현`),
         Heading: Heading,
       },
     },
-    contents: {
+    $contents: {
       options: ["없음", "html"],
       mapping: {
         없음: null,

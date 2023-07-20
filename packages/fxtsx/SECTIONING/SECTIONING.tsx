@@ -2,32 +2,33 @@ import type { FC, ReactNode, Ref } from "react";
 import React from "react";
 import type { HEADING } from "../HEADING/HEADING";
 import { Fxtsx } from "../FxTsx/FxTsx";
+import { ComponentWithoutRef, ComponentWithRef } from "fxtsx/util/util";
 
-export type SECTIONINGProps = SECTIONING & SECTIONCallback;
+export type SECTIONINGProps = SECTIONING & SECTIONINGCallback;
 export interface SECTIONING extends HEADING {
   /**
    * 현재 레벨의 내용
    */
-  contents?: ReactNode;
+  $contents?: ReactNode;
   /**
    * 하위 레벨의 내용
    */
-  lowerContents?: ReactNode;
+  $lowerContents?: ReactNode;
   /**
    * = lowerContents 프로퍼티
    */
-  children?: ReactNode;
+  children?: SECTIONING["$lowerContents"];
 }
 
-export type SECTIONCallback = {
+export type SECTIONINGCallback = {
   /**
    * [헤딩](http://localhost:6006/?path=/docs/fxtsx-html-sectioning-h--docs)을 구현하는 컴포넌트
    */
-  $Heading: FC<HEADING>;
+  Heading?: FC<HEADING>;
   /**
    * 섹션을 구현하는 컨포넌트
    */
-  $Sectioning: FC<{
+  Sectioning?: FC<{
     children?: SECTIONINGProps["children"];
     ref: Ref<HTMLElement>;
   }>;
@@ -39,27 +40,22 @@ export type SECTIONCallback = {
 export const SECTIONING = Fxtsx<HTMLElement, SECTIONINGProps>(
   (rootProps, restProps, ref) => {
     const {
-      $Sectioning,
-      $Heading,
+      Sectioning = ComponentWithRef("$Sectioning"),
+      Heading = ComponentWithoutRef("$Heading"),
       $title,
       $level,
       $subTitle,
-      lowerContents,
+      $lowerContents,
       children,
-      contents,
+      $contents,
       ...sectionProps
     } = restProps;
     return (
-      <$Sectioning
-        data-fx-sectioning
-        {...rootProps}
-        {...sectionProps}
-        ref={ref}
-      >
-        <$Heading $title={$title} $level={$level} $subTitle={$subTitle} />
-        {contents && <div data-fx-sectioning-contents>{contents}</div>}
+      <Sectioning data-fx-sectioning {...rootProps} {...sectionProps} ref={ref}>
+        <Heading $title={$title} $level={$level} $subTitle={$subTitle} />
+        {$contents && <div data-fx-sectioning-contents>{$contents}</div>}
         {children}
-      </$Sectioning>
+      </Sectioning>
     );
   }
 );

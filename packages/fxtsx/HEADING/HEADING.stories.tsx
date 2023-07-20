@@ -40,7 +40,7 @@ const meta = {
 } satisfies Meta<typeof HEADING>;
 export default meta;
 type Story = StoryObj<typeof meta>;
-export const WithoutChildren: Story = {
+export const HEADING_Default: Story = {
   args: {
     $level: 1,
     $title: "제목",
@@ -49,14 +49,14 @@ export const WithoutChildren: Story = {
 
 export const WithChildren: Story = {
   args: {
-    ...WithoutChildren.args,
+    ...HEADING_Default.args,
     children: "부제목",
   },
 };
 
 export const WithFxtsxHtml: Story = {
   args: {
-    ...WithoutChildren.args,
+    ...HEADING_Default.args,
     Headline: "H" as any,
     HeadlineGroup: "Hgroup" as any,
   },

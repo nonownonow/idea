@@ -12,10 +12,10 @@ describe("SECTION", () => {
   const sectionWithSubTitle: SECTIONINGProps = {
     $title: "myTitle",
     $level: 1,
-    contents: "현재 레벨의 내용",
+    $contents: "현재 레벨의 내용",
     $subTitle: "해딩의 보조 내용",
-    $Sectioning: $Section,
-    $Heading,
+    Sectioning: $Section,
+    Heading: $Heading,
   };
 
   const ref = createRef<any>();
