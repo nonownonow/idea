@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import React, { forwardRef } from "react";
-import { entries, filter, isString, map, nth, pipe } from "@fxts/core";
+import { entries, map, pipe } from "@fxts/core";
 import { kebabCase } from "lodash";
 
 export function htmlChildren(html: ReactNode) {
@@ -41,7 +41,6 @@ export const ComponentWithoutRef =
   (testId: string, description?: string) => (props: any) => {
     const { children, ...restProps } = pipe(
       entries(props),
-      filter((a) => pipe(a, nth(1), isString)),
       map(([k, v]) => [k === "className" ? k : kebabCase(k as string), v]),
       Object.fromEntries
     );

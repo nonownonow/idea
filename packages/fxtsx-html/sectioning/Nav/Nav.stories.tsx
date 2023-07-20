@@ -11,7 +11,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    title: "nav 타이틀",
-    level: 1,
+    $title: "nav 타이틀",
+    $level: 1,
   },
 };

@@ -10,9 +10,7 @@ describe("HEADING", () => {
 
   describe("렌더링", () => {
     beforeEach(() => {
-      renderResult = render(
-        <HEADING {...(WithoutChildren.args as HEADING)} ref={ref} />
-      );
+      renderResult = render(<HEADING {...WithoutChildren.args} ref={ref} />);
     });
     test("children 이 없을 때", () => {
       const { asFragment } = renderResult;
@@ -20,7 +18,7 @@ describe("HEADING", () => {
         <DocumentFragment>
           <div
             data-fx-heading="true"
-            data-testid="$Headline"
+            data-testid="Headline"
             level="1"
             title="제목"
           />
@@ -29,12 +27,20 @@ describe("HEADING", () => {
     });
     test("children 이 있을 때", () => {
       const { asFragment, rerender } = renderResult;
-      rerender(<HEADING {...(WithChildren.args as HEADING)} />);
+      rerender(<HEADING {...WithChildren.args} />);
       expect(asFragment()).toMatchInlineSnapshot(`
         <DocumentFragment>
           <div
-            data-testid="$HeadlineGroup"
-          />
+            data-fx-heading="true"
+            data-testid="HeadlineGroup"
+          >
+            <div
+              data-testid="Headline"
+              level="1"
+              title="제목"
+            />
+            부제목
+          </div>
         </DocumentFragment>
       `);
     });
@@ -44,14 +50,22 @@ describe("HEADING", () => {
       rerender(
         <HEADING
           {...(WithChildren.args as HEADING)}
-          subTitle={"부제목 from subTitle"}
+          $subTitle={"부제목 from subTitle"}
         />
       );
       expect(asFragment()).toMatchInlineSnapshot(`
         <DocumentFragment>
           <div
-            data-testid="$HeadlineGroup"
-          />
+            data-fx-heading="true"
+            data-testid="HeadlineGroup"
+          >
+            <div
+              data-testid="Headline"
+              level="1"
+              title="제목"
+            />
+            부제목 from subTitle
+          </div>
         </DocumentFragment>
       `);
     });

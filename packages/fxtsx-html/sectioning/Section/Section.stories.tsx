@@ -2,22 +2,22 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Section } from "./Section";
 import type { SECTIONING } from "fxtsx/SECTIONING/SECTIONING";
 
-const meta: Meta<typeof Section> = {
+const meta = {
   component: Section,
   tags: ["autodocs"],
-};
+} satisfies Meta<typeof Section>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const WithoutSubtitle: Story = {
   args: {
-    level: 1,
-    title: "heading",
+    $level: 1,
+    $title: "heading",
     children: "Hello Heading!", // @ts-ignore
-    subTitle: "서브 타이틀",
+    $subTitle: "서브 타이틀",
   },
   argTypes: {
-    level: {
+    $level: {
       control: { type: "number", min: 1, max: 6 },
     },
   },
@@ -26,13 +26,13 @@ export const WithoutSubtitle: Story = {
 
 export const WithSubTitle: Story = {
   args: {
-    level: 1,
-    title: "heading",
+    $level: 1,
+    $title: "heading",
     children: "Hello Heading!", // @ts-ignore
-    subTitle: "서브 타이틀",
+    $subTitle: "서브 타이틀",
   },
   argTypes: {
-    level: {
+    $level: {
       control: { type: "number", min: 1, max: 6 },
     },
   },
@@ -40,12 +40,12 @@ export const WithSubTitle: Story = {
 };
 
 export const SectionRequire: SECTIONING = {
-  title: "my-title",
-  level: 1,
+  $title: "my-title",
+  $level: 1,
 };
 export const SectionPropsWithSubtitle: SECTIONING = {
   ...SectionRequire,
-  subTitle: [
+  $subTitle: [
     <p key={1}>서브타이틀 입니다.</p>,
     <p key={2}>타이틀에 대한 부연 설명입니다.</p>,
   ],

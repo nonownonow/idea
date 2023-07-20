@@ -6,12 +6,12 @@ import { HEADING } from "fxtsx/HEADING/HEADING";
 
 export type HProps = HEADING & ComponentPropsWithoutRef<"h1">;
 
-export const $Headline: Callback["$Headline"] = forwardRef(
-  ({ level, title }, ref) =>
-    createElement(`h${level}`, { ...htmlChildren(title), ref })
+export const Headline: Callback["Headline"] = forwardRef(
+  ({ $level, $title }, ref) =>
+    createElement(`h${$level}`, { ...htmlChildren($title), ref })
 );
 
-export const $HeadlineGroup: Callback["$HeadlineGroup"] = (props) => (
+export const HeadlineGroup: Callback["HeadlineGroup"] = (props) => (
   <hgroup {...props} />
 );
 
@@ -26,8 +26,8 @@ export const Heading = forwardRef<HTMLHeadingElement, HProps>(function Heading(
   return (
     <HEADING
       {...props}
-      $Headline={$Headline}
-      $HeadlineGroup={$HeadlineGroup}
+      Headline={Headline}
+      HeadlineGroup={HeadlineGroup}
       ref={ref}
     />
   );

@@ -22,4 +22,9 @@ export type FFC<T, P = {}> = ForwardRefExoticComponent<
 >;
 
 export interface Callback extends HEADINGCallback, SECTIONCallback {}
-export type WithoutCallback<T> = Omit<T, `$${string}`>;
+export type WithoutCallback<T> = Pick<
+  T,
+  {
+    [K in keyof T]: K extends `$${string}` & "children" ? K : never;
+  }[keyof T]
+>;

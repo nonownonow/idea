@@ -32,8 +32,8 @@ export const Normal: Story = {
     return <Heading {...args} children={realChildren} />;
   },
   args: {
-    title: "Hello <em>Heading</em>!!",
-    level: 1,
+    $title: "Hello <em>Heading</em>!!",
+    $level: 1,
     children: "없음",
   },
 };

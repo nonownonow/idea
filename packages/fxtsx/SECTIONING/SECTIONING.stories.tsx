@@ -18,8 +18,8 @@ export const Default: Story = {
   args: {
     $Sectioning: "목업" as any,
     $Heading: "목업" as any,
-    level: level,
-    title: "제목",
+    $level: level,
+    $title: "제목",
     children: `레벨${level}의 하위 레벨 내용`,
     lowerContents: "wow",
     contents: "없음",

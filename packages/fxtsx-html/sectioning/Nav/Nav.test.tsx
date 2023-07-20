@@ -1,11 +1,12 @@
 import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
 import { Nav } from "./Nav";
+import { Default } from "fxtsx-html/sectioning/Nav/Nav.stories";
 
 describe("Nav", () => {
   let renderResult: RenderResult;
   beforeEach(() => {
-    renderResult = render(<Nav title={"네비게이션 제목"} level={1} />);
+    renderResult = render(<Nav {...Default.args} />);
   });
   test("랜더링", () => {
     const { asFragment } = renderResult;
@@ -15,7 +16,7 @@ describe("Nav", () => {
           data-fx-sectioning="true"
         >
           <h1>
-            네비게이션 제목
+            nav 타이틀
           </h1>
         </nav>
       </DocumentFragment>

@@ -10,10 +10,10 @@ describe("SECTION", () => {
   const $Section = ComponentWithRef("$Section");
   const $Heading = ComponentWithoutRef("$Heading");
   const sectionWithSubTitle: SECTIONINGProps = {
-    title: "myTitle",
-    level: 1,
+    $title: "myTitle",
+    $level: 1,
     contents: "현재 레벨의 내용",
-    subTitle: "해딩의 보조 내용",
+    $subTitle: "해딩의 보조 내용",
     $Sectioning: $Section,
     $Heading,
   };
@@ -39,6 +39,7 @@ describe("SECTION", () => {
           >
             <div
               data-testid="$Heading"
+              level="1"
               sub-title="해딩의 보조 내용"
               title="myTitle"
             />
