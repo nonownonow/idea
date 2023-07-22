@@ -15,7 +15,7 @@ export const rootProps: RootElementProps = {
   },
   "data-test": "my-data-test",
 };
-export const componentProps = {
+export const anyPropsWithRootProps = {
   ...rootProps,
   noRootProps: "my-no-root-props",
 };
@@ -37,11 +37,11 @@ describe("FxTsx - 랜더 함수를 전달 받으면", () => {
   const ref = createRef();
   let renderResult: RenderResult;
   renderResult = render(
-    <FxTsxComponent {...componentProps} ref={ref}>
+    <FxTsxComponent {...anyPropsWithRootProps} ref={ref}>
       children
     </FxTsxComponent>
   );
-  test("루트프로퍼티와 비루트프로퍼티와 ref 를 전달 받은 함수에 넘겨준다", () => {
+  test("프로퍼티를 루트프로퍼티와 비루트프로퍼티로 나눠서 랜더함수에 넘겨준다", () => {
     const { asFragment } = renderResult;
     expect(asFragment()).toMatchInlineSnapshot(`
       <DocumentFragment>

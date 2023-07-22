@@ -34,14 +34,16 @@ export type SECTIONINGCallback = {
   }>;
 };
 
+const MockSectioning = ComponentWithRef("$Sectioning");
+const MockHeading = ComponentWithoutRef("$Heading");
 /**
  * 섹션(section) 태그와 대응하는 컴포넌트 구현을 위한 인터페이스
  * */
 export const SECTIONING = Fxtsx<HTMLElement, SECTIONINGProps>(
   (rootProps, restProps, ref) => {
     const {
-      Sectioning = ComponentWithRef("$Sectioning"),
-      Heading = ComponentWithoutRef("$Heading"),
+      Sectioning = MockSectioning,
+      Heading = MockHeading,
       $title,
       $level,
       $subTitle,

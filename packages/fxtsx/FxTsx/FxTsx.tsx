@@ -1,13 +1,8 @@
-import type {
-  ForwardedRef,
-  ForwardRefExoticComponent,
-  PropsWithoutRef,
-  ReactElement,
-  RefAttributes,
-} from "react";
+import type { ForwardedRef, ReactElement, Ref, RefAttributes } from "react";
 import { forwardRef } from "react";
 import { map, partition, pipe, some, toArray } from "@fxts/core";
 import type { RootElementProps } from "../fxtsx.type";
+import type { RestProps } from "fxtsx/LIST/LIST";
 
 export function separateProps<P extends Record<string, any>>(
   props: P,
@@ -36,21 +31,23 @@ export function separateProps<P extends Record<string, any>>(
 export interface FXTSXRenderFunction<
   T,
   P,
-  RootProps = RootElementProps,
-  RestProps = Omit<P, keyof RootElementProps>
+  ROOT = RootElementProps,
+  REST = RestProps<P>
 > {
-  (
-    rootProps: RootProps,
-    restProps: RestProps,
-    ref: ForwardedRef<T>
-  ): ReactElement | null;
+  (rootProps: ROOT, restProps: REST, ref: ForwardedRef<T>): ReactElement | null;
 }
 
-export function Fxtsx<T, P extends Record<string, any>>(
-  render: FXTSXRenderFunction<T, P>
-): ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
+declare module "react" {
+  function forwardRef<T, P = {}>(
+    render: (props: P, ref: Ref<T>) => ReactElement | null
+  ): (props: P & RefAttributes<T>) => ReactElement | null;
+}
+
+export function Fxtsx<T, P>(render: FXTSXRenderFunction<T, P>) {
   return forwardRef<T, P>((props, ref) => {
-    const [rootProps, restProps] = separateProps(props);
+    const [rootProps, restProps] = separateProps(
+      props as Record<string, any>
+    ) as [RootElementProps, RestProps<P>];
     return render(rootProps, restProps, ref);
   });
 }

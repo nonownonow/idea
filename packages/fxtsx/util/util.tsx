@@ -18,6 +18,9 @@ export function htmlChildren(html: ReactNode) {
   }
   return result;
 }
+
+//todo: Component 로 이름 바꾸기
+//todo: ComponentWithoutRef에  testId없는 경우도 체크하기
 /*
  * 고차 컴포넌트의 기본 콜백 콤포넌트 생성
  * */
