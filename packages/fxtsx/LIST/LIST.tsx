@@ -3,12 +3,13 @@ import React from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import { ComponentWithoutRef, ComponentWithRef } from "fxtsx/util/util";
 import type { RootElementProps } from "fxtsx/fxtsx.type";
+import { identity } from "@fxts/core";
 
 export type LISTProps<T extends Key> = LIST<T> & LISTCallback;
 export interface LIST<T extends Key> {
   data: T[];
-  formatter: (dataElement: T, index: number) => ReactNode;
-  children: ReactNode;
+  formatter?: (dataElement: T, index: number) => ReactNode;
+  children?: ReactNode;
 }
 export interface LISTCallback {
   List?: FC<{ children: ReactNode; ref: Ref<HTMLUListElement> }>;
@@ -28,7 +29,7 @@ export const LIST = Fxtsx(function LIST<T extends Key>(
     Item = MockItem,
     data,
     children,
-    formatter,
+    formatter = identity,
     ...listProps
   } = restProps;
   return (
