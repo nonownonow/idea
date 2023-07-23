@@ -1,7 +1,7 @@
 import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
 import { LIST } from "fxtsx/LIST/LIST";
-import { anyPropsWithRootProps } from "fxtsx/FxTsx/FxTsx.test";
+import {anyPropsWithRootProps, fxtsxTest} from "fxtsx/FxTsx/FxTsx.test";
 import { ComponentWithoutRef, ComponentWithRef } from "fxtsx/util/util";
 import { createRef } from "react";
 
@@ -31,12 +31,12 @@ describe("랜더링", () => {
     expect(asFragment()).toMatchInlineSnapshot(`
       <DocumentFragment>
         <div
+          any="my-any-props"
           class="my-class"
           data-fx-list="true"
           data-test="my-data-test"
           data-testid="ListCallback"
           id="my-id"
-          no-root-props="my-no-root-props"
           style="font-size: 1rem;"
           tab-index="0"
         >
@@ -60,18 +60,6 @@ describe("랜더링", () => {
       </DocumentFragment>
     `);
   });
-  test("루트프로퍼티를 루트요소에 전달한다.", () => {
-    expect(screen.getByText("ListRoot")).toHaveAttribute("id", "my-id");
-  });
-  test("루트프로퍼티가 아닌 프로퍼티를 루트요소에 전달한다", () => {
-    expect(screen.getByText("ListRoot")).toHaveAttribute(
-      "no-root-props",
-      "my-no-root-props"
-    );
-  });
-  test("data-fx-list 속성을 루트요소에 전달한다.", () => {
-    expect(screen.getByText("ListRoot")).toHaveAttribute("data-fx-list");
-  });
 
   describe("프로퍼티", () => {
     test("루트요소는 List 콜백으로 랜더링한다", () => {
@@ -94,3 +82,5 @@ describe("랜더링", () => {
     });
   });
 });
+
+fxtsxTest(LIST, "data-fx-list");

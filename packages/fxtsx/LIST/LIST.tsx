@@ -27,7 +27,7 @@ export const LIST = Fxtsx(function LIST<T extends Key>(
   const {
     List = MockList,
     Item = MockItem,
-    data,
+    data = [],
     children,
     formatter = identity,
     ...listProps
