@@ -3,12 +3,12 @@ import { render } from "@testing-library/react";
 import React, { createRef } from "react";
 import type { SECTIONINGProps } from "./SECTIONING";
 import { SECTIONING } from "./SECTIONING";
-import { ComponentWithoutRef, ComponentWithRef } from "../util/util";
+import { Component } from "../util/util";
 
 describe("SECTION", () => {
   let renderResult: RenderResult;
-  const $Section = ComponentWithRef("$Section");
-  const $Heading = ComponentWithoutRef("$Heading");
+  const $Section = Component("$Section");
+  const $Heading = Component("$Heading");
   const sectionWithSubTitle: SECTIONINGProps = {
     $title: "myTitle",
     $level: 1,

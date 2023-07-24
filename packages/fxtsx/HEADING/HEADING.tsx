@@ -2,7 +2,7 @@ import type { FC, ReactNode, Ref } from "react";
 import React from "react";
 
 import { Fxtsx } from "../FxTsx/FxTsx";
-import { ComponentWithoutRef, ComponentWithRef } from "fxtsx/util/util";
+import { Component } from "fxtsx/util/util";
 
 export type HEADINGProps = HEADING & HEADINGCallback;
 export interface HEADING {
@@ -50,8 +50,8 @@ export const HEADING = Fxtsx<HTMLHeadingElement, HEADINGProps>(function (
   ref
 ) {
   const {
-    Headline = ComponentWithRef("Headline"),
-    HeadlineGroup = ComponentWithoutRef("HeadlineGroup"),
+    Headline = Component("Headline"),
+    HeadlineGroup = Component("HeadlineGroup"),
     children,
     $subTitle = children,
     ...headingProps

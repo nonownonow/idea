@@ -1,12 +1,13 @@
 import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
-import React, { createRef, FC } from "react";
+import type { FC } from "react";
+import React, { createRef } from "react";
 import type { FXTSXRenderFunction } from "./FxTsx";
 import { Fxtsx, separateProps } from "./FxTsx";
-import type { RootElementProps } from "../fxtsx.type";
-import { ComponentWithoutRef, ComponentWithRef } from "fxtsx/util/util";
+import type { RootProps } from "../fxtsx.type";
+import { Component } from "fxtsx/util/util";
 
-export const rootProps: RootElementProps = {
+export const rootProps: RootProps = {
   id: "my-id",
   className: "my-class",
   tabIndex: 0,
@@ -20,10 +21,8 @@ export const anyPropsWithRootProps = {
   any: "my-any-props",
 };
 describe("FxTsx - 랜더 함수를 전달 받으면", () => {
-  const CallbackComponentWithoutRef = ComponentWithoutRef("$CallbackComponent");
-  const CallbackComponentWithRef = ComponentWithRef(
-    "$CallbackComponentWithRef"
-  );
+  const CallbackComponentWithoutRef = Component("$CallbackComponent");
+  const CallbackComponentWithRef = Component("$CallbackComponentWithRef");
   const renderFn: FXTSXRenderFunction<HTMLElement, any> = (
     rootProps,
     restProps,
@@ -104,9 +103,9 @@ describe("separateProps", () => {
  * separatedProps: 루트프로퍼티를 분리할지 여부
  * */
 export function fxtsxTest(
-    Comp: FC<any>,
-    fxtsxId: string,
-    separatedProps = false
+  Comp: FC<any>,
+  fxtsxId: string,
+  separatedProps = false
 ) {
   describe("FXTSX 스펙을 따라 구현하여서", () => {
     const RootPlaceholder = "Root";
@@ -127,8 +126,8 @@ export function fxtsxTest(
     } else {
       test("루트프로퍼티가 아닌 프로퍼티를 루트요소에 전달하지 않는다", () => {
         expect(screen.getByText(RootPlaceholder)).not.toHaveAttribute(
-            "any",
-            "my-any-props"
+          "any",
+          "my-any-props"
         );
       });
     }

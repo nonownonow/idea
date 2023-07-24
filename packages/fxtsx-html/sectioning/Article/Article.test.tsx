@@ -1,12 +1,12 @@
 import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
 import { Article } from "./Article";
-import { ComponentWithoutRef, ComponentWithRef } from "fxtsx/util/util";
+import { Component } from "fxtsx/util/util";
 import type { SECTIONINGProps } from "fxtsx/SECTIONING/SECTIONING";
 
 describe("Article 랜더링", () => {
-  const $Section = ComponentWithRef("$Section");
-  const $Heading = ComponentWithoutRef("$Heading");
+  const $Section = Component("$Section");
+  const $Heading = Component("$Heading");
   const sectionWithSubTitle: SECTIONINGProps = {
     $title: "myTitle",
     $level: 1,

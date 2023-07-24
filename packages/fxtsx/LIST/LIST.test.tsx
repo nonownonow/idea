@@ -1,14 +1,14 @@
 import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
 import { LIST } from "fxtsx/LIST/LIST";
-import {anyPropsWithRootProps, fxtsxTest} from "fxtsx/FxTsx/FxTsx.test";
-import { ComponentWithoutRef, ComponentWithRef } from "fxtsx/util/util";
+import { anyPropsWithRootProps, fxtsxTest } from "fxtsx/FxTsx/FxTsx.test";
+import { Component } from "fxtsx/util/util";
 import { createRef } from "react";
 
 describe("랜더링", () => {
   let renderResult: RenderResult;
-  const List = ComponentWithRef("ListCallback");
-  const Item = ComponentWithoutRef("ItemCallback");
+  const List = Component("ListCallback");
+  const Item = Component("ItemCallback");
   const data = ["item1", "item2", "item3"];
   const ref = createRef<HTMLUListElement>();
   const formatter = (a: any, i: any) => (i === 1 ? `포멧팅한 ${a}` : a);
@@ -17,7 +17,7 @@ describe("랜더링", () => {
       <LIST
         {...anyPropsWithRootProps}
         List={List}
-        Item={Item}
+        Entry={Item}
         data={data}
         formatter={formatter}
         ref={ref}

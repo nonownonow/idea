@@ -1,9 +1,9 @@
 import type { FC, ForwardedRef, Key, ReactNode, Ref } from "react";
 import React from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
-import { ComponentWithoutRef, ComponentWithRef } from "fxtsx/util/util";
-import type { RootElementProps } from "fxtsx/fxtsx.type";
+import type { RootProps } from "fxtsx/fxtsx.type";
 import { identity } from "@fxts/core";
+import { Identity } from "fxtsx/Identity/Identity";
 
 export type LISTProps<T extends Key> = LIST<T> & LISTCallback;
 export interface LIST<T extends Key> {
@@ -13,20 +13,18 @@ export interface LIST<T extends Key> {
 }
 export interface LISTCallback {
   List?: FC<{ children: ReactNode; ref: Ref<HTMLUListElement> }>;
-  Item?: FC<{ children: ReactNode }>;
+  Entry?: FC<{ children: ReactNode }>;
 }
 
-export const MockList = ComponentWithRef("List");
-export const MockItem = ComponentWithoutRef("List");
-export type RestProps<P> = Omit<P, keyof RootElementProps>;
+export type RestProps<P> = Omit<P, keyof RootProps>;
 export const LIST = Fxtsx(function LIST<T extends Key>(
-  rootProps: RootElementProps,
+  rootProps: RootProps,
   restProps: RestProps<LISTProps<T>>,
   ref: ForwardedRef<HTMLUListElement>
 ) {
   const {
-    List = MockList,
-    Item = MockItem,
+    List = Identity,
+    Entry = Identity,
     data = [],
     children,
     formatter = identity,
@@ -35,7 +33,7 @@ export const LIST = Fxtsx(function LIST<T extends Key>(
   return (
     <List data-fx-list {...rootProps} {...listProps} ref={ref}>
       {data.map((a, i) => (
-        <Item key={a}>{formatter(a, i)}</Item>
+        <Entry key={a}>{formatter(a, i)}</Entry>
       ))}
       {children}
     </List>

@@ -2,7 +2,7 @@ import type { FC, ReactNode, Ref } from "react";
 import React from "react";
 import type { HEADING } from "../HEADING/HEADING";
 import { Fxtsx } from "../FxTsx/FxTsx";
-import { ComponentWithoutRef, ComponentWithRef } from "fxtsx/util/util";
+import { Component } from "fxtsx/util/util";
 
 export type SECTIONINGProps = SECTIONING & SECTIONINGCallback;
 export interface SECTIONING extends HEADING {
@@ -34,8 +34,8 @@ export type SECTIONINGCallback = {
   }>;
 };
 
-const MockSectioning = ComponentWithRef("$Sectioning");
-const MockHeading = ComponentWithoutRef("$Heading");
+const MockSectioning = Component("$Sectioning");
+const MockHeading = Component("$Heading");
 /**
  * 섹션(section) 태그와 대응하는 컴포넌트 구현을 위한 인터페이스
  * */

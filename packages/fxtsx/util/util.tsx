@@ -24,7 +24,7 @@ export function htmlChildren(html: ReactNode) {
 /*
  * 고차 컴포넌트의 기본 콜백 콤포넌트 생성
  * */
-export function ComponentWithRef(testId: string, description?: string) {
+export function Component(testId: string, description?: string) {
   return forwardRef<any, any>((props: any, ref: any) => {
     const { children, ...restProps } = pipe(
       entries(props),
@@ -39,18 +39,3 @@ export function ComponentWithRef(testId: string, description?: string) {
     );
   });
 }
-
-export const ComponentWithoutRef =
-  (testId: string, description?: string) => (props: any) => {
-    const { children, ...restProps } = pipe(
-      entries(props),
-      map(([k, v]) => [k === "className" ? k : kebabCase(k as string), v]),
-      Object.fromEntries
-    );
-    return (
-      <div data-testid={testId} {...restProps}>
-        {description}
-        {children}
-      </div>
-    );
-  };

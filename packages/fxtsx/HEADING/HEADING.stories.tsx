@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ComponentWithoutRef } from "../util/util";
+import { Component } from "../util/util";
 import { HEADING } from "./HEADING";
 import { Headline, HeadlineGroup } from "fxtsx-html/sectioning/H/Heading";
 
@@ -22,10 +22,7 @@ const meta = {
     HeadlineGroup: {
       options: ["목업", "HeadlineGroup"],
       mapping: {
-        목업: ComponentWithoutRef(
-          "$HeadlineGroup",
-          `레벨${level} 헤딩 그룹 구현`
-        ),
+        목업: Component("$HeadlineGroup", `레벨${level} 헤딩 그룹 구현`),
         Hgroup: HeadlineGroup,
       },
     },

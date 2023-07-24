@@ -9,7 +9,7 @@ import type { HEADINGCallback } from "fxtsx/HEADING/HEADING";
 import type { SECTIONINGCallback } from "fxtsx/SECTIONING/SECTIONING";
 
 export type HTMLElementProps = ComponentPropsWithoutRef<"div">;
-export interface RootElementProps {
+export interface RootProps {
   id?: string;
   className?: string;
   tabIndex?: number;

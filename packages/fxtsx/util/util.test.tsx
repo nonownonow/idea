@@ -1,4 +1,4 @@
-import { ComponentWithoutRef, htmlChildren } from "./util";
+import { Component, htmlChildren } from "./util";
 import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
 
@@ -19,7 +19,7 @@ describe("htmlChildren", () => {
 
 describe("ComponentWithoutRef", () => {
   let renderResult: RenderResult;
-  const CallbackComponentWithoutRef = ComponentWithoutRef("$CallbackComponent");
+  const CallbackComponentWithoutRef = Component("$CallbackComponent");
   beforeEach(() => {
     renderResult = render(
       <CallbackComponentWithoutRef id={"아이디"} subTitle={"부제목"}>
