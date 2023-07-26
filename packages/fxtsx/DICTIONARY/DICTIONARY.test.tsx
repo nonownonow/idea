@@ -13,10 +13,12 @@ describe("랜더링", () => {
   const Value = Component("Value");
   const ref = createRef();
   const data = {
-    keyA: "valueA",
-    keyB: "valueB",
-    keyC: "valueC",
+    keyA: "ValueA",
+    keyB: "ValueB",
+    keyC: "ValueC",
   };
+
+  const keys = ["keyA", "keyB", "keyA"];
   beforeEach(() => {
     renderResult = render(
       <DICTIONARY
@@ -26,6 +28,7 @@ describe("랜더링", () => {
         Key={Key}
         Value={Value}
         data={data}
+        keys={keys}
         ref={ref}
       >
         Root
@@ -40,28 +43,84 @@ describe("랜더링", () => {
           any="my-any-props"
           class="my-class"
           data-fx-dictionary="true"
+          data-fx-list="true"
           data-test="my-data-test"
           data-testid="Dictionary"
           id="my-id"
           style="font-size: 1rem;"
           tab-index="0"
-          value="[object Object]"
         >
+          <div
+            data-testid="Entry"
+          >
+            <div
+              data-testid="Key"
+            >
+              keyA
+            </div>
+            <div
+              data-testid="Value"
+            >
+              ValueA
+            </div>
+          </div>
+          <div
+            data-testid="Entry"
+          >
+            <div
+              data-testid="Key"
+            >
+              keyB
+            </div>
+            <div
+              data-testid="Value"
+            >
+              ValueB
+            </div>
+          </div>
+          <div
+            data-testid="Entry"
+          >
+            <div
+              data-testid="Key"
+            >
+              keyA
+            </div>
+            <div
+              data-testid="Value"
+            >
+              ValueA
+            </div>
+          </div>
           Root
         </div>
       </DocumentFragment>
     `);
   });
-  test.skip("루트는 Dictionary 콜백으로 랜더링한다", () => {
+  test("루트는 Dictionary 콜백으로 랜더링한다", () => {
     expect(screen.getByTestId("Dictionary")).toHaveTextContent("Root");
   });
-  test.skip("루트는 ref 를 받아서 랜더링한다", () => {
+  test("루트는 ref 를 받아서 랜더링한다", () => {
     expect(ref.current).toHaveTextContent("Root");
   });
-  test.skip("엔트리는 Entry 콜백으로 랜더링한다", () => {
-    expect(screen.getByTestId("Entry")).queryAllByTextContent("KeyAValueA");
+  test("엔트리는 Entry 콜백으로 랜더링한다", () => {
+    expect(screen.getAllByTestId("Entry")[0]).toHaveTextContent("keyAValueA");
   });
-  test.todo("키는 Key 콜백으로 랜더링한다");
-  test.todo("값은 Value 콜백으로 랜더링한다");
+  test("키는 Key 콜백으로 랜더링한다", () => {
+    expect(screen.getAllByTestId("Key")[0]).toHaveTextContent("keyA");
+  });
+  test("값은 Value 콜백으로 랜더링한다", () => {
+    expect(screen.getAllByTestId("Value")[0]).toHaveTextContent("ValueA");
+  });
+  test("각 entry 는  keys 프로퍼티에 의해 순서와 표시여부가 결정된다.", () => {
+    keys.forEach((v, i) => {
+      expect(screen.getAllByTestId("Value")[i]).toHaveTextContent(
+        data[v as keyof typeof data]
+      );
+      expect(screen.getAllByTestId("Value")[i]).not.toHaveTextContent("ValueC");
+    });
+  });
+  test.todo("각 키는 keyFormat 프로퍼티로 포멧팅 된다.");
+  test.todo("각 값은 valueFormat 프로퍼티로 포멧팅 된다.");
 });
 // fxtsxTest(DICTIONARY, "data-fx-dictionary");

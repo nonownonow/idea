@@ -3,39 +3,57 @@ import React from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import type { RootProps } from "fxtsx/fxtsx.type";
 import type { RestProps } from "fxtsx/LIST/LIST";
+import { LIST } from "fxtsx/LIST/LIST";
+import { Identity } from "fxtsx/Identity/Identity";
 
-export type DICTIONARYProps<T> = {
-  Dictionary: FC<{ ref: Ref<T> }>;
-  Entry: FC<{ children: ReactNode }>;
-  Key: FC;
-  Value: FC;
-  children: ReactNode;
-  data: Record<string, any>;
-};
+export type DicData = Record<
+  string,
+  string | number | boolean | undefined | null
+>;
+export type DICTIONARYProps<T, V extends DicData = {}> = DICTIONARY<V> &
+  DICTIONARYCallback<T>;
 
-export const DICTIONARY = Fxtsx(function DICTIONARY<T>(
+export interface DICTIONARY<V extends DicData = {}> {
+  data: V;
+  children?: ReactNode;
+  keys?: string[];
+}
+
+export interface DICTIONARYCallback<T> {
+  Dictionary?: FC<{ ref: Ref<T>; children: ReactNode }>;
+  Entry?: FC<{ children: ReactNode }>;
+  Key?: FC<{ children: ReactNode }>;
+  Value?: FC<{ children: ReactNode }>;
+}
+
+export const DICTIONARY = Fxtsx(function DICTIONARY<T, V extends DicData>(
   rootProps: RootProps,
-  restProps: RestProps<DICTIONARYProps<T>>,
+  restProps: RestProps<DICTIONARYProps<T, V>>,
   ref: ForwardedRef<T>
 ) {
-  const { Dictionary, Entry, data, ...dictionaryProps } = restProps;
-  // const entries = useMemo(() => Object.entries(data), [data]);
+  const {
+    Dictionary = Identity,
+    Entry = Identity,
+    Key = Identity,
+    Value = Identity,
+    data,
+    keys = Object.keys(data),
+    ...dictionaryProps
+  } = restProps;
   return (
-    <Dictionary
+    <LIST
       data-fx-dictionary
       {...rootProps}
       {...dictionaryProps}
       ref={ref}
+      data={keys}
+      List={Dictionary}
+      Entry={({ value: key }) => (
+        <Entry>
+          <Key>{key}</Key>
+          <Value>{data[key]}</Value>
+        </Entry>
+      )}
     />
   );
-  /*  return (
-    <Dictionary
-      data-fx-dictionary
-      {...rootProps}
-      {...dictionaryProps}
-      ref={ref}
-    >
-      <LIST data={entries} formatter={([k,v])=><Entry>{k}{v}</Entry>}/>
-    </Dictionary>
-  );*/
 });
