@@ -1,0 +1,30 @@
+news_H: NEWS
+news_list_Meta: MARPPLE news list page
+news_list_Title: MARPPLE - カスタマーサポート - NEWS - リストを見る
+news_list_H: マープルNEWS
+news_list_Button: もっと見る
+news_content_Meta: MARPPLE news view page
+news_content_Title: MARPPLE - カスタマーサポート - NEWS - 投稿を見る
+news_content_H: NEWSを見る
+news_content_Aside_related_H: 関連コンテンツ<sapn data-icon="eye"/>
+faq_H: FAQ
+faq_Nav_H: よくある質問メニュー
+faq_Nav_data:
+  /support/faq/mps: マープルショップセラー
+  /support/faq/mpsp: マープルショッププラス
+  /support/faq/mppt: マープルパートナー入店
+  /support/faq/recruit: 採用関連
+  /support/faq/partnership: アフィリエイトお問い合わせ
+  /support/faq/marketing: 広告マーケティング
+faq_Nav_tag_H: FAQタグ
+faq_Nav_tag_data:
+  frequency: よくある質問
+  apply_seller: セラー申請
+  sell_product: 商品の販売
+  youtube: YouTube連動
+  shipping: 海外配送
+  ハンドメイド: ハンドメイド商品販売
+  etc: その他
+faq_list_Meta: MARPPLE faq list page
+faq_list_Title: MARPPLE - カスタマーサポート - FAQ - リストを見る
+faq_list_H: FAQリスト
