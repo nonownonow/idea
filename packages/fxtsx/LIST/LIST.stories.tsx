@@ -5,6 +5,13 @@ const meta = {
   component: LIST,
   tags: ["autodocs"],
   argTypes: {
+    data: {
+      options: ["없음", "배열1"],
+      mapping: {
+        없음: undefined,
+        배열1: [1, 2, 3, 4, 5, 6, 7],
+      },
+    },
     formatter: {
       control: { type: "select" },
       options: ["없음", "포맷터1"],
@@ -24,7 +31,7 @@ type Story = StoryObj<typeof meta>;
 
 export const WithoutFormatter: Story = {
   args: {
-    data: [1, 2, 3, 4, 5, 6, 7],
+    data: "배열1" as any,
   },
 };
 
