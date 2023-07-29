@@ -5,6 +5,7 @@ import { Fxtsx } from "../FxTsx/FxTsx";
 import { Component } from "fxtsx/util/util";
 
 export type HEADINGProps = HEADING & HEADINGCallback;
+//$접두사를 이용해서 fxtsx 프로퍼티의 고유한 이름을 보장한다.
 export interface HEADING {
   /**
    * 제목

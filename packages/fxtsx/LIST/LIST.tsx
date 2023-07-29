@@ -7,6 +7,7 @@ import { identity } from "@fxts/core";
 
 export type LISTProps<T, Value> = LIST<Value> & LISTCallback<T, Value>;
 export interface LIST<Value> {
+  //todo: ".."지우기
   /**
    * 배열..
    */
@@ -15,6 +16,7 @@ export interface LIST<Value> {
    * 배열의 각 요소를 포멧팅 하는 함수
    */
   formatter?: (value: Value, index: number) => any;
+  //todo: 주석지우기
   /**
    * 리스트 내부에 들어가는 요소.
    */
