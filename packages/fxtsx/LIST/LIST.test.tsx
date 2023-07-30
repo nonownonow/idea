@@ -42,22 +42,16 @@ describe("랜더링", () => {
         >
           <div
             data-testid="ItemCallback"
-            index="0"
-            value="item1"
           >
             item1
           </div>
           <div
             data-testid="ItemCallback"
-            index="1"
-            value="item2"
           >
             포멧팅한 item2
           </div>
           <div
             data-testid="ItemCallback"
-            index="2"
-            value="item3"
           >
             item3
           </div>

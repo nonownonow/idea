@@ -57,7 +57,7 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T, V extends DicData>(
       ref={ref}
       $data={$keys}
       List={Dictionary}
-      Item={({ value: key, index }) => (
+      $itemFormat={(key, index) => (
         <Entry>
           <Key>
             {key in $keyFormats

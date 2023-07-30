@@ -1,14 +1,12 @@
 import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
-import { UL } from "fxtsx-html/data-view/UL";
+import { Ul } from "fxtsx-html/data-view/Ul/Ul";
+import { Default } from "fxtsx-html/data-view/Ul/Ul.stories";
 
 describe("순서없는 리스트 Unordered List", () => {
   let renderResult: RenderResult;
-  const args = {
-    $data: [1, 2, 3],
-  };
   beforeEach(() => {
-    renderResult = render(<UL {...args} />);
+    renderResult = render(<Ul {...Default.args} />);
   });
   test("렌더링", () => {
     const { asFragment } = renderResult;
@@ -17,24 +15,15 @@ describe("순서없는 리스트 Unordered List", () => {
         <ul
           data-fx-list="true"
         >
-          <div
-            index="0"
-            value="1"
-          >
+          <li>
             1
-          </div>
-          <div
-            index="1"
-            value="2"
-          >
+          </li>
+          <li>
             2
-          </div>
-          <div
-            index="2"
-            value="3"
-          >
+          </li>
+          <li>
             3
-          </div>
+          </li>
         </ul>
       </DocumentFragment>
     `);
@@ -44,7 +33,7 @@ describe("순서없는 리스트 Unordered List", () => {
       const { container } = renderResult;
       expect((container.firstChild as HTMLElement).tagName).toEqual("UL");
     });
-    test.skip("배열의 요소는 li 태그로 랜더링 된다.", () => {
+    test("배열의 요소는 li 태그로 랜더링 된다.", () => {
       expect(screen.getByText("1").tagName).toEqual("LI");
     });
   });

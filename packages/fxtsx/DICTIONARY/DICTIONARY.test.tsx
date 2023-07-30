@@ -51,98 +51,110 @@ describe("랜더링", () => {
           style="font-size: 1rem;"
           tab-index="0"
         >
-          <div
-            data-testid="Item"
-          >
+          <div>
             <div
-              data-testid="Key"
+              data-testid="Item"
             >
-              keyA
-            </div>
-            <div
-              data-testid="Value"
-            >
-              ValueA
-            </div>
-          </div>
-          <div
-            data-testid="Item"
-          >
-            <div
-              data-testid="Key"
-            >
-              keyD
-            </div>
-            <div
-              data-testid="Value"
-            >
-              값: ValueD
-            </div>
-          </div>
-          <div
-            data-testid="Item"
-          >
-            <div
-              data-testid="Key"
-            >
-              키B
-            </div>
-            <div
-              data-testid="Value"
-            >
-              <em>
-                2번째 ValueB
-              </em>
-            </div>
-          </div>
-          <div
-            data-testid="Item"
-          >
-            <div
-              data-testid="Key"
-            >
-              *
-              <em>
+              <div
+                data-testid="Key"
+              >
                 keyA
-              </em>
-              *
-            </div>
-            <div
-              data-testid="Value"
-            >
-              값: ValueA
-            </div>
-          </div>
-          <div
-            data-testid="Item"
-          >
-            <div
-              data-testid="Key"
-            >
-              keyD!!
-            </div>
-            <div
-              data-testid="Value"
-            >
-              값: ValueD
+              </div>
+              <div
+                data-testid="Value"
+              >
+                ValueA
+              </div>
             </div>
           </div>
-          <div
-            data-testid="Item"
-          >
+          <div>
             <div
-              data-testid="Key"
+              data-testid="Item"
             >
-              *
-              <em>
-                keyE
-              </em>
-              *
+              <div
+                data-testid="Key"
+              >
+                keyD
+              </div>
+              <div
+                data-testid="Value"
+              >
+                값: ValueD
+              </div>
             </div>
+          </div>
+          <div>
             <div
-              data-testid="Value"
+              data-testid="Item"
             >
-              값: ValueE
+              <div
+                data-testid="Key"
+              >
+                키B
+              </div>
+              <div
+                data-testid="Value"
+              >
+                <em>
+                  2번째 ValueB
+                </em>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              data-testid="Item"
+            >
+              <div
+                data-testid="Key"
+              >
+                *
+                <em>
+                  keyA
+                </em>
+                *
+              </div>
+              <div
+                data-testid="Value"
+              >
+                값: ValueA
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              data-testid="Item"
+            >
+              <div
+                data-testid="Key"
+              >
+                keyD!!
+              </div>
+              <div
+                data-testid="Value"
+              >
+                값: ValueD
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              data-testid="Item"
+            >
+              <div
+                data-testid="Key"
+              >
+                *
+                <em>
+                  keyE
+                </em>
+                *
+              </div>
+              <div
+                data-testid="Value"
+              >
+                값: ValueE
+              </div>
             </div>
           </div>
           Root
