@@ -18,3 +18,25 @@ export const Default: Story = {
     ],
   },
 };
+
+export const Formatting: Story = {
+  args: {
+    data: [
+      { a: 1, b: 2 },
+      { a: 11, b: 22 },
+    ],
+    formatter: (Dictionary: any) => (
+      <a href="" data-testid={"anchor"}>
+        {Dictionary}
+      </a>
+    ),
+    keyFormat: (key: any) => `${key} 꾸미기`,
+    keyFormats: {
+      b: "b키 입니다",
+    },
+    valueFormat: (value: any) => `꾸며진 ${value}`,
+    valueFormats: {
+      b: (value: any) => `꾸며진 b값 ${value}`,
+    },
+  },
+};
