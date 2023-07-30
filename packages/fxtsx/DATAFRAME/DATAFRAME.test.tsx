@@ -6,7 +6,9 @@ import {
   screen,
 } from "@testing-library/react";
 import { DATAFRAME } from "./DATAFRAME";
-import { Default } from "fxtsx/DATAFRAME/DATAFRAME.stories";
+import { LIST } from "fxtsx/LIST/LIST";
+import { Component } from "fxtsx/util/util";
+import { DICTIONARY } from "fxtsx/DICTIONARY/DICTIONARY";
 
 describe("DATAFRAME", () => {
   let renderResult: RenderResult;
@@ -188,16 +190,25 @@ describe("DATAFRAME", () => {
       { a: 11, b: 22 },
     ];
     beforeEach(() => {
-      renderResult = render(
-        <DATAFRAME
-          data={data}
-          List={Default.args?.List}
-          Element={Default.args?.Element}
-          Entry={Default.args?.Entry}
-          Dictionary={Default.args?.Dictionary}
-          Key={Default.args?.Key}
-          Value={Default.args?.Value}
+      const List = (props: any) => (
+        <LIST
+          {...props}
+          List={Component("List")}
+          Entry={Component("Element")}
         />
+      );
+      const Dictionary = (props: any) => (
+        <DICTIONARY
+          Dictionary={Component("Dictionary")}
+          Entry={Component("Entry")}
+          Key={Component("Key")}
+          Value={Component("Value")}
+          {...props}
+        />
+      );
+
+      renderResult = render(
+        <DATAFRAME data={data} List={List} Dictionary={Dictionary} />
       );
     });
     test("렌더링", () => {
@@ -206,12 +217,17 @@ describe("DATAFRAME", () => {
         <DocumentFragment>
           <div
             data-fx-dataframe="true"
+            data-fx-list="true"
             data-testid="List"
           >
             <div
               data-testid="Element"
+              index="0"
+              value="[object Object]"
             >
               <div
+                data-fx-dictionary="true"
+                data-fx-list="true"
                 data-testid="Dictionary"
               >
                 <div
@@ -246,8 +262,12 @@ describe("DATAFRAME", () => {
             </div>
             <div
               data-testid="Element"
+              index="1"
+              value="[object Object]"
             >
               <div
+                data-fx-dictionary="true"
+                data-fx-list="true"
                 data-testid="Dictionary"
               >
                 <div
