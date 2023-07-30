@@ -1,16 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Ul } from "fxtsx-html/data-view/Ul/Ul";
-import type { Ol } from "fxtsx-html/data-view/Ol/Ol";
+import { Card } from "fxtsx-html/data-view/Card/Card";
 
 const meta = {
-  component: Ul,
+  component: Card,
   tags: ["autodocs"],
-} satisfies Meta<typeof Ol>;
+} satisfies Meta<typeof Card>;
 
 type Story = StoryObj<typeof meta>;
 export default meta;
 export const Default: Story = {
   args: {
-    $data: [1, 2, 3],
+    $data: { a: 1, b: 2, c: 3 },
   },
 };
