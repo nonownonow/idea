@@ -5,6 +5,7 @@ import {
   render,
   screen,
 } from "@testing-library/react";
+import type { DATAFRAMEProps } from "./DATAFRAME";
 import { DATAFRAME } from "./DATAFRAME";
 import { LIST } from "fxtsx/LIST/LIST";
 import { Component } from "fxtsx/util/util";
@@ -198,13 +199,15 @@ describe("DATAFRAME", () => {
     );
   });*/
   describe("객체 배열을 data 프로퍼티로 받아서", () => {
-    const data = [
-      { a: 1, b: 2 },
-      { a: 11, b: 22 },
-    ];
+    const args: DATAFRAMEProps<any> = {
+      $data: [
+        { a: 1, b: 2 },
+        { a: 11, b: 22 },
+      ],
+    };
     beforeEach(() => {
       renderResult = render(
-        <DATAFRAME data={data} List={List} Dictionary={Dictionary} />
+        <DATAFRAME $data={args.$data} List={List} Dictionary={Dictionary} />
       );
     });
     test("렌더링", () => {
@@ -331,14 +334,14 @@ describe("DATAFRAME", () => {
     beforeEach(() => {
       renderResult = render(
         <DATAFRAME
-          data={Formatting.args?.data}
-          formatter={Formatting.args?.formatter}
+          $data={Formatting.args?.$data}
+          $itemFormat={Formatting.args?.$itemFormat}
           List={List}
           Dictionary={Dictionary}
-          keyFormat={Formatting.args?.keyFormat}
-          keyFormats={Formatting.args?.keyFormats}
-          valueFormat={Formatting.args?.valueFormat}
-          valueFormats={Formatting.args?.valueFormats}
+          $keyFormat={Formatting.args?.$keyFormat}
+          $keyFormats={Formatting.args?.$keyFormats}
+          $valueFormat={Formatting.args?.$valueFormat}
+          $valueFormats={Formatting.args?.$valueFormats}
         />
       );
     });

@@ -18,8 +18,8 @@ describe("랜더링", () => {
         {...anyPropsWithRootProps}
         List={List}
         Item={Item}
-        data={data}
-        formatter={formatter}
+        $data={data}
+        $itemFormat={formatter}
         ref={ref}
       >
         ListRoot

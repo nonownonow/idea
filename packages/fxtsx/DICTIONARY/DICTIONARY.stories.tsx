@@ -12,15 +12,15 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    data: {
+    $data: {
       keyA: "ValueA",
       keyB: "ValueB",
       keyC: "ValueC",
       keyD: "ValueD",
       keyE: "ValueE",
     },
-    keys: ["keyA", "keyD", "keyB", "keyA", "keyD", "keyE"],
-    keyFormat: (key, index) => {
+    $keys: ["keyA", "keyD", "keyB", "keyA", "keyD", "keyE"],
+    $keyFormat: (key, index) => {
       return index !== 0 ? (
         <>
           *<em>{key}</em>*
@@ -29,12 +29,12 @@ export const Default: Story = {
         key
       );
     },
-    keyFormats: {
+    $keyFormats: {
       keyB: "키B",
       keyD: (key, index) => (index > 2 ? <>{key}!!</> : key),
     },
-    valueFormat: (value, key, index) => (index > 0 ? `값: ${value}` : value),
-    valueFormats: {
+    $valueFormat: (value, key, index) => (index > 0 ? `값: ${value}` : value),
+    $valueFormats: {
       keyB: (value, key, index) => (
         <em>
           {index}번째 {value}

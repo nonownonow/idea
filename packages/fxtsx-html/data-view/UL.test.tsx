@@ -5,7 +5,7 @@ import { UL } from "fxtsx-html/data-view/UL";
 describe("순서없는 리스트 Unordered List", () => {
   let renderResult: RenderResult;
   const args = {
-    data: [1, 2, 3],
+    $data: [1, 2, 3],
   };
   beforeEach(() => {
     renderResult = render(<UL {...args} />);

@@ -13,13 +13,13 @@ export type DICTIONARYProps<T, V extends DicData = {}> = DICTIONARY<V> &
   DICTIONARYCallback<T>;
 
 export interface DICTIONARY<V extends DicData = {}> {
-  data: V;
+  $data: V;
   children?: ReactNode;
-  keys?: string[];
-  keyFormat?: (key: string, index: number) => ReactNode;
-  keyFormats?: Partial<{ [K in keyof V]: DICTIONARY["keyFormat"] | string }>;
-  valueFormat?: (value: DicValue, key: string, index: number) => ReactNode;
-  valueFormats?: Partial<{ [K in keyof V]: DICTIONARY["valueFormat"] }>;
+  $keys?: string[];
+  $keyFormat?: (key: string, index: number) => ReactNode;
+  $keyFormats?: Partial<{ [K in keyof V]: DICTIONARY["$keyFormat"] | string }>;
+  $valueFormat?: (value: DicValue, key: string, index: number) => ReactNode;
+  $valueFormats?: Partial<{ [K in keyof V]: DICTIONARY["$valueFormat"] }>;
 }
 
 export interface DICTIONARYCallback<T> {
@@ -41,12 +41,12 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T, V extends DicData>(
     Entry = Identity,
     Key = Identity,
     Value = Identity,
-    data,
-    keys = Object.keys(data),
-    keyFormat = identity,
-    keyFormats = {} as { [K in keyof V]: any },
-    valueFormat = identity,
-    valueFormats = {} as { [K in keyof V]: any },
+    $data,
+    $keys = Object.keys($data),
+    $keyFormat = identity,
+    $keyFormats = {} as { [K in keyof V]: any },
+    $valueFormat = identity,
+    $valueFormats = {} as { [K in keyof V]: any },
     ...dictionaryProps
   } = restProps;
   return (
@@ -55,21 +55,21 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T, V extends DicData>(
       {...rootProps}
       {...dictionaryProps}
       ref={ref}
-      data={keys}
+      $data={$keys}
       List={Dictionary}
       Item={({ value: key, index }) => (
         <Entry>
           <Key>
-            {key in keyFormats
-              ? typeof keyFormats[key] === "string"
-                ? keyFormats[key]
-                : keyFormats[key](key, index)
-              : keyFormat(key, index)}
+            {key in $keyFormats
+              ? typeof $keyFormats[key] === "string"
+                ? $keyFormats[key]
+                : $keyFormats[key](key, index)
+              : $keyFormat(key, index)}
           </Key>
           <Value>
-            {key in valueFormats
-              ? valueFormats[key](data[key], key, index)
-              : valueFormat(data[key], key, index)}
+            {key in $valueFormats
+              ? $valueFormats[key]($data[key], key, index)
+              : $valueFormat($data[key], key, index)}
           </Value>
           {/*<Value>{valueFormat(data[key], key, index)}</Value>*/}
         </Entry>

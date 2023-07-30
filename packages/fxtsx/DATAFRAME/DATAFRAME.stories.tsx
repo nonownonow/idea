@@ -11,7 +11,7 @@ export default meta;
 
 export const Default: Story = {
   args: {
-    data: [
+    $data: [
       { a: 1, b: 2, c: 3 },
       { a: 11, b: 22, c: 33 },
       { a: 111, b: 222, c: 333 },
@@ -21,21 +21,21 @@ export const Default: Story = {
 
 export const Formatting: Story = {
   args: {
-    data: [
+    $data: [
       { a: 1, b: 2 },
       { a: 11, b: 22 },
     ],
-    formatter: (Dictionary: any) => (
+    $itemFormat: (Dictionary: any) => (
       <a href="" data-testid={"anchor"}>
         {Dictionary}
       </a>
     ),
-    keyFormat: (key: any) => `${key} 꾸미기`,
-    keyFormats: {
+    $keyFormat: (key: any) => `${key} 꾸미기`,
+    $keyFormats: {
       b: "b키 입니다",
     },
-    valueFormat: (value: any) => `꾸며진 ${value}`,
-    valueFormats: {
+    $valueFormat: (value: any) => `꾸며진 ${value}`,
+    $valueFormats: {
       b: (value: any) => `꾸며진 b값 ${value}`,
     },
   },

@@ -13,7 +13,7 @@ describe("랜더링", () => {
   const Key = Component("Key");
   const Value = Component("Value");
   const ref = createRef();
-  const { data } = Default.args;
+  const { $data } = Default.args;
   beforeEach(() => {
     renderResult = render(
       <DICTIONARY
@@ -166,9 +166,9 @@ describe("랜더링", () => {
     expect(screen.getAllByTestId("Value")[0]).toHaveTextContent("ValueA");
   });
   test("각 entry 는  keys 프로퍼티에 의해 순서와 표시여부가 결정된다.", () => {
-    Default.args.keys?.forEach((v, i) => {
+    Default.args.$keys?.forEach((v, i) => {
       expect(screen.getAllByTestId("Value")[i]).toHaveTextContent(
-        data[v] as any
+        $data[v] as any
       );
       expect(screen.getAllByTestId("Value")[i]).not.toHaveTextContent("ValueC");
     });

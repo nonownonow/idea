@@ -11,11 +11,11 @@ export interface LIST<Value> {
   /**
    * 배열..
    */
-  data: Value[];
+  $data: Value[];
   /**
    * 배열의 각 요소를 포멧팅 하는 함수
    */
-  formatter?: (value: Value, index: number) => any;
+  $itemFormat?: (value: Value, index: number) => any;
   //todo: 주석지우기
   /**
    * 리스트 내부에 들어가는 요소.
@@ -43,16 +43,16 @@ export const LIST = Fxtsx(function LIST<T, Value>(
   const {
     List = Identity,
     Item = Identity,
-    data = [],
+    $data = [],
     children,
-    formatter = identity,
+    $itemFormat = identity,
     ...listProps
   } = restProps;
   return (
     <List data-fx-list {...rootProps} {...listProps} ref={ref}>
-      {data.map((a, i) => (
+      {$data.map((a, i) => (
         <Item key={i} value={a} index={i}>
-          {formatter(a, i)}
+          {$itemFormat(a, i)}
         </Item>
       ))}
       {children}
