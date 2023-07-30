@@ -12,13 +12,13 @@ import { DICTIONARY } from "fxtsx/DICTIONARY/DICTIONARY";
 import { Formatting } from "fxtsx/DATAFRAME/DATAFRAME.stories";
 
 describe("DATAFRAME", () => {
-  const List = (props: any) => (
-    <LIST {...props} List={Component("List")} Entry={Component("Element")} />
+  const List = (props: LIST<any>) => (
+    <LIST {...props} List={Component("List")} Item={Component("Item")} />
   );
-  const Dictionary = (props: any) => (
+  const Dictionary = (props: DICTIONARY) => (
     <DICTIONARY
       Dictionary={Component("Dictionary")}
-      Entry={Component("Entry")}
+      Entry={Component("Item")}
       Key={Component("Key")}
       Value={Component("Value")}
       {...props}
@@ -217,7 +217,7 @@ describe("DATAFRAME", () => {
             data-testid="List"
           >
             <div
-              data-testid="Element"
+              data-testid="Item"
               index="0"
               value="[object Object]"
             >
@@ -227,7 +227,7 @@ describe("DATAFRAME", () => {
                 data-testid="Dictionary"
               >
                 <div
-                  data-testid="Entry"
+                  data-testid="Item"
                 >
                   <div
                     data-testid="Key"
@@ -241,7 +241,7 @@ describe("DATAFRAME", () => {
                   </div>
                 </div>
                 <div
-                  data-testid="Entry"
+                  data-testid="Item"
                 >
                   <div
                     data-testid="Key"
@@ -257,7 +257,7 @@ describe("DATAFRAME", () => {
               </div>
             </div>
             <div
-              data-testid="Element"
+              data-testid="Item"
               index="1"
               value="[object Object]"
             >
@@ -267,7 +267,7 @@ describe("DATAFRAME", () => {
                 data-testid="Dictionary"
               >
                 <div
-                  data-testid="Entry"
+                  data-testid="Item"
                 >
                   <div
                     data-testid="Key"
@@ -281,7 +281,7 @@ describe("DATAFRAME", () => {
                   </div>
                 </div>
                 <div
-                  data-testid="Entry"
+                  data-testid="Item"
                 >
                   <div
                     data-testid="Key"
@@ -302,7 +302,7 @@ describe("DATAFRAME", () => {
     });
     let firstElement: any;
     beforeEach(() => {
-      firstElement = screen.getAllByTestId("Element")[0];
+      firstElement = screen.getAllByTestId("Item")[0];
     });
     test("배열은 List 컴포넌트로 랜더링한다", () => {
       expect(screen.getByTestId("List")).toHaveTextContent("a1b2a11b22");
@@ -317,9 +317,7 @@ describe("DATAFRAME", () => {
         );
       });
       test("객체의 요소는 Entry 컴포넌트로 랜더링한다", () => {
-        expect(getAllByTestId(firstElement, "Entry")[0]).toHaveTextContent(
-          "a1"
-        );
+        expect(getAllByTestId(firstElement, "Item")[0]).toHaveTextContent("a1");
       });
       test("객체의 키는 Key 컴포넌트로 랜더링한다", () => {
         expect(getAllByTestId(firstElement, "Key")[0]).toHaveTextContent("a");
@@ -355,7 +353,7 @@ describe("DATAFRAME", () => {
             data-testid="List"
           >
             <div
-              data-testid="Element"
+              data-testid="Item"
               index="0"
               value="[object Object]"
             >
@@ -369,7 +367,7 @@ describe("DATAFRAME", () => {
                   data-testid="Dictionary"
                 >
                   <div
-                    data-testid="Entry"
+                    data-testid="Item"
                   >
                     <div
                       data-testid="Key"
@@ -383,7 +381,7 @@ describe("DATAFRAME", () => {
                     </div>
                   </div>
                   <div
-                    data-testid="Entry"
+                    data-testid="Item"
                   >
                     <div
                       data-testid="Key"
@@ -400,7 +398,7 @@ describe("DATAFRAME", () => {
               </a>
             </div>
             <div
-              data-testid="Element"
+              data-testid="Item"
               index="1"
               value="[object Object]"
             >
@@ -414,7 +412,7 @@ describe("DATAFRAME", () => {
                   data-testid="Dictionary"
                 >
                   <div
-                    data-testid="Entry"
+                    data-testid="Item"
                   >
                     <div
                       data-testid="Key"
@@ -428,7 +426,7 @@ describe("DATAFRAME", () => {
                     </div>
                   </div>
                   <div
-                    data-testid="Entry"
+                    data-testid="Item"
                   >
                     <div
                       data-testid="Key"
@@ -450,7 +448,7 @@ describe("DATAFRAME", () => {
     });
     test("formatter 프로퍼티로 객체를 꾸민다.", () => {
       const anchor = screen.getAllByTestId("anchor")[0];
-      expect(screen.getAllByTestId("Element")[0]).toContainElement(anchor);
+      expect(screen.getAllByTestId("Item")[0]).toContainElement(anchor);
     });
     test("keyFormat 프로퍼티로 모든 키를 꾸민다", () => {
       expect(screen.getAllByTestId("Key")[0]).toHaveTextContent("a 꾸미기");

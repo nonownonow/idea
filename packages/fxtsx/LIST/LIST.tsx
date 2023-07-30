@@ -30,7 +30,7 @@ export interface LISTCallback<T, Value> {
   /**
    * 엔트리를 구현하는 컨포넌트
    */
-  Entry?: FC<{ children: ReactNode; value: Value; index: number }>;
+  Item?: FC<{ children: ReactNode; value: Value; index: number }>;
 }
 //todo: uuid 이용해서 키 생성하여 리스트에 적용하기,
 
@@ -42,7 +42,7 @@ export const LIST = Fxtsx(function LIST<T, Value>(
 ) {
   const {
     List = Identity,
-    Entry = Identity,
+    Item = Identity,
     data = [],
     children,
     formatter = identity,
@@ -51,9 +51,9 @@ export const LIST = Fxtsx(function LIST<T, Value>(
   return (
     <List data-fx-list {...rootProps} {...listProps} ref={ref}>
       {data.map((a, i) => (
-        <Entry key={i} value={a} index={i}>
+        <Item key={i} value={a} index={i}>
           {formatter(a, i)}
-        </Entry>
+        </Item>
       ))}
       {children}
     </List>

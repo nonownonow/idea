@@ -9,7 +9,7 @@ import { Default } from "fxtsx/DICTIONARY/DICTIONARY.stories";
 describe("랜더링", () => {
   let renderResult: RenderResult;
   const Dictionary = Component("Dictionary");
-  const Entry = Component("Entry");
+  const Entry = Component("Item");
   const Key = Component("Key");
   const Value = Component("Value");
   const ref = createRef();
@@ -52,7 +52,7 @@ describe("랜더링", () => {
           tab-index="0"
         >
           <div
-            data-testid="Entry"
+            data-testid="Item"
           >
             <div
               data-testid="Key"
@@ -66,7 +66,7 @@ describe("랜더링", () => {
             </div>
           </div>
           <div
-            data-testid="Entry"
+            data-testid="Item"
           >
             <div
               data-testid="Key"
@@ -80,7 +80,7 @@ describe("랜더링", () => {
             </div>
           </div>
           <div
-            data-testid="Entry"
+            data-testid="Item"
           >
             <div
               data-testid="Key"
@@ -96,7 +96,7 @@ describe("랜더링", () => {
             </div>
           </div>
           <div
-            data-testid="Entry"
+            data-testid="Item"
           >
             <div
               data-testid="Key"
@@ -114,7 +114,7 @@ describe("랜더링", () => {
             </div>
           </div>
           <div
-            data-testid="Entry"
+            data-testid="Item"
           >
             <div
               data-testid="Key"
@@ -128,7 +128,7 @@ describe("랜더링", () => {
             </div>
           </div>
           <div
-            data-testid="Entry"
+            data-testid="Item"
           >
             <div
               data-testid="Key"
@@ -157,7 +157,7 @@ describe("랜더링", () => {
     expect(ref.current).toHaveTextContent("Root");
   });
   test("엔트리는 Entry 콜백으로 랜더링한다", () => {
-    expect(screen.getAllByTestId("Entry")[0]).toHaveTextContent("keyAValueA");
+    expect(screen.getAllByTestId("Item")[0]).toHaveTextContent("keyAValueA");
   });
   test("키는 Key 콜백으로 랜더링한다", () => {
     expect(screen.getAllByTestId("Key")[0]).toHaveTextContent("keyA");

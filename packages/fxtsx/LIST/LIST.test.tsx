@@ -17,7 +17,7 @@ describe("랜더링", () => {
       <LIST
         {...anyPropsWithRootProps}
         List={List}
-        Entry={Item}
+        Item={Item}
         data={data}
         formatter={formatter}
         ref={ref}

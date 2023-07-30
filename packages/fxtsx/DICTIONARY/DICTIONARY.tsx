@@ -57,7 +57,7 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T, V extends DicData>(
       ref={ref}
       data={keys}
       List={Dictionary}
-      Entry={({ value: key, index }) => (
+      Item={({ value: key, index }) => (
         <Entry>
           <Key>
             {key in keyFormats
