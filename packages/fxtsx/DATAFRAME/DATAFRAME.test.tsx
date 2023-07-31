@@ -18,8 +18,8 @@ describe("DATAFRAME", () => {
   );
   const Dictionary = (props: DICTIONARY) => (
     <DICTIONARY
-      Dictionary={Component("Dictionary")}
-      Entry={Component("Item")}
+      List={List}
+      Entry={Component("Entry")}
       Key={Component("Key")}
       Value={Component("Value")}
       {...props}
@@ -225,11 +225,13 @@ describe("DATAFRAME", () => {
               <div
                 data-fx-dictionary="true"
                 data-fx-list="true"
-                data-testid="Dictionary"
+                data-testid="List"
               >
-                <div>
+                <div
+                  data-testid="Item"
+                >
                   <div
-                    data-testid="Item"
+                    data-testid="Entry"
                   >
                     <div
                       data-testid="Key"
@@ -243,9 +245,11 @@ describe("DATAFRAME", () => {
                     </div>
                   </div>
                 </div>
-                <div>
+                <div
+                  data-testid="Item"
+                >
                   <div
-                    data-testid="Item"
+                    data-testid="Entry"
                   >
                     <div
                       data-testid="Key"
@@ -267,11 +271,13 @@ describe("DATAFRAME", () => {
               <div
                 data-fx-dictionary="true"
                 data-fx-list="true"
-                data-testid="Dictionary"
+                data-testid="List"
               >
-                <div>
+                <div
+                  data-testid="Item"
+                >
                   <div
-                    data-testid="Item"
+                    data-testid="Entry"
                   >
                     <div
                       data-testid="Key"
@@ -285,9 +291,11 @@ describe("DATAFRAME", () => {
                     </div>
                   </div>
                 </div>
-                <div>
+                <div
+                  data-testid="Item"
+                >
                   <div
-                    data-testid="Item"
+                    data-testid="Entry"
                   >
                     <div
                       data-testid="Key"
@@ -312,16 +320,14 @@ describe("DATAFRAME", () => {
       firstElement = screen.getAllByTestId("Item")[0];
     });
     test("배열은 List 컴포넌트로 랜더링한다", () => {
-      expect(screen.getByTestId("List")).toHaveTextContent("a1b2a11b22");
+      expect(screen.getAllByTestId("List")[0]).toHaveTextContent("a1b2a11b22");
     });
     test("배열의 요소는 Element 컴포넌트로 랜더링한다", () => {
       expect(firstElement).toHaveTextContent("a1b2");
     });
     describe("배열의 요소", () => {
       test("객체는 Dictionary 컴포넌트로 랜더링한다", () => {
-        expect(getByTestId(firstElement, "Dictionary")).toHaveTextContent(
-          "a1b2"
-        );
+        expect(getByTestId(firstElement, "List")).toHaveTextContent("a1b2");
       });
       test("객체의 요소는 Entry 컴포넌트로 랜더링한다", () => {
         expect(getAllByTestId(firstElement, "Item")[0]).toHaveTextContent("a1");
@@ -338,7 +344,7 @@ describe("DATAFRAME", () => {
     beforeEach(() => {
       renderResult = render(
         <DATAFRAME
-          $data={Formatting.args?.$data}
+          $data={Formatting.args?.$data as any}
           $itemFormat={Formatting.args?.$itemFormat}
           List={List}
           Dictionary={Dictionary}
@@ -369,11 +375,13 @@ describe("DATAFRAME", () => {
                 <div
                   data-fx-dictionary="true"
                   data-fx-list="true"
-                  data-testid="Dictionary"
+                  data-testid="List"
                 >
-                  <div>
+                  <div
+                    data-testid="Item"
+                  >
                     <div
-                      data-testid="Item"
+                      data-testid="Entry"
                     >
                       <div
                         data-testid="Key"
@@ -387,9 +395,11 @@ describe("DATAFRAME", () => {
                       </div>
                     </div>
                   </div>
-                  <div>
+                  <div
+                    data-testid="Item"
+                  >
                     <div
-                      data-testid="Item"
+                      data-testid="Entry"
                     >
                       <div
                         data-testid="Key"
@@ -416,11 +426,13 @@ describe("DATAFRAME", () => {
                 <div
                   data-fx-dictionary="true"
                   data-fx-list="true"
-                  data-testid="Dictionary"
+                  data-testid="List"
                 >
-                  <div>
+                  <div
+                    data-testid="Item"
+                  >
                     <div
-                      data-testid="Item"
+                      data-testid="Entry"
                     >
                       <div
                         data-testid="Key"
@@ -434,9 +446,11 @@ describe("DATAFRAME", () => {
                       </div>
                     </div>
                   </div>
-                  <div>
+                  <div
+                    data-testid="Item"
+                  >
                     <div
-                      data-testid="Item"
+                      data-testid="Entry"
                     >
                       <div
                         data-testid="Key"

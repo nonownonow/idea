@@ -2,8 +2,7 @@ import type { FC, ForwardedRef, ReactNode, Ref } from "react";
 import React from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import type { RootProps } from "fxtsx/fxtsx.type";
-import type { RestProps } from "fxtsx/LIST/LIST";
-import { LIST } from "fxtsx/LIST/LIST";
+import type { LIST, RestProps } from "fxtsx/LIST/LIST";
 import { Identity } from "fxtsx/Identity/Identity";
 import { identity } from "@fxts/core";
 
@@ -23,8 +22,7 @@ export interface DICTIONARY<V extends DicData = {}> {
 }
 
 export interface DICTIONARYCallback<T> {
-  //todo: Dictionary?:FC<LIST>
-  Dictionary?: FC<{ ref: Ref<T>; children: ReactNode }>;
+  List?: FC<LIST<string> & { ref: Ref<T> }>;
   Entry?: FC<{ children: ReactNode }>;
   Key?: FC<{ children: ReactNode }>;
   Value?: FC<{ children: ReactNode }>;
@@ -37,8 +35,7 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T, V extends DicData>(
   ref: ForwardedRef<T>
 ) {
   const {
-    Dictionary = Identity,
-    Entry = Identity,
+    List = Identity,
     Key = Identity,
     Value = Identity,
     $data,
@@ -50,15 +47,14 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T, V extends DicData>(
     ...dictionaryProps
   } = restProps;
   return (
-    <LIST
+    <List
       data-fx-dictionary
       {...rootProps}
       {...dictionaryProps}
       ref={ref}
       $data={$keys}
-      List={Dictionary}
       $itemFormat={(key, index) => (
-        <Entry>
+        <>
           <Key>
             {key in $keyFormats
               ? typeof $keyFormats[key] === "string"
@@ -71,8 +67,7 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T, V extends DicData>(
               ? $valueFormats[key]($data[key], key, index)
               : $valueFormat($data[key], key, index)}
           </Value>
-          {/*<Value>{valueFormat(data[key], key, index)}</Value>*/}
-        </Entry>
+        </>
       )}
     />
   );

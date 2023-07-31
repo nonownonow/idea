@@ -3,12 +3,20 @@ import { render, screen } from "@testing-library/react";
 import { DICTIONARY } from "./DICTIONARY";
 import { anyPropsWithRootProps } from "fxtsx/FxTsx/FxTsx.test";
 import { Component } from "fxtsx/util/util";
-import { createRef } from "react";
+import { createRef, forwardRef } from "react";
 import { Default } from "fxtsx/DICTIONARY/DICTIONARY.stories";
+import { LIST } from "fxtsx/LIST/LIST";
 
 describe("랜더링", () => {
   let renderResult: RenderResult;
-  const Dictionary = Component("Dictionary");
+  const List = forwardRef((props: LIST<any>, ref: any) => (
+    <LIST
+      {...props}
+      List={Component("List")}
+      Item={Component("Item")}
+      ref={ref}
+    />
+  ));
   const Entry = Component("Item");
   const Key = Component("Key");
   const Value = Component("Value");
@@ -19,7 +27,7 @@ describe("랜더링", () => {
       <DICTIONARY
         {...anyPropsWithRootProps}
         {...Default.args}
-        Dictionary={Dictionary}
+        List={List}
         Entry={Entry}
         Key={Key}
         Value={Value}
@@ -46,115 +54,104 @@ describe("랜더링", () => {
           data-fx-dictionary="true"
           data-fx-list="true"
           data-test="my-data-test"
-          data-testid="Dictionary"
+          data-testid="List"
+          entry="[object Object]"
           id="my-id"
           style="font-size: 1rem;"
           tab-index="0"
         >
-          <div>
+          <div
+            data-testid="Item"
+          >
             <div
-              data-testid="Item"
+              data-testid="Key"
             >
-              <div
-                data-testid="Key"
-              >
+              keyA
+            </div>
+            <div
+              data-testid="Value"
+            >
+              ValueA
+            </div>
+          </div>
+          <div
+            data-testid="Item"
+          >
+            <div
+              data-testid="Key"
+            >
+              keyD
+            </div>
+            <div
+              data-testid="Value"
+            >
+              값: ValueD
+            </div>
+          </div>
+          <div
+            data-testid="Item"
+          >
+            <div
+              data-testid="Key"
+            >
+              키B
+            </div>
+            <div
+              data-testid="Value"
+            >
+              <em>
+                2번째 ValueB
+              </em>
+            </div>
+          </div>
+          <div
+            data-testid="Item"
+          >
+            <div
+              data-testid="Key"
+            >
+              *
+              <em>
                 keyA
-              </div>
-              <div
-                data-testid="Value"
-              >
-                ValueA
-              </div>
+              </em>
+              *
+            </div>
+            <div
+              data-testid="Value"
+            >
+              값: ValueA
             </div>
           </div>
-          <div>
+          <div
+            data-testid="Item"
+          >
             <div
-              data-testid="Item"
+              data-testid="Key"
             >
-              <div
-                data-testid="Key"
-              >
-                keyD
-              </div>
-              <div
-                data-testid="Value"
-              >
-                값: ValueD
-              </div>
+              keyD!!
+            </div>
+            <div
+              data-testid="Value"
+            >
+              값: ValueD
             </div>
           </div>
-          <div>
+          <div
+            data-testid="Item"
+          >
             <div
-              data-testid="Item"
+              data-testid="Key"
             >
-              <div
-                data-testid="Key"
-              >
-                키B
-              </div>
-              <div
-                data-testid="Value"
-              >
-                <em>
-                  2번째 ValueB
-                </em>
-              </div>
+              *
+              <em>
+                keyE
+              </em>
+              *
             </div>
-          </div>
-          <div>
             <div
-              data-testid="Item"
+              data-testid="Value"
             >
-              <div
-                data-testid="Key"
-              >
-                *
-                <em>
-                  keyA
-                </em>
-                *
-              </div>
-              <div
-                data-testid="Value"
-              >
-                값: ValueA
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              data-testid="Item"
-            >
-              <div
-                data-testid="Key"
-              >
-                keyD!!
-              </div>
-              <div
-                data-testid="Value"
-              >
-                값: ValueD
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              data-testid="Item"
-            >
-              <div
-                data-testid="Key"
-              >
-                *
-                <em>
-                  keyE
-                </em>
-                *
-              </div>
-              <div
-                data-testid="Value"
-              >
-                값: ValueE
-              </div>
+              값: ValueE
             </div>
           </div>
           Root
@@ -163,7 +160,7 @@ describe("랜더링", () => {
     `);
   });
   test("루트는 Dictionary 콜백으로 랜더링한다", () => {
-    expect(screen.getByTestId("Dictionary")).toHaveTextContent("Root");
+    expect(screen.getByTestId("List")).toHaveTextContent("Root");
   });
   test("루트는 ref 를 받아서 랜더링한다", () => {
     expect(ref.current).toHaveTextContent("Root");

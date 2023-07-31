@@ -1,5 +1,6 @@
 import { DATAFRAME } from "fxtsx/DATAFRAME/DATAFRAME";
 import type { Meta, StoryObj } from "@storybook/react";
+import type { DicData } from "fxtsx/DICTIONARY/DICTIONARY";
 
 const meta = {
   component: DATAFRAME,
@@ -24,7 +25,7 @@ export const Formatting: Story = {
     $data: [
       { a: 1, b: 2 },
       { a: 11, b: 22 },
-    ],
+    ] as DicData[],
     $itemFormat: (Dictionary: any) => (
       <a href="" data-testid={"anchor"}>
         {Dictionary}
