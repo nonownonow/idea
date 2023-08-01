@@ -5,7 +5,7 @@ import type { RootProps } from "fxtsx/fxtsx.type";
 import { Identity } from "fxtsx/Identity/Identity";
 import { identity } from "@fxts/core";
 
-export type LISTProps<T, Value> = LIST<Value> & LISTCallback<T, Value>;
+export type LISTProps<T, Value> = LIST<Value> & LISTCallback<T>;
 export interface LIST<Value> {
   //todo: ".."지우기
   /**
@@ -22,7 +22,7 @@ export interface LIST<Value> {
    */
   children?: ReactNode;
 }
-export interface LISTCallback<T, Value> {
+export interface LISTCallback<T> {
   /**
    * 리스트를 구현하는 컨포넌트
    */
