@@ -1,4 +1,4 @@
-import type { FC, ForwardedRef, ReactNode } from "react";
+import type { FC, ReactNode } from "react";
 import React from "react";
 import type { RestProps } from "fxtsx/LIST/LIST";
 import { LIST } from "fxtsx/LIST/LIST";
@@ -19,10 +19,9 @@ export interface DATAFRAMECallback<Dic extends DicData> {
   List?: FC<LIST<Dic>>;
   Dictionary?: FC<DICTIONARY<Dic>>;
 }
-export const DATAFRAME = Fxtsx(function DATAFRAME<T, Dic extends DicData>(
+export const DATAFRAME = Fxtsx(function DATAFRAME<Dic extends DicData>(
   rootProps: RootProps,
-  restProps: RestProps<DATAFRAMEProps<Dic>>,
-  ref: ForwardedRef<T>
+  restProps: RestProps<DATAFRAMEProps<Dic>>
 ) {
   const {
     $data = [],
