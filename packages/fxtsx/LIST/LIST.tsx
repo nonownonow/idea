@@ -44,7 +44,6 @@ export const LIST = Fxtsx(function LIST<T, Value>(
     List = Identity,
     Item = Identity,
     $data = [],
-    children,
     $itemFormat = identity,
     ...listProps
   } = restProps;
@@ -53,7 +52,6 @@ export const LIST = Fxtsx(function LIST<T, Value>(
       {$data.map((a, i) => (
         <Item key={i}>{$itemFormat(a, i)}</Item>
       ))}
-      {children}
     </List>
   );
 });

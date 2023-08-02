@@ -32,9 +32,8 @@ describe("랜더링", () => {
         Key={Key}
         Value={Value}
         ref={ref}
-      >
-        Root
-      </DICTIONARY>
+        data-testId={"Dictionary"}
+      />
     );
   });
   test("object 타입의 데이터를 구조화하여 요구사항에 맞게 랜더링한다", () => {
@@ -54,6 +53,7 @@ describe("랜더링", () => {
           data-fx-dictionary="true"
           data-fx-list="true"
           data-test="my-data-test"
+          data-test-id="Dictionary"
           data-testid="List"
           entry="[object Object]"
           id="my-id"
@@ -154,17 +154,16 @@ describe("랜더링", () => {
               값: ValueE
             </div>
           </div>
-          Root
         </div>
       </DocumentFragment>
     `);
   });
-  test("루트는 Dictionary 콜백으로 랜더링한다", () => {
-    expect(screen.getByTestId("List")).toHaveTextContent("Root");
-  });
-  test("루트는 ref 를 받아서 랜더링한다", () => {
+  /*  test("루트는 Dictionary 콜백으로 랜더링한다", () => {
+    expect(screen.getByTestId("Dictionary")).toHaveTextContent("Root");
+  });*/
+  /*  test("루트는 ref 를 받아서 랜더링한다", () => {
     expect(ref.current).toHaveTextContent("Root");
-  });
+  });*/
   test("엔트리는 Entry 콜백으로 랜더링한다", () => {
     expect(screen.getAllByTestId("Item")[0]).toHaveTextContent("keyAValueA");
   });

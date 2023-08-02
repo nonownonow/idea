@@ -21,8 +21,8 @@ export interface DICTIONARY<V extends DicData = {}> {
   $valueFormats?: Partial<{ [K in keyof V]: DICTIONARY["$valueFormat"] }>;
 }
 
-export interface DICTIONARYCallback<T> {
-  List?: FC<LIST<string> & { ref: Ref<T> }>;
+export interface DICTIONARYCallback<T = any> {
+  List?: FC<LIST<string> & { ref?: Ref<T> }>;
   Entry?: FC<{ children: ReactNode }>;
   Key?: FC<{ children: ReactNode }>;
   Value?: FC<{ children: ReactNode }>;

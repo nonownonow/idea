@@ -15,7 +15,6 @@ describe("순서있는 리스트 Ordered List", () => {
         <dl
           data-fx-card="true"
           data-fx-dictionary="true"
-          data-fx-dl="true"
           data-fx-list="true"
         >
           <div>

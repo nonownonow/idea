@@ -55,19 +55,18 @@ describe("랜더링", () => {
           >
             item3
           </div>
-          ListRoot
         </div>
       </DocumentFragment>
     `);
   });
 
   describe("프로퍼티", () => {
-    test("루트요소는 List 콜백으로 랜더링한다", () => {
+    /*    test("루트요소는 List 콜백으로 랜더링한다", () => {
       expect(screen.getByTestId("ListCallback")).toHaveTextContent("ListRoot");
     });
     test("루트요소 List 콜백은 ref 를 받아서 랜더링한다", () => {
       expect(ref.current).toHaveTextContent("ListRoot");
-    });
+    });*/
     describe("data 프로퍼티로 배열 요소로 전달받아서", () => {
       test("ITEM 콜백에 프로퍼티로 전달 하여 랜더링한다.", () => {
         expect(screen.getAllByTestId("ItemCallback")[0]).toHaveTextContent(

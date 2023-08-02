@@ -21,7 +21,6 @@ describe("Card List", () => {
             <dl
               data-fx-card="true"
               data-fx-dictionary="true"
-              data-fx-dl="true"
               data-fx-list="true"
             >
               <div>
@@ -54,7 +53,6 @@ describe("Card List", () => {
             <dl
               data-fx-card="true"
               data-fx-dictionary="true"
-              data-fx-dl="true"
               data-fx-list="true"
             >
               <div>
@@ -87,7 +85,6 @@ describe("Card List", () => {
             <dl
               data-fx-card="true"
               data-fx-dictionary="true"
-              data-fx-dl="true"
               data-fx-list="true"
             >
               <div>
