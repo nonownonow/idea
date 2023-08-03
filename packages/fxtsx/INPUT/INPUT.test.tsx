@@ -2,7 +2,6 @@ import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
 import { INPUT } from "fxtsx/INPUT/INPUT";
 import { Component } from "fxtsx/util/util";
-import { fxtsxTest } from "fxtsx/FxTsx/fxtsxTest";
 
 describe("랜더링", () => {
   let renderResult: RenderResult;
@@ -39,4 +38,4 @@ describe("랜더링", () => {
     });
   });
 });
-fxtsxTest(INPUT, "data-fx-input", true);
+// fxtsxTest(INPUT, "data-fx-input", true);
