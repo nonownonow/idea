@@ -42,7 +42,19 @@ declare module "react" {
     render: (props: P, ref: Ref<T>) => ReactElement | null
   ): (props: P & RefAttributes<T>) => ReactElement | null;
 }
-
+export const rootProps: RootProps = {
+  id: "my-id",
+  className: "my-class",
+  tabIndex: 0,
+  style: {
+    fontSize: "1rem",
+  },
+  "data-test": "my-data-test",
+};
+export const anyPropsWithRootProps = {
+  ...rootProps,
+  any: "my-any-props",
+};
 export function Fxtsx<T, P>(render: FXTSXRenderFunction<T, P>) {
   return forwardRef<T, P>((props, ref) => {
     const [rootProps, restProps] = separateProps(

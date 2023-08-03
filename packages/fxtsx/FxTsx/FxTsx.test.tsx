@@ -2,19 +2,9 @@ import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
 import React, { createRef } from "react";
 import type { FXTSXRenderFunction } from "./FxTsx";
-import { Fxtsx, separateProps } from "./FxTsx";
-import type { RootProps } from "../fxtsx.type";
+import { Fxtsx, rootProps, separateProps } from "./FxTsx";
 import { Component } from "fxtsx/util/util";
 
-export const rootProps: RootProps = {
-  id: "my-id",
-  className: "my-class",
-  tabIndex: 0,
-  style: {
-    fontSize: "1rem",
-  },
-  "data-test": "my-data-test",
-};
 export const anyPropsWithRootProps = {
   ...rootProps,
   any: "my-any-props",
