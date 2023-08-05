@@ -1,5 +1,5 @@
 import type { RenderResult } from "@testing-library/react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import type { FC } from "react";
 import React, { createRef } from "react";
 import type { FXTSXRenderFunction } from "./FxTsx";
@@ -108,28 +108,46 @@ export function fxtsxTest(
   separatedProps = false
 ) {
   describe("FXTSX 스펙을 따라 구현하여서", () => {
-    const RootPlaceholder = "Root";
+    let renderResult: RenderResult;
+    let rootEl: ChildNode | null;
     beforeEach(() => {
-      render(<Comp {...anyPropsWithRootProps}>{RootPlaceholder}</Comp>);
+      renderResult = render(
+        <Comp {...anyPropsWithRootProps} data-testid={"FXTSX"} />
+      );
+      rootEl = renderResult.container.firstChild;
     });
-    /*    test(`${fxtsxId} 속성을 루트요소에 전달한다.`, () => {
-      expect(screen.getByText(RootPlaceholder)).toHaveAttribute(fxtsxId);
+    /*test("렌더링", () => {
+      const { asFragment } = renderResult;
+      expect(asFragment()).toMatchInlineSnapshot(`
+        <DocumentFragment>
+          <div
+            any="my-any-props"
+            class="my-class"
+            data-fx-list="true"
+            data-test="my-data-test"
+            data-testid="FXTSX"
+            id="my-id"
+            style="font-size: 1rem;"
+            tab-index="0"
+          />
+        </DocumentFragment>
+      `);
     });*/
-    /*    test("루트프로퍼티를 루트요소에 전달한다.", () => {
-      expect(screen.getByText(RootPlaceholder)).toHaveAttribute("id", "my-id");
-    });*/
-    /*if (!separatedProps) {
+    test(`${fxtsxId} 속성을 루트요소에 전달한다.`, () => {
+      expect(screen.getByTestId("FXTSX")).toHaveAttribute(fxtsxId);
+    });
+    test("루트프로퍼티를 루트요소에 전달한다.", () => {
+      expect(rootEl).toHaveAttribute("id", "my-id");
+      expect(rootEl).toHaveAttribute("data-testid", "FXTSX");
+    });
+    if (!separatedProps) {
       test("루트프로퍼티가 아닌 프로퍼티를 루트요소에 전달한다", () => {
-        const r = screen.getByText(RootPlaceholder);
-        expect(r).toHaveAttribute("any", "my-any-props");
+        expect(rootEl).toHaveAttribute("any", "my-any-props");
       });
     } else {
       test("루트프로퍼티가 아닌 프로퍼티를 루트요소에 전달하지 않는다", () => {
-        expect(screen.getByText(RootPlaceholder)).not.toHaveAttribute(
-          "any",
-          "my-any-props"
-        );
+        expect(rootEl).not.toHaveAttribute("any", "my-any-props");
       });
-    }*/
+    }
   });
 }
