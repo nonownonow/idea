@@ -39,6 +39,7 @@ describe("랜더링", () => {
           </div>
           <div
             data-testid="Value"
+            value="v"
           >
             v
           </div>
