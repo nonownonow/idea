@@ -187,12 +187,12 @@ describe("랜더링", () => {
   test("개별 키는 keyFormats 로 포멧팅 된다.", () => {
     expect(screen.getAllByTestId("Key")[4]).toContainHTML("keyD!!");
   });
-  describe("keys 프로퍼티에 존재하지 않는 키를 추가하면", () => {
+  /*  describe("keys 프로퍼티에 존재하지 않는 키를 추가하면", () => {
     test.todo("Value 콜백은 undefined 를 랜더링한다.");
     test.todo(
       "존재하지 않는 키에대한 keyFormat 을 지정해주어서 undefined 대신 특정 키를 랜더링 해줄 수 있다. "
     );
-  });
+  });*/
   //todo: 데이터에 직접 특정 계산된 키를 지정해줄 수 있다 -> list 의 format 이용하여 object 에 직접 키:값을 추가한다.
   //todo: 데이터에는 존재하지 않아야 하지만, 랜더링에만 존재하는 키:값 이 있다면 keys 에 새로운 키를 추가하고 keyFormat, valueFormat 을 이용하여 해당 키의 키와 값을 추가한다.
   //Entry 에서는  format 된 값을 child 로 받아서 처리한다. value 에서는 format 되지 않은 값이 전달된다. 콜백 컴포넌트에서는 태그를 구현해야 하는 명세를 따라야 한다. 콜백 콤퍼넌트에서는 구조에 대한 포멧을 위해 존재한다. 예) dataFrame 에서 object 를 포메팅하는 Dictionary 를 받아서 구조를 구현하는 것은 콜백 콤퍼넌트에서 이뤄진다. 그러나  Dictionary 를 a 테그로 감싸는 것은 format 에서 이뤄진다. 즉 불변하는 포맷은 콜백 컴포넌트에서, 가변하는 포멧은 콜백 함수 format 에서 처리한다.

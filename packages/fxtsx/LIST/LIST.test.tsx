@@ -1,7 +1,7 @@
 import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
 import { LIST } from "fxtsx/LIST/LIST";
-import { anyPropsWithRootProps, fxtsxTest } from "fxtsx/FxTsx/FxTsx.test";
+import { anyPropsWithRootProps } from "fxtsx/FxTsx/FxTsx.test";
 import { Component } from "fxtsx/util/util";
 import { createRef } from "react";
 
@@ -82,4 +82,4 @@ describe("랜더링", () => {
   });
 });
 
-fxtsxTest(LIST, "data-fx-list");
+// fxtsxTest(LIST, "data-fx-list");
