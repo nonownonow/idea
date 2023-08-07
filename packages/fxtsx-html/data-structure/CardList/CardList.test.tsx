@@ -1,7 +1,7 @@
 import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
-import { CardList } from "fxtsx-html/data-view/CardList/CardList";
-import { Default } from "fxtsx-html/data-view/CardList/CardList.stories";
+import { CardList } from "fxtsx-html/data-structure/CardList/CardList";
+import { Default } from "fxtsx-html/data-structure/CardList/CardList.stories";
 
 describe("Card List", () => {
   let renderResult: RenderResult;

@@ -1,7 +1,7 @@
 import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
-import { Table } from "fxtsx-html/data-view/Table/Table";
-import { Default } from "fxtsx-html/data-view/Table/Table.stories";
+import { Table } from "fxtsx-html/data-structure/Table/Table";
+import { Default } from "fxtsx-html/data-structure/Table/Table.stories";
 
 describe("Table", () => {
   let renderResult: RenderResult;

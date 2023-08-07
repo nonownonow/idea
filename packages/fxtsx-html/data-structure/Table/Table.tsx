@@ -1,7 +1,7 @@
 import type { ForwardedRef } from "react";
 import React, { forwardRef } from "react";
 import { DATAFRAME } from "fxtsx/DATAFRAME/DATAFRAME";
-import { Tr } from "fxtsx-html/data-view/Tr/Tr";
+import { Tr } from "fxtsx-html/data-structure/Tr/Tr";
 import { LIST } from "fxtsx/LIST/LIST";
 
 export const Table = forwardRef(function Table(

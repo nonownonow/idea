@@ -25,11 +25,10 @@ describe("랜더링", () => {
     expect(asFragment()).toMatchInlineSnapshot(`
       <DocumentFragment>
         <div
+          data-fx-mode="Read"
           data-fx-value="true"
           data-testid="READ"
-        >
-          12
-        </div>
+        />
       </DocumentFragment>
     `);
   });

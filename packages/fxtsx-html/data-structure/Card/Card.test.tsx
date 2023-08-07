@@ -1,7 +1,7 @@
 import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
-import { Default } from "fxtsx-html/data-view/Card/Card.stories";
-import { Card } from "fxtsx-html/data-view/Card/Card";
+import { Default } from "fxtsx-html/data-structure/Card/Card.stories";
+import { Card } from "fxtsx-html/data-structure/Card/Card";
 
 describe("순서있는 리스트 Ordered List", () => {
   let renderResult: RenderResult;

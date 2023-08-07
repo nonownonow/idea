@@ -1,41 +1,41 @@
 import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
-import { Ol } from "fxtsx-html/data-view/Ol/Ol";
-import { Default } from "fxtsx-html/data-view/Ol/Ol.stories";
+import { Ul } from "fxtsx-html/data-structure/Ul/Ul";
+import { Default } from "fxtsx-html/data-structure/Ul/Ul.stories";
 
-describe("순서있는 리스트 Ordered List", () => {
+describe("순서없는 리스트 Unordered List", () => {
   let renderResult: RenderResult;
   beforeEach(() => {
-    renderResult = render(<Ol {...Default.args} />);
+    renderResult = render(<Ul {...Default.args} />);
   });
   test("렌더링", () => {
     const { asFragment } = renderResult;
     expect(asFragment()).toMatchInlineSnapshot(`
       <DocumentFragment>
-        <ol
+        <ul
           data-fx-list="true"
-          data-fx-ol="true"
+          data-fx-ul="true"
         >
           <li>
-            a
+            1
           </li>
           <li>
-            b
+            2
           </li>
           <li>
-            c
+            3
           </li>
-        </ol>
+        </ul>
       </DocumentFragment>
     `);
   });
   describe("배열 data 프로퍼티를 받아서", () => {
     test("루트 요소는 ul 태그로 랜더링한다", () => {
       const { container } = renderResult;
-      expect((container.firstChild as HTMLElement).tagName).toEqual("OL");
+      expect((container.firstChild as HTMLElement).tagName).toEqual("UL");
     });
     test("배열의 요소는 li 태그로 랜더링 된다.", () => {
-      expect(screen.getByText("a").tagName).toEqual("LI");
+      expect(screen.getByText("1").tagName).toEqual("LI");
     });
   });
 });

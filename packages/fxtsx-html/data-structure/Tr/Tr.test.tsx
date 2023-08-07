@@ -1,7 +1,7 @@
 import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "test-utils";
-import { Tr } from "fxtsx-html/data-view/Tr/Tr";
-import { Default } from "fxtsx-html/data-view/Tr/Tr.stories";
+import { Tr } from "fxtsx-html/data-structure/Tr/Tr";
+import { Default } from "fxtsx-html/data-structure/Tr/Tr.stories";
 
 describe("테이블 헤더 - tr List", () => {
   let renderResult: RenderResult;

@@ -38,6 +38,13 @@ export interface VALUE {
     | undefined
     | null
     | (string | number | boolean | undefined | null)[];
+  $defaultValue?:
+    | string
+    | number
+    | boolean
+    | undefined
+    | null
+    | (string | number | boolean | undefined | null)[];
   /**
    * = $value 프로퍼티
    */
@@ -52,6 +59,8 @@ export const VALUE = function VALUE(props: VALUEProps) {
     Write = Identity,
     $mode = "Read",
     $value,
+    $defaultValue,
+    children = $value || $defaultValue,
     ...valueProps
   } = props;
   const CompMap = {
@@ -59,13 +68,16 @@ export const VALUE = function VALUE(props: VALUEProps) {
     Read,
     Write,
   };
-  // return <div data-fx-value {...valueProps} />;
+
   return createElement(
     CompMap[$mode] as any,
     {
       "data-fx-value": true,
+      "data-fx-mode": $mode,
+      value: $mode === "Write" ? $value : null,
+      defaultValue: $mode === "Write" ? $defaultValue : null,
       ...valueProps,
     } as any,
-    $value
+    $mode === "Write" ? null : children
   );
 };
