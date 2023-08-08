@@ -40,7 +40,7 @@ describe("랜더링", () => {
   test("Write 모드 일 경우 루트는 input 태그로 랜더링 되고 data-fx-mode=Write 속성을 갖는다", () => {
     rerender(<P data-testid={"Root"} $mode={"Write"} />);
     const Root = screen.getByTestId("Root");
-    expect(Root.tagName).toEqual("INPUT");
+    expect(Root.tagName).toEqual("TEXTAREA");
     expect(Root).toHaveAttribute("data-fx-mode", "Write");
   });
 });
