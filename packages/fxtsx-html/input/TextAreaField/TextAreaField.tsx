@@ -10,7 +10,7 @@ export const TextAreaField = function TextAreaField(props: any) {
       {...props}
       Entry={(p) => <div {...p} />}
       Key={(p) => <label htmlFor={$key} {...p} />}
-      Value={(p) => <input id={$key} {...TextAreaField} value={$value} />}
+      Value={() => <input id={$key} {...TextAreaField} value={$value} />}
     />
   );
 };

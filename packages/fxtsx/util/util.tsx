@@ -39,3 +39,6 @@ export function Component(testId: string, description?: string) {
     );
   });
 }
+
+export const CbComponent = (testId: string) =>
+  jest.fn((p) => <div data-testid={testId} children={p.children} />);
