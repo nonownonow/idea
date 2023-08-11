@@ -1,5 +1,6 @@
 import { cssBundleHref } from "@remix-run/css-bundle";
 import type { LinksFunction } from "@remix-run/node";
+import responsiveCss from "./responsive.css";
 import {
   Links,
   LiveReload,
@@ -11,6 +12,7 @@ import {
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+  { rel: "stylesheet", href: responsiveCss },
 ];
 
 export default function App() {
