@@ -3,15 +3,19 @@ import { render, screen } from "@testing-library/react";
 import { ENTRY } from "fxtsx/ENTRY2/ENTRY";
 import { CbComponent } from "fxtsx/util/util";
 import { Default } from "fxtsx/ENTRY2/ENTRY.stories";
+import Mock = jest.Mock;
 
 describe("랜더링", () => {
   let renderResult: RenderResult;
   let rootEl: ChildNode | null;
-  const Entry = CbComponent("Entry");
-  const Key = CbComponent("Key");
-  const Value = CbComponent("Value");
+  let Entry: Mock;
+  let Key: Mock;
+  let Value: Mock;
 
   beforeEach(() => {
+    Entry = CbComponent("Entry");
+    Key = CbComponent("Key");
+    Value = CbComponent("Value");
     renderResult = render(
       <ENTRY
         data-testid={"ENTRY"}
@@ -34,10 +38,14 @@ describe("랜더링", () => {
         >
           <div
             data-testid="Key"
-          />
+          >
+            키
+          </div>
           <div
             data-testid="Value"
-          />
+          >
+            값
+          </div>
         </div>
       </DocumentFragment>
     `);
@@ -54,9 +62,9 @@ describe("랜더링", () => {
       expect(secondElement.dataset.testid).toEqual("Value");
     });
   });
-  test("$key, $value 프로퍼티를 받아서 Key 와 Value 콜백으로 랜더링한다.", () => {
-    expect(Key.mock.calls[0][0]).toHaveProperty("$key", "키");
-    expect(Value.mock.calls[0][0]).toHaveProperty("$value", "값");
+  test("$key, $value 프로퍼티를 받아서 Key 와 Value 콜백의 children 으로 랜더링한다.", () => {
+    expect(Key.mock.calls[0][0]).toHaveProperty("children", "키");
+    expect(Value.mock.calls[0][0]).toHaveProperty("children", "값");
   });
   test("Entry 콜백은 $key 프로퍼티 값을 data-key 프로퍼티로 받는다", () => {
     expect(Entry.mock.calls[0][0]).toHaveProperty("data-key", "키");
