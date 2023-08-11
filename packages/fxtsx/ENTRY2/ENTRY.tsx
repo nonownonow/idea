@@ -1,5 +1,5 @@
 import type { FC, JSX, ReactNode } from "react";
-import React, { createElement } from "react";
+import { createElement } from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import { Identity } from "fxtsx/Identity/Identity";
 import type { RootProps } from "fxtsx/fxtsx.type";

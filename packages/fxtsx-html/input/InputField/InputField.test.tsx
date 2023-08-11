@@ -5,12 +5,12 @@ import { Default } from "fxtsx-html/input/InputField/InputField.stories";
 
 describe("랜더링", () => {
   let renderResult: RenderResult;
-  let rerender: RenderResult["rerender"];
+  // let rerender: RenderResult["rerender"];
   beforeEach(() => {
     renderResult = render(
       <InputField data-testid={"InputField"} {...Default.args} />
     );
-    rerender = renderResult.rerender;
+    // rerender = renderResult.rerender;
   });
   test("스냅샷", () => {
     const { asFragment } = renderResult;
