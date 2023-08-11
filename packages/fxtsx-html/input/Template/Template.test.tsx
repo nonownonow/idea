@@ -1,17 +1,12 @@
 import type { RenderResult } from "@testing-library/react";
-import { render, screen } from "@testing-library/react";
-import { InputField } from "fxtsx-html/input/InputField/InputField";
-import { Default } from "fxtsx-html/input/InputField/InputField.stories";
-import { InputFieldTest } from "fxtsx-html/input/InputField/InputFieldTest";
+import { render } from "@testing-library/react";
+import { TextField } from "fxtsx-html/input/TextField/TextField";
+import { Default } from "fxtsx-html/input/TextField/TextField.stories";
 
 describe("랜더링", () => {
   let renderResult: RenderResult;
-  // let rerender: RenderResult["rerender"];
   beforeEach(() => {
-    renderResult = render(
-      <InputField data-testid={"InputField"} {...Default.args} />
-    );
-    // rerender = renderResult.rerender;
+    renderResult = render(<TextField {...Default.args} />);
   });
   test("스냅샷", () => {
     const { asFragment } = renderResult;
@@ -20,20 +15,19 @@ describe("랜더링", () => {
         <div
           data-fx-entry="true"
           data-key="키"
-          data-testid="InputField"
         >
           <label
             data-fx-key="true"
             for="키"
           >
-            키
+            이름
           </label>
           <div
             data-fx-value="true"
           >
             <input
-              data-testid="input"
               id="키"
+              type="text"
             />
           </div>
           <div
@@ -45,8 +39,4 @@ describe("랜더링", () => {
       </DocumentFragment>
     `);
   });
-  test("children 를 전달 받아서 div 태그로 랜더링한다", () => {
-    expect(screen.getByTestId("input").parentElement?.tagName).toEqual("DIV");
-  });
 });
-InputFieldTest(InputField);
