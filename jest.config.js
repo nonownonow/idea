@@ -4,4 +4,7 @@ module.exports = {
   setupFiles: ["./.test/jest.setup.js"],
   setupFilesAfterEnv: ["./.test/setupTests.ts"],
   moduleDirectories: ["node_modules", "utils", __dirname],
+  moduleNameMapper: {
+    "\\.(css|less|scss|sass)$": "<rootDir>/__mocks__/fileMock.ts",
+  },
 };

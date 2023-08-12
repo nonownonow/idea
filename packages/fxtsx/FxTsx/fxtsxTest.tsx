@@ -5,7 +5,7 @@
  * */
 import type { FC } from "react";
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { anyPropsWithRootProps } from "fxtsx/FxTsx/FxTsx";
 
 export function fxtsxTest(
@@ -37,5 +37,38 @@ export function fxtsxTest(
             );
           });
         }*/
+  });
+}
+
+export function fxtsxTestV2(
+  Comp: FC<any>,
+  fxtsxId: string,
+  separatedProps = false
+) {
+  describe("FXTSX 스펙을 따라 구현하여서", () => {
+    beforeEach(() => {
+      render(<Comp {...anyPropsWithRootProps} data-testid={"Root"} />);
+    });
+    test(`${fxtsxId} 속성을 루트요소에 전달한다.`, () => {
+      expect(screen.getByTestId("Root")).toHaveAttribute(fxtsxId);
+    });
+    test("루트프로퍼티를 루트요소에 전달한다.", () => {
+      expect(screen.getByTestId("Root")).toHaveAttribute("id", "my-id");
+    });
+    if (!separatedProps) {
+      test("루트프로퍼티가 아닌 프로퍼티를 루트요소에 전달한다", () => {
+        expect(screen.getByTestId("Root")).toHaveAttribute(
+          "any",
+          "my-any-props"
+        );
+      });
+    } else {
+      test("루트프로퍼티가 아닌 프로퍼티를 루트요소에 전달하지 않는다", () => {
+        expect(screen.getByTestId("Root")).not.toHaveAttribute(
+          "any",
+          "my-any-props"
+        );
+      });
+    }
   });
 }
