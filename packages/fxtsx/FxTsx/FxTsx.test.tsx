@@ -37,13 +37,13 @@ describe("FxTsx - 랜더 함수를 전달 받으면", () => {
           class="my-class"
           data-test="my-data-test"
           data-testid="$CallbackComponentWithRef"
-          id="my-id"
           style="font-size: 1rem;"
           tab-index="0"
         >
           <div
             any="my-any-props"
             data-testid="$CallbackComponent"
+            id="my-id"
           >
             children
           </div>

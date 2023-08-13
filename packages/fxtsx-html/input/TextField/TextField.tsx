@@ -1,11 +1,18 @@
+import type { ComponentPropsWithoutRef } from "react";
 import React from "react";
-import type { InputFieldProps } from "fxtsx-html/input/InputField/InputField";
 import { InputField } from "fxtsx-html/input/InputField/InputField";
 
-export const TextField = function TextField(props: InputFieldProps) {
+export type TextFieldProps = InputField &
+  Omit<ComponentPropsWithoutRef<"input">, "type">;
+export const TextField = function TextField(props: TextFieldProps) {
+  const { $key } = props;
   return (
-    <InputField data-fx-text-field {...props}>
-      <input type={"text"} id={props.$key} />
-    </InputField>
+    <InputField
+      data-fx-text-field
+      {...props}
+      Value={"input"}
+      type={"text"}
+      id={$key}
+    />
   );
 };

@@ -53,7 +53,7 @@ export function fxtsxTestV2(
       expect(screen.getByTestId("Root")).toHaveAttribute(fxtsxId);
     });
     test("루트프로퍼티를 루트요소에 전달한다.", () => {
-      expect(screen.getByTestId("Root")).toHaveAttribute("id", "my-id");
+      expect(screen.getByTestId("Root")).toHaveAttribute("style");
     });
     if (!separatedProps) {
       test("루트프로퍼티가 아닌 프로퍼티를 루트요소에 전달한다", () => {

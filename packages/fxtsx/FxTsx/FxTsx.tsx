@@ -8,7 +8,6 @@ export function separateProps<P extends Record<string, any>>(
   props: P,
   rootPropsKeys: (string | RegExp)[] = [
     "className",
-    "id",
     "tabIndex",
     "style",
     /data-.+/,

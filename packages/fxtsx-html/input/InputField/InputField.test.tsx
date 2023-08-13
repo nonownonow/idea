@@ -1,5 +1,5 @@
 import type { RenderResult } from "@testing-library/react";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { InputField } from "fxtsx-html/input/InputField/InputField";
 import { Default } from "fxtsx-html/input/InputField/InputField.stories";
 import { InputFieldTest } from "fxtsx-html/input/InputField/InputFieldTest";
@@ -28,14 +28,9 @@ describe("랜더링", () => {
           >
             키
           </label>
-          <div
+          <input
             data-fx-value="true"
-          >
-            <input
-              data-testid="input"
-              id="키"
-            />
-          </div>
+          />
           <div
             data-error="true"
           >
@@ -45,8 +40,8 @@ describe("랜더링", () => {
       </DocumentFragment>
     `);
   });
-  test("children 를 전달 받아서 div 태그로 랜더링한다", () => {
+  /*  test("children 를 전달 받아서 div 태그로 랜더링한다", () => {
     expect(screen.getByTestId("input").parentElement?.tagName).toEqual("DIV");
-  });
+  });*/
 });
 InputFieldTest(InputField);

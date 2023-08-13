@@ -28,14 +28,11 @@ describe("랜더링", () => {
           >
             이름
           </label>
-          <div
+          <input
             data-fx-value="true"
-          >
-            <input
-              id="키"
-              type="text"
-            />
-          </div>
+            id="키"
+            type="text"
+          />
           <div
             data-error="true"
           >

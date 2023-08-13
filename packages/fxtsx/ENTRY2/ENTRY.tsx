@@ -46,11 +46,14 @@ export const ENTRY = Fxtsx(function ENTRY(
       "data-fx-entry": true,
       "data-key": $key,
       ...rootProps,
-      ...entryProps,
     },
     [
       createElement(Key, { "data-fx-key": true, key: 0 }, $key),
-      createElement(Value, { "data-fx-value": true, key: 1 }, $value),
+      createElement(
+        Value,
+        { "data-fx-value": true, key: 1, ...entryProps },
+        $value
+      ),
     ]
   );
 });
