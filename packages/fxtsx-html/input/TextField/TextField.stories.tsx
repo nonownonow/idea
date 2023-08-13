@@ -13,6 +13,5 @@ export const Default: Story = {
   args: {
     $key,
     $label: "이름",
-    $error: "error",
   },
 };
