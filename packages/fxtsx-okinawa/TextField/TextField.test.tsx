@@ -1,8 +1,11 @@
 import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
-import { TextField } from "fxtsx-html/input/TextField/TextField";
-import { Default } from "fxtsx-html/input/TextField/TextField.stories";
+import { TextField } from "./TextField";
+import { Default } from "./TextField.stories";
+import { InputFieldTest } from "fxtsx-html/input/InputField/InputFieldTest";
+import { fxtsxTestV2 } from "fxtsx/FxTsx/fxtsxTest";
 
+fxtsxTestV2(TextField, "data-fx-text-field", true);
 describe("랜더링", () => {
   let renderResult: RenderResult;
   beforeEach(() => {
@@ -41,3 +44,5 @@ describe("랜더링", () => {
     `);
   });
 });
+
+InputFieldTest(TextField);
