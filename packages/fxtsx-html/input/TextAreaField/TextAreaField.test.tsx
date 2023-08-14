@@ -16,18 +16,18 @@ describe("랜더링", () => {
       <DocumentFragment>
         <div
           data-fx-entry="true"
+          data-key="k"
           data-testid="TextAreaField"
         >
           <label
-            data-key="k"
+            data-fx-key="true"
             for="k"
           >
             k
           </label>
-          <input
-            data-testid="TextAreaField"
+          <textarea
+            data-fx-value="true"
             id="k"
-            value="hello world"
           />
         </div>
       </DocumentFragment>

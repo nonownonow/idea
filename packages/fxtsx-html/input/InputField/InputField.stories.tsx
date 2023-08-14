@@ -13,7 +13,7 @@ const $key = "키";
 export const Default: Story = {
   args: {
     $key,
-    Value: "input",
+    Input: "input",
     $error: "error",
   },
 };

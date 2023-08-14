@@ -1,4 +1,4 @@
-[data-fx-text-field] {
+[data-fx='okiwana'][data-fx-text-field] {
     display: flex;
     flex-flow: column;
     row-gap: 0.5rem;

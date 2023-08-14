@@ -1,8 +1,8 @@
-import type { Meta } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import { TextField } from "./TextField";
 
 const meta = {
-  component: TextField,
+  component: (props) => <TextField data-fx={"okiwana"} {...props} />,
   tags: ["autodocs"],
 } satisfies Meta<typeof TextField>;
 export default meta;
