@@ -9,10 +9,9 @@ const meta = {
 type Story = StoryObj<typeof meta>;
 export default meta;
 
-const $key = "키";
 export const Default: Story = {
   args: {
-    $key,
+    $key: "키",
     Value: "input",
     $error: "error",
   },

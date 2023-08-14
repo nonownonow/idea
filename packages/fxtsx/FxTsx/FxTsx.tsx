@@ -54,7 +54,7 @@ export const anyPropsWithRootProps = {
   ...rootProps,
   any: "my-any-props",
 };
-export function Fxtsx<T, P>(render: FXTSXRenderFunction<T, P>) {
+export function Fxtsx<T, P = {}>(render: FXTSXRenderFunction<T, P>) {
   return forwardRef<T, P>((props, ref) => {
     const [rootProps, restProps] = separateProps(
       props as Record<string, any>

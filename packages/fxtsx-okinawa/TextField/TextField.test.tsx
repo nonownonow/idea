@@ -31,11 +31,6 @@ describe("랜더링", () => {
             id="키"
             type="text"
           />
-          <div
-            data-error="true"
-          >
-            error
-          </div>
         </div>
       </DocumentFragment>
     `);
