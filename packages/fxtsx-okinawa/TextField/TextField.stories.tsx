@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react";
-import { TextField } from "fxtsx-okinawa/TextField/TextField";
+import { TextField } from "./TextField";
 
 const meta = {
   component: TextField,
