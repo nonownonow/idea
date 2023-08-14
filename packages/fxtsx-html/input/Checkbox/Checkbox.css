@@ -1,0 +1,21 @@
+[data-fx-checkbox] {
+  position: relative;
+  > input {
+    position: absolute;
+    bottom: -0.5rem;
+    left: 25%;
+    clip: rect(0, 0, 0, 0);
+  }
+  > input + span {
+    display: flex;
+  }
+  > input + span + span {
+    display: none;
+  }
+  > input:checked + span {
+    display: none;
+  }
+  > input:checked + span + span {
+    display: flex;
+  }
+}

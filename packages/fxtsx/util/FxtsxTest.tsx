@@ -23,23 +23,6 @@ export function fxtsxTest(
       );
       rootEl = renderResult.container.firstChild;
     });
-    /*test("렌더링", () => {
-          const { asFragment } = renderResult;
-          expect(asFragment()).toMatchInlineSnapshot(`
-            <DocumentFragment>
-              <div
-                any="my-any-props"
-                class="my-class"
-                data-fx-list="true"
-                data-test="my-data-test"
-                data-testid="FXTSX"
-                id="my-id"
-                style="font-size: 1rem;"
-                tab-index="0"
-              />
-            </DocumentFragment>
-          `);
-        });*/
     test(`${fxtsxId} 속성을 루트요소에 전달한다.`, () => {
       expect(screen.getByTestId("FXTSX")).toHaveAttribute(fxtsxId);
     });
