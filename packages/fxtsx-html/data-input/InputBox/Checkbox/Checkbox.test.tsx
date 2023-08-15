@@ -46,18 +46,4 @@ describe("랜더링", () => {
       "checkbox"
     );
   });
-  describe("기능", () => {
-    /*test("🙂(언체크) 를 클릭하면 😆(체크) 로 바뀌고 다시 클릭하면 토글된다", async () => {
-      let unCheckedMark = screen.getByTestId("unCheckedMark");
-      let checkedMark = screen.getByTestId("unCheckedMark");
-      let label = screen.getByTestId("Checkbox");
-      expect(unCheckedMark).toBeVisible();
-      await userEvent.click(label);
-      expect(checkedMark).not.toBeInTheDocument();
-      expect(unCheckedMark).toBeVisible();
-      await userEvent.click(label);
-      expect(checkedMark).toBeVisible();
-      expect(unCheckedMark).toBeVisible();
-    });*/
-  });
 });
