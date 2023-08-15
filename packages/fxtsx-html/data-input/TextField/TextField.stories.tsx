@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { TextField } from "fxtsx-html/input/TextField/TextField";
+import { TextField } from "fxtsx-html/data-input/TextField/TextField";
 
 const meta = {
   component: TextField,

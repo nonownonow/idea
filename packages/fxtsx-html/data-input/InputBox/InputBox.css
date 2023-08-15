@@ -1,4 +1,4 @@
-[data-fx-checkbox] {
+[data-fx-input-box] {
   position: relative;
   > input {
     position: absolute;

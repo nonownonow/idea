@@ -1,8 +1,8 @@
 import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
-import { TextField } from "fxtsx-html/input/TextField/TextField";
-import { Default } from "fxtsx-html/input/TextField/TextField.stories";
-import { InputFieldTest } from "fxtsx-html/input/InputField/InputFieldTest";
+import { TextField } from "fxtsx-html/data-input/TextField/TextField";
+import { Default } from "fxtsx-html/data-input/TextField/TextField.stories";
+import { InputFieldTest } from "fxtsx-html/data-input/InputField/InputFieldTest";
 import { userEvent } from "@storybook/testing-library";
 
 describe("랜더링", () => {

@@ -1,3 +1,3 @@
 import "./TextField.css";
 
-export { TextField } from "fxtsx-html/input/TextField/TextField";
+export { TextField } from "fxtsx-html/data-input/TextField/TextField";

@@ -2,7 +2,7 @@ import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
 import { TextField } from "./TextField";
 import { Default } from "./TextField.stories";
-import { InputFieldTest } from "fxtsx-html/input/InputField/InputFieldTest";
+import { InputFieldTest } from "fxtsx-html/data-input/InputField/InputFieldTest";
 import { fxtsxTestV2 } from "fxtsx/FxTsx/fxtsxTest";
 
 fxtsxTestV2(TextField, "data-fx-text-field", true);

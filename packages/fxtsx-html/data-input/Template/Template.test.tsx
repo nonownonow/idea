@@ -1,7 +1,7 @@
 import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
-import { TextField } from "fxtsx-html/input/TextField/TextField";
-import { Default } from "fxtsx-html/input/TextField/TextField.stories";
+import { TextField } from "fxtsx-html/data-input/TextField/TextField";
+import { Default } from "fxtsx-html/data-input/TextField/TextField.stories";
 
 describe("랜더링", () => {
   let renderResult: RenderResult;

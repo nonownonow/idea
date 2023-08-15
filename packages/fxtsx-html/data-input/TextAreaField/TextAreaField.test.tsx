@@ -1,7 +1,7 @@
 import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
-import { TextAreaField } from "fxtsx-html/input/TextAreaField/TextAreaField";
-import { Default } from "fxtsx-html/input/TextAreaField/TextAreaField.stories";
+import { TextAreaField } from "fxtsx-html/data-input/TextAreaField/TextAreaField";
+import { Default } from "fxtsx-html/data-input/TextAreaField/TextAreaField.stories";
 
 describe("랜더링", () => {
   let renderResult: RenderResult;
@@ -23,7 +23,7 @@ describe("랜더링", () => {
             data-fx-key="true"
             for="k"
           >
-            k
+            이름
           </label>
           <textarea
             data-fx-value="true"

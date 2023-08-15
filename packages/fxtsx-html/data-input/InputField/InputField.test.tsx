@@ -1,8 +1,8 @@
 import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
-import { InputField } from "fxtsx-html/input/InputField/InputField";
-import { Default } from "fxtsx-html/input/InputField/InputField.stories";
-import { InputFieldTest } from "fxtsx-html/input/InputField/InputFieldTest";
+import { InputField } from "fxtsx-html/data-input/InputField/InputField";
+import { Default } from "fxtsx-html/data-input/InputField/InputField.stories";
+import { InputFieldTest } from "fxtsx-html/data-input/InputField/InputFieldTest";
 
 describe("랜더링", () => {
   let renderResult: RenderResult;

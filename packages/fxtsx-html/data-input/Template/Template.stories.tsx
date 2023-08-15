@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Template } from "fxtsx-html/input/Template/Template";
+import { Template } from "fxtsx-html/data-input/Template/Template";
 
 const meta = {
   component: Template,

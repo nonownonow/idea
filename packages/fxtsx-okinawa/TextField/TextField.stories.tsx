@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { TextField } from "./TextField";
 
 const meta = {
@@ -7,4 +7,4 @@ const meta = {
 } satisfies Meta<typeof TextField>;
 export default meta;
 
-export { Default } from "fxtsx-html/input/TextField/TextField.stories";
+export { Default } from "fxtsx-html/data-input/TextField/TextField.stories";

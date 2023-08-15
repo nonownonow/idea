@@ -1,29 +1,27 @@
 import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
-import { Checkbox } from "./Checkbox";
-import { fxtsxTestV2 } from "fxtsx/FxTsx/fxtsxTest";
+import { RadioBox } from "./RadioBox";
 import { userEvent } from "@storybook/testing-library";
-import { Default } from "fxtsx-html/input/Checkbox/Checkbox.stories";
+import { Default } from "fxtsx-html/data-input/InputBox/Checkbox/Checkbox.stories";
 
 describe("랜더링", () => {
   let renderResult: RenderResult;
 
   beforeEach(() => {
     renderResult = render(
-      <Checkbox data-testid={"Checkbox"} {...Default.args} />
+      <RadioBox data-testid={"RadioBox"} {...Default.args} />
     );
   });
-  fxtsxTestV2(Checkbox, "data-fx-checkbox", true);
   test("스냅샷", () => {
     const { asFragment } = renderResult;
     expect(asFragment()).toMatchInlineSnapshot(`
       <DocumentFragment>
         <label
-          data-fx-checkbox="true"
-          data-testid="Checkbox"
+          data-fx-input-box="radio"
+          data-testid="RadioBox"
         >
           <input
-            type="checkbox"
+            type="radio"
           />
           <span>
             <span
@@ -43,30 +41,21 @@ describe("랜더링", () => {
       </DocumentFragment>
     `);
   });
-  describe("구조", () => {
-    let rootEl: HTMLElement;
-    beforeEach(() => {
-      rootEl = screen.getByTestId("Checkbox");
-    });
-    test("루트는 label 태그", () => {
-      expect(rootEl.tagName).toEqual("LABEL");
-    });
-    test("루트의 첫번째 요소는 input 이다", () => {
-      expect(rootEl.children[0].tagName).toEqual("INPUT");
-    });
-    test("루트의 텍스트는 🙂다", () => {
-      expect(rootEl).toHaveTextContent("🙂");
-    });
+  test(`data-fx-input-box="checkbox" 속성을 루트요소에 전달한다.`, () => {
+    expect(screen.getByTestId("RadioBox")).toHaveAttribute(
+      "data-fx-input-box",
+      "radio"
+    );
   });
   describe("기능", () => {
-    test("🙂(언체크) 를 클릭하면 😆(체크) 로 바뀌고 다시 클릭하면 토글된다", async () => {
+    test("🙂(언체크) 를 클릭하면 😆(체크) 로 바뀌고 다시 클릭하면 토글되지 않는다", async () => {
       const unCheckedMark = screen.getByTestId("unCheckedMark");
       expect(unCheckedMark).toBeInTheDocument();
       await userEvent.click(unCheckedMark);
       const checkedMark = screen.getByTestId("checkedMark");
       expect(checkedMark).toBeInTheDocument();
-      await userEvent.click(unCheckedMark);
-      expect(unCheckedMark).toBeInTheDocument();
+      await userEvent.click(checkedMark);
+      expect(checkedMark).toBeInTheDocument();
     });
   });
 });

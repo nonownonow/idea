@@ -1,17 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { TextAreaField } from "fxtsx-html/input/TextAreaField/TextAreaField";
+import { InputField } from "fxtsx-html/data-input/InputField/InputField";
 
 const meta = {
-  component: TextAreaField,
+  component: InputField,
   tags: ["autodocs"],
-} satisfies Meta<typeof TextAreaField>;
+} satisfies Meta<typeof InputField>;
 
 type Story = StoryObj<typeof meta>;
 export default meta;
 
 export const Default: Story = {
   args: {
-    $key: "k",
-    $label: "이름",
+    Input: "input",
+    $key: "키",
+    $error: "error",
   },
 };
