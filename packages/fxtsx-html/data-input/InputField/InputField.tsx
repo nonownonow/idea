@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef, FC } from "react";
 import React from "react";
-import type { ElementNames } from "fxtsx/ENTRY2/ENTRY";
-import { ENTRY } from "fxtsx/ENTRY2/ENTRY";
+import type { ElementNames } from "fxtsx/ENTRY/ENTRY";
+import { ENTRY } from "fxtsx/ENTRY/ENTRY";
 import { htmlChildren } from "fxtsx/util/util";
 
 export type InputFieldProps = InputField & InputFieldCallback;
