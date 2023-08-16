@@ -6,7 +6,7 @@ import { Identity } from "fxtsx/Identity/Identity";
 import { identity } from "@fxts/core";
 import type { ElementNames } from "fxtsx/ENTRY/ENTRY";
 
-export type LISTProps<T, Value> = LIST<Value> & LISTCallback<T>;
+export type LISTProps<Value> = LIST<Value> & LISTCallback;
 export interface LIST<Value> {
   /**
    * 배열
@@ -36,7 +36,7 @@ export interface LISTCallback {
 export type RestProps<P> = Omit<P, keyof RootProps>;
 export const LIST = Fxtsx(function LIST<T, Value>(
   rootProps: RootProps,
-  restProps: RestProps<LISTProps<T, Value>>,
+  restProps: RestProps<LISTProps<Value>>,
   ref: ForwardedRef<T>
 ) {
   const {
