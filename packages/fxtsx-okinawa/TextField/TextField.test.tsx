@@ -3,9 +3,9 @@ import { render } from "@testing-library/react";
 import { TextField } from "./TextField";
 import { Default } from "./TextField.stories";
 import { InputFieldTest } from "fxtsx-html/data-input/InputField/InputFieldTest";
-import { fxtsxTestV2 } from "fxtsx/FxTsx/fxtsxTest";
+import { fxtsxTest } from "fxtsx/FxTsx/fxtsxTest";
 
-fxtsxTestV2(TextField, "data-fx-text-field", true);
+fxtsxTest(TextField, "data-fx-text-field", true);
 describe("랜더링", () => {
   let renderResult: RenderResult;
   beforeEach(() => {

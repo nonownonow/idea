@@ -1,10 +1,10 @@
-import { fxtsxTestV2 } from "fxtsx/FxTsx/fxtsxTest";
+import { fxtsxTest } from "fxtsx/FxTsx/fxtsxTest";
 import { InputBox } from "fxtsx-html/data-input/InputBox/InputBox";
 import { render, screen } from "@testing-library/react";
 import { Default } from "fxtsx-html/data-input/InputBox/InputBox.stories";
 
 describe("렌더링", () => {
-  fxtsxTestV2(InputBox, "data-fx-input-box", true);
+  fxtsxTest(InputBox, "data-fx-input-box", true);
   describe("구조", () => {
     let rootEl: HTMLElement;
     beforeEach(() => {

@@ -8,7 +8,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { anyPropsWithRootProps } from "fxtsx/FxTsx/FxTsx";
 
-export function fxtsxTestV2(
+export function fxtsxTest(
   Comp: FC<any>,
   fxtsxId: string,
   separatedProps = false

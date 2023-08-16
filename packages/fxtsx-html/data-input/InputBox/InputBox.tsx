@@ -5,15 +5,15 @@ import "./InputBox.css";
 
 export type InputBoxProps = InputBox;
 export type InputBox = {
-  $unCheckedMark: ReactNode;
-  $checkedMark: ReactNode;
+  $unCheckedMark?: ReactNode;
+  $checkedMark?: ReactNode;
   $type: "checkbox" | "radio";
 } & Omit<ComponentPropsWithoutRef<"input">, "type">;
 export const InputBox = Fxtsx<HTMLInputElement, InputBoxProps>(
   function InputBox(rootProps, restProps, ref) {
     const {
-      $checkedMark,
-      $unCheckedMark,
+      $checkedMark = "[V]",
+      $unCheckedMark = "[ ]",
       $type = "checkbox",
       ...checkboxProps
     } = restProps;
