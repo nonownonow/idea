@@ -1,0 +1,10 @@
+[data-fx-dropdown] {
+  display: flex;
+  flex-flow: column;
+  & > [data-fx-ul] {
+    display: none;
+  }
+  &[data-open] [data-fx-ul] {
+    display: initial;
+  }
+}
