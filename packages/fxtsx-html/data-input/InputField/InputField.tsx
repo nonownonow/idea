@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef, FC } from "react";
+import type { ComponentPropsWithoutRef, FC, ReactNode } from "react";
 import React from "react";
 import type { ElementNames } from "fxtsx/ENTRY/ENTRY";
 import { ENTRY } from "fxtsx/ENTRY/ENTRY";
@@ -8,16 +8,17 @@ export type InputFieldProps = InputField & InputFieldCallback;
 
 export type InputField = Omit<ENTRY, "$value"> & {
   $error?: string;
-  $label?: string;
+  $label?: ReactNode;
 } & ComponentPropsWithoutRef<"input">;
 
 export type InputFieldCallback = {
   Input: ElementNames | FC<any>;
 };
 export const InputField = function InputField(props: InputFieldProps) {
-  const { Input, $error, $label, children, ...restProps } = props;
+  const { Input, $error, $label, $key, id = $key, ...restProps } = props;
   return (
     <ENTRY
+      data-fx-input-field
       Entry={(entryProps) => (
         <div {...entryProps}>
           {entryProps.children}
@@ -29,6 +30,8 @@ export const InputField = function InputField(props: InputFieldProps) {
       )}
       Value={Input}
       $value={null}
+      $key={$key}
+      id={id}
       {...restProps}
     />
   );

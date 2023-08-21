@@ -1,4 +1,4 @@
-import type { FC, JSX, ReactNode } from "react";
+import type { ComponentPropsWithoutRef, FC, JSX, ReactNode } from "react";
 import { createElement } from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import { Identity } from "fxtsx/Identity/Identity";
@@ -18,7 +18,7 @@ export type DataAttributes = {
   [K in string]: K extends IsDataAttribute<K> ? boolean : never;
 };*/
 
-export interface ENTRY {
+export interface ENTRY extends ComponentPropsWithoutRef<"div"> {
   $key: string;
   $value?: ReactNode;
   children?: ReactNode;
@@ -29,7 +29,7 @@ export interface ENTRYCallback {
   Value?: ElementNames | FC<any>;
 }
 export const ENTRY = Fxtsx(function ENTRY(
-  rootProps: RootProps,
+  { children, ...rootProps }: RootProps,
   restProps: RestProps<ENTNRYProps>
 ) {
   const {
@@ -54,6 +54,7 @@ export const ENTRY = Fxtsx(function ENTRY(
         { "data-fx-value": true, key: 1, ...entryProps },
         $value
       ),
+      children,
     ]
   );
 });

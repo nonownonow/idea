@@ -3,6 +3,7 @@ import type {
   CSSProperties,
   ForwardRefExoticComponent,
   PropsWithoutRef,
+  ReactNode,
   RefAttributes,
 } from "react";
 import type { HEADINGCallback } from "fxtsx/HEADING/HEADING";
@@ -14,6 +15,7 @@ export interface RootProps {
   className?: string;
   tabIndex?: number;
   style?: CSSProperties;
+  children?: ReactNode;
   [k: `data-${string}`]: string;
 }
 

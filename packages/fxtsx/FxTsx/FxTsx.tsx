@@ -10,6 +10,7 @@ export function separateProps<P extends Record<string, any>>(
     "className",
     "tabIndex",
     "style",
+    "children",
     /data-.+/,
   ]
 ) {

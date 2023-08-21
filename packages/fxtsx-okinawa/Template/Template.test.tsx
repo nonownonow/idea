@@ -14,6 +14,7 @@ describe("랜더링", () => {
       <DocumentFragment>
         <div
           data-fx-entry="true"
+          data-fx-input-field="true"
           data-fx-text-field="true"
           data-key="키"
         >

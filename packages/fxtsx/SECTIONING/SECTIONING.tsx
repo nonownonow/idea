@@ -40,7 +40,7 @@ const MockHeading = Component("$Heading");
  * 섹션(section) 태그와 대응하는 컴포넌트 구현을 위한 인터페이스
  * */
 export const SECTIONING = Fxtsx<HTMLElement, SECTIONINGProps>(
-  (rootProps, restProps, ref) => {
+  ({ children, ...rootProps }, restProps, ref) => {
     const {
       Sectioning = MockSectioning,
       Heading = MockHeading,
@@ -48,7 +48,6 @@ export const SECTIONING = Fxtsx<HTMLElement, SECTIONINGProps>(
       $level,
       $subTitle,
       $lowerContents,
-      children,
       $contents,
       ...sectionProps
     } = restProps;

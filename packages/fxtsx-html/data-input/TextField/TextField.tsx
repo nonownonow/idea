@@ -13,6 +13,6 @@ export const TextField = function TextField(props: TextFieldProps) {
       Input={"input"}
       type={"text"}
       id={$key}
-    />
+    ></InputField>
   );
 };

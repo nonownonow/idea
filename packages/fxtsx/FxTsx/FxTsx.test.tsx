@@ -44,9 +44,7 @@ describe("FxTsx - 랜더 함수를 전달 받으면", () => {
             any="my-any-props"
             data-testid="$CallbackComponent"
             id="my-id"
-          >
-            children
-          </div>
+          />
         </div>
       </DocumentFragment>
     `);

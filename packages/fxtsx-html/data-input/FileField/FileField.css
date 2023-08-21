@@ -1,0 +1,13 @@
+[data-fx-file-field] {
+  display: flex;
+  & > input {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    right: 0;
+    left: 0;
+  }
+  & > [data-fx-ol] {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
