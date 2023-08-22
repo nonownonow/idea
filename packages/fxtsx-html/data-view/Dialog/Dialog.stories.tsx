@@ -1,6 +1,6 @@
 import { expect } from "@storybook/jest";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Dialog } from "fxtsx-html/Dialog/Dialog";
+import { Dialog } from "fxtsx-html/data-view/Dialog/Dialog";
 import { userEvent, within } from "@storybook/testing-library";
 import { useRef } from "react";
 

@@ -1,7 +1,7 @@
 import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
 import { Dialog } from "./Dialog";
-import { Default } from "fxtsx-html/Dialog/Dialog.stories";
+import { Default } from "fxtsx-html/data-view/Dialog/Dialog.stories";
 import { fxtsxTest } from "fxtsx/FxTsx/fxtsxTest";
 
 describe("랜더링", () => {
