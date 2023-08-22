@@ -7,7 +7,7 @@ export type InputBoxProps = InputBox;
 export type InputBox = {
   $unCheckedMark?: ReactNode;
   $checkedMark?: ReactNode;
-  $type: "checkbox" | "radio";
+  $type?: "checkbox" | "radio";
 } & Omit<ComponentPropsWithoutRef<"input">, "type">;
 export const InputBox = Fxtsx<HTMLInputElement, InputBoxProps>(
   function InputBox(rootProps, restProps, ref) {

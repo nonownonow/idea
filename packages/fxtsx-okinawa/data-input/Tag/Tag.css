@@ -1,0 +1,15 @@
+[data-fx-tag] {
+  display: inline-block;
+  padding: 0.7rem var(--gap-normal) 0.5rem;
+  border-radius: 1.8rem;
+  background-color: #f8f8f8;
+  color: #777;
+
+  [data-fx-input-box] {
+    display: none;
+  }
+}
+[data-fx-tag]:has(:checked) {
+  background-color: black;
+  color: white;
+}

@@ -6,10 +6,13 @@ import { htmlChildren } from "fxtsx/util/util";
 
 export type InputFieldProps = InputField & InputFieldCallback;
 
-export type InputField = Omit<ENTRY, "$value"> & {
+export type InputField<Input = ComponentPropsWithoutRef<"input">> = Omit<
+  ENTRY,
+  "$value"
+> & {
   $error?: string;
   $label?: ReactNode;
-} & ComponentPropsWithoutRef<"input">;
+} & Input;
 
 export type InputFieldCallback = {
   Input: ElementNames | FC<any>;
@@ -26,7 +29,12 @@ export const InputField = function InputField(props: InputFieldProps) {
         </div>
       )}
       Key={({ children: key, ...p }) => (
-        <label {...p} htmlFor={key} {...htmlChildren($label || key)} />
+        <label
+          data-fx-label
+          {...p}
+          htmlFor={key}
+          {...htmlChildren($label || key)}
+        />
       )}
       Value={Input}
       $value={null}

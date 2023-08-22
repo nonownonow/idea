@@ -22,6 +22,7 @@ describe("랜더링", () => {
         >
           <label
             data-fx-key="true"
+            data-fx-label="true"
             for="k"
           >
             이름

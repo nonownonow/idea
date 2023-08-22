@@ -26,6 +26,7 @@ describe("렌더링", () => {
         >
           <label
             data-fx-key="true"
+            data-fx-label="true"
             for="키"
           >
             <img
