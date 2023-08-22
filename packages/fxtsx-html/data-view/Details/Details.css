@@ -1,0 +1,113 @@
+[data-fx-details] {
+  > summary {
+    display: flex;
+    align-items: center;
+    column-gap: 0.2rem;
+    line-height: 1;
+    cursor: pointer;
+    position: relative;
+    & ~ span {
+      font-size: 1.2rem;
+      font-weight: normal;
+      color: #333;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      padding-left: 0.2rem;
+    }
+  }
+  [data-details-open-mark] {
+    display: inline-block;
+  }
+  [data-details-close-mark] {
+    display: none;
+  }
+}
+
+[data-fx-details][open] {
+  [data-details-open-mark] {
+    display: none;
+  }
+  [data-details-close-mark] {
+    display: inline-block;
+  }
+}
+/*
+[data-mp-details] {
+//font-size: var(--medium-down);
+
+    [data-details-summary] {
+    //font-size: var(--medium);
+    //font-weight: lighter;
+        cursor: pointer;
+        position: relative;
+    //width: 100%;
+    //display: flex;
+    //align-items: center;
+    //gap: 0.2rem;
+    //display: inline;
+        display: flex;
+        align-items: center;
+        column-gap: 0.2rem;
+        line-height: 1;
+
+        [data-details-summary-content] {
+            font-size: 1.2rem;
+            font-weight: normal;
+            color: #333;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            padding-left: 0.2rem;
+        }
+    //font-weight: bold;
+        &::-webkit-details-marker,
+        &::marker {
+            display: none;
+        }
+
+        span[data-icon] {
+            position: relative;
+            margin-left: 0.2rem;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+            line-height: 1;
+            @media (min-width: 1108px) {
+                font-size: 1.4rem;
+            }
+        }
+        span[data-icon='plus'] {
+            display: inline-block;
+        }
+        span[data-icon='minus'] {
+            display: none;
+        }
+    }
+    [data-details-children] {
+        margin-top: 1rem;
+        font-size: var(--medium);
+        font-weight: 500;
+    }
+}
+[data-mp-details][open] {
+    span[data-icon] {
+        position: relative;
+    }
+    span[data-icon='plus'] {
+        display: none;
+    }
+    span[data-icon='minus'] {
+        display: inline-block;
+    }
+}
+
+@media (min-width: 1108px) {
+    [data-mp-details] {
+        [data-details-summary] [data-details-summary-content] {
+            font-size: 1.6rem;
+        }
+    }
+}
+*/
