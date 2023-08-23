@@ -1,6 +1,6 @@
 import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
-import { Button } from "fxtsx-html/data/button/Button";
+import { Button } from "fxtsx-html/data/Button/Button";
 import { Default, WithUrl } from "./Button.stories";
 
 describe("랜더링", () => {
