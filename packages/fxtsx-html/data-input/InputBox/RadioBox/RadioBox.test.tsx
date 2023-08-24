@@ -16,27 +16,30 @@ describe("랜더링", () => {
     const { asFragment } = renderResult;
     expect(asFragment()).toMatchInlineSnapshot(`
       <DocumentFragment>
-        <label
-          data-fx-input-box="radio"
-          data-testid="RadioBox"
-        >
-          <input
-            type="radio"
-          />
-          <span>
-            <span
-              data-testid="unCheckedMark"
-            >
-              🙂
+        <label>
+          <label
+            data-fx-input-box="radio"
+            data-testid="RadioBox"
+          >
+            <input
+              type="radio"
+              value=""
+            />
+            <span>
+              <span
+                data-testid="unCheckedMark"
+              >
+                🙂
+              </span>
             </span>
-          </span>
-          <span>
-            <span
-              data-testid="checkedMark"
-            >
-              😆
+            <span>
+              <span
+                data-testid="checkedMark"
+              >
+                😆
+              </span>
             </span>
-          </span>
+          </label>
         </label>
       </DocumentFragment>
     `);

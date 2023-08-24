@@ -11,6 +11,8 @@ export default meta;
 
 export const Default: Story = {
   args: {
-    $data: ["a", "b", "c"],
+    /*    $data: { a: "a", b: "b", c: "c" },
+    $key: "testKey",
+    $valueFormats: { a: "에이", b: "비", c: "씨" },*/
   },
 };

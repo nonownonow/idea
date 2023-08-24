@@ -7,7 +7,7 @@ import { identity } from "@fxts/core";
 import type { ElementNames } from "fxtsx/ENTRY/ENTRY";
 
 export type LISTProps<Value> = LIST<Value> & LISTCallback;
-export interface LIST<Value> {
+export interface LIST<Value = unknown> {
   /**
    * 배열
    */

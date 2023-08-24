@@ -156,9 +156,14 @@ export const rank = {
   ETC: "기타",
 };
 
-export const partnerType = {
+/*export const partnerType = {
   SUPPLY: "공급파트너",
   PRODUCE: "제작파트너",
+} as const;*/
+
+export const partnerType = {
+  supply: "SUPPLY",
+  produce: "PRODUCE",
 } as const;
 
 export type Rank = typeof rank;

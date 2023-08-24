@@ -34,9 +34,14 @@ describe("Article 랜더링", () => {
         <article
           data-fx-sectioning="true"
         >
-          <h1>
-            myTitle
-          </h1>
+          <hgroup
+            data-fx-heading="true"
+          >
+            <h1>
+              myTitle
+            </h1>
+            해딩의 보조 내용
+          </hgroup>
           <div
             data-fx-sectioning-contents="true"
           >
@@ -54,9 +59,14 @@ describe("Article 랜더링", () => {
         <article
           data-fx-sectioning="true"
         >
-          <h1>
-            myTitle
-          </h1>
+          <hgroup
+            data-fx-heading="true"
+          >
+            <h1>
+              myTitle
+            </h1>
+            해딩의 보조 내용
+          </hgroup>
           <div
             data-fx-sectioning-contents="true"
           >

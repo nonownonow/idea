@@ -3,7 +3,7 @@ import { createElement } from "react";
 
 export type ButtonProps =
   | {
-      $label: ReactNode;
+      $label?: ReactNode;
       $url?: string;
     } & (ComponentPropsWithoutRef<"button"> | ComponentPropsWithoutRef<"a">);
 

@@ -12,5 +12,7 @@ export const Default: Story = {
     $unCheckedMark: <span data-testid={"unCheckedMark"}>[ ]</span>,
     $checkedMark: <span data-testid={"checkedMark"}>[✔]</span>,
     $type: "checkbox",
+    $label: "여자",
+    value: "women",
   },
 };

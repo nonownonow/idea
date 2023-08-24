@@ -8,6 +8,7 @@ export type InputBox = {
   $unCheckedMark?: ReactNode;
   $checkedMark?: ReactNode;
   $type?: "checkbox" | "radio";
+  $label?: ReactNode;
 } & Omit<ComponentPropsWithoutRef<"input">, "type">;
 export const InputBox = Fxtsx<HTMLInputElement, InputBoxProps>(
   function InputBox(rootProps, restProps, ref) {
@@ -15,13 +16,18 @@ export const InputBox = Fxtsx<HTMLInputElement, InputBoxProps>(
       $checkedMark = "[V]",
       $unCheckedMark = "[ ]",
       $type = "checkbox",
+      value,
+      $label = value,
       ...checkboxProps
     } = restProps;
     return (
-      <label data-fx-input-box={$type} {...rootProps}>
-        <input type={$type} {...checkboxProps} ref={ref} />
-        <span>{$unCheckedMark}</span>
-        <span>{$checkedMark}</span>
+      <label>
+        {$label}
+        <label data-fx-input-box={$type} {...rootProps}>
+          <input type={$type} value={value} {...checkboxProps} ref={ref} />
+          <span>{$unCheckedMark}</span>
+          <span>{$checkedMark}</span>
+        </label>
       </label>
     );
   }

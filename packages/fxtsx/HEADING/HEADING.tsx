@@ -14,7 +14,7 @@ export interface HEADING {
   /**
    * 제목의 레벨
    */
-  $level: 1 | 2 | 3 | 4 | 5 | 6;
+  $level: number;
   /**
    * 부제목
    */
@@ -56,7 +56,7 @@ export const HEADING = Fxtsx<HTMLHeadingElement, HEADINGProps>(function (
     $subTitle = rootProps.children,
     ...headingProps
   } = restProps;
-  return rootProps.children ? (
+  return $subTitle ? (
     <HeadlineGroup data-fx-heading {...rootProps}>
       <Headline {...headingProps} ref={ref} />
       {$subTitle}
