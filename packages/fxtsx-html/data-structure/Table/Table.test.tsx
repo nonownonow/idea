@@ -22,14 +22,20 @@ describe("Table", () => {
               data-fx-list="true"
               data-fx-tr="true"
             >
-              <th>
-                1
+              <th
+                data-fx-key="true"
+              >
+                a
               </th>
-              <th>
-                2
+              <th
+                data-fx-key="true"
+              >
+                b
               </th>
-              <th>
-                3
+              <th
+                data-fx-key="true"
+              >
+                c
               </th>
             </tr>
           </thead>
@@ -39,13 +45,19 @@ describe("Table", () => {
               data-fx-list="true"
               data-fx-tr="true"
             >
-              <td>
+              <td
+                data-fx-value="true"
+              >
                 1
               </td>
-              <td>
+              <td
+                data-fx-value="true"
+              >
                 2
               </td>
-              <td>
+              <td
+                data-fx-value="true"
+              >
                 3
               </td>
             </tr>
@@ -54,13 +66,19 @@ describe("Table", () => {
               data-fx-list="true"
               data-fx-tr="true"
             >
-              <td>
+              <td
+                data-fx-value="true"
+              >
                 11
               </td>
-              <td>
+              <td
+                data-fx-value="true"
+              >
                 22
               </td>
-              <td>
+              <td
+                data-fx-value="true"
+              >
                 33
               </td>
             </tr>
@@ -69,13 +87,19 @@ describe("Table", () => {
               data-fx-list="true"
               data-fx-tr="true"
             >
-              <td>
+              <td
+                data-fx-value="true"
+              >
                 111
               </td>
-              <td>
+              <td
+                data-fx-value="true"
+              >
                 222
               </td>
-              <td>
+              <td
+                data-fx-value="true"
+              >
                 333
               </td>
             </tr>

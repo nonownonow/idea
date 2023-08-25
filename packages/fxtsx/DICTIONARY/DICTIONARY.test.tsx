@@ -6,6 +6,7 @@ import { Component } from "fxtsx/util/util";
 import { createRef, forwardRef } from "react";
 import { Default } from "fxtsx/DICTIONARY/DICTIONARY.stories";
 import { LIST } from "fxtsx/LIST/LIST";
+import { ENTRY } from "fxtsx/ENTRY/ENTRY";
 
 describe("랜더링", () => {
   let renderResult: RenderResult;
@@ -17,9 +18,9 @@ describe("랜더링", () => {
       ref={ref}
     />
   ));
-  const Entry = Component("Item");
-  const Key = Component("Key");
-  const Value = Component("Value");
+  const Entry = (props: ENTRY) => (
+    <ENTRY Key={Component("Key")} Value={Component("Value")} {...props} />
+  );
   const ref = createRef();
   const { $data } = Default.args;
   beforeEach(() => {
@@ -29,8 +30,6 @@ describe("랜더링", () => {
         {...Default.args}
         List={List}
         Entry={Entry}
-        Key={Key}
-        Value={Value}
         ref={ref}
         data-testId={"Dictionary"}
       />
@@ -38,13 +37,7 @@ describe("랜더링", () => {
   });
   test("object 타입의 데이터를 구조화하여 요구사항에 맞게 랜더링한다", () => {
     const { asFragment } = renderResult;
-    /*    expect(asFragment()).toMatchInlineSnapshot(`
-      <DocumentFragment>
-        <div>
-          dic
-        </div>
-      </DocumentFragment>
-    `);*/
+
     expect(asFragment()).toMatchInlineSnapshot(`
       <DocumentFragment>
         <div
@@ -55,7 +48,6 @@ describe("랜더링", () => {
           data-test="my-data-test"
           data-test-id="Dictionary"
           data-testid="List"
-          entry="[object Object]"
           id="my-id"
           style="font-size: 1rem;"
           tab-index="0"
@@ -64,94 +56,136 @@ describe("랜더링", () => {
             data-testid="Item"
           >
             <div
-              data-testid="Key"
+              data-fx-entry="true"
+              data-key="keyA"
             >
-              keyA
-            </div>
-            <div
-              data-testid="Value"
-            >
-              ValueA
-            </div>
-          </div>
-          <div
-            data-testid="Item"
-          >
-            <div
-              data-testid="Key"
-            >
-              keyD
-            </div>
-            <div
-              data-testid="Value"
-            >
-              값: ValueD
-            </div>
-          </div>
-          <div
-            data-testid="Item"
-          >
-            <div
-              data-testid="Key"
-            >
-              키B
-            </div>
-            <div
-              data-testid="Value"
-            >
-              <em>
-                2번째 ValueB
-              </em>
-            </div>
-          </div>
-          <div
-            data-testid="Item"
-          >
-            <div
-              data-testid="Key"
-            >
-              *
-              <em>
+              <div
+                data-fx-key="true"
+                data-testid="Key"
+              >
                 keyA
-              </em>
-              *
-            </div>
-            <div
-              data-testid="Value"
-            >
-              값: ValueA
-            </div>
-          </div>
-          <div
-            data-testid="Item"
-          >
-            <div
-              data-testid="Key"
-            >
-              keyD!!
-            </div>
-            <div
-              data-testid="Value"
-            >
-              값: ValueD
+              </div>
+              <div
+                data-fx-value="true"
+                data-testid="Value"
+              >
+                ValueA
+              </div>
             </div>
           </div>
           <div
             data-testid="Item"
           >
             <div
-              data-testid="Key"
+              data-fx-entry="true"
+              data-key="keyD"
             >
-              *
-              <em>
-                keyE
-              </em>
-              *
+              <div
+                data-fx-key="true"
+                data-testid="Key"
+              >
+                keyD
+              </div>
+              <div
+                data-fx-value="true"
+                data-testid="Value"
+              >
+                값: ValueD
+              </div>
             </div>
+          </div>
+          <div
+            data-testid="Item"
+          >
             <div
-              data-testid="Value"
+              data-fx-entry="true"
+              data-key="키B"
             >
-              값: ValueE
+              <div
+                data-fx-key="true"
+                data-testid="Key"
+              >
+                키B
+              </div>
+              <div
+                data-fx-value="true"
+                data-testid="Value"
+              >
+                <em>
+                  2번째 ValueB
+                </em>
+              </div>
+            </div>
+          </div>
+          <div
+            data-testid="Item"
+          >
+            <div
+              data-fx-entry="true"
+              data-key="[object Object]"
+            >
+              <div
+                data-fx-key="true"
+                data-testid="Key"
+              >
+                *
+                <em>
+                  keyA
+                </em>
+                *
+              </div>
+              <div
+                data-fx-value="true"
+                data-testid="Value"
+              >
+                값: ValueA
+              </div>
+            </div>
+          </div>
+          <div
+            data-testid="Item"
+          >
+            <div
+              data-fx-entry="true"
+              data-key="[object Object]"
+            >
+              <div
+                data-fx-key="true"
+                data-testid="Key"
+              >
+                keyD!!
+              </div>
+              <div
+                data-fx-value="true"
+                data-testid="Value"
+              >
+                값: ValueD
+              </div>
+            </div>
+          </div>
+          <div
+            data-testid="Item"
+          >
+            <div
+              data-fx-entry="true"
+              data-key="[object Object]"
+            >
+              <div
+                data-fx-key="true"
+                data-testid="Key"
+              >
+                *
+                <em>
+                  keyE
+                </em>
+                *
+              </div>
+              <div
+                data-fx-value="true"
+                data-testid="Value"
+              >
+                값: ValueE
+              </div>
             </div>
           </div>
         </div>

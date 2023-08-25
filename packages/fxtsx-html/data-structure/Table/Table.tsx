@@ -12,17 +12,6 @@ export const Table = forwardRef(function Table(
   return (
     <DATAFRAME
       data-fx-table
-      /*      List={(p) => {
-        const { children, ...restP } = p;
-        return (
-          <table {...restP}>
-            <thead>
-              <Tr $data={$data[0]} isHeader={true} />
-            </thead>
-            <tbody>{children}</tbody>
-          </table>
-        );
-      }}*/
       List={(props) => (
         <LIST
           {...props}

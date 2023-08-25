@@ -6,7 +6,7 @@ import { Default, WithUrl } from "./Button.stories";
 describe("랜더링", () => {
   let renderResult: RenderResult;
   beforeEach(() => {
-    renderResult = render(<Button data-testId={"Button"} {...Default.args} />);
+    renderResult = render(<Button data-testid={"Button"} {...Default.args} />);
   });
   test("스냅샷", () => {
     const { asFragment } = renderResult;
@@ -27,7 +27,7 @@ describe("랜더링", () => {
   describe("$url 이 있으면", () => {
     test("Button 은 a 태그로 렌더링 된다", () => {
       const { rerender } = renderResult;
-      rerender(<Button data-testId={"Button"} {...WithUrl.args} />);
+      rerender(<Button data-testid={"Button"} {...WithUrl.args} />);
       expect(screen.getByTestId("Button").tagName).toEqual("A");
     });
   });

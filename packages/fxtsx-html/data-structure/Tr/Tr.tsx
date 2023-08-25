@@ -2,6 +2,7 @@ import type { ForwardedRef } from "react";
 import React, { forwardRef } from "react";
 import { DICTIONARY } from "fxtsx/DICTIONARY/DICTIONARY";
 import { LIST } from "fxtsx/LIST/LIST";
+import { ENTRY } from "fxtsx/ENTRY/ENTRY";
 
 export type TrProps = DICTIONARY & { isHeader?: boolean };
 export const Tr = forwardRef(function Tr(
@@ -20,8 +21,14 @@ export const Tr = forwardRef(function Tr(
           Item={(p) => <>{p.children}</>}
         />
       )}
-      Key={(p) => null}
-      Value={(p) => (isHeader ? <th {...p} /> : <td {...p} />)}
+      Entry={(props) => (
+        <ENTRY
+          Entry={(p) => <>{p.children}</>}
+          Key={isHeader ? "th" : () => null}
+          Value={isHeader ? () => null : "td"}
+          {...props}
+        />
+      )}
     />
   );
 });

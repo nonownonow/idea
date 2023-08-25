@@ -30,3 +30,5 @@ export type WithoutCallback<T> = Pick<
     [K in keyof T]: K extends `$${string}` & "children" ? K : never;
   }[keyof T]
 >;
+
+export type Dataset = { [key: `data-${string}`]: boolean };

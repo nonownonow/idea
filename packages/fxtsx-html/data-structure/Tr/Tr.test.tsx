@@ -33,13 +33,19 @@ describe("테이블 헤더 - tr List", () => {
               data-fx-list="true"
               data-fx-tr="true"
             >
-              <td>
+              <td
+                data-fx-value="true"
+              >
                 1
               </td>
-              <td>
+              <td
+                data-fx-value="true"
+              >
                 2
               </td>
-              <td>
+              <td
+                data-fx-value="true"
+              >
                 3
               </td>
             </tr>

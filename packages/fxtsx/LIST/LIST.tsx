@@ -1,13 +1,14 @@
 import type { FC, ForwardedRef, ReactNode } from "react";
 import { createElement } from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
-import type { RootProps } from "fxtsx/fxtsx.type";
+import type { Dataset, RootProps } from "fxtsx/fxtsx.type";
 import { Identity } from "fxtsx/Identity/Identity";
 import { identity } from "@fxts/core";
 import type { ElementNames } from "fxtsx/ENTRY/ENTRY";
 
 export type LISTProps<Value> = LIST<Value> & LISTCallback;
-export interface LIST<Value = unknown> {
+
+export interface LIST<Value = unknown> extends Dataset {
   /**
    * 배열
    */

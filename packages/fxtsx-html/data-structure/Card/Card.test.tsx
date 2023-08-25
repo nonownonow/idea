@@ -17,27 +17,48 @@ describe("순서있는 리스트 Ordered List", () => {
           data-fx-dictionary="true"
           data-fx-list="true"
         >
-          <div>
-            <dt>
+          <div
+            data-fx-entry="true"
+            data-key="a"
+          >
+            <dt
+              data-fx-key="true"
+            >
               a
             </dt>
-            <dd>
+            <dd
+              data-fx-value="true"
+            >
               1
             </dd>
           </div>
-          <div>
-            <dt>
+          <div
+            data-fx-entry="true"
+            data-key="b"
+          >
+            <dt
+              data-fx-key="true"
+            >
               b
             </dt>
-            <dd>
+            <dd
+              data-fx-value="true"
+            >
               2
             </dd>
           </div>
-          <div>
-            <dt>
+          <div
+            data-fx-entry="true"
+            data-key="c"
+          >
+            <dt
+              data-fx-key="true"
+            >
               c
             </dt>
-            <dd>
+            <dd
+              data-fx-value="true"
+            >
               3
             </dd>
           </div>

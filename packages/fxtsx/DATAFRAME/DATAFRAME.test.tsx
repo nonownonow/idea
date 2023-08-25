@@ -11,193 +11,19 @@ import { LIST } from "fxtsx/LIST/LIST";
 import { Component } from "fxtsx/util/util";
 import { DICTIONARY } from "fxtsx/DICTIONARY/DICTIONARY";
 import { Formatting } from "fxtsx/DATAFRAME/DATAFRAME.stories";
+import { ENTRY } from "fxtsx/ENTRY/ENTRY";
 
 describe("DATAFRAME", () => {
   const List = (props: LIST<any>) => (
     <LIST {...props} List={Component("List")} Item={Component("Item")} />
   );
+  const Entry = (props: ENTRY) => (
+    <ENTRY Key={Component("Key")} Value={Component("Value")} {...props} />
+  );
   const Dictionary = (props: DICTIONARY) => (
-    <DICTIONARY
-      List={List}
-      Entry={Component("Entry")}
-      Key={Component("Key")}
-      Value={Component("Value")}
-      {...props}
-    />
+    <DICTIONARY List={List} Entry={Entry} {...props} />
   );
   let renderResult: RenderResult;
-  /*  beforeEach(() => {
-    renderResult = render(<DATAFRAME {...Default.args} />);
-  });
-  test("렌더링", () => {
-    const { asFragment } = renderResult;
-    expect(asFragment()).toMatchInlineSnapshot(`
-      <DocumentFragment>
-        <div
-          data-fx-dataframe="true"
-          data-testid="List"
-        >
-          <div
-            data-testid="Element"
-          >
-            <div
-              data-testid="Dictionary"
-            >
-              <div
-                data-testid="Entry"
-              >
-                <div
-                  data-testid="Key"
-                >
-                  a
-                </div>
-                <div
-                  data-testid="Value"
-                >
-                  1
-                </div>
-              </div>
-              <div
-                data-testid="Entry"
-              >
-                <div
-                  data-testid="Key"
-                >
-                  b
-                </div>
-                <div
-                  data-testid="Value"
-                >
-                  2
-                </div>
-              </div>
-              <div
-                data-testid="Entry"
-              >
-                <div
-                  data-testid="Key"
-                >
-                  c
-                </div>
-                <div
-                  data-testid="Value"
-                >
-                  3
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            data-testid="Element"
-          >
-            <div
-              data-testid="Dictionary"
-            >
-              <div
-                data-testid="Entry"
-              >
-                <div
-                  data-testid="Key"
-                >
-                  a
-                </div>
-                <div
-                  data-testid="Value"
-                >
-                  11
-                </div>
-              </div>
-              <div
-                data-testid="Entry"
-              >
-                <div
-                  data-testid="Key"
-                >
-                  b
-                </div>
-                <div
-                  data-testid="Value"
-                >
-                  22
-                </div>
-              </div>
-              <div
-                data-testid="Entry"
-              >
-                <div
-                  data-testid="Key"
-                >
-                  c
-                </div>
-                <div
-                  data-testid="Value"
-                >
-                  33
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            data-testid="Element"
-          >
-            <div
-              data-testid="Dictionary"
-            >
-              <div
-                data-testid="Entry"
-              >
-                <div
-                  data-testid="Key"
-                >
-                  a
-                </div>
-                <div
-                  data-testid="Value"
-                >
-                  111
-                </div>
-              </div>
-              <div
-                data-testid="Entry"
-              >
-                <div
-                  data-testid="Key"
-                >
-                  b
-                </div>
-                <div
-                  data-testid="Value"
-                >
-                  222
-                </div>
-              </div>
-              <div
-                data-testid="Entry"
-              >
-                <div
-                  data-testid="Key"
-                >
-                  c
-                </div>
-                <div
-                  data-testid="Value"
-                >
-                  333
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </DocumentFragment>
-    `);
-  });*/
-  // fxtsxTest(DATAFRAME, "data-fx-dataframe");
-
-  /*  test("루트는 Dataframe 콜백으로 랜더링한다", () => {
-    expect(screen.getByTestId("Dataframe")).toHaveAttribute(
-      "data-fx-dataframe"
-    );
-  });*/
   describe("객체 배열을 data 프로퍼티로 받아서", () => {
     const args: DATAFRAMEProps<any> = {
       $data: [
@@ -226,34 +52,47 @@ describe("DATAFRAME", () => {
                 data-fx-dictionary="true"
                 data-fx-list="true"
                 data-testid="List"
-                entry="[object Object]"
               >
                 <div
                   data-testid="Item"
                 >
                   <div
-                    data-testid="Key"
+                    data-fx-entry="true"
+                    data-key="a"
                   >
-                    a
-                  </div>
-                  <div
-                    data-testid="Value"
-                  >
-                    1
+                    <div
+                      data-fx-key="true"
+                      data-testid="Key"
+                    >
+                      a
+                    </div>
+                    <div
+                      data-fx-value="true"
+                      data-testid="Value"
+                    >
+                      1
+                    </div>
                   </div>
                 </div>
                 <div
                   data-testid="Item"
                 >
                   <div
-                    data-testid="Key"
+                    data-fx-entry="true"
+                    data-key="b"
                   >
-                    b
-                  </div>
-                  <div
-                    data-testid="Value"
-                  >
-                    2
+                    <div
+                      data-fx-key="true"
+                      data-testid="Key"
+                    >
+                      b
+                    </div>
+                    <div
+                      data-fx-value="true"
+                      data-testid="Value"
+                    >
+                      2
+                    </div>
                   </div>
                 </div>
               </div>
@@ -265,34 +104,47 @@ describe("DATAFRAME", () => {
                 data-fx-dictionary="true"
                 data-fx-list="true"
                 data-testid="List"
-                entry="[object Object]"
               >
                 <div
                   data-testid="Item"
                 >
                   <div
-                    data-testid="Key"
+                    data-fx-entry="true"
+                    data-key="a"
                   >
-                    a
-                  </div>
-                  <div
-                    data-testid="Value"
-                  >
-                    11
+                    <div
+                      data-fx-key="true"
+                      data-testid="Key"
+                    >
+                      a
+                    </div>
+                    <div
+                      data-fx-value="true"
+                      data-testid="Value"
+                    >
+                      11
+                    </div>
                   </div>
                 </div>
                 <div
                   data-testid="Item"
                 >
                   <div
-                    data-testid="Key"
+                    data-fx-entry="true"
+                    data-key="b"
                   >
-                    b
-                  </div>
-                  <div
-                    data-testid="Value"
-                  >
-                    22
+                    <div
+                      data-fx-key="true"
+                      data-testid="Key"
+                    >
+                      b
+                    </div>
+                    <div
+                      data-fx-value="true"
+                      data-testid="Value"
+                    >
+                      22
+                    </div>
                   </div>
                 </div>
               </div>
@@ -362,34 +214,47 @@ describe("DATAFRAME", () => {
                   data-fx-dictionary="true"
                   data-fx-list="true"
                   data-testid="List"
-                  entry="[object Object]"
                 >
                   <div
                     data-testid="Item"
                   >
                     <div
-                      data-testid="Key"
+                      data-fx-entry="true"
+                      data-key="a 꾸미기"
                     >
-                      a 꾸미기
-                    </div>
-                    <div
-                      data-testid="Value"
-                    >
-                      꾸며진 1
+                      <div
+                        data-fx-key="true"
+                        data-testid="Key"
+                      >
+                        a 꾸미기
+                      </div>
+                      <div
+                        data-fx-value="true"
+                        data-testid="Value"
+                      >
+                        꾸며진 1
+                      </div>
                     </div>
                   </div>
                   <div
                     data-testid="Item"
                   >
                     <div
-                      data-testid="Key"
+                      data-fx-entry="true"
+                      data-key="b키 입니다"
                     >
-                      b키 입니다
-                    </div>
-                    <div
-                      data-testid="Value"
-                    >
-                      꾸며진 b값 2
+                      <div
+                        data-fx-key="true"
+                        data-testid="Key"
+                      >
+                        b키 입니다
+                      </div>
+                      <div
+                        data-fx-value="true"
+                        data-testid="Value"
+                      >
+                        꾸며진 b값 2
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -406,34 +271,47 @@ describe("DATAFRAME", () => {
                   data-fx-dictionary="true"
                   data-fx-list="true"
                   data-testid="List"
-                  entry="[object Object]"
                 >
                   <div
                     data-testid="Item"
                   >
                     <div
-                      data-testid="Key"
+                      data-fx-entry="true"
+                      data-key="a 꾸미기"
                     >
-                      a 꾸미기
-                    </div>
-                    <div
-                      data-testid="Value"
-                    >
-                      꾸며진 11
+                      <div
+                        data-fx-key="true"
+                        data-testid="Key"
+                      >
+                        a 꾸미기
+                      </div>
+                      <div
+                        data-fx-value="true"
+                        data-testid="Value"
+                      >
+                        꾸며진 11
+                      </div>
                     </div>
                   </div>
                   <div
                     data-testid="Item"
                   >
                     <div
-                      data-testid="Key"
+                      data-fx-entry="true"
+                      data-key="b키 입니다"
                     >
-                      b키 입니다
-                    </div>
-                    <div
-                      data-testid="Value"
-                    >
-                      꾸며진 b값 22
+                      <div
+                        data-fx-key="true"
+                        data-testid="Key"
+                      >
+                        b키 입니다
+                      </div>
+                      <div
+                        data-fx-value="true"
+                        data-testid="Value"
+                      >
+                        꾸며진 b값 22
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -1,10 +1,11 @@
 import type { FC, ForwardedRef, ReactNode, Ref } from "react";
-import React from "react";
+import { createElement } from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import type { RootProps } from "fxtsx/fxtsx.type";
-import type { LIST, RestProps } from "fxtsx/LIST/LIST";
-import { Identity } from "fxtsx/Identity/Identity";
+import type { RestProps } from "fxtsx/LIST/LIST";
+import { LIST } from "fxtsx/LIST/LIST";
 import { identity } from "@fxts/core";
+import { ENTRY } from "fxtsx/ENTRY/ENTRY";
 
 export type DicValue = string | number | boolean | undefined | null;
 export type DicData = Record<string, DicValue>;
@@ -20,12 +21,9 @@ export interface DICTIONARY<V extends DicData = {}> {
   $valueFormat?: (value: DicValue, key: string, index: number) => ReactNode;
   $valueFormats?: Partial<{ [K in keyof V]: DICTIONARY["$valueFormat"] }>;
 }
-
 export interface DICTIONARYCallback<T = any> {
   List?: FC<LIST<string> & { ref?: Ref<T> }>;
-  Entry?: FC<{ children: ReactNode }>;
-  Key?: FC<{ children: ReactNode }>;
-  Value?: FC<{ children: ReactNode }>;
+  Entry?: FC<ENTRY>;
 }
 //todo: List를 Dictionary로 받아서 처리하도록 리팩토 그리고 Entry 재정의가 아니라, formatter 에서 Key Value 로 확장하기
 
@@ -35,9 +33,8 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T, V extends DicData>(
   ref: ForwardedRef<T>
 ) {
   const {
-    List = Identity,
-    Key = Identity,
-    Value = Identity,
+    List = LIST,
+    Entry = ENTRY,
     $data,
     $keys = Object.keys($data),
     $keyFormat = identity,
@@ -46,29 +43,25 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T, V extends DicData>(
     $valueFormats = {} as { [K in keyof V]: any },
     ...dictionaryProps
   } = restProps;
-  return (
-    <List
-      data-fx-dictionary
-      {...rootProps}
-      {...dictionaryProps}
-      ref={ref}
-      $data={$keys}
-      $itemFormat={(key, index) => (
-        <>
-          <Key>
-            {key in $keyFormats
-              ? typeof $keyFormats[key] === "string"
-                ? $keyFormats[key]
-                : $keyFormats[key](key, index)
-              : $keyFormat(key, index)}
-          </Key>
-          <Value>
-            {key in $valueFormats
-              ? $valueFormats[key]($data[key], key, index)
-              : $valueFormat($data[key], key, index)}
-          </Value>
-        </>
-      )}
-    />
-  );
+
+  return createElement(List, {
+    "data-fx-dictionary": true,
+    ...rootProps,
+    ...dictionaryProps,
+    ref,
+    $data: $keys,
+    $itemFormat: (key, index) =>
+      createElement(Entry, {
+        $key:
+          key in $keyFormats
+            ? typeof $keyFormats[key] === "string"
+              ? $keyFormats[key]
+              : $keyFormats[key](key, index)
+            : $keyFormat(key, index),
+        $value:
+          key in $valueFormats
+            ? $valueFormats[key]($data[key], key, index)
+            : $valueFormat($data[key], key, index),
+      }),
+  });
 });
