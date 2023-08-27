@@ -21,6 +21,8 @@ export type DataAttributes = {
 export interface ENTRY extends ComponentPropsWithoutRef<"div"> {
   $key: string;
   $value?: ReactNode;
+  name?: string;
+  value?: string;
   children?: ReactNode;
 }
 export interface ENTRYCallback {

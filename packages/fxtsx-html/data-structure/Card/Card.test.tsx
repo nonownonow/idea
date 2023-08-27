@@ -28,6 +28,8 @@ describe("순서있는 리스트 Ordered List", () => {
             </dt>
             <dd
               data-fx-value="true"
+              name="a"
+              value="1"
             >
               1
             </dd>
@@ -43,6 +45,8 @@ describe("순서있는 리스트 Ordered List", () => {
             </dt>
             <dd
               data-fx-value="true"
+              name="b"
+              value="2"
             >
               2
             </dd>
@@ -58,6 +62,8 @@ describe("순서있는 리스트 Ordered List", () => {
             </dt>
             <dd
               data-fx-value="true"
+              name="c"
+              value="3"
             >
               3
             </dd>

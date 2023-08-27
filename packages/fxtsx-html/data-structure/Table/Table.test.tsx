@@ -47,16 +47,22 @@ describe("Table", () => {
             >
               <td
                 data-fx-value="true"
+                name="a"
+                value="1"
               >
                 1
               </td>
               <td
                 data-fx-value="true"
+                name="b"
+                value="2"
               >
                 2
               </td>
               <td
                 data-fx-value="true"
+                name="c"
+                value="3"
               >
                 3
               </td>
@@ -68,16 +74,22 @@ describe("Table", () => {
             >
               <td
                 data-fx-value="true"
+                name="a"
+                value="11"
               >
                 11
               </td>
               <td
                 data-fx-value="true"
+                name="b"
+                value="22"
               >
                 22
               </td>
               <td
                 data-fx-value="true"
+                name="c"
+                value="33"
               >
                 33
               </td>
@@ -89,16 +101,22 @@ describe("Table", () => {
             >
               <td
                 data-fx-value="true"
+                name="a"
+                value="111"
               >
                 111
               </td>
               <td
                 data-fx-value="true"
+                name="b"
+                value="222"
               >
                 222
               </td>
               <td
                 data-fx-value="true"
+                name="c"
+                value="333"
               >
                 333
               </td>

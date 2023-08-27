@@ -11,8 +11,8 @@ export default meta;
 
 export const Default: Story = {
   args: {
-    /*    $data: { a: "a", b: "b", c: "c" },
-    $key: "testKey",
-    $valueFormats: { a: "에이", b: "비", c: "씨" },*/
+    $data: { programmer: "PROGRAMMER", doctor: "DOCTOR", driver: "DRIVER" },
+    $key: "job",
+    $valueFormats: { programmer: "개발자", doctor: "의사", driver: "운전기사" },
   },
 };

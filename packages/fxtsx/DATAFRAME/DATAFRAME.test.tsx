@@ -69,6 +69,8 @@ describe("DATAFRAME", () => {
                     <div
                       data-fx-value="true"
                       data-testid="Value"
+                      name="a"
+                      value="1"
                     >
                       1
                     </div>
@@ -90,6 +92,8 @@ describe("DATAFRAME", () => {
                     <div
                       data-fx-value="true"
                       data-testid="Value"
+                      name="b"
+                      value="2"
                     >
                       2
                     </div>
@@ -121,6 +125,8 @@ describe("DATAFRAME", () => {
                     <div
                       data-fx-value="true"
                       data-testid="Value"
+                      name="a"
+                      value="11"
                     >
                       11
                     </div>
@@ -142,6 +148,8 @@ describe("DATAFRAME", () => {
                     <div
                       data-fx-value="true"
                       data-testid="Value"
+                      name="b"
+                      value="22"
                     >
                       22
                     </div>
@@ -231,6 +239,8 @@ describe("DATAFRAME", () => {
                       <div
                         data-fx-value="true"
                         data-testid="Value"
+                        name="a"
+                        value="1"
                       >
                         꾸며진 1
                       </div>
@@ -252,6 +262,8 @@ describe("DATAFRAME", () => {
                       <div
                         data-fx-value="true"
                         data-testid="Value"
+                        name="b"
+                        value="2"
                       >
                         꾸며진 b값 2
                       </div>
@@ -288,6 +300,8 @@ describe("DATAFRAME", () => {
                       <div
                         data-fx-value="true"
                         data-testid="Value"
+                        name="a"
+                        value="11"
                       >
                         꾸며진 11
                       </div>
@@ -309,6 +323,8 @@ describe("DATAFRAME", () => {
                       <div
                         data-fx-value="true"
                         data-testid="Value"
+                        name="b"
+                        value="22"
                       >
                         꾸며진 b값 22
                       </div>

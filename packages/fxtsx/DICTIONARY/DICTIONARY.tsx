@@ -19,7 +19,9 @@ export interface DICTIONARY<V extends DicData = {}> {
   $keyFormat?: (key: string, index: number) => ReactNode;
   $keyFormats?: Partial<{ [K in keyof V]: DICTIONARY["$keyFormat"] | string }>;
   $valueFormat?: (value: DicValue, key: string, index: number) => ReactNode;
-  $valueFormats?: Partial<{ [K in keyof V]: DICTIONARY["$valueFormat"] }>;
+  $valueFormats?: Partial<{
+    [K in keyof V]: DICTIONARY["$valueFormat"] | string;
+  }>;
 }
 export interface DICTIONARYCallback<T = any> {
   List?: FC<LIST<string> & { ref?: Ref<T> }>;
@@ -60,8 +62,12 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T, V extends DicData>(
             : $keyFormat(key, index),
         $value:
           key in $valueFormats
-            ? $valueFormats[key]($data[key], key, index)
+            ? typeof $valueFormats[key] === "string"
+              ? $valueFormats[key]
+              : $valueFormats[key]($data[key], key, index)
             : $valueFormat($data[key], key, index),
+        name: key,
+        value: $data[key] as string,
       }),
   });
 });

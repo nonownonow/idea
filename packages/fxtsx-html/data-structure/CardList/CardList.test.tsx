@@ -34,6 +34,8 @@ describe("Card List", () => {
                 </dt>
                 <dd
                   data-fx-value="true"
+                  name="a"
+                  value="1"
                 >
                   1
                 </dd>
@@ -49,6 +51,8 @@ describe("Card List", () => {
                 </dt>
                 <dd
                   data-fx-value="true"
+                  name="b"
+                  value="2"
                 >
                   2
                 </dd>
@@ -64,6 +68,8 @@ describe("Card List", () => {
                 </dt>
                 <dd
                   data-fx-value="true"
+                  name="c"
+                  value="3"
                 >
                   3
                 </dd>
@@ -87,6 +93,8 @@ describe("Card List", () => {
                 </dt>
                 <dd
                   data-fx-value="true"
+                  name="a"
+                  value="11"
                 >
                   11
                 </dd>
@@ -102,6 +110,8 @@ describe("Card List", () => {
                 </dt>
                 <dd
                   data-fx-value="true"
+                  name="b"
+                  value="22"
                 >
                   22
                 </dd>
@@ -117,6 +127,8 @@ describe("Card List", () => {
                 </dt>
                 <dd
                   data-fx-value="true"
+                  name="c"
+                  value="33"
                 >
                   33
                 </dd>
@@ -140,6 +152,8 @@ describe("Card List", () => {
                 </dt>
                 <dd
                   data-fx-value="true"
+                  name="a"
+                  value="111"
                 >
                   111
                 </dd>
@@ -155,6 +169,8 @@ describe("Card List", () => {
                 </dt>
                 <dd
                   data-fx-value="true"
+                  name="b"
+                  value="222"
                 >
                   222
                 </dd>
@@ -170,6 +186,8 @@ describe("Card List", () => {
                 </dt>
                 <dd
                   data-fx-value="true"
+                  name="c"
+                  value="333"
                 >
                   333
                 </dd>

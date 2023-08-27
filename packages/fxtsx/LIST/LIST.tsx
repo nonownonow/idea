@@ -33,6 +33,10 @@ export interface LISTCallback {
   Item?: ElementNames | FC<any>;
 }
 //todo: uuid 이용해서 키 생성하여 리스트에 적용하기,
+//todo: List-> Collection 으로 변경
+// ENTRY->ITEM 으로 변경 && Item =Item
+// List => List,
+// Identity => (p)=><>p.children</>
 
 export type RestProps<P> = Omit<P, keyof RootProps>;
 export const LIST = Fxtsx(function LIST<T, Value>(
