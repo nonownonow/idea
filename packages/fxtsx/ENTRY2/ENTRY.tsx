@@ -8,15 +8,15 @@ import type { RestProps } from "fxtsx/LIST/LIST";
 export type ENTNRYProps = ENTRY & ENTRYCallback;
 
 export interface ENTRY {
-  /*
+  /**
    * 엔트리 형태 = [key, value]
    * */
   $data: [string, any];
-  /*
+  /**
    * 키의 라벨
    * */
   $keyLabel?: string;
-  /*
+  /**
    * 값의 라벨
    * */
   $valueLabel?: string;
@@ -27,8 +27,8 @@ export interface ENTRYCallback {
   Value?: string | FC<any>;
 }
 
-/*
- * 엔트리 아이템의 구조를 구현한 고차 컴포넌트
+/**
+ * 엔트리의 구조를 구현한 고차 컴포넌트
  * */
 export const ENTRY = Fxtsx(function ENTRY(
   { children, ...rootProps }: RootProps,
@@ -40,12 +40,14 @@ export const ENTRY = Fxtsx(function ENTRY(
     $keyLabel,
     $valueLabel,
     ...restProps
-  }: RestProps<ENTNRYProps>
+  }: RestProps<ENTNRYProps>,
+  ref
 ) {
   return createElement(
     Entry,
     {
       "data-fx-entry": true,
+      ref,
       ...rootProps,
     },
     [

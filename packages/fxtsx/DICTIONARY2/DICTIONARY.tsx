@@ -5,40 +5,39 @@ import type { RootProps } from "fxtsx/fxtsx.type";
 import type { RestProps } from "fxtsx/LIST/LIST";
 import { LIST } from "fxtsx/LIST/LIST";
 import { ENTRY } from "fxtsx/ENTRY2/ENTRY";
-import { Default } from "fxtsx/Identity/Default";
 import { identity } from "@fxts/core";
 
 export type DICTIONARYProps = DICTIONARY & DICTIONARYCallback;
 
 export interface DICTIONARY extends Omit<ENTRY, "$data"> {
-  /*
+  /**
    * 객체 데이터
-   * */
+   */
   $data: Record<string, any>;
-  /*
+  /**
    * 객체의 엔트리 표시 순서 및 표시 여부를 제어하는 키 배열
-   * */
+   */
   $keys?: string[];
-  /*
+  /**
    * 키에 포멧을 적용하는 함수
    * */
   $keyFormat?: (key: string, index: number) => ReactNode;
-  /*
+  /**
    * 키에 개별적으로 포멧을 적용하는 함수 또는 값
    * */
   $keyFormats?: Record<string, DICTIONARY["$keyFormat"] | ReactNode>;
-  /*
+  /**
    * 값에 포멧을 적용하는 함수
    * */
   $valueFormat?: (value: any, key: string, index: number) => ReactNode;
-  /*
+  /**
    * 값에 개별적으로 포멧을 적용하는 함수 또는 값
    * */
   $valueFormats?: Record<string, DICTIONARY["$valueFormat"] | ReactNode>;
 }
 export interface DICTIONARYCallback {
-  Dictionary?: string | FC<any>;
-  Entry?: string | FC<any>;
+  Dictionary?: string | FC<LIST>;
+  Entry?: FC<ENTRY>;
 }
 //todo: (legacy?) List를 Dictionary로 받아서 처리하도록 리팩토 그리고 Entry 재정의가 아니라, formatter 에서 Key Value 로 확장하기
 //todo: Dictionary === Form?
@@ -57,7 +56,7 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T>(
   ref: ForwardedRef<T>
 ) {
   const {
-    Dictionary = Default,
+    Dictionary = LIST,
     Entry = ENTRY,
     $data,
     $keys = Object.keys($data),
