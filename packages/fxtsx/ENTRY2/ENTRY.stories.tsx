@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ENTRY } from "fxtsx/ENTRY2/ENTRY";
-import { Component } from "fxtsx/util/util";
 
 const meta = {
   component: ENTRY,
@@ -13,9 +12,6 @@ export default meta;
 export const Default: Story = {
   args: {
     $data: ["name", "유일환"],
-    Entry: Component("Entry"),
-    Key: Component("Key"),
-    Value: Component("Value"),
   },
 };
 

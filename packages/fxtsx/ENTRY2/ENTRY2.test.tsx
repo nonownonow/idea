@@ -2,13 +2,18 @@ import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
 import { ENTRY } from "fxtsx/ENTRY2/ENTRY";
 import { Default, WithFormat } from "fxtsx/ENTRY2/ENTRY.stories";
+import { Component } from "fxtsx/util/util";
 
 describe("랜더링", () => {
   let renderResult: RenderResult;
   let rootEl: ChildNode | null;
-
+  const CallBack = {
+    Entry: Component("Entry"),
+    Key: Component("Key"),
+    Value: Component("Value"),
+  };
   beforeEach(() => {
-    renderResult = render(<ENTRY {...(Default.args as ENTRY)} />);
+    renderResult = render(<ENTRY {...(Default.args as ENTRY)} {...CallBack} />);
     rootEl = renderResult.container.firstChild;
   });
 
@@ -57,7 +62,7 @@ describe("랜더링", () => {
   describe("WithFormat", () => {
     beforeEach(() => {
       const { rerender } = renderResult;
-      rerender(<ENTRY {...WithFormat.args} />);
+      rerender(<ENTRY {...WithFormat.args} {...CallBack} />);
     });
     test("스냅샷", () => {
       const { asFragment } = renderResult;
