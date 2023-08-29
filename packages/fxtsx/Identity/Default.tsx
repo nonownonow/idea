@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import { entries, map, pipe } from "@fxts/core";
 import { kebabCase } from "lodash";
 
-export const Identity = forwardRef(function Identity(
+export const Default = forwardRef(function Default(
   props: Record<string, unknown>,
   ref
 ) {

@@ -2,7 +2,7 @@ import type { FC, ForwardedRef, ReactNode } from "react";
 import { createElement } from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import type { Dataset, RootProps } from "fxtsx/fxtsx.type";
-import { Identity } from "fxtsx/Identity/Identity";
+import { Default } from "fxtsx/Identity/Default";
 import { identity } from "@fxts/core";
 import type { ElementNames } from "fxtsx/ENTRY/ENTRY";
 
@@ -37,6 +37,11 @@ export interface LISTCallback {
 // ENTRY->ITEM 으로 변경 && Item =Item
 // List => List,
 // Identity => (p)=><>p.children</>
+/*
+ * 컬렉션 구조? Collection, Item
+ * 컬렉션구조면, 배열, 객체 모두 entris 구조로 변환가능하다. 어쨌든 data는 배열이다.
+ * Noop => p=>null
+ * */
 
 export type RestProps<P> = Omit<P, keyof RootProps>;
 export const LIST = Fxtsx(function LIST<T, Value>(
@@ -45,8 +50,8 @@ export const LIST = Fxtsx(function LIST<T, Value>(
   ref: ForwardedRef<T>
 ) {
   const {
-    List = Identity,
-    Item = Identity,
+    List = Default,
+    Item = Default,
     $data = [],
     $itemFormat = identity,
     ...listProps

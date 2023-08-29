@@ -1,18 +1,20 @@
 import type { FC, ForwardedRef, ReactNode, Ref } from "react";
 import { createElement } from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
-import type { RootProps } from "fxtsx/fxtsx.type";
+import type { ElementNames, RootProps } from "fxtsx/fxtsx.type";
 import type { RestProps } from "fxtsx/LIST/LIST";
 import { LIST } from "fxtsx/LIST/LIST";
 import { identity } from "@fxts/core";
-import { ENTRY } from "fxtsx/ENTRY/ENTRY";
+import { ENTRY } from "fxtsx/ENTRY2/ENTRY";
+import { Default } from "fxtsx/Identity/Default";
 
 export type DicValue = string | number | boolean | undefined | null;
 export type DicData = Record<string, DicValue>;
 export type DICTIONARYProps<T, V extends DicData = {}> = DICTIONARY<V> &
   DICTIONARYCallback<T>;
 
-export interface DICTIONARY<V extends DicData = {}> {
+export interface DICTIONARY<V extends DicData = {}>
+  extends Omit<ENTRY, "$data" | "$index"> {
   $data: V;
   children?: ReactNode;
   $keys?: string[];
@@ -24,8 +26,8 @@ export interface DICTIONARY<V extends DicData = {}> {
   }>;
 }
 export interface DICTIONARYCallback<T = any> {
-  List?: FC<LIST<string> & { ref?: Ref<T> }>;
-  Entry?: FC<ENTRY>;
+  Dictionary?: ElementNames | FC<DICTIONARY & { ref?: Ref<T> }>;
+  Entry?: ElementNames | FC<ENTRY>;
 }
 //todo: (legacy?) List를 Dictionary로 받아서 처리하도록 리팩토 그리고 Entry 재정의가 아니라, formatter 에서 Key Value 로 확장하기
 //todo: Dictionary === Form?
@@ -44,7 +46,7 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T, V extends DicData>(
   ref: ForwardedRef<T>
 ) {
   const {
-    List = LIST,
+    Dictionary = Default,
     Entry = ENTRY,
     $data,
     $keys = Object.keys($data),
@@ -55,28 +57,22 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T, V extends DicData>(
     ...dictionaryProps
   } = restProps;
 
-  return createElement(List, {
+  return createElement(LIST, {
     "data-fx-dictionary": true,
     ...rootProps,
     ...dictionaryProps,
     ref,
-    $data: $keys,
-    $itemFormat: (key, index) =>
-      createElement(Entry, {
-        $key:
-          key in $keyFormats
-            ? typeof $keyFormats[key] === "string"
-              ? $keyFormats[key]
-              : $keyFormats[key](key, index)
-            : $keyFormat(key, index),
-        $value:
-          key in $valueFormats
-            ? typeof $valueFormats[key] === "string"
-              ? $valueFormats[key]
-              : $valueFormats[key]($data[key], key, index)
-            : $valueFormat($data[key], key, index),
-        name: key,
-        value: $data[key] as string,
-      }),
+    $data: [...$keys.entries()],
+    List: Dictionary,
+    Item: ({ children: [index, key] }) => {
+      return (
+        <Entry
+          $index={index}
+          $data={[key, $data[key]]}
+          $keyFormat={$keyFormats[key] || $keyFormat}
+          $valueFormat={$valueFormats[key] || $valueFormat}
+        />
+      );
+    },
   });
 });

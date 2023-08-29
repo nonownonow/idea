@@ -5,6 +5,7 @@ import type {
   PropsWithoutRef,
   ReactNode,
   RefAttributes,
+  JSX,
 } from "react";
 import type { HEADINGCallback } from "fxtsx/HEADING/HEADING";
 import type { SECTIONINGCallback } from "fxtsx/SECTIONING/SECTIONING";
@@ -32,3 +33,8 @@ export type WithoutCallback<T> = Pick<
 >;
 
 export type Dataset = { [key: `data-${string}`]: boolean };
+export type ElementNames<P = any> = {
+  [K in keyof JSX.IntrinsicElements]: P extends JSX.IntrinsicElements[K]
+    ? K
+    : never;
+}[keyof JSX.IntrinsicElements];

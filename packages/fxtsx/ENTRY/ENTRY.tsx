@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef, FC, JSX, ReactNode } from "react";
 import { createElement } from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
-import { Identity } from "fxtsx/Identity/Identity";
+import { Default } from "fxtsx/Identity/Default";
 import type { RootProps } from "fxtsx/fxtsx.type";
 import type { RestProps } from "fxtsx/LIST/LIST";
 
@@ -35,9 +35,9 @@ export const ENTRY = Fxtsx(function ENTRY(
   restProps: RestProps<ENTNRYProps>
 ) {
   const {
-    Entry = Identity,
-    Key = Identity,
-    Value = Identity,
+    Entry = Default,
+    Key = Default,
+    Value = Default,
     $key,
     $value,
     ...entryProps
