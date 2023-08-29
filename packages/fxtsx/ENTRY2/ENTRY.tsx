@@ -1,61 +1,63 @@
-import type { FC, ReactNode } from "react";
+import type { FC } from "react";
 import { createElement } from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import { Default } from "fxtsx/Identity/Default";
-import type { ElementNames, RootProps } from "fxtsx/fxtsx.type";
+import type { RootProps } from "fxtsx/fxtsx.type";
 import type { RestProps } from "fxtsx/LIST/LIST";
-import type { DicValue } from "fxtsx/DICTIONARY2/DICTIONARY";
-import { identity } from "@fxts/core";
 
 export type ENTNRYProps = ENTRY & ENTRYCallback;
 
 export interface ENTRY {
-  $data: [string, DicValue];
-  $index: number;
-  $keyFormat?: string | ((key: string, index: number) => ReactNode);
-  $valueFormat?:
-    | string
-    | ((value: DicValue, key: string, index: number) => ReactNode);
+  /*
+   * 엔트리 형태 = [key, value]
+   * */
+  $data: [string, any];
+  /*
+   * 키의 라벨
+   * */
+  $keyLabel?: string;
+  /*
+   * 값의 라벨
+   * */
+  $valueLabel?: string;
 }
 export interface ENTRYCallback {
-  Entry?: ElementNames | FC<any>;
-  Key?: ElementNames | FC<any>;
-  Value?: ElementNames | FC<any>;
+  Entry?: string | FC<any>;
+  Key?: string | FC<any>;
+  Value?: string | FC<any>;
 }
+
+/*
+ * 엔트리 아이템의 구조를 구현한 고차 컴포넌트
+ * */
 export const ENTRY = Fxtsx(function ENTRY(
   { children, ...rootProps }: RootProps,
-  restProps: RestProps<ENTNRYProps>
-) {
-  const {
+  {
     Entry = Default,
     Key = Default,
     Value = Default,
-    $index,
-    $data: [key, value],
-    $keyFormat = identity,
-    $valueFormat = identity,
-    ...entryProps
-  } = restProps;
-
+    $data: [$key, $value],
+    $keyLabel,
+    $valueLabel,
+    ...restProps
+  }: RestProps<ENTNRYProps>
+) {
   return createElement(
     Entry,
     {
       "data-fx-entry": true,
-      "data-key": key,
       ...rootProps,
     },
     [
       createElement(
         Key,
-        { "data-fx-key": true, key: 0 },
-        typeof $keyFormat === "string" ? $keyFormat : $keyFormat(key, $index)
+        { "data-fx-key": true, "data-key": $key, key: 0 },
+        $keyLabel || $key
       ),
       createElement(
         Value,
-        { "data-fx-value": true, key: 1, ...entryProps },
-        typeof $valueFormat === "string"
-          ? $valueFormat
-          : $valueFormat(value, key, $index)
+        { "data-fx-value": true, "data-value": $value, key: 1, ...restProps },
+        $valueLabel || $value
       ),
       children,
     ]

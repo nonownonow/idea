@@ -4,7 +4,6 @@ import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import type { ElementNames, RootProps } from "fxtsx/fxtsx.type";
 import type { RestProps } from "fxtsx/LIST/LIST";
 import { LIST } from "fxtsx/LIST/LIST";
-import { identity } from "@fxts/core";
 import { ENTRY } from "fxtsx/ENTRY2/ENTRY";
 import { Default } from "fxtsx/Identity/Default";
 
@@ -50,10 +49,6 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T, V extends DicData>(
     Entry = ENTRY,
     $data,
     $keys = Object.keys($data),
-    $keyFormat = identity,
-    $keyFormats = {} as { [K in keyof V]: any },
-    $valueFormat = identity,
-    $valueFormats = {} as { [K in keyof V]: any },
     ...dictionaryProps
   } = restProps;
 
@@ -65,14 +60,7 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T, V extends DicData>(
     $data: [...$keys.entries()],
     List: Dictionary,
     Item: ({ children: [index, key] }) => {
-      return (
-        <Entry
-          $index={index}
-          $data={[key, $data[key]]}
-          $keyFormat={$keyFormats[key] || $keyFormat}
-          $valueFormat={$valueFormats[key] || $valueFormat}
-        />
-      );
+      return <Entry $data={[key, $data[key]]} />;
     },
   });
 });

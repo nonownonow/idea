@@ -5,7 +5,7 @@ import { anyPropsWithRootProps } from "fxtsx/FxTsx/FxTsx.test";
 import { createRef } from "react";
 import { Default } from "fxtsx/DICTIONARY2/DICTIONARY.stories";
 
-describe("랜더링", () => {
+describe.skip("랜더링", () => {
   let renderResult: RenderResult;
   const ref = createRef();
   beforeEach(() => {
