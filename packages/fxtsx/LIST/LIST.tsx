@@ -4,7 +4,6 @@ import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import type { Dataset, RootProps } from "fxtsx/fxtsx.type";
 import { Default } from "fxtsx/Identity/Default";
 import { identity } from "@fxts/core";
-import type { ElementNames } from "fxtsx/ENTRY/ENTRY";
 
 export type LISTProps<Value> = LIST<Value> & LISTCallback;
 
@@ -26,11 +25,11 @@ export interface LISTCallback {
   /**
    * 리스트를 구현하는 컨포넌트
    */
-  List?: ElementNames | FC<any>;
+  List?: string | FC<any>;
   /**
    * 엔트리를 구현하는 컨포넌트
    */
-  Item?: ElementNames | FC<any>;
+  Item?: string | FC<any>;
 }
 //todo: uuid 이용해서 키 생성하여 리스트에 적용하기,
 //todo: List-> Collection 으로 변경

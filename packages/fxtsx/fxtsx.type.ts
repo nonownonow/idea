@@ -2,10 +2,10 @@ import type {
   ComponentPropsWithoutRef,
   CSSProperties,
   ForwardRefExoticComponent,
+  JSX,
   PropsWithoutRef,
   ReactNode,
   RefAttributes,
-  JSX,
 } from "react";
 import type { HEADINGCallback } from "fxtsx/HEADING/HEADING";
 import type { SECTIONINGCallback } from "fxtsx/SECTIONING/SECTIONING";
@@ -38,3 +38,6 @@ export type ElementNames<P = any> = {
     ? K
     : never;
 }[keyof JSX.IntrinsicElements];
+
+export type DicValue = string | number | boolean | undefined | null;
+export type DicData = Record<string, DicValue>;

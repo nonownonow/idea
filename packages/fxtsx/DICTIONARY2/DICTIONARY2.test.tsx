@@ -1,21 +1,28 @@
 import type { RenderResult } from "@testing-library/react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { DICTIONARY } from "./DICTIONARY";
-import { anyPropsWithRootProps } from "fxtsx/FxTsx/FxTsx.test";
 import { createRef } from "react";
 import { Default } from "fxtsx/DICTIONARY2/DICTIONARY.stories";
+import { Component } from "fxtsx/util/util";
+import { ENTRY } from "fxtsx/ENTRY2/ENTRY";
 
-describe.skip("랜더링", () => {
+describe("랜더링", () => {
   let renderResult: RenderResult;
   const ref = createRef();
+  const callBack = {
+    Dictionary: Component("Dictionary"),
+    Entry: (p: ENTRY) => (
+      <ENTRY
+        Entry={Component("Entry")}
+        Key={Component("Key")}
+        Value={Component("Value")}
+        {...p}
+      />
+    ),
+  };
   beforeEach(() => {
     renderResult = render(
-      <DICTIONARY
-        {...anyPropsWithRootProps}
-        {...Default.args}
-        ref={ref}
-        data-testid={"Dictionary"}
-      />
+      <DICTIONARY {...Default.args} ref={ref} {...callBack} />
     );
   });
   test("object 타입의 데이터를 구조화하여 요구사항에 맞게 랜더링한다", () => {
@@ -24,57 +31,63 @@ describe.skip("랜더링", () => {
     expect(asFragment()).toMatchInlineSnapshot(`
       <DocumentFragment>
         <div
-          any="my-any-props"
-          class="my-class"
           data-fx-dictionary="true"
           data-fx-list="true"
-          data-test="my-data-test"
           data-testid="Dictionary"
-          id="my-id"
-          style="font-size: 1rem;"
-          tab-index="0"
         >
           <div
             data-fx-entry="true"
-            data-key="keyA"
+            data-testid="Entry"
           >
             <div
               data-fx-key="true"
+              data-key="keyA"
+              data-testid="Key"
             >
               keyA
             </div>
             <div
               data-fx-value="true"
+              data-testid="Value"
+              data-value="ValueA"
             >
               ValueA
             </div>
           </div>
           <div
             data-fx-entry="true"
-            data-key="keyD"
+            data-testid="Entry"
           >
             <div
               data-fx-key="true"
+              data-key="keyD"
+              data-testid="Key"
             >
               keyD
             </div>
             <div
               data-fx-value="true"
+              data-testid="Value"
+              data-value="ValueD"
             >
               값: ValueD
             </div>
           </div>
           <div
             data-fx-entry="true"
-            data-key="keyB"
+            data-testid="Entry"
           >
             <div
               data-fx-key="true"
+              data-key="keyB"
+              data-testid="Key"
             >
               키B
             </div>
             <div
               data-fx-value="true"
+              data-testid="Value"
+              data-value="ValueB"
             >
               <em>
                 2번째 ValueB
@@ -83,10 +96,12 @@ describe.skip("랜더링", () => {
           </div>
           <div
             data-fx-entry="true"
-            data-key="keyA"
+            data-testid="Entry"
           >
             <div
               data-fx-key="true"
+              data-key="keyA"
+              data-testid="Key"
             >
               *
               <em>
@@ -96,31 +111,39 @@ describe.skip("랜더링", () => {
             </div>
             <div
               data-fx-value="true"
+              data-testid="Value"
+              data-value="ValueA"
             >
               값: ValueA
             </div>
           </div>
           <div
             data-fx-entry="true"
-            data-key="keyD"
+            data-testid="Entry"
           >
             <div
               data-fx-key="true"
+              data-key="keyD"
+              data-testid="Key"
             >
               keyD!!
             </div>
             <div
               data-fx-value="true"
+              data-testid="Value"
+              data-value="ValueD"
             >
               값: ValueD
             </div>
           </div>
           <div
             data-fx-entry="true"
-            data-key="keyE"
+            data-testid="Entry"
           >
             <div
               data-fx-key="true"
+              data-key="keyE"
+              data-testid="Key"
             >
               *
               <em>
@@ -130,6 +153,8 @@ describe.skip("랜더링", () => {
             </div>
             <div
               data-fx-value="true"
+              data-testid="Value"
+              data-value="ValueE"
             >
               값: ValueE
             </div>
@@ -138,15 +163,15 @@ describe.skip("랜더링", () => {
       </DocumentFragment>
     `);
   });
-  /*  test("루트는 Dictionary 콜백으로 랜더링한다", () => {
-    expect(screen.getByTestId("Dictionary")).toHaveTextContent("Root");
-  });*/
-  /*  test("루트는 ref 를 받아서 랜더링한다", () => {
-    expect(ref.current).toHaveTextContent("Root");
-  });*/
-  /*test("엔트리는 Entry 콜백으로 랜더링한다", () => {
-    expect(screen.getAllByTestId("Item")[0]).toHaveTextContent("keyAValueA");
+  test("루트는 Dictionary 콜백으로 랜더링한다", () => {
+    expect(screen.getByTestId("Dictionary")).toHaveAttribute(
+      "data-fx-dictionary"
+    );
   });
+  test("루트는 ref 를 받아서 랜더링한다", () => {
+    expect(ref.current).toHaveAttribute("data-fx-dictionary");
+  });
+
   test("키는 Key 콜백으로 랜더링한다", () => {
     expect(screen.getAllByTestId("Key")[0]).toHaveTextContent("keyA");
   });
@@ -154,7 +179,8 @@ describe.skip("랜더링", () => {
     expect(screen.getAllByTestId("Value")[0]).toHaveTextContent("ValueA");
   });
   test("각 entry 는  keys 프로퍼티에 의해 순서와 표시여부가 결정된다.", () => {
-    Default.args.$keys?.forEach((v, i) => {
+    const { $keys, $data } = Default.args;
+    $keys?.forEach((v, i) => {
       expect(screen.getAllByTestId("Value")[i]).toHaveTextContent(
         $data[v] as any
       );
@@ -166,7 +192,7 @@ describe.skip("랜더링", () => {
   });
   test("개별 키는 keyFormats 로 포멧팅 된다.", () => {
     expect(screen.getAllByTestId("Key")[4]).toContainHTML("keyD!!");
-  });*/
+  });
   /*  describe("keys 프로퍼티에 존재하지 않는 키를 추가하면", () => {
     test.todo("Value 콜백은 undefined 를 랜더링한다.");
     test.todo(
