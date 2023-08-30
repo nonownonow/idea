@@ -39,7 +39,6 @@ export interface DICTIONARYCallback {
   Dictionary?: string | FC<LIST>;
   Entry?: FC<ENTRY>;
 }
-//todo: (legacy?) List를 Dictionary로 받아서 처리하도록 리팩토 그리고 Entry 재정의가 아니라, formatter 에서 Key Value 로 확장하기
 //todo: Dictionary === Form?
 /*
  * todo: Dictionary를 COLLECTION으로 구성

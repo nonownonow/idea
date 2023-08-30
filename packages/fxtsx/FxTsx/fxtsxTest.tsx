@@ -8,14 +8,22 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { anyPropsWithRootProps } from "fxtsx/FxTsx/FxTsx";
 
+//todo: option 이용하도록 리펙토링 (계속 확장될 수 있으니까)
 export function fxtsxTest(
   Comp: FC<any>,
   fxtsxId: string,
-  separatedProps = false
+  separatedProps = false,
+  requiredProps = {}
 ) {
   describe("FXTSX 스펙을 따라 구현하여서", () => {
     beforeEach(() => {
-      render(<Comp {...anyPropsWithRootProps} data-testid={"Root"} />);
+      render(
+        <Comp
+          {...anyPropsWithRootProps}
+          data-testid={"Root"}
+          {...requiredProps}
+        />
+      );
     });
     test(`${fxtsxId} 속성을 루트요소에 전달한다.`, () => {
       expect(screen.getByTestId("Root")).toHaveAttribute(fxtsxId);

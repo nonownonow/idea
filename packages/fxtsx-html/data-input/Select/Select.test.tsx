@@ -94,7 +94,7 @@ describe("렌더링", () => {
       expect(screen.getByTestId("Select").tagName).toEqual("FIELDSET");
     });*/
 
-    test.todo("DICTIONARY 의 Entry 는 Option 콜백 컴포넌트다");
+    test.todo("Item 은 Option으로 구현된다");
     test.todo("Option 의 Entry는 Iden ");
   });
 });
