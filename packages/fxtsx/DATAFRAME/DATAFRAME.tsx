@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from "react";
 import React from "react";
-import type { RestProps } from "fxtsx/LIST/LIST";
-import { LIST } from "fxtsx/LIST/LIST";
+import type { RestProps } from "fxtsx/COLLECTION/COLLECTION";
+import { COLLECTION } from "fxtsx/COLLECTION/COLLECTION";
 import type { DicData } from "fxtsx/DICTIONARY/DICTIONARY";
 import { DICTIONARY } from "fxtsx/DICTIONARY/DICTIONARY";
 import { identity } from "@fxts/core";
@@ -11,12 +11,12 @@ import type { RootProps } from "fxtsx/fxtsx.type";
 export type DATAFRAMEProps<Dic extends DicData> = DATAFRAME<Dic> &
   DATAFRAMECallback<Dic>;
 export interface DATAFRAME<Dic extends DicData>
-  extends Omit<LIST<Dic>, "$itemFormat">,
+  extends Omit<COLLECTION<Dic>, "$itemFormat">,
     Omit<DICTIONARY<Dic>, "$data"> {
   $itemFormat?: (value: ReactNode, index: number) => any;
 }
 export interface DATAFRAMECallback<Dic extends DicData> {
-  List?: FC<LIST<Dic>>;
+  Root?: FC<COLLECTION<Dic>>;
   Dictionary?: FC<DICTIONARY<Dic>>;
 }
 export const DATAFRAME = Fxtsx(function DATAFRAME<Dic extends DicData>(
@@ -25,7 +25,7 @@ export const DATAFRAME = Fxtsx(function DATAFRAME<Dic extends DicData>(
 ) {
   const {
     $data = [],
-    List = LIST,
+    Root = COLLECTION,
     Dictionary = DICTIONARY,
     $itemFormat = identity,
     $keyFormat = identity,
@@ -35,7 +35,7 @@ export const DATAFRAME = Fxtsx(function DATAFRAME<Dic extends DicData>(
     ...dataFrameProps
   } = restProps;
   return (
-    <List
+    <Root
       data-fx-dataframe
       $data={$data}
       $itemFormat={(a, index) =>

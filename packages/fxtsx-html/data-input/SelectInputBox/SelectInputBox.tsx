@@ -23,7 +23,7 @@ export const SelectInputBox = function SelectInputBox(props: any) {
   return (
     <DICTIONARY
       {...restProps}
-      List={Ul}
+      Root={Ul}
       Entry={(p) => (
         <ENTRY
           Entry={(p) => <>{p.children}</>}

@@ -1,7 +1,7 @@
 import type { ForwardedRef } from "react";
 import React, { forwardRef } from "react";
 import { DICTIONARY } from "fxtsx/DICTIONARY/DICTIONARY";
-import { LIST } from "fxtsx/LIST/LIST";
+import { COLLECTION } from "fxtsx/COLLECTION/COLLECTION";
 import { ENTRY } from "fxtsx/ENTRY/ENTRY";
 
 export const Card = forwardRef(function Card(
@@ -12,10 +12,10 @@ export const Card = forwardRef(function Card(
     <DICTIONARY
       data-fx-card
       {...props}
-      List={(p) => (
-        <LIST
+      Root={(p) => (
+        <COLLECTION
           {...p}
-          List={(p) => <dl {...p} ref={ref} />}
+          Root={(p) => <dl {...p} ref={ref} />}
           Item={(p) => <>{p.children}</>}
         />
       )}

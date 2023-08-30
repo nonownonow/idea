@@ -2,8 +2,8 @@ import type { FC, ForwardedRef, ReactNode } from "react";
 import { createElement } from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import type { RootProps } from "fxtsx/fxtsx.type";
-import type { RestProps } from "fxtsx/LIST/LIST";
-import { LIST } from "fxtsx/LIST/LIST";
+import type { RestProps } from "fxtsx/COLLECTION/COLLECTION";
+import { COLLECTION } from "fxtsx/COLLECTION/COLLECTION";
 import { ENTRY } from "fxtsx/ENTRY2/ENTRY";
 import { identity } from "@fxts/core";
 
@@ -36,7 +36,7 @@ export interface DICTIONARY extends Omit<ENTRY, "$data"> {
   $valueFormats?: Record<string, DICTIONARY["$valueFormat"] | ReactNode>;
 }
 export interface DICTIONARYCallback {
-  Dictionary?: string | FC<LIST>;
+  Root?: string | FC<COLLECTION>;
   Entry?: FC<ENTRY>;
 }
 //todo: Dictionary === Form?
@@ -55,7 +55,7 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T>(
   ref: ForwardedRef<T>
 ) {
   const {
-    Dictionary = LIST,
+    Root = COLLECTION,
     Entry = ENTRY,
     $data,
     $keys = Object.keys($data),
@@ -66,13 +66,13 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T>(
     ...dictionaryProps
   } = restProps;
 
-  return createElement(LIST, {
+  return createElement(COLLECTION, {
     "data-fx-dictionary": true,
     ...rootProps,
     ...dictionaryProps,
     ref,
     $data: [...$keys.entries()],
-    List: Dictionary,
+    Root: Root,
     Item: ({ children: [index, key] }) => {
       const keyLabel =
         key in $keyFormats

@@ -2,7 +2,7 @@ import type { ForwardedRef, ReactElement } from "react";
 import { forwardRef } from "react";
 import { map, partition, pipe, some, toArray } from "@fxts/core";
 import type { RootProps } from "../fxtsx.type";
-import type { RestProps } from "fxtsx/LIST/LIST";
+import type { RestProps } from "fxtsx/COLLECTION/COLLECTION";
 
 export function separateProps<P extends Record<string, any>>(
   props: P,

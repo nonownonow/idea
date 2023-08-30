@@ -7,7 +7,7 @@ import type {
 } from "react";
 import React from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
-import type { RestProps } from "fxtsx/LIST/LIST";
+import type { RestProps } from "fxtsx/COLLECTION/COLLECTION";
 import type { RootProps } from "fxtsx/fxtsx.type";
 import { Default } from "fxtsx/Identity/Default";
 
@@ -23,7 +23,13 @@ export interface VALUECallback<T> {
 }
 export const VALUE = Fxtsx(function VALUE<T = unknown>(
   rootProps: RootProps,
-  { Root = Default, $data, $label, ...restProps }: RestProps<VALUEProps<T>>,
+  {
+    Root = Default,
+    $data,
+    children,
+    $label = children,
+    ...restProps
+  }: RestProps<VALUEProps<T>>,
   ref: ForwardedRef<T>
 ) {
   return (

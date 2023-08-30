@@ -3,7 +3,7 @@ import { createElement } from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import { Default } from "fxtsx/Identity/Default";
 import type { RootProps } from "fxtsx/fxtsx.type";
-import type { RestProps } from "fxtsx/LIST/LIST";
+import type { RestProps } from "fxtsx/COLLECTION/COLLECTION";
 
 export type ENTNRYProps = ENTRY &
   ENTRYCallback &
@@ -24,7 +24,7 @@ export interface ENTRY {
   $valueLabel?: string;
 }
 export interface ENTRYCallback {
-  Entry?: string | FC<any>;
+  Root?: string | FC<any>;
   Key?: string | FC<any>;
   Value?: string | FC<any>;
 }
@@ -35,7 +35,7 @@ export interface ENTRYCallback {
 export const ENTRY = Fxtsx(function ENTRY(
   rootProps: RootProps,
   {
-    Entry = Default,
+    Root = Default,
     Key = Default,
     Value = Default,
     children,
@@ -47,7 +47,7 @@ export const ENTRY = Fxtsx(function ENTRY(
   ref
 ) {
   return createElement(
-    Entry,
+    Root,
     {
       "data-fx-entry": true,
       ref,

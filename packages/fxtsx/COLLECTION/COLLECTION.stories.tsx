@@ -1,8 +1,8 @@
-import { LIST } from "fxtsx/LIST/LIST";
+import { COLLECTION } from "fxtsx/COLLECTION/COLLECTION";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  component: LIST,
+  component: COLLECTION,
   tags: ["autodocs"],
   argTypes: {
     $data: {
@@ -23,7 +23,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof LIST>;
+} satisfies Meta<typeof COLLECTION>;
 
 export default meta;
 

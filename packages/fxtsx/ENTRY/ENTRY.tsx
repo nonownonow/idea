@@ -3,7 +3,7 @@ import { createElement } from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import { Default } from "fxtsx/Identity/Default";
 import type { RootProps } from "fxtsx/fxtsx.type";
-import type { RestProps } from "fxtsx/LIST/LIST";
+import type { RestProps } from "fxtsx/COLLECTION/COLLECTION";
 
 export type ENTNRYProps = ENTRY & ENTRYCallback;
 export type ElementNames<P = any> = {

@@ -1,12 +1,15 @@
 import React, { forwardRef, useState } from "react";
-import type { LIST } from "fxtsx/LIST/LIST";
+import type { COLLECTION } from "fxtsx/COLLECTION/COLLECTION";
 import { Ul } from "fxtsx-html/data-structure/Ul/Ul";
 import { useOutsideClick } from "fxtsx-html/util/hooks";
 import { setMultipleRef } from "fxtsx-html/util/util";
 import "./DropDown.css";
 // export type DropDownProps =
 
-export const DropDown = forwardRef(function DropDown(props: LIST<any>, ref) {
+export const DropDown = forwardRef(function DropDown(
+  props: COLLECTION<any>,
+  ref
+) {
   const { $data, ...restProps } = props;
   const label = ["네이버", "구글", "페이스북"];
   const [isOpen, setIsOpen] = useState(false);

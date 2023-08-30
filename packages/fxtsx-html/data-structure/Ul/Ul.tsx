@@ -1,16 +1,16 @@
 import type { ForwardedRef } from "react";
 import React, { forwardRef } from "react";
-import { LIST } from "fxtsx/LIST/LIST";
+import { COLLECTION } from "fxtsx/COLLECTION/COLLECTION";
 
 export const Ul = forwardRef(function Ul<Value>(
-  props: LIST<Value>,
+  props: COLLECTION<Value>,
   ref: ForwardedRef<HTMLUListElement>
 ) {
   return (
-    <LIST
+    <COLLECTION
       data-fx-ul
       {...props}
-      List={(props) => <ul {...props} ref={ref} />}
+      Root={(props) => <ul {...props} ref={ref} />}
       Item={(props) => <li {...props} />}
     />
   );

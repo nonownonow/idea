@@ -10,10 +10,10 @@ describe("랜더링", () => {
   let renderResult: RenderResult;
   const ref = createRef();
   const callBack = {
-    Dictionary: Component("Dictionary"),
+    Root: Component("Dictionary"),
     Entry: (p: ENTRY) => (
       <ENTRY
-        Entry={Component("Entry")}
+        Root={Component("Entry")}
         Key={Component("Key")}
         Value={Component("Value")}
         {...p}

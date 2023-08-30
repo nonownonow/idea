@@ -1,8 +1,10 @@
 import React from "react";
-import { LIST } from "fxtsx/LIST/LIST";
+import { COLLECTION } from "fxtsx/COLLECTION/COLLECTION";
 
 // export type TextFieldProps =
 
-export const SelectBox = function SelectBox<T>(props: LIST<T>) {
-  return <LIST data-fx-select-box List={"select"} Item={"option"} {...props} />;
+export const SelectBox = function SelectBox<T>(props: COLLECTION<T>) {
+  return (
+    <COLLECTION data-fx-select-box Root={"select"} Item={"option"} {...props} />
+  );
 };

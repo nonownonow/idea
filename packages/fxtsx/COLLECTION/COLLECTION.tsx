@@ -5,9 +5,9 @@ import type { Dataset, RootProps } from "fxtsx/fxtsx.type";
 import { Default } from "fxtsx/Identity/Default";
 import { identity } from "@fxts/core";
 
-export type LISTProps<Value> = LIST<Value> & LISTCallback;
+export type COLLECTIONProps<Value> = COLLECTION<Value> & COLLECTIONCallback;
 
-export interface LIST<Value = unknown> extends Dataset {
+export interface COLLECTION<Value = unknown> extends Dataset {
   /**
    * 배열
    */
@@ -21,11 +21,11 @@ export interface LIST<Value = unknown> extends Dataset {
    */
   children?: ReactNode;
 }
-export interface LISTCallback {
+export interface COLLECTIONCallback {
   /**
    * 리스트를 구현하는 컨포넌트
    */
-  List?: string | FC<any>;
+  Root?: string | FC<any>;
   /**
    * 엔트리를 구현하는 컨포넌트
    */
@@ -43,20 +43,20 @@ export interface LISTCallback {
  * */
 
 export type RestProps<P> = Omit<P, keyof RootProps>;
-export const LIST = Fxtsx(function LIST<T, Value>(
+export const COLLECTION = Fxtsx(function COLLECTION<T, Value>(
   rootProps: RootProps,
-  restProps: RestProps<LISTProps<Value>>,
+  restProps: RestProps<COLLECTIONProps<Value>>,
   ref: ForwardedRef<T>
 ) {
   const {
-    List = Default,
+    Root = Default,
     Item = Default,
     $data = [],
     $itemFormat = identity,
     ...listProps
   } = restProps;
   return createElement(
-    List,
+    Root,
     {
       "data-fx-list": true,
       ...rootProps,

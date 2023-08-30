@@ -10,6 +10,6 @@ export const CardList = forwardRef(function CardList(
   ref: ForwardedRef<HTMLUListElement>
 ) {
   return (
-    <DATAFRAME data-fx-card List={Ul} Dictionary={Card} {...props} ref={ref} />
+    <DATAFRAME data-fx-card Root={Ul} Dictionary={Card} {...props} ref={ref} />
   );
 });

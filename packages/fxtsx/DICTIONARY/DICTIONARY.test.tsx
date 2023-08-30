@@ -5,15 +5,15 @@ import { anyPropsWithRootProps } from "fxtsx/FxTsx/FxTsx.test";
 import { Component } from "fxtsx/util/util";
 import { createRef, forwardRef } from "react";
 import { Default } from "fxtsx/DICTIONARY/DICTIONARY.stories";
-import { LIST } from "fxtsx/LIST/LIST";
+import { COLLECTION } from "fxtsx/COLLECTION/COLLECTION";
 import { ENTRY } from "fxtsx/ENTRY/ENTRY";
 
 describe("랜더링", () => {
   let renderResult: RenderResult;
-  const List = forwardRef((props: LIST<any>, ref: any) => (
-    <LIST
+  const List = forwardRef((props: COLLECTION<any>, ref: any) => (
+    <COLLECTION
       {...props}
-      List={Component("List")}
+      Root={Component("List")}
       Item={Component("Item")}
       ref={ref}
     />
@@ -28,7 +28,7 @@ describe("랜더링", () => {
       <DICTIONARY
         {...anyPropsWithRootProps}
         {...Default.args}
-        List={List}
+        Root={List}
         Entry={Entry}
         ref={ref}
         data-testId={"Dictionary"}

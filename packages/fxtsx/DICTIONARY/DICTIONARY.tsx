@@ -2,8 +2,8 @@ import type { FC, ForwardedRef, ReactNode, Ref } from "react";
 import { createElement } from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import type { RootProps } from "fxtsx/fxtsx.type";
-import type { RestProps } from "fxtsx/LIST/LIST";
-import { LIST } from "fxtsx/LIST/LIST";
+import type { RestProps } from "fxtsx/COLLECTION/COLLECTION";
+import { COLLECTION } from "fxtsx/COLLECTION/COLLECTION";
 import { identity } from "@fxts/core";
 import { ENTRY } from "fxtsx/ENTRY/ENTRY";
 
@@ -24,7 +24,7 @@ export interface DICTIONARY<V extends DicData = {}> {
   }>;
 }
 export interface DICTIONARYCallback<T = any> {
-  List?: FC<LIST<string> & { ref?: Ref<T> }>;
+  Root?: FC<COLLECTION<string> & { ref?: Ref<T> }>;
   Entry?: FC<ENTRY>;
 }
 //todo: (legacy?) List를 Dictionary로 받아서 처리하도록 리팩토 그리고 Entry 재정의가 아니라, formatter 에서 Key Value 로 확장하기
@@ -44,7 +44,7 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T, V extends DicData>(
   ref: ForwardedRef<T>
 ) {
   const {
-    List = LIST,
+    Root = COLLECTION,
     Entry = ENTRY,
     $data,
     $keys = Object.keys($data),
@@ -55,7 +55,7 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T, V extends DicData>(
     ...dictionaryProps
   } = restProps;
 
-  return createElement(List, {
+  return createElement(Root, {
     "data-fx-dictionary": true,
     ...rootProps,
     ...dictionaryProps,

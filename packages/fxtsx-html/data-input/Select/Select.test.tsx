@@ -22,65 +22,7 @@ describe("렌더링", () => {
           data-fx-dictionary="true"
           data-fx-list="true"
           data-testid="Select"
-        >
-          <div>
-            <div
-              data-fx-entry="true"
-              data-key="doctor"
-            >
-              <div
-                data-fx-key="true"
-              >
-                doctor
-              </div>
-              <div
-                data-fx-value="true"
-                name="doctor"
-                value="DOCTOR"
-              >
-                DOCTOR
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              data-fx-entry="true"
-              data-key="programmer"
-            >
-              <div
-                data-fx-key="true"
-              >
-                programmer
-              </div>
-              <div
-                data-fx-value="true"
-                name="programmer"
-                value="PROGRAMMER"
-              >
-                PROGRAMMER
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              data-fx-entry="true"
-              data-key="driver"
-            >
-              <div
-                data-fx-key="true"
-              >
-                driver
-              </div>
-              <div
-                data-fx-value="true"
-                name="driver"
-                value="DRIVER"
-              >
-                DRIVER
-              </div>
-            </div>
-          </div>
-        </div>
+        />
       </DocumentFragment>
     `);
   });

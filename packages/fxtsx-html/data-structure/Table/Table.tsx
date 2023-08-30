@@ -2,7 +2,7 @@ import type { ForwardedRef } from "react";
 import React, { forwardRef } from "react";
 import { DATAFRAME } from "fxtsx/DATAFRAME/DATAFRAME";
 import { Tr } from "fxtsx-html/data-structure/Tr/Tr";
-import { LIST } from "fxtsx/LIST/LIST";
+import { COLLECTION } from "fxtsx/COLLECTION/COLLECTION";
 
 export const Table = forwardRef(function Table(
   props: DATAFRAME<any>,
@@ -12,10 +12,10 @@ export const Table = forwardRef(function Table(
   return (
     <DATAFRAME
       data-fx-table
-      List={(props) => (
-        <LIST
+      Root={(props) => (
+        <COLLECTION
           {...props}
-          List={({ children, ref, ...props }) => (
+          Root={({ children, ref, ...props }) => (
             <table {...props}>
               <thead>
                 <Tr $data={$data[0]} isHeader={true} />

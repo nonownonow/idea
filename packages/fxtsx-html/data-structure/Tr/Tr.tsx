@@ -1,7 +1,7 @@
 import type { ForwardedRef } from "react";
 import React, { forwardRef } from "react";
 import { DICTIONARY } from "fxtsx/DICTIONARY/DICTIONARY";
-import { LIST } from "fxtsx/LIST/LIST";
+import { COLLECTION } from "fxtsx/COLLECTION/COLLECTION";
 import { ENTRY } from "fxtsx/ENTRY/ENTRY";
 
 export type TrProps = DICTIONARY & { isHeader?: boolean };
@@ -14,10 +14,10 @@ export const Tr = forwardRef(function Tr(
     <DICTIONARY
       data-fx-tr
       {...restProps}
-      List={(p) => (
-        <LIST
+      Root={(p) => (
+        <COLLECTION
           {...p}
-          List={(p) => <tr {...p} ref={ref} />}
+          Root={(p) => <tr {...p} ref={ref} />}
           Item={(p) => <>{p.children}</>}
         />
       )}

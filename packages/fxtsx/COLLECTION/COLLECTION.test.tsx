@@ -1,29 +1,29 @@
 import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
-import { LIST } from "fxtsx/LIST/LIST";
+import { COLLECTION } from "fxtsx/COLLECTION/COLLECTION";
 import { anyPropsWithRootProps } from "fxtsx/FxTsx/FxTsx.test";
 import { Component } from "fxtsx/util/util";
 import { createRef } from "react";
 
 describe("랜더링", () => {
   let renderResult: RenderResult;
-  const List = Component("ListCallback");
+  const Root = Component("ListCallback");
   const Item = Component("ItemCallback");
   const data = ["item1", "item2", "item3"];
   const ref = createRef<HTMLUListElement>();
   const formatter = (a: any, i: any) => (i === 1 ? `포멧팅한 ${a}` : a);
   beforeEach(() => {
     renderResult = render(
-      <LIST
+      <COLLECTION
         {...anyPropsWithRootProps}
-        List={List}
+        Root={Root}
         Item={Item}
         $data={data}
         $itemFormat={formatter}
         ref={ref}
       >
         ListRoot
-      </LIST>
+      </COLLECTION>
     );
   });
   test("Array 타입의 데이터를 구조화하여 요구사항에 맞게 랜더링한다", () => {
@@ -61,10 +61,10 @@ describe("랜더링", () => {
   });
 
   describe("프로퍼티", () => {
-    /*    test("루트요소는 List 콜백으로 랜더링한다", () => {
+    /*    test("루트요소는 Root 콜백으로 랜더링한다", () => {
       expect(screen.getByTestId("ListCallback")).toHaveTextContent("ListRoot");
     });
-    test("루트요소 List 콜백은 ref 를 받아서 랜더링한다", () => {
+    test("루트요소 Root 콜백은 ref 를 받아서 랜더링한다", () => {
       expect(ref.current).toHaveTextContent("ListRoot");
     });*/
     describe("data 프로퍼티로 배열 요소로 전달받아서", () => {

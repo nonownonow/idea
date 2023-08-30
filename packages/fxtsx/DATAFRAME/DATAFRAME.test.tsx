@@ -7,21 +7,21 @@ import {
 } from "@testing-library/react";
 import type { DATAFRAMEProps } from "./DATAFRAME";
 import { DATAFRAME } from "./DATAFRAME";
-import { LIST } from "fxtsx/LIST/LIST";
+import { COLLECTION } from "fxtsx/COLLECTION/COLLECTION";
 import { Component } from "fxtsx/util/util";
 import { DICTIONARY } from "fxtsx/DICTIONARY/DICTIONARY";
 import { Formatting } from "fxtsx/DATAFRAME/DATAFRAME.stories";
 import { ENTRY } from "fxtsx/ENTRY/ENTRY";
 
 describe("DATAFRAME", () => {
-  const List = (props: LIST<any>) => (
-    <LIST {...props} List={Component("List")} Item={Component("Item")} />
+  const List = (props: COLLECTION<any>) => (
+    <COLLECTION {...props} Root={Component("List")} Item={Component("Item")} />
   );
   const Entry = (props: ENTRY) => (
     <ENTRY Key={Component("Key")} Value={Component("Value")} {...props} />
   );
   const Dictionary = (props: DICTIONARY) => (
-    <DICTIONARY List={List} Entry={Entry} {...props} />
+    <DICTIONARY Root={List} Entry={Entry} {...props} />
   );
   let renderResult: RenderResult;
   describe("객체 배열을 data 프로퍼티로 받아서", () => {
@@ -33,7 +33,7 @@ describe("DATAFRAME", () => {
     };
     beforeEach(() => {
       renderResult = render(
-        <DATAFRAME $data={args.$data} List={List} Dictionary={Dictionary} />
+        <DATAFRAME $data={args.$data} Root={List} Dictionary={Dictionary} />
       );
     });
     test("렌더링", () => {
@@ -192,7 +192,7 @@ describe("DATAFRAME", () => {
         <DATAFRAME
           $data={Formatting.args?.$data as any}
           $itemFormat={Formatting.args?.$itemFormat}
-          List={List}
+          Root={List}
           Dictionary={Dictionary}
           $keyFormat={Formatting.args?.$keyFormat}
           $keyFormats={Formatting.args?.$keyFormats}

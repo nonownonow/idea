@@ -8,7 +8,7 @@ describe("랜더링", () => {
   let renderResult: RenderResult;
   let rootEl: ChildNode | null;
   const CallBack = {
-    Entry: Component("Entry"),
+    Root: Component("Entry"),
     Key: Component("Key"),
     Value: Component("Value"),
   };
