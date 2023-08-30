@@ -53,7 +53,8 @@ export const HEADING = Fxtsx<HTMLHeadingElement, HEADINGProps>(function (
   const {
     Headline = Component("Headline"),
     HeadlineGroup = Component("HeadlineGroup"),
-    $subTitle = rootProps.children,
+    children,
+    $subTitle = children,
     ...headingProps
   } = restProps;
   return $subTitle ? (

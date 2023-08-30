@@ -25,24 +25,6 @@ describe("Heading", () => {
       expect(container.firstChild instanceof HTMLHeadingElement).toEqual(true);
     });
   });
-
-  describe("children 이 있을 때", () => {
-    beforeEach(() => {
-      renderResult = render(
-        <Heading $title={"제목"} $level={1}>
-          <p>부제목</p>
-        </Heading>
-      );
-    });
-    test("root 는 hgroup 태그가 된다.", () => {
-      const { container } = renderResult;
-      expect((container.firstChild as HTMLElement).tagName).toEqual("HGROUP");
-    });
-    test("heading 은(data 를 텍스트로 가진 태그) 첫번째 children 으로 렌더링되고 children 은 두번째 children 으로 랜더링된다.", () => {
-      expect(screen.getByTextContent("제목부제목")).toBeInTheDocument();
-    });
-  });
-
   function commonTest() {
     test("ref 는 HTMLHeading 을 가리킨다.", () => {
       const { rerender } = renderResult;
@@ -71,4 +53,22 @@ describe("Heading", () => {
       expect(screen.getByRole("heading")).toContainHTML("<em>중요한</em>제목");
     });
   }
+});
+
+describe("children 이 있을 때", () => {
+  let renderResult: RenderResult;
+  beforeEach(() => {
+    renderResult = render(
+      <Heading $title={"제목"} $level={1}>
+        <p>부제목</p>
+      </Heading>
+    );
+  });
+  test("root 는 hgroup 태그가 된다.", () => {
+    const { container } = renderResult;
+    expect((container.firstChild as HTMLElement).tagName).toEqual("HGROUP");
+  });
+  test("heading 은(data 를 텍스트로 가진 태그) 첫번째 children 으로 렌더링되고 children 은 두번째 children 으로 랜더링된다.", () => {
+    expect(screen.getByTextContent("제목부제목")).toBeInTheDocument();
+  });
 });

@@ -11,7 +11,7 @@ describe("렌더링", () => {
     let renderResult: RenderResult;
     beforeEach(() => {
       renderResult = render(
-        <InputBox data-testid={"Checkbox"} {...Default.args} />
+        <InputBox data-testid={"Checkbox"} {...(Default.args as InputBox)} />
       );
       rootEl = screen.getByTestId("Checkbox");
     });

@@ -1,11 +1,13 @@
-import type { FC } from "react";
+import type { ComponentPropsWithoutRef, FC } from "react";
 import { createElement } from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import { Default } from "fxtsx/Identity/Default";
 import type { RootProps } from "fxtsx/fxtsx.type";
 import type { RestProps } from "fxtsx/LIST/LIST";
 
-export type ENTNRYProps = ENTRY & ENTRYCallback;
+export type ENTNRYProps = ENTRY &
+  ENTRYCallback &
+  ComponentPropsWithoutRef<"div">;
 
 export interface ENTRY {
   /**
@@ -31,11 +33,12 @@ export interface ENTRYCallback {
  * 엔트리의 구조를 구현한 고차 컴포넌트
  * */
 export const ENTRY = Fxtsx(function ENTRY(
-  { children, ...rootProps }: RootProps,
+  rootProps: RootProps,
   {
     Entry = Default,
     Key = Default,
     Value = Default,
+    children,
     $data: [$key, $value],
     $keyLabel,
     $valueLabel,

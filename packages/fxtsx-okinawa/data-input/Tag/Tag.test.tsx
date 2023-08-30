@@ -1,12 +1,15 @@
 import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
+import type { TagProps } from "./Tag";
 import { Tag } from "./Tag";
 import { Default } from "./Tag.stories";
 
 describe("랜더링", () => {
   let renderResult: RenderResult;
   beforeEach(() => {
-    renderResult = render(<Tag data-testid={"Tag"} {...Default.args} />);
+    renderResult = render(
+      <Tag data-testid={"Tag"} {...(Default.args as TagProps)} />
+    );
   });
   test("스냅샷", () => {
     const { asFragment } = renderResult;

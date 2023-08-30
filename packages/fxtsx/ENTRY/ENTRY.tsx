@@ -31,7 +31,7 @@ export interface ENTRYCallback {
   Value?: ElementNames | FC<any>;
 }
 export const ENTRY = Fxtsx(function ENTRY(
-  { children, ...rootProps }: RootProps,
+  rootProps: RootProps,
   restProps: RestProps<ENTNRYProps>
 ) {
   const {
@@ -40,6 +40,7 @@ export const ENTRY = Fxtsx(function ENTRY(
     Value = Default,
     $key,
     $value,
+    children,
     ...entryProps
   } = restProps;
   return createElement(

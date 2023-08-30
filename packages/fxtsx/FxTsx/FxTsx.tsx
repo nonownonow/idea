@@ -10,7 +10,6 @@ export function separateProps<P extends Record<string, any>>(
     "className",
     "tabIndex",
     "style",
-    "children",
     "hidden",
     /data-.+/,
   ]
@@ -51,7 +50,7 @@ export const anyPropsWithRootProps = {
   ...rootProps,
   any: "my-any-props",
 };
-export function Fxtsx<T, P extends Record<string, any>>(
+export function Fxtsx<T, P extends Record<string, any> = {}>(
   render: FXTSXRenderFunction<T, P>
 ) {
   //forwardRef 는 render 함수에서 타입 추론이 가능하도록 재정의 됨

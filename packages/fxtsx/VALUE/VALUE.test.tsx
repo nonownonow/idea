@@ -23,7 +23,6 @@ describe("구조", () => {
       <DocumentFragment>
         <div
           data-fx-value="true"
-          data-value="PROGRAMMER"
         >
           개발자
         </div>

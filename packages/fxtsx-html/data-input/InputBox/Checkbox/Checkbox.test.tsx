@@ -2,13 +2,14 @@ import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
 import { Checkbox } from "./Checkbox";
 import { Default } from "fxtsx-html/data-input/InputBox/Checkbox/Checkbox.stories";
+import type { InputBox } from "fxtsx-html/data-input/InputBox/InputBox";
 
 describe("랜더링", () => {
   let renderResult: RenderResult;
 
   beforeEach(() => {
     renderResult = render(
-      <Checkbox data-testid={"Checkbox"} {...Default.args} />
+      <Checkbox data-testid={"Checkbox"} {...(Default.args as InputBox)} />
     );
   });
   test("스냅샷", () => {

@@ -13,27 +13,22 @@ import { Default } from "fxtsx/Identity/Default";
 
 export type VALUEProps<T> = VALUE & VALUECallback<T>;
 
-export interface VALUE extends ComponentPropsWithoutRef<"div"> {
-  $data: any;
-  $label?: ReactNode;
-}
+export type VALUE =
+  | (ComponentPropsWithoutRef<"div"> | ComponentPropsWithoutRef<"option">) & {
+      $data: any;
+      $label?: ReactNode;
+    };
 export interface VALUECallback<T> {
   Root?: string | FC<{ children: ReactNode; ref: Ref<T> }>;
 }
-export const VALUE = Fxtsx(function VALUE<T>(
+export const VALUE = Fxtsx(function VALUE<T = unknown>(
   rootProps: RootProps,
   { Root = Default, $data, $label, ...restProps }: RestProps<VALUEProps<T>>,
   ref: ForwardedRef<T>
 ) {
   return (
-    <Root
-      ref={ref}
-      data-fx-value
-      data-value={$data}
-      {...rootProps}
-      {...restProps}
-    >
-      {$label}
+    <Root ref={ref} data-fx-value {...rootProps} {...restProps}>
+      {$label || $data}
     </Root>
   );
 });
