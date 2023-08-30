@@ -20,6 +20,7 @@ export const InputBox = Fxtsx<HTMLInputElement, InputBoxProps>(
       $checkedMark = "[V]",
       $unCheckedMark = "[ ]",
       $type = "checkbox",
+      children,
       ...restProps
     },
     ref

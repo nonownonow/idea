@@ -61,7 +61,13 @@ export const ENTRY = Fxtsx(function ENTRY(
       ),
       createElement(
         Value,
-        { "data-fx-value": true, "data-value": $value, key: 1, ...restProps },
+        {
+          "data-fx-value": true,
+          key: 1,
+          $data: $value,
+          $label: $valueLabel,
+          ...restProps,
+        },
         $valueLabel || $value
       ),
       children,
