@@ -45,6 +45,7 @@ describe("구조", () => {
   });
   fxtsxTest2(CheckOption, "data-fx-check-option", {
     requiredProps: Default.args,
+    separatedProps: true,
   });
   test("VALUE 를 구현한다", () => {
     expect(screen.getByTestId("CheckOption")).toHaveAttribute("data-fx-value");
