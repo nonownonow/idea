@@ -14,8 +14,12 @@ import { Default } from "fxtsx/Identity/Default";
 export type VALUEProps<T> = VALUE & VALUECallback<T>;
 
 export type VALUE =
-  | (ComponentPropsWithoutRef<"div"> | ComponentPropsWithoutRef<"option">) & {
-      $data: any;
+  | (
+      | ComponentPropsWithoutRef<"div">
+      | ComponentPropsWithoutRef<"option">
+      | ComponentPropsWithoutRef<"a">
+    ) & {
+      $data?: any;
       $label?: ReactNode;
     };
 export interface VALUECallback<T> {

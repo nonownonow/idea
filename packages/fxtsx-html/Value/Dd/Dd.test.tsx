@@ -1,28 +1,24 @@
 import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
-import type { OptionProps } from "fxtsx-html/Value/Option/Option";
-import { Option } from "fxtsx-html/Value/Option/Option";
-import { Default } from "fxtsx-html/Value/Option/Option.stories";
+import type { DdProps } from "fxtsx-html/Value/P/P";
+import { Default } from "fxtsx-html/Value/Dd/Dd.stories";
+import { Dd } from "fxtsx-html/Value/Dd/Dd";
 
 describe("구조", () => {
   let renderResult: RenderResult;
   const callBack = {};
   beforeEach(() => {
-    renderResult = render(
-      <Option {...callBack} {...(Default.args as OptionProps)} />
-    );
+    renderResult = render(<Dd {...callBack} {...(Default.args as DdProps)} />);
   });
   test("스냅샷", () => {
     const { asFragment } = renderResult;
     expect(asFragment()).toMatchInlineSnapshot(`
       <DocumentFragment>
-        <option
-          data-fx-option="true"
+        <dd
           data-fx-value="true"
-          value="PROGRAMMER"
         >
-          개발자
-        </option>
+          PROGRAMMER
+        </dd>
       </DocumentFragment>
     `);
   });

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Section } from "fxtsx-html/sectioning/Section/Section";
 import { htmlChildren } from "fxtsx/util/util";
 import { Dialog } from "fxtsx-html/data-view/Dialog/Dialog";
-import { Button } from "fxtsx-html/data/Button/Button";
+import { Button } from "fxtsx-html/Value/Button/Button";
 import { Heading } from "fxtsx-html/sectioning/H/Heading";
 
 export const Partners = function Partners() {
@@ -45,6 +45,11 @@ export const Partners = function Partners() {
           <legend
             {...htmlChildren(t("partnersApply.Fieldset_partner_Legend"))}
           />
+          {/* <Select
+            $valueFormats={t(
+              "partnersApply.Input_partner_type.partners_type_label"
+            )}
+          />*/}
         </fieldset>
       </form>
     </Article>

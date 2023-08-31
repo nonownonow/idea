@@ -1,13 +1,16 @@
 import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
+import type { ImgProps } from "./Img";
 import { Img } from "./Img";
-import { Default } from "fxtsx-html/data/Img/Img.stories";
+import { Default } from "fxtsx-html/Value/Img/Img.stories";
 
 describe("렌더링", () => {
   let renderResult: RenderResult;
 
   beforeEach(() => {
-    renderResult = render(<Img data-testid={"Img"} {...Default.args} />);
+    renderResult = render(
+      <Img data-testid={"Img"} {...(Default.args as ImgProps)} />
+    );
   });
 
   test("스냅샷", () => {
@@ -16,6 +19,7 @@ describe("렌더링", () => {
       <DocumentFragment>
         <picture
           data-fx-img="true"
+          data-fx-value="true"
           data-testid="Img"
         >
           <source

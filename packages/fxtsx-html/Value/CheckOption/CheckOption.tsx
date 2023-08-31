@@ -12,11 +12,10 @@ export const CheckOption = Fxtsx<HTMLInputElement, CheckOptionProps>(
       data-fx-check-option
       Root={"label"}
       {...rootProps}
-      ref={ref}
       $data={$data}
       $label={
         <>
-          {$label} <InputBox value={$data} {...restProps} />
+          {$label} <InputBox value={$data} {...restProps} ref={ref} />
         </>
       }
     />

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Img } from "fxtsx-html/data/Img/Img";
+import { Img } from "fxtsx-html/Value/Img/Img";
 import imgSrcM1 from "./fixture/mo-shop-guide-flag-australia.png";
 import imgSrcM2 from "./fixture/mo-shop-guide-flag-australia@2x.png";
 import imgSrcM3 from "./fixture/mo-shop-guide-flag-australia@3x.png";
