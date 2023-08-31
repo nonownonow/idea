@@ -18,14 +18,17 @@ describe("렌더링", () => {
           data-fx-list="true"
           data-testid="Select"
         >
-          <label>
-            의사
+          <label
+            data-fx-check-option="true"
+            data-fx-value="true"
+          >
+            의사 
             <label
               data-fx-input-box="checkbox"
-              data-fx-value="true"
             >
               <input
-                type="checkbox"
+                name="직업"
+                type="radio"
                 value="DOCTOR"
               />
               <span>
@@ -36,14 +39,17 @@ describe("렌더링", () => {
               </span>
             </label>
           </label>
-          <label>
-            개발자
+          <label
+            data-fx-check-option="true"
+            data-fx-value="true"
+          >
+            개발자 
             <label
               data-fx-input-box="checkbox"
-              data-fx-value="true"
             >
               <input
-                type="checkbox"
+                name="직업"
+                type="radio"
                 value="PROGRAMMER"
               />
               <span>
@@ -54,14 +60,17 @@ describe("렌더링", () => {
               </span>
             </label>
           </label>
-          <label>
-            운전기사
+          <label
+            data-fx-check-option="true"
+            data-fx-value="true"
+          >
+            운전기사 
             <label
               data-fx-input-box="checkbox"
-              data-fx-value="true"
             >
               <input
-                type="checkbox"
+                name="직업"
+                type="radio"
                 value="DRIVER"
               />
               <span>

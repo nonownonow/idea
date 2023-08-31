@@ -69,7 +69,6 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T>(
   return createElement(COLLECTION, {
     "data-fx-dictionary": true,
     ...rootProps,
-    ...dictionaryProps,
     ref,
     $data: [...$keys.entries()],
     Root: Root,
@@ -91,6 +90,7 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T>(
           $data={[key, $data[key]]}
           $keyLabel={keyLabel}
           $valueLabel={valueLabel}
+          {...dictionaryProps}
         />
       );
     },

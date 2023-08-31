@@ -22,5 +22,7 @@ export const Default: Story = {
       programmer: "개발자",
       driver: "운전기사",
     },
+    name: "직업",
+    type: "radio",
   },
 };

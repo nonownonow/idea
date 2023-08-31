@@ -22,66 +22,57 @@ describe("랜더링", () => {
           data-testid="SelectInputBox"
         >
           <li>
-            <label>
-              개발자
-              <label
-                data-fx-input-box="checkbox"
-                data-fx-value="true"
-              >
-                <input
-                  name="programmer"
-                  type="checkbox"
-                  value="PROGRAMMER"
-                />
-                <span>
-                  [ ]
-                </span>
-                <span>
-                  [V]
-                </span>
-              </label>
+            <label
+              data-fx-input-box="checkbox"
+              data-fx-value="true"
+            >
+              <input
+                name="programmer"
+                type="checkbox"
+                value="PROGRAMMER"
+              />
+              <span>
+                [ ]
+              </span>
+              <span>
+                [V]
+              </span>
             </label>
           </li>
           <li>
-            <label>
-              의사
-              <label
-                data-fx-input-box="checkbox"
-                data-fx-value="true"
-              >
-                <input
-                  name="doctor"
-                  type="checkbox"
-                  value="DOCTOR"
-                />
-                <span>
-                  [ ]
-                </span>
-                <span>
-                  [V]
-                </span>
-              </label>
+            <label
+              data-fx-input-box="checkbox"
+              data-fx-value="true"
+            >
+              <input
+                name="doctor"
+                type="checkbox"
+                value="DOCTOR"
+              />
+              <span>
+                [ ]
+              </span>
+              <span>
+                [V]
+              </span>
             </label>
           </li>
           <li>
-            <label>
-              운전기사
-              <label
-                data-fx-input-box="checkbox"
-                data-fx-value="true"
-              >
-                <input
-                  name="driver"
-                  type="checkbox"
-                  value="DRIVER"
-                />
-                <span>
-                  [ ]
-                </span>
-                <span>
-                  [V]
-                </span>
-              </label>
+            <label
+              data-fx-input-box="checkbox"
+              data-fx-value="true"
+            >
+              <input
+                name="driver"
+                type="checkbox"
+                value="DRIVER"
+              />
+              <span>
+                [ ]
+              </span>
+              <span>
+                [V]
+              </span>
             </label>
           </li>
         </ul>

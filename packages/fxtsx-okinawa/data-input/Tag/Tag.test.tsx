@@ -29,23 +29,20 @@ describe("랜더링", () => {
           >
             태그1
           </label>
-          <label>
-            <label
-              data-fx-input-box="checkbox"
-              data-fx-value="true"
-            >
-              <input
-                id="태그1"
-                type="checkbox"
-                value=""
-              />
-              <span>
-                [ ]
-              </span>
-              <span>
-                [V]
-              </span>
-            </label>
+          <label
+            data-fx-input-box="checkbox"
+            data-fx-value="true"
+          >
+            <input
+              id="태그1"
+              type="checkbox"
+            />
+            <span>
+              [ ]
+            </span>
+            <span>
+              [V]
+            </span>
           </label>
         </div>
       </DocumentFragment>

@@ -16,30 +16,27 @@ describe("랜더링", () => {
     const { asFragment } = renderResult;
     expect(asFragment()).toMatchInlineSnapshot(`
       <DocumentFragment>
-        <label>
-          <label
-            data-fx-input-box="checkbox"
-            data-testid="Checkbox"
-          >
-            <input
-              type="checkbox"
-              value=""
-            />
-            <span>
-              <span
-                data-testid="unCheckedMark"
-              >
-                🙂
-              </span>
+        <label
+          data-fx-input-box="checkbox"
+          data-testid="Checkbox"
+        >
+          <input
+            type="checkbox"
+          />
+          <span>
+            <span
+              data-testid="unCheckedMark"
+            >
+              🙂
             </span>
-            <span>
-              <span
-                data-testid="checkedMark"
-              >
-                😆
-              </span>
+          </span>
+          <span>
+            <span
+              data-testid="checkedMark"
+            >
+              😆
             </span>
-          </label>
+          </span>
         </label>
       </DocumentFragment>
     `);
