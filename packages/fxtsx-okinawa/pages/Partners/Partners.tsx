@@ -6,8 +6,8 @@ import { htmlChildren } from "fxtsx/util/util";
 import { Dialog } from "fxtsx-html/data-view/Dialog/Dialog";
 import { Button } from "fxtsx-html/Value/Button/Button";
 import { Heading } from "fxtsx-html/sectioning/H/Heading";
-import { Select } from "fxtsx-html/data-input/Select/Select";
 import { partnerType } from "~/i18n/translations/ko";
+import { SelectField } from "fxtsx-html/data-input/SelectField/SelectField";
 
 export const Partners = function Partners() {
   const { t } = useTranslation();
@@ -47,8 +47,10 @@ export const Partners = function Partners() {
           <legend
             {...htmlChildren(t("partnersApply.Fieldset_partner_Legend"))}
           />
-          <Select
+          <SelectField
             $data={partnerType}
+            $key={"partner_type"}
+            $label={"파트너 타입"}
             $valueFormats={
               t("partnersApply.Input_partner_type.partners_type_label", {
                 returnObjects: true,
