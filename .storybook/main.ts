@@ -1,4 +1,4 @@
-import { dirname, join } from "path";
+import path, { dirname, join } from "path";
 import type { StorybookConfig } from "@storybook/react-webpack5";
 
 const config: StorybookConfig = {
@@ -30,6 +30,15 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: "tag",
+  },
+  webpackFinal: async (config) => {
+    config.resolve = config.resolve || {};
+    config.resolve.modules = [path.resolve(__dirname, ".."), "node_modules"];
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "~": path.resolve(__dirname, "../app"),
+    };
+    return config;
   },
 };
 export default config;
