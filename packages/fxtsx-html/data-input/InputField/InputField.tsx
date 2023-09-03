@@ -4,15 +4,14 @@ import type { ElementNames } from "fxtsx/ENTRY/ENTRY";
 import { ENTRY } from "fxtsx/ENTRY/ENTRY";
 import { htmlChildren } from "fxtsx/util/util";
 
-export type InputFieldProps = InputField & InputFieldCallback;
+export type InputFieldProps = InputField &
+  InputFieldCallback &
+  ComponentPropsWithoutRef<"input">;
 
-export type InputField<Input = ComponentPropsWithoutRef<"input">> = Omit<
-  ENTRY,
-  "$value"
-> & {
+export type InputField = Omit<ENTRY, "$value"> & {
   $error?: string;
   $label?: ReactNode;
-} & Input;
+};
 
 export type InputFieldCallback = {
   Input: ElementNames | FC<any>;

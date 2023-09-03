@@ -14,7 +14,7 @@ describe("SECTION", () => {
     $level: 1,
     $contents: "현재 레벨의 내용",
     $subTitle: "해딩의 보조 내용",
-    Sectioning: $Section,
+    Root: $Section,
     Heading: $Heading,
   };
 

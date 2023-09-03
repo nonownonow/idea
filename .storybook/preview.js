@@ -1,7 +1,9 @@
 import React, { Suspense, useEffect } from "react";
 import results from "../.jest-test-results.json";
 import { withTests } from "@storybook/addon-jest";
-import "../app/responsive.css";
+// storybook 의 iframe 영역에만 적용되어야 하는 css 정의
+import "./preview.css";
+import "../app/styles/responsive.css";
 import "fxtsx-okinawa/theme.css";
 import { I18nextProvider } from "react-i18next";
 import i18n from "../app/i18n/index.client";

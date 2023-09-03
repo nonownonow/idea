@@ -1,9 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Component } from "../util/util";
 import { HEADING } from "./HEADING";
-import { Headline, HeadlineGroup } from "fxtsx-html/sectioning/H/Heading";
-
-const level = 1;
 
 const meta = {
   component: HEADING,
@@ -11,20 +7,6 @@ const meta = {
   argTypes: {
     $level: {
       control: { type: "number", min: 1, max: 6 },
-    },
-    Headline: {
-      options: ["없음", "Headline"],
-      mapping: {
-        없음: null,
-        Headline: Headline,
-      },
-    },
-    HeadlineGroup: {
-      options: ["목업", "HeadlineGroup"],
-      mapping: {
-        목업: Component("$HeadlineGroup", `레벨${level} 헤딩 그룹 구현`),
-        Hgroup: HeadlineGroup,
-      },
     },
     children: {
       options: ["없음", "부제목"],
@@ -54,15 +36,15 @@ export const WithChildren: Story = {
 export const WithFxtsxHtml: Story = {
   args: {
     ...HEADING_Default.args,
-    Headline: "H" as any,
-    HeadlineGroup: "Hgroup" as any,
+    Root: "h1",
+    HeadingGroup: "hgroup",
   },
 };
 
 export const WithFxtsxHtmlAndChildren: Story = {
   args: {
     ...WithChildren.args,
-    Headline: "H" as any,
-    HeadlineGroup: "Hgroup" as any,
+    Root: "h1",
+    HeadingGroup: "hgroup",
   },
 };

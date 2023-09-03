@@ -84,6 +84,12 @@ export const partnersApply = {
   Input_corporation_type: {
     label: "기업형태",
     // options: corporationType,
+    option_label: {
+      private_enterprise: "개인기업",
+      corporation: "법인기업",
+      social_enterprise: "사회적기업",
+      etc: "기타",
+    },
     error_required: "기업형태를 입력해주세요.",
     error_type: "기업형태는 문자로 입력해주세요.",
   },

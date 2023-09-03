@@ -1,6 +1,7 @@
 import { cssBundleHref } from "@remix-run/css-bundle";
 import type { LinksFunction } from "@remix-run/node";
-import responsiveCss from "./responsive.css";
+import responsiveCss from "./styles/responsive.css";
+import font from "../public/fonts/pretendard/variable/pretendardvariable.css";
 import okinawaTheme from "fxtsx-okinawa/theme.css";
 import {
   Links,
@@ -13,6 +14,7 @@ import {
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+  { rel: "stylesheet", href: font },
   { rel: "stylesheet", href: responsiveCss },
   { rel: "stylesheet", href: okinawaTheme },
 ];

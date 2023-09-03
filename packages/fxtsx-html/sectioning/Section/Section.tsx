@@ -6,7 +6,7 @@ import { SECTIONING } from "fxtsx/SECTIONING/SECTIONING";
 
 export type SectionProps = SECTIONING & ComponentPropsWithoutRef<"div">;
 
-export const Sectioning: SECTIONINGCallback["Sectioning"] = forwardRef(
+export const Sectioning: SECTIONINGCallback["Root"] = forwardRef(
   (props, ref) => {
     return <section {...props} ref={ref} />;
   }
@@ -14,12 +14,7 @@ export const Sectioning: SECTIONINGCallback["Sectioning"] = forwardRef(
 export const Section = forwardRef<HTMLDivElement, SectionProps>(
   function Section(props, ref) {
     return (
-      <SECTIONING
-        {...props}
-        Sectioning={Sectioning}
-        Heading={Heading}
-        ref={ref}
-      />
+      <SECTIONING {...props} Root={Sectioning} Heading={Heading} ref={ref} />
     );
   }
 );

@@ -16,3 +16,23 @@ export const TextField = function TextField(props: TextFieldProps) {
     ></InputField>
   );
 };
+
+export const EmailField = (props: TextFieldProps) => (
+  <InputField
+    data-fx-email-field
+    {...props}
+    Input={"input"}
+    type={"email"}
+    id={props.$key}
+  ></InputField>
+);
+
+export const TelField = (props: TextFieldProps) => (
+  <InputField
+    data-fx-tel-field
+    {...props}
+    Input={"input"}
+    type={"tel"}
+    id={props.$key}
+  ></InputField>
+);

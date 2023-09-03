@@ -25,7 +25,7 @@ export const SECIONING_Default: Story = {
 };
 export const Default: Story = {
   args: {
-    Sectioning: "목업" as any,
+    Root: "목업" as any,
     Heading: "목업" as any,
     $level: level,
     $title: "제목",
@@ -34,7 +34,7 @@ export const Default: Story = {
     $contents: "없음",
   },
   argTypes: {
-    Sectioning: {
+    Root: {
       options: ["목업", "Section"],
       mapping: {
         목업: Component("$Sectioning", `레벨${level} 섹션 구현`),

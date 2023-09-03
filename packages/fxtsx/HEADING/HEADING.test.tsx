@@ -18,7 +18,6 @@ describe("HEADING", () => {
         <DocumentFragment>
           <div
             data-fx-heading="true"
-            data-testid="Headline"
             level="1"
             title="제목"
           />
@@ -32,10 +31,8 @@ describe("HEADING", () => {
         <DocumentFragment>
           <div
             data-fx-heading="true"
-            data-testid="HeadlineGroup"
           >
             <div
-              data-testid="Headline"
               level="1"
               title="제목"
             />
@@ -57,10 +54,8 @@ describe("HEADING", () => {
         <DocumentFragment>
           <div
             data-fx-heading="true"
-            data-testid="HeadlineGroup"
           >
             <div
-              data-testid="Headline"
               level="1"
               title="제목"
             />

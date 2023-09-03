@@ -1,10 +1,16 @@
-import type { FC, ReactNode, Ref } from "react";
-import React from "react";
+import type { FC, ReactNode } from "react";
+import { createElement } from "react";
 
 import { Fxtsx } from "../FxTsx/FxTsx";
-import { Component } from "fxtsx/util/util";
+import { Default } from "fxtsx/Identity/Default";
 
-export type HEADINGProps = HEADING & HEADINGCallback;
+export type HEADINGProps = HEADING &
+  HEADINGCallback & {
+    /**
+     * =subTitle 프로퍼티
+     */
+    children?: HEADINGProps["$subTitle"];
+  };
 //$접두사를 이용해서 fxtsx 프로퍼티의 고유한 이름을 보장한다.
 export interface HEADING {
   /**
@@ -14,32 +20,22 @@ export interface HEADING {
   /**
    * 제목의 레벨
    */
-  $level: number;
+  $level?: number;
   /**
    * 부제목
    */
   $subTitle?: ReactNode;
-  /**
-   * =subTitle 프로퍼티
-   */
-  children?: HEADINGProps["$subTitle"];
 }
 
 export type HEADINGCallback = {
   /**
    * 제목을 구현하는 컨포넌트
    */
-  Headline?: FC<{
-    $title: HEADING["$title"];
-    $level: HEADING["$level"];
-    ref: Ref<HTMLHeadingElement>;
-  }>;
+  Root?: string | FC<any>;
   /**
    * 제목 그룹을 구현하는 컨포넌트
    */
-  HeadlineGroup?: FC<{
-    children: HEADING["children"];
-  }>;
+  HeadingGroup?: string | FC<any>;
 };
 
 /**
@@ -51,18 +47,26 @@ export const HEADING = Fxtsx<HTMLHeadingElement, HEADINGProps>(function (
   ref
 ) {
   const {
-    Headline = Component("Headline"),
-    HeadlineGroup = Component("HeadlineGroup"),
+    Root = Default,
+    HeadingGroup = Default,
     children,
     $subTitle = children,
     ...headingProps
   } = restProps;
-  return $subTitle ? (
-    <HeadlineGroup data-fx-heading {...rootProps}>
-      <Headline {...headingProps} ref={ref} />
-      {$subTitle}
-    </HeadlineGroup>
-  ) : (
-    <Headline data-fx-heading {...rootProps} {...headingProps} ref={ref} />
-  );
+  return $subTitle
+    ? createElement(
+        HeadingGroup,
+        {
+          "data-fx-heading": true,
+          ...rootProps,
+          ref,
+        },
+        [createElement(Root, { ...headingProps, ref }), $subTitle]
+      )
+    : createElement(Root, {
+        "data-fx-heading": true,
+        ...rootProps,
+        ...headingProps,
+        ref,
+      });
 });

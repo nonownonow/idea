@@ -14,10 +14,8 @@ describe("랜더링", () => {
       <DocumentFragment>
         <div
           data-fx-sectioning="true"
-          data-testid="$Sectioning"
         >
           <div
-            data-testid="$Heading"
             level="1"
             title="제목"
           />

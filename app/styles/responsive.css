@@ -26,11 +26,21 @@
 	그러므로 안드로이드 폰에서는 자바스크립트로 강제로 시스템 폰트를 바라보게 하면 될거 같다. 이때도 레이아웃 틀어지지 않는다.
 	rem폰트로 작성되었기 때문이다.
 */
+
+// 브라우저 자동 폰트 조정 막기, 브라우저 마다 다르게 작동해서 html, body 두군데 적용해야 함.
+html,
+body {
+  text-size-adjust: none;
+}
+
+// 고정 픽셀 사용을 염두해 두어 셋팅함, rem은 html 폰트 사이즈를 참조한다. body에 font-size를 설정하면, 상위로 부터 상속받는 엘레멘트의 기본 폰트에 영향을 준다.
 body {
   font-size: 16px;
 }
+
 html {
   font-size: 7px;
+  font-family: Pretendard, AppleSDGothicNeo, sans-serif;
 
   /*모바일 영역 개행 처리*/
   h1,
@@ -55,10 +65,8 @@ html {
 @media (min-width: 267px) {
   html {
     font-size: 2.666666666vmin;
-
   }
 }
-
 
 /*
 	PC 영역 = 고정 레이아웃
@@ -81,7 +89,7 @@ html {
 	태블릭 세로 화면에서는 개행 처리 제어를 해제한다.(태블릿은 유동레이아웃이어야 미려한 레이아웃이 될듯 이때 유동레이아웃은
 	모바일에서 가로화면일때의 유동레이아웃에서 재사용된다.)
    컴포넌트 스타일영역에서 레이아웃 변환점을 정해서 각 컴포넌트 스타일 영역의 미디어 쿼리에 반영해야 한다.*/
-@media (min-width: 800px){
+@media (min-width: 800px) {
   html {
     font-size: 7px;
   }
@@ -101,7 +109,8 @@ html {
     white-space: initial;
   }
   br {
-    display: initial;
+    //display: initial;
+    display: none;
   }
 }
 /*
