@@ -5,13 +5,19 @@ import "./Details.css";
 
 export type DetailsProps = {
   $summary: ReactNode;
-  $openMark: ReactNode;
-  $closeMark: ReactNode;
+  $openMark?: ReactNode;
+  $closeMark?: ReactNode;
 } & ComponentPropsWithoutRef<"details">;
 
 export const Details = forwardRef<HTMLDetailsElement, DetailsProps>(
   function TextField(props, ref) {
-    const { $summary, $openMark, $closeMark, children, ...restProps } = props;
+    const {
+      $summary,
+      $openMark = "+",
+      $closeMark = "-",
+      children,
+      ...restProps
+    } = props;
     return (
       <details data-fx-details {...restProps} ref={ref}>
         <summary>

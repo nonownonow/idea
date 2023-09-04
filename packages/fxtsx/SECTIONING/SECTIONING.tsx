@@ -3,6 +3,7 @@ import React, { createElement } from "react";
 import { Fxtsx } from "../FxTsx/FxTsx";
 import { Default } from "fxtsx/Identity/Default";
 import type { HEADING } from "fxtsx/HEADING/HEADING";
+import { htmlChildren } from "fxtsx/util/util";
 
 export type SECTIONINGProps = SECTIONING & SECTIONINGCallback;
 export type SECTIONING = Omit<HEADING, "children"> & {
@@ -55,7 +56,12 @@ export const SECTIONING = Fxtsx<HTMLElement, SECTIONINGProps>(
         ref,
       },
       <>
-        {createElement(Heading, { $title, $level, $subTitle })}
+        {createElement(Heading, {
+          $title,
+          ...htmlChildren($title),
+          $level,
+          $subTitle,
+        })}
         {$contents && <div data-fx-sectioning-contents>{$contents}</div>}
         {children}
       </>

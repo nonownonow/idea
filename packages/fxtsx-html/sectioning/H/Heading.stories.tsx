@@ -6,7 +6,7 @@ const meta = {
   component: Heading,
   tags: ["autodocs"],
   argTypes: {
-    children: {
+    $subTitle: {
       options: ["없음", "부제목", "제목과 관련된 내용"],
       control: { type: "select" },
     },
@@ -34,6 +34,6 @@ export const Normal: Story = {
   args: {
     $title: "Hello <em>Heading</em>!!",
     $level: 1,
-    children: "없음",
+    $subTitle: "없음",
   },
 };

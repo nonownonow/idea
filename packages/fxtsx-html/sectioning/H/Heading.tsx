@@ -10,12 +10,13 @@ export type HProps = HEADING & ComponentPropsWithoutRef<"h1">;
  * - children이 존재하면 루트태그는 헤딩(h1 - h6)에서 헤딩그룹(hgroup)으로 교체됨
  */
 export const Heading = forwardRef<HTMLHeadingElement, HProps>(function Heading(
-  props,
+  { $subTitle, children = $subTitle, ...props },
   ref
 ) {
   return (
     <HEADING
       {...props}
+      $subTitle={children}
       Root={forwardRef(({ $level, $title }, ref) =>
         createElement(`h${$level}`, { ...htmlChildren($title), ref })
       )}

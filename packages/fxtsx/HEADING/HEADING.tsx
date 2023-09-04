@@ -50,7 +50,7 @@ export const HEADING = Fxtsx<HTMLHeadingElement, HEADINGProps>(function (
     Root = Default,
     HeadingGroup = Default,
     children,
-    $subTitle = children,
+    $subTitle,
     ...headingProps
   } = restProps;
   return $subTitle
@@ -61,7 +61,7 @@ export const HEADING = Fxtsx<HTMLHeadingElement, HEADINGProps>(function (
           ...rootProps,
           ref,
         },
-        [createElement(Root, { ...headingProps, ref }), $subTitle]
+        [createElement(Root, { ...headingProps, ref, key: "0" }), $subTitle]
       )
     : createElement(Root, {
         "data-fx-heading": true,

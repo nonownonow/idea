@@ -38,6 +38,7 @@ describe("SECTION", () => {
             data-testid="$Section"
           >
             <div
+              dangerously-set-inner-html="[object Object]"
               data-testid="$Heading"
               level="1"
               sub-title="해딩의 보조 내용"

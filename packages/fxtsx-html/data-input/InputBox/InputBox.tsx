@@ -3,13 +3,12 @@ import React from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import "./InputBox.css";
 
-export type InputBoxProps = InputBox &
-  Omit<ComponentPropsWithoutRef<"input">, "type">;
-export type InputBox = {
+export type InputBoxProps = {
   $unCheckedMark?: ReactNode;
   $checkedMark?: ReactNode;
   $type?: "checkbox" | "radio";
-};
+} & Omit<ComponentPropsWithoutRef<"input">, "type">;
+
 export const InputBox = Fxtsx<HTMLInputElement, InputBoxProps>(
   function InputBox(
     rootProps,

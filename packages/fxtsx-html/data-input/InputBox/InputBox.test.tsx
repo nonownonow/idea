@@ -1,4 +1,5 @@
 import { fxtsxTest } from "fxtsx/FxTsx/fxtsxTest";
+import type { InputBoxProps } from "fxtsx-html/data-input/InputBox/InputBox";
 import { InputBox } from "fxtsx-html/data-input/InputBox/InputBox";
 import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
@@ -11,7 +12,10 @@ describe("렌더링", () => {
     let renderResult: RenderResult;
     beforeEach(() => {
       renderResult = render(
-        <InputBox data-testid={"Checkbox"} {...(Default.args as InputBox)} />
+        <InputBox
+          data-testid={"Checkbox"}
+          {...(Default.args as InputBoxProps)}
+        />
       );
       rootEl = screen.getByTestId("Checkbox");
     });

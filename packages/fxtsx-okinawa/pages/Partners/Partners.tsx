@@ -6,14 +6,16 @@ import { htmlChildren } from "fxtsx/util/util";
 import { Dialog } from "fxtsx-html/data-view/Dialog/Dialog";
 import { Button } from "fxtsx-html/Value/Button/Button";
 import { Heading } from "fxtsx-html/sectioning/H/Heading";
-import { SelectField } from "fxtsx-html/data-input/SelectField/SelectField";
-import { TextField } from "../../data-input/TextField/TextField";
-import {
-  EmailField,
-  TelField,
-} from "fxtsx-html/data-input/TextField/TextField";
-import { FileField } from "fxtsx-html/data-input/FileField/FileField";
 import { Fieldset } from "fxtsx-html/sectioning";
+import { CheckOption } from "fxtsx-html/Value/CheckOption/CheckOption";
+import { Select } from "fxtsx-html/data-input/Select/Select";
+import { Ul } from "fxtsx-html/data-structure/Ul/Ul";
+import { TextField } from "fxtsx-html/data-input/TextField/TextField";
+import { SelectField } from "fxtsx-html/data-input/SelectField/SelectField";
+import { FileField } from "fxtsx-html/data-input/FileField/FileField";
+import { P } from "fxtsx-html/Value/P/P";
+import { TextAreaField } from "fxtsx-html/data-input/TextAreaField/TextAreaField";
+import { partnerType } from "~/i18n/translations/ko";
 
 export const Partners = function Partners() {
   const { t } = useTranslation();
@@ -48,7 +50,7 @@ export const Partners = function Partners() {
       </Section>
       <form>
         <Heading $title={t("partnersApply.Form_H")} $level={level + 1} />
-        {/*        <fieldset>
+        <fieldset>
           <legend
             {...htmlChildren(t("partnersApply.Fieldset_partner_Legend"))}
           />
@@ -89,7 +91,8 @@ export const Partners = function Partners() {
             $label={t("partnersApply.Input_proposal.label")}
             placeholder={t("partnersApply.Input_proposal.placeholder")}
           />
-        </fieldset>*/}
+        </fieldset>
+
         <Fieldset $title={t("partnersApply.Fieldset_corporation_Legend")}>
           <SelectField
             $key={"corporation.type"}
@@ -121,26 +124,109 @@ export const Partners = function Partners() {
             $label={t("partnersApply.Input_applicant_rank.label")}
             placeholder={t("partnersApply.Input_applicant_rank.placeholder")}
           />
-          <EmailField
+          <TextField
             $key={"applicant.email"}
             $label={t("partnersApply.Input_applicant_email.label")}
             placeholder={t("partnersApply.Input_applicant_email.placeholder")}
+            type={"email"}
             required
           />
-          <TelField
+          <TextField
             $key={"applicant.phone"}
             $label={t("partnersApply.Input_applicant_phone.label")}
             placeholder={t("partnersApply.Input_applicant_phone.placeholder")}
+            type={"tel"}
           />
           <FileField
-            $key={"corporation_intro"}
+            $key={"corporation.intro"}
             $label={t("partnersApply.Input_corporationIntro_profile.label")}
             placeholder={t(
               "partnersApply.Input_corporationIntro_profile.placeholder"
             )}
           />
+          <TextField
+            $key={"corporation.domain"}
+            $label={t("partnersApply.Input_corporation_domain.label")}
+            placeholder={t(
+              "partnersApply.Input_corporation_domain.placeholder"
+            )}
+          />
         </Fieldset>
-        <button>submit</button>
+        <Fieldset
+          data-privacyTerm
+          $title={t("partnersApply.Fieldset_privacy_term_Legend")}
+        >
+          <CheckOption
+            name={"label_check_all"}
+            $label={t("partnersApply.Input_privacy_term.label_check_all")}
+          />
+          <Select
+            $data={{
+              check_agree: "CHECK_AGREE",
+            }}
+            $valueFormats={{
+              check_agree: t(
+                "partnersApply.Input_privacy_term.options.check_agree"
+              ),
+            }}
+          />
+          <Button
+            $data={t("partnersApply.privacy_term_Section_sec1_detail_summary")}
+            type={"button"}
+          />
+          <Dialog
+            $closeButtonLabel={t(
+              "partnersApply.privacy_term_Button_dialog_close"
+            )}
+          >
+            <Section
+              $title={t("partnersApply.privacy_term_Section_sec1_H")}
+              $contents={
+                <>
+                  <Ul<ReturnType<typeof t>>
+                    $data={t("partnersApply.privacy_term_Section_sec1_list", {
+                      returnObjects: true,
+                    })}
+                  />
+                  <P $data={t("partnersApply.privacy_term_Section_sec1_p")} />
+                </>
+              }
+            />
+          </Dialog>
+        </Fieldset>
+        <Fieldset $title={t("partnersApply.Fieldset_apply_notice_Legend")}>
+          <CheckOption
+            $label={t("partnersApply.Input_apply_notice.label_check_all")}
+          />
+          <Select
+            $data={t("partnersApply.Input_apply_notice.options", {
+              returnObjects: true,
+            })}
+          />
+          <Button
+            $data={t("partnersApply.apply_notice_Section_sec1_detail_summary")}
+          />
+          <Dialog
+            $closeButtonLabel={t(
+              "partnersApply.apply_notice_Button_dialog_close"
+            )}
+          >
+            <Section
+              $title={t("partnersApply.apply_notice_Section_sec1_H")}
+              $contents={
+                <>
+                  <Ul<ReturnType<typeof t>>
+                    $data={t("partnersApply.apply_notice_Section_sec1_list", {
+                      returnObjects: true,
+                    })}
+                  />
+                </>
+              }
+            />
+          </Dialog>
+        </Fieldset>
+        <Button $data={t("partnersApply.Form_Button_ok")} />
+        <Button $data={t("partnersApply.Form_Button_cancel")} />
       </form>
     </Article>
   );

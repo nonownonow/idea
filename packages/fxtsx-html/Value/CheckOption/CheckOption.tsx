@@ -3,6 +3,7 @@ import React from "react";
 import { VALUE } from "fxtsx/VALUE/VALUE";
 import { InputBox } from "fxtsx-html/data-input/InputBox/InputBox";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
+import { htmlChildren } from "fxtsx/util/util";
 
 export type CheckOptionProps = VALUE & ComponentPropsWithoutRef<"input">;
 
@@ -15,7 +16,8 @@ export const CheckOption = Fxtsx<HTMLInputElement, CheckOptionProps>(
       $data={$data}
       $label={
         <>
-          {$label} <InputBox value={$data} {...restProps} ref={ref} />
+          <span {...htmlChildren($label)} />
+          <InputBox value={$data} {...restProps} ref={ref} />
         </>
       }
     />

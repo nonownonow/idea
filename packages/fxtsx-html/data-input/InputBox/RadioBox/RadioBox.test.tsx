@@ -3,14 +3,14 @@ import { render, screen } from "@testing-library/react";
 import { RadioBox } from "./RadioBox";
 import { userEvent } from "@storybook/testing-library";
 import { Default } from "fxtsx-html/data-input/InputBox/Checkbox/Checkbox.stories";
-import type { InputBox } from "fxtsx-html/data-input/InputBox/InputBox";
+import type { InputBoxProps } from "fxtsx-html/data-input/InputBox/InputBox";
 
 describe("랜더링", () => {
   let renderResult: RenderResult;
 
   beforeEach(() => {
     renderResult = render(
-      <RadioBox data-testid={"RadioBox"} {...(Default.args as InputBox)} />
+      <RadioBox data-testid={"RadioBox"} {...(Default.args as InputBoxProps)} />
     );
   });
   test("스냅샷", () => {

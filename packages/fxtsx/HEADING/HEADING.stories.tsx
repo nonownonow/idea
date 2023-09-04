@@ -8,7 +8,7 @@ const meta = {
     $level: {
       control: { type: "number", min: 1, max: 6 },
     },
-    children: {
+    $subTitle: {
       options: ["없음", "부제목"],
       mapping: {
         없음: null,
@@ -29,7 +29,7 @@ export const HEADING_Default: Story = {
 export const WithChildren: Story = {
   args: {
     ...HEADING_Default.args,
-    children: "부제목",
+    $subTitle: "부제목",
   },
 };
 

@@ -16,6 +16,7 @@ describe("랜더링", () => {
           data-fx-sectioning="true"
         >
           <div
+            dangerously-set-inner-html="[object Object]"
             level="1"
             title="제목"
           />

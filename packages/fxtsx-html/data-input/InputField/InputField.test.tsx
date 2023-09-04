@@ -5,6 +5,7 @@ import { Default } from "fxtsx-html/data-input/InputField/InputField.stories";
 import { InputFieldTest } from "fxtsx-html/data-input/InputField/InputFieldTest";
 import { fxtsxTest } from "fxtsx/FxTsx/fxtsxTest";
 import { userEvent } from "@storybook/testing-library";
+import type { TextFieldProps } from "fxtsx-html/data-input/TextField/TextField";
 import { TextField } from "fxtsx-html/data-input/TextField/TextField";
 
 describe("랜더링", () => {
@@ -58,7 +59,10 @@ describe("랜더링", () => {
   test("$label 에 html 태그를 사용되면 dom 으로 파싱되어 렌더링된다. ", async () => {
     const { rerender } = renderResult;
     rerender(
-      <TextField {...Default.args} $label={"이름을 <em>작성해주세요</em>"} />
+      <TextField
+        {...(Default.args as TextFieldProps)}
+        $label={"이름을 <em>작성해주세요</em>"}
+      />
     );
     expect(screen.getByText("작성해주세요").tagName).toEqual("EM");
   });

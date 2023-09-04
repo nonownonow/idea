@@ -3,7 +3,6 @@ import React, { forwardRef } from "react";
 import { htmlChildren } from "fxtsx/util/util";
 
 export type DialogProps = ComponentPropsWithoutRef<"dialog"> & {
-  children: ReactNode;
   $closeButtonLabel?: ReactNode;
 };
 

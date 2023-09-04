@@ -24,7 +24,9 @@ describe("구조", () => {
           data-fx-value="true"
           data-testid="CheckOption"
         >
-          개발자 
+          <span>
+            개발자
+          </span>
           <label
             data-fx-input-box="checkbox"
           >
@@ -53,6 +55,6 @@ describe("구조", () => {
   test("루트는 label 이고 InputBox 를 함께 렌더링한다", () => {
     expect(screen.getByTestId("CheckOption").tagName).toEqual("LABEL");
     const inputBox = screen.getByRole("checkbox");
-    expect(screen.getByText("개발자")).toContainElement(inputBox);
+    expect(screen.getByTestId("CheckOption")).toContainElement(inputBox);
   });
 });

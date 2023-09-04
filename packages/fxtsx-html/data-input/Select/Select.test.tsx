@@ -22,7 +22,9 @@ describe("렌더링", () => {
             data-fx-check-option="true"
             data-fx-value="true"
           >
-            의사 
+            <span>
+              의사
+            </span>
             <label
               data-fx-input-box="checkbox"
             >
@@ -43,7 +45,9 @@ describe("렌더링", () => {
             data-fx-check-option="true"
             data-fx-value="true"
           >
-            개발자 
+            <span>
+              개발자
+            </span>
             <label
               data-fx-input-box="checkbox"
             >
@@ -64,7 +68,9 @@ describe("렌더링", () => {
             data-fx-check-option="true"
             data-fx-value="true"
           >
-            운전기사 
+            <span>
+              운전기사
+            </span>
             <label
               data-fx-input-box="checkbox"
             >
