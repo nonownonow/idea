@@ -16,7 +16,6 @@ import { FileField } from "fxtsx-html/data-input/FileField/FileField";
 import { P } from "fxtsx-html/Value/P/P";
 import { TextAreaField } from "fxtsx-html/data-input/TextAreaField/TextAreaField";
 import { partnerType } from "~/i18n/translations/ko";
-import { Span } from "fxtsx-html/Value";
 
 export const Partners = function Partners() {
   const { t } = useTranslation();
@@ -38,12 +37,12 @@ export const Partners = function Partners() {
         >
           <p {...htmlChildren(t("partnersApply.Section_sec1_Detail"))} />
         </Details>*/}
-        <Button>
-          <Span $data={t("partnersApply.Section_sec1_Detail_Summary")} />
-        </Button>
+        <Button $data={t("partnersApply.Section_sec1_Detail_Summary")} />
+
         <Dialog
           $closeButtonLabel={t("partnersApply.Section_sec1_modal_button")}
         >
+          {/*<Section $title={t("")}></Section>*/}
           <p {...htmlChildren(t("partnersApply.Section_sec1_Detail"))} />
         </Dialog>
       </Section>
