@@ -11,7 +11,7 @@ export type HEADINGProps = HEADING &
     /**
      * =subTitle 프로퍼티
      */
-    children?: HEADINGProps["$subTitle"];
+    children?: ReactNode;
   };
 //$접두사를 이용해서 fxtsx 프로퍼티의 고유한 이름을 보장한다.
 export interface HEADING extends H {

@@ -90,7 +90,8 @@ export const businessMain = {
   Section_seller_Heading:
     "creative only\nIf anyone is a seller\nCreator Goods Shop\nMarple Shop",
   Section_seller_P: "to your creativity\nI'll give you wings",
-  Section_seller_A_apply = "<img alt='' src='' data-icon-marpple-char1/>Apply as a seller",
+  Section_seller_A_apply:
+    "<img alt='' src='' data-icon-marpple-char1/>Apply as a seller",
   Section_seller_A_intro:
     "<img alt='' src='' data-icon-marpple-char2/>Learn more",
   Section_seller_ir_Heading:
