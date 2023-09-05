@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SECTIONING } from "./SECTIONING";
 import { Component } from "fxtsx/util/util";
 
-import { Heading } from "fxtsx-html/sectioning/H/Heading";
+import { Heading } from "fxtsx-html/sectioning/Heading/Heading";
 import { Sectioning } from "fxtsx-html/sectioning/Section/Section";
 import { HEADING_Default } from "fxtsx/HEADING/HEADING.stories";
 

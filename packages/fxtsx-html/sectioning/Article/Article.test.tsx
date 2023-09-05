@@ -37,7 +37,9 @@ describe("Article 랜더링", () => {
           <hgroup
             data-fx-heading="true"
           >
-            <h1>
+            <h1
+              data-fx-value="true"
+            >
               myTitle
             </h1>
             해딩의 보조 내용
@@ -62,7 +64,9 @@ describe("Article 랜더링", () => {
           <hgroup
             data-fx-heading="true"
           >
-            <h1>
+            <h1
+              data-fx-value="true"
+            >
               myTitle
             </h1>
             해딩의 보조 내용

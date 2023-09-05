@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { HEADING } from "./HEADING";
+import { P } from "fxtsx-html/Value/P/P";
 
 const meta = {
   component: HEADING,
@@ -29,7 +30,7 @@ export const HEADING_Default: Story = {
 export const WithChildren: Story = {
   args: {
     ...HEADING_Default.args,
-    $subTitle: "부제목",
+    $subTitle: <P>"부제목"</P>,
   },
 };
 

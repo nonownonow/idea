@@ -5,7 +5,7 @@ import { Section } from "fxtsx-html/sectioning/Section/Section";
 import { htmlChildren } from "fxtsx/util/util";
 import { Dialog } from "fxtsx-html/data-view/Dialog/Dialog";
 import { Button } from "fxtsx-html/Value/Button/Button";
-import { Heading } from "fxtsx-html/sectioning/H/Heading";
+import { Heading } from "fxtsx-html/sectioning/Heading/Heading";
 import { Fieldset } from "fxtsx-html/sectioning";
 import { CheckOption } from "fxtsx-html/Value/CheckOption/CheckOption";
 import { Select } from "fxtsx-html/data-input/Select/Select";
@@ -16,6 +16,7 @@ import { FileField } from "fxtsx-html/data-input/FileField/FileField";
 import { P } from "fxtsx-html/Value/P/P";
 import { TextAreaField } from "fxtsx-html/data-input/TextAreaField/TextAreaField";
 import { partnerType } from "~/i18n/translations/ko";
+import { Span } from "fxtsx-html/Value";
 
 export const Partners = function Partners() {
   const { t } = useTranslation();
@@ -26,10 +27,10 @@ export const Partners = function Partners() {
         $title={t("partnersApply.Section_sec1_Hgroup_H")}
         $level={level + 1}
         $subTitle={
-          <p {...htmlChildren(t("partnersApply.Section_sec1_Hgroup_P"))} />
+          <P {...htmlChildren(t("partnersApply.Section_sec1_Hgroup_P"))} />
         }
       >
-        <p {...htmlChildren(t("partnersApply.Section_sec1_P"))} />
+        <P {...htmlChildren(t("partnersApply.Section_sec1_P"))} />
         {/*        <Details
           $summary={t("partnersApply.Section_sec1_Detail_Summary")}
           $openMark={"+"}
@@ -38,9 +39,7 @@ export const Partners = function Partners() {
           <p {...htmlChildren(t("partnersApply.Section_sec1_Detail"))} />
         </Details>*/}
         <Button>
-          <span
-            {...htmlChildren(t("partnersApply.Section_sec1_Detail_Summary"))}
-          />
+          <Span $data={t("partnersApply.Section_sec1_Detail_Summary")} />
         </Button>
         <Dialog
           $closeButtonLabel={t("partnersApply.Section_sec1_modal_button")}

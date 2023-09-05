@@ -17,7 +17,9 @@ describe("Section 랜더링", () => {
           <hgroup
             data-fx-heading="true"
           >
-            <h1>
+            <h1
+              data-fx-value="true"
+            >
               my-title
             </h1>
             <p>

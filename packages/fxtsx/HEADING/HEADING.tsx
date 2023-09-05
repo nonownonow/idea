@@ -3,6 +3,8 @@ import { createElement } from "react";
 
 import { Fxtsx } from "../FxTsx/FxTsx";
 import { Default } from "fxtsx/Identity/Default";
+import { VALUE } from "fxtsx/VALUE/VALUE";
+import type { H } from "fxtsx-html/Value";
 
 export type HEADINGProps = HEADING &
   HEADINGCallback & {
@@ -12,17 +14,9 @@ export type HEADINGProps = HEADING &
     children?: HEADINGProps["$subTitle"];
   };
 //$접두사를 이용해서 fxtsx 프로퍼티의 고유한 이름을 보장한다.
-export interface HEADING {
+export interface HEADING extends H {
   /**
    * 제목
-   */
-  $title: string;
-  /**
-   * 제목의 레벨
-   */
-  $level?: number;
-  /**
-   * 부제목
    */
   $subTitle?: ReactNode;
 }
@@ -47,7 +41,7 @@ export const HEADING = Fxtsx<HTMLHeadingElement, HEADINGProps>(function (
   ref
 ) {
   const {
-    Root = Default,
+    Root = VALUE,
     HeadingGroup = Default,
     children,
     $subTitle,

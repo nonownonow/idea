@@ -1,7 +1,7 @@
 import { SECTIONING } from "fxtsx/SECTIONING/SECTIONING";
 import type { ComponentPropsWithoutRef } from "react";
 import { forwardRef } from "react";
-import { Heading } from "fxtsx-html/sectioning/H/Heading";
+import { Heading } from "fxtsx-html/sectioning/Heading/Heading";
 import type { Callback } from "fxtsx/fxtsx.type";
 
 export type NavProps = SECTIONING & ComponentPropsWithoutRef<"nav">;

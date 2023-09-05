@@ -3,7 +3,6 @@ import type {
   FC,
   ForwardedRef,
   ReactNode,
-  Ref,
 } from "react";
 import React from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
@@ -11,21 +10,23 @@ import type { RestProps } from "fxtsx/COLLECTION/COLLECTION";
 import type { RootProps } from "fxtsx/fxtsx.type";
 import { Default } from "fxtsx/Identity/Default";
 
-export type VALUEProps<T> = VALUE & VALUECallback<T>;
+export type VALUEProps = VALUE &
+  VALUECallback &
+  (
+    | ComponentPropsWithoutRef<"div">
+    | ComponentPropsWithoutRef<"option">
+    | ComponentPropsWithoutRef<"a">
+    | ComponentPropsWithoutRef<"button">
+  );
 
-export type VALUE =
-  | (
-      | ComponentPropsWithoutRef<"div">
-      | ComponentPropsWithoutRef<"option">
-      | ComponentPropsWithoutRef<"a">
-    ) & {
-      $data?: any;
-      $label?: ReactNode;
-    };
-export interface VALUECallback<T> {
-  Root?: string | FC<{ children: ReactNode; ref: Ref<T> }>;
+export type VALUE = {
+  $data?: any;
+  $label?: ReactNode;
+};
+export interface VALUECallback {
+  Root?: string | FC<any>;
 }
-export const VALUE = Fxtsx(function VALUE<T = unknown>(
+export const VALUE = Fxtsx(function VALUE(
   rootProps: RootProps,
   {
     Root = Default,
@@ -33,8 +34,8 @@ export const VALUE = Fxtsx(function VALUE<T = unknown>(
     children,
     $label = children,
     ...restProps
-  }: RestProps<VALUEProps<T>>,
-  ref: ForwardedRef<T>
+  }: RestProps<VALUEProps>,
+  ref: ForwardedRef<any>
 ) {
   return (
     <Root ref={ref} data-fx-value {...rootProps} {...restProps}>

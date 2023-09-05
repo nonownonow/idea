@@ -1,4 +1,4 @@
-import type { HProps } from "./Heading";
+import type { HeadingProps } from "./Heading";
 import { Heading } from "./Heading";
 import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "test-utils";
@@ -12,7 +12,10 @@ describe("Heading", () => {
     const { asFragment } = renderResult;
     expect(asFragment()).toMatchInlineSnapshot(`
       <DocumentFragment>
-        <h1>
+        <h1
+          data-fx-heading="true"
+          data-fx-value="true"
+        >
           제목
         </h1>
       </DocumentFragment>
@@ -35,7 +38,7 @@ describe("Heading", () => {
 
     test("level 속성에 따라 적절한 heading 이 된다.", () => {
       const { rerender } = renderResult;
-      const levelArr: HProps["$level"][] = [1, 2, 3, 4, 5, 6];
+      const levelArr: HeadingProps["$level"][] = [1, 2, 3, 4, 5, 6];
       levelArr.forEach((a) => {
         rerender(<Heading $title={"제목"} $level={a} />);
         expect(screen.getByRole("heading", { level: a })).toBeInTheDocument();
@@ -63,6 +66,25 @@ describe("children 이 있을 때", () => {
         <p>부제목</p>
       </Heading>
     );
+  });
+  test("스냅샷", () => {
+    const { asFragment } = renderResult;
+    expect(asFragment()).toMatchInlineSnapshot(`
+      <DocumentFragment>
+        <hgroup
+          data-fx-heading="true"
+        >
+          <h1
+            data-fx-value="true"
+          >
+            제목
+          </h1>
+          <p>
+            부제목
+          </p>
+        </hgroup>
+      </DocumentFragment>
+    `);
   });
   test("root 는 hgroup 태그가 된다.", () => {
     const { container } = renderResult;

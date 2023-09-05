@@ -15,7 +15,10 @@ describe("Nav", () => {
         <nav
           data-fx-sectioning="true"
         >
-          <h1>
+          <h1
+            data-fx-heading="true"
+            data-fx-value="true"
+          >
             nav 타이틀
           </h1>
         </nav>

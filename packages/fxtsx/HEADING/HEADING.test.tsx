@@ -18,6 +18,7 @@ describe("HEADING", () => {
         <DocumentFragment>
           <div
             data-fx-heading="true"
+            data-fx-value="true"
             level="1"
             title="제목"
           />
@@ -33,10 +34,15 @@ describe("HEADING", () => {
             data-fx-heading="true"
           >
             <div
+              data-fx-value="true"
               level="1"
               title="제목"
             />
-            부제목
+            <p
+              data-fx-value="true"
+            >
+              "부제목"
+            </p>
           </div>
         </DocumentFragment>
       `);
@@ -56,6 +62,7 @@ describe("HEADING", () => {
             data-fx-heading="true"
           >
             <div
+              data-fx-value="true"
               level="1"
               title="제목"
             />
