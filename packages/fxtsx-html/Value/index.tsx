@@ -7,17 +7,21 @@ export const Span = forwardRef<HTMLParagraphElement, VALUE>((props, ref) => (
   <VALUE ref={ref} {...props} Root={"span"} />
 ));
 
+export const Legend = forwardRef<HTMLLegendElement, VALUE>((props, ref) => (
+  <VALUE ref={ref} {...props} Root={"legend"} />
+));
+
 export type HProps = H & ComponentPropsWithoutRef<"h1">;
-export type H = {
-  $title: string;
+export interface H {
+  $title?: string;
   /**
    * 제목의 레벨
    */
-  $level?: number;
+  $level: number;
   /**
    * 부제목
    */
-};
+}
 export const H = forwardRef<HTMLHeadingElement, HProps>(
   ({ $level, $title, ...restProps }, ref) => (
     <VALUE

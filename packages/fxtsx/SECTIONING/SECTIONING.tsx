@@ -6,7 +6,7 @@ import type { HEADING } from "fxtsx/HEADING/HEADING";
 import { htmlChildren } from "fxtsx/util/util";
 
 export type SECTIONINGProps = SECTIONING & SECTIONINGCallback;
-export type SECTIONING = Omit<HEADING, "children"> & {
+export type SECTIONING = HEADING & {
   /**
    * 현재 레벨의 내용
    */
@@ -57,6 +57,7 @@ export const SECTIONING = Fxtsx<HTMLElement, SECTIONINGProps>(
       },
       <>
         {createElement(Heading, {
+          "data-heading-level": $level,
           $title,
           ...htmlChildren($title),
           $level,

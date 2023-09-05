@@ -11,5 +11,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     $title: "My fieldset",
+    $level: 1,
   },
 };

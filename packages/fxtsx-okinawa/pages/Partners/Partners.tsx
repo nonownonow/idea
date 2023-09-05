@@ -1,57 +1,18 @@
 import React from "react";
 import { Article } from "fxtsx-html/sectioning/Article/Article";
 import { useTranslation } from "react-i18next";
-import { Section } from "fxtsx-html/sectioning/Section/Section";
-import { htmlChildren } from "fxtsx/util/util";
-import { Dialog } from "fxtsx-html/data-view/Dialog/Dialog";
-import { Button } from "fxtsx-html/Value/Button/Button";
-import { Heading } from "fxtsx-html/sectioning/Heading/Heading";
-import { Fieldset } from "fxtsx-html/sectioning";
-import { CheckOption } from "fxtsx-html/Value/CheckOption/CheckOption";
-import { Select } from "fxtsx-html/data-input/Select/Select";
-import { Ul } from "fxtsx-html/data-structure/Ul/Ul";
-import { TextField } from "fxtsx-html/data-input/TextField/TextField";
-import { SelectField } from "fxtsx-html/data-input/SelectField/SelectField";
-import { FileField } from "fxtsx-html/data-input/FileField/FileField";
-import { P } from "fxtsx-html/Value/P/P";
-import { TextAreaField } from "fxtsx-html/data-input/TextAreaField/TextAreaField";
-import { partnerType } from "~/i18n/translations/ko";
 
 export const Partners = function Partners() {
-  const { t } = useTranslation();
-  const level = 1;
-  return (
-    <Article data-mpp-apply $level={level} $title={t("partnersApply.H")}>
-      <Section
-        $title={t("partnersApply.Section_sec1_Hgroup_H")}
-        $level={level + 1}
-        $subTitle={
-          <P {...htmlChildren(t("partnersApply.Section_sec1_Hgroup_P"))} />
-        }
-      >
-        <P {...htmlChildren(t("partnersApply.Section_sec1_P"))} />
-        {/*        <Details
-          $summary={t("partnersApply.Section_sec1_Detail_Summary")}
-          $openMark={"+"}
-          $closeMark={"-"}
-        >
-          <p {...htmlChildren(t("partnersApply.Section_sec1_Detail"))} />
-        </Details>*/}
-        <Button $data={t("partnersApply.Section_sec1_Detail_Summary")} />
+  const { t } = useTranslation("");
 
-        <Dialog
-          $closeButtonLabel={t("partnersApply.Section_sec1_modal_button")}
+  const level = 2;
+  return (
+    <Article data-mpp-apply $level={level} $title={t("greeting")}>
+      {/*      <form>
+        <Fieldset
+          $level={level + 1}
+          $title={t("partnersApply.Fieldset_partner_Legend")}
         >
-          {/*<Section $title={t("")}></Section>*/}
-          <p {...htmlChildren(t("partnersApply.Section_sec1_Detail"))} />
-        </Dialog>
-      </Section>
-      <form>
-        <Heading $title={t("partnersApply.Form_H")} $level={level + 1} />
-        <fieldset>
-          <legend
-            {...htmlChildren(t("partnersApply.Fieldset_partner_Legend"))}
-          />
           <SelectField
             $data={partnerType}
             $key={"partner_type"}
@@ -62,11 +23,11 @@ export const Partners = function Partners() {
               }) as any
             }
           />
-        </fieldset>
-        <fieldset>
-          <legend
-            {...htmlChildren(t("partnersApply.Fieldset_application_Legend"))}
-          />
+        </Fieldset>
+        <Fieldset
+          $level={level + 1}
+          $title={t("partnersApply.Fieldset_application_Legend")}
+        >
           <TextField
             $key={"title"}
             $label={t("partnersApply.Input_application_title.placeholder")}
@@ -79,19 +40,22 @@ export const Partners = function Partners() {
               "partnersApply.Input_application_content.placeholder"
             )}
           />
-        </fieldset>
-        <fieldset>
-          <legend
-            {...htmlChildren(t("partnersApply.Fieldset_proposal_Legend"))}
-          />
+        </Fieldset>
+        <Fieldset
+          $level={level + 1}
+          $title={t("partnersApply.Fieldset_proposal_Legend")}
+        >
           <FileField
             $key={"proposal"}
             $label={t("partnersApply.Input_proposal.label")}
             placeholder={t("partnersApply.Input_proposal.placeholder")}
           />
-        </fieldset>
+        </Fieldset>
 
-        <Fieldset $title={t("partnersApply.Fieldset_corporation_Legend")}>
+        <Fieldset
+          $level={level + 1}
+          $title={t("partnersApply.Fieldset_corporation_Legend")}
+        >
           <SelectField
             $key={"corporation.type"}
             $label={t("partnersApply.Input_corporation_type.label")}
@@ -151,6 +115,7 @@ export const Partners = function Partners() {
           />
         </Fieldset>
         <Fieldset
+          $level={level + 1}
           data-privacyTerm
           $title={t("partnersApply.Fieldset_privacy_term_Legend")}
         >
@@ -178,6 +143,7 @@ export const Partners = function Partners() {
             )}
           >
             <Section
+              $level={level + 2}
               $title={t("partnersApply.privacy_term_Section_sec1_H")}
               $contents={
                 <>
@@ -192,7 +158,10 @@ export const Partners = function Partners() {
             />
           </Dialog>
         </Fieldset>
-        <Fieldset $title={t("partnersApply.Fieldset_apply_notice_Legend")}>
+        <Fieldset
+          $level={level + 1}
+          $title={t("partnersApply.Fieldset_apply_notice_Legend")}
+        >
           <CheckOption
             $label={t("partnersApply.Input_apply_notice.label_check_all")}
           />
@@ -210,6 +179,7 @@ export const Partners = function Partners() {
             )}
           >
             <Section
+              $level={level + 2}
               $title={t("partnersApply.apply_notice_Section_sec1_H")}
               $contents={
                 <>
@@ -225,7 +195,7 @@ export const Partners = function Partners() {
         </Fieldset>
         <Button $data={t("partnersApply.Form_Button_ok")} />
         <Button $data={t("partnersApply.Form_Button_cancel")} />
-      </form>
+      </form>*/}
     </Article>
   );
 };

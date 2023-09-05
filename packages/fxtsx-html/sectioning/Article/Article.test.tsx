@@ -36,6 +36,7 @@ describe("Article 랜더링", () => {
         >
           <hgroup
             data-fx-heading="true"
+            data-heading-level="1"
           >
             <h1
               data-fx-value="true"
@@ -63,6 +64,7 @@ describe("Article 랜더링", () => {
         >
           <hgroup
             data-fx-heading="true"
+            data-heading-level="1"
           >
             <h1
               data-fx-value="true"

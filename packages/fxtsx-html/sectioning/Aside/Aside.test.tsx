@@ -17,6 +17,7 @@ describe("랜더링", () => {
         >
           <div
             dangerously-set-inner-html="[object Object]"
+            data-heading-level="1"
             level="1"
             title="제목"
           />

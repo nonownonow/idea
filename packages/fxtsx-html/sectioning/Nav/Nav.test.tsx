@@ -18,6 +18,7 @@ describe("Nav", () => {
           <h1
             data-fx-heading="true"
             data-fx-value="true"
+            data-heading-level="1"
           >
             nav 타이틀
           </h1>

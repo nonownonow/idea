@@ -27,13 +27,17 @@
 	rem폰트로 작성되었기 때문이다.
 */
 
-// 브라우저 자동 폰트 조정 막기, 브라우저 마다 다르게 작동해서 html, body 두군데 적용해야 함.
+/*
+ 브라우저 자동 폰트 조정 막기, 브라우저 마다 다르게 작동해서 html, body 두군데 적용해야 함.
+ */
 html,
 body {
   text-size-adjust: none;
 }
 
-// 고정 픽셀 사용을 염두해 두어 셋팅함, rem은 html 폰트 사이즈를 참조한다. body에 font-size를 설정하면, 상위로 부터 상속받는 엘레멘트의 기본 폰트에 영향을 준다.
+/*
+고정 픽셀 사용을 염두해 두어 셋팅함, rem은 html 폰트 사이즈를 참조한다. body에 font-size를 설정하면, 상위로 부터 상속받는 엘레멘트의 기본 폰트에 영향을 준다.
+*/
 body {
   font-size: 16px;
 }
@@ -41,25 +45,24 @@ body {
 html {
   font-size: 7px;
   font-family: Pretendard, AppleSDGothicNeo, sans-serif;
-
-  /*모바일 영역 개행 처리*/
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  legend,
-  li,
-  dd,
-  dt,
-  label {
-    white-space: break-spaces;
-  }
-  br {
-    display: none;
-  }
+}
+/*모바일 영역 개행 처리*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+legend,
+li,
+dd,
+dt,
+label {
+  white-space: break-spaces;
+}
+br {
+  display: none;
 }
 
 @media (min-width: 267px) {
@@ -109,7 +112,9 @@ html {
     white-space: initial;
   }
   br {
-    //display: initial;
+    /*
+    display: initial;
+    */
     display: none;
   }
 }

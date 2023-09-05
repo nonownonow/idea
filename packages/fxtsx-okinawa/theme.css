@@ -1,37 +1,37 @@
 /*color*/
 :root {
-	--blue: #1c25ff;
-	--black: #000000;
-	--purple: #8100ff;
-	--white: #ffffff;
-	--orange: #ffd40c;
-	--green: #0dcf8c;
-	--red: orangered;
-	--gray-light: #dddddd;
-	--gray-50: #aaaaaa;
-	--gray-30: #777777;
-	--gray-10: #3d3f43;
-	--gray-15: #202326;
-	--gray-13: #1c1e21;
-	--dark-gray: #272a2e;
-	--brownish-gray: #777;
+  --blue: #1c25ff;
+  --black: #000000;
+  --purple: #8100ff;
+  --white: #ffffff;
+  --orange: #ffd40c;
+  --green: #0dcf8c;
+  --red: orangered;
+  --gray-light: #dddddd;
+  --gray-50: #aaaaaa;
+  --gray-30: #777777;
+  --gray-10: #3d3f43;
+  --gray-15: #202326;
+  --gray-13: #1c1e21;
+  --dark-gray: #272a2e;
+  --brownish-gray: #777;
 }
 
 /* size*/
 :root {
-	--larger: 4.6rem;
-	--x-large-up: 3.6rem;
-	--x-large: 3.4rem;
-	--large: 2.4rem;
-	--large-down: 2rem;
-	--medium-up: 1.8rem;
-	--medium: 1.6rem;
-	--medium-down: 1.4rem;
-	--small-up-x: 1.3rem;
-	--smal-up: 1.2rem;
-	--small: 1rem;
-	--small-down: 0.8rem;
-	--smaller: 0.4rem;
+  --larger: 4.6rem;
+  --x-large-up: 3.6rem;
+  --x-large: 3.4rem;
+  --large: 2.4rem;
+  --large-down: 2rem;
+  --medium-up: 1.8rem;
+  --medium: 1.6rem;
+  --medium-down: 1.4rem;
+  --small-up-x: 1.3rem;
+  --smal-up: 1.2rem;
+  --small: 1rem;
+  --small-down: 0.8rem;
+  --smaller: 0.4rem;
 }
 
 :root {
@@ -39,8 +39,8 @@
 
 /*font-weight*/
 :root {
-	--lighter: 300;
-	--light: 400;
+  --lighter: 300;
+  --light: 400;
 }
 
 /*ui width*/
@@ -49,63 +49,59 @@
 
 /*ui padding*/
 :root {
-	--padding-apply-pc-right: 40rem;
+  --padding-apply-pc-right: 40rem;
 }
 /*space*/
 :root {
-	--gap-wider-up: 10rem;
-	--gap-wider: 9.8rem;
-	--gap-wider-down: 8rem;
-	--gap-x-wide-up: 7.7rem;
-	--gap-x-wide: 6.9rem;
-	--gap-x-wide-down: 4.8rem;
-	--gap-wide-up: 4rem;
-	--gap-wide: 3.2rem;
-	--gap-wide-down: 3rem;
-	--gap-wide-down-x: 2.6rem;
-	--gap-wide-down-xx: 2.4rem;
-	--gap-normal-up: 2.1rem;
-	--gap-normal-up-x: 1.8rem;
-	--gap-normal: 1.6rem;
-	--gap-normal-down: 1.2rem;
-	--gap-narrow-up: 1rem;
-	--gap-narrow: 0.8rem;
-	--gap-narrow-down: 0.6rem;
-	--gap-narrower-up: 0.4rem;
-	--gap-narrower: 0.3rem;
+  --gap-wider-up: 10rem;
+  --gap-wider: 9.8rem;
+  --gap-wider-down: 8rem;
+  --gap-x-wide-up: 7.7rem;
+  --gap-x-wide: 6.9rem;
+  --gap-x-wide-down: 4.8rem;
+  --gap-wide-up: 4rem;
+  --gap-wide: 3.2rem;
+  --gap-wide-down: 3rem;
+  --gap-wide-down-x: 2.6rem;
+  --gap-wide-down-xx: 2.4rem;
+  --gap-normal-up: 2.1rem;
+  --gap-normal-up-x: 1.8rem;
+  --gap-normal: 1.6rem;
+  --gap-normal-down: 1.2rem;
+  --gap-narrow-up: 1rem;
+  --gap-narrow: 0.8rem;
+  --gap-narrow-down: 0.6rem;
+  --gap-narrower-up: 0.4rem;
+  --gap-narrower: 0.3rem;
 }
 
 /*font-color*/
 :root {
-	--background: var(--white);
-	--onBackground: var(--black);
-	//--surface: var(--dark-gray);
-	//--onSurface: var(--gray-50);
-	--onSurfaceLight: var(--gray-10);
-	--primary: var(--blue);
-	--onPrimary: var(--white);
-	//--pComplementary: var(--gray-10);
-	//--onPComplementary: var(--gray-50);
-	--secondary: var(--black);
-	--onSecondary: var(--white);
-	--error: var(--red);
-	--onError: #ffffff;
-	--disabled: var(--gray-50);
-	--information: var(--gray-30);
+  --background: var(--white);
+  --onBackground: var(--black);
+  --onSurfaceLight: var(--gray-10);
+  --primary: var(--blue);
+  --onPrimary: var(--white);
+  --secondary: var(--black);
+  --onSecondary: var(--white);
+  --error: var(--red);
+  --onError: #ffffff;
+  --disabled: var(--gray-50);
+  --information: var(--gray-30);
 }
 
 /*object-color*/
 :root {
-	--border-gray: var(--gray-50);
-	--border-gray-light: var(--gray-light);
+  --border-gray: var(--gray-50);
+  --border-gray-light: var(--gray-light);
 }
 
 /*object-size*/
 :root {
-	--border-radius: 2.4rem;
-	--width-pc: 1440px;
-	--width-badge-text: 20rem;
-	--button-width: 18.8rem;
-	--button-height: 5.2rem;
-	--dt-width: 5rem;
+  --border-radius: 2.4rem;
+  --width-pc: 1440px;
+  --width-badge-text: 20rem;
+  --button-width: 18.8rem;
+  --button-height: 5.2rem;
+  --dt-width: 5rem;
 }
