@@ -55,7 +55,10 @@ export const HEADING = Fxtsx<HTMLHeadingElement, HEADINGProps>(function (
           ...rootProps,
           ref,
         },
-        [createElement(Root, { ...headingProps, ref, key: "0" }), $subTitle]
+        <>
+          <Root {...headingProps} ref={ref} key={"0"} />
+          {$subTitle}
+        </>
       )
     : createElement(Root, {
         "data-fx-heading": true,
