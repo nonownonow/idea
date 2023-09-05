@@ -182,3 +182,4 @@ export * from "./Partners";
 export * from "./Support";
 export * from "./Business";
 export * from "./PartnersApplyProcess";
+export { default as partnersApply2 } from "./partnersApply2.json";
