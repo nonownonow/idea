@@ -9,9 +9,7 @@ import type { DicData } from "fxtsx/fxtsx.type";
 export type SelectProps<Dic extends DicData> = DICTIONARY<Dic> &
   ComponentPropsWithoutRef<"input">;
 
-export type Select<Dic extends DicData> = DICTIONARY<Dic> & {
-  $key: string;
-};
+export type Select<Dic extends DicData> = DICTIONARY<Dic>;
 export const Select = function Select<Dic extends DicData>(
   props: SelectProps<Dic>
 ) {

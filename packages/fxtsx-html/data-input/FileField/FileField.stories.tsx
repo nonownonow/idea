@@ -12,7 +12,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    $key: "키",
+    id: "file-field",
     $label: <img src={imgSrc} alt={"test-img"} />,
   },
 };

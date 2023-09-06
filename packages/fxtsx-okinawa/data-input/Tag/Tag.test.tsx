@@ -19,22 +19,22 @@ describe("랜더링", () => {
           data-fx-entry="true"
           data-fx-input-field="true"
           data-fx-tag="true"
-          data-key="태그1"
           data-testid="Tag"
         >
           <label
-            data-fx-key="true"
             data-fx-label="true"
+            data-key="태그1"
             for="태그1"
           >
             태그1
           </label>
           <label
             data-fx-input-box="checkbox"
-            data-fx-value="true"
+            data-value="[object Object]"
           >
             <input
               id="태그1"
+              name="태그1"
               type="checkbox"
             />
             <span>

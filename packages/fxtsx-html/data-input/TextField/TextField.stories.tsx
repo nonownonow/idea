@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import type { TextFieldProps } from "fxtsx-html/data-input/TextField/TextField";
 import { TextField } from "fxtsx-html/data-input/TextField/TextField";
 
 const meta = {
@@ -10,7 +11,7 @@ type Story = StoryObj<typeof meta>;
 export default meta;
 export const Default: Story = {
   args: {
-    $key: "키",
+    id: "키",
     $label: "이름",
-  },
+  } as TextFieldProps,
 };

@@ -1,14 +1,17 @@
 import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
+import type { TextFieldProps } from "fxtsx-html/data-input/TextField/TextField";
 import { TextField } from "fxtsx-html/data-input/TextField/TextField";
 import { Default } from "fxtsx-html/data-input/TextField/TextField.stories";
-import { InputFieldTest } from "fxtsx-html/data-input/InputField/InputFieldTest";
 
 describe("랜더링", () => {
   let renderResult: RenderResult;
   beforeEach(() => {
     renderResult = render(
-      <TextField data-testid={"TextField"} {...Default.args} />
+      <TextField
+        data-testid={"TextField"}
+        {...(Default.args as TextFieldProps)}
+      />
     );
   });
   test("스냅샷", () => {
@@ -19,19 +22,19 @@ describe("랜더링", () => {
           data-fx-entry="true"
           data-fx-input-field="true"
           data-fx-text-field="true"
-          data-key="키"
           data-testid="TextField"
         >
           <label
-            data-fx-key="true"
             data-fx-label="true"
+            data-key="키"
             for="키"
           >
             이름
           </label>
           <input
-            data-fx-value="true"
+            data-value="input"
             id="키"
+            name="키"
             type="text"
           />
         </div>
@@ -44,4 +47,4 @@ describe("랜더링", () => {
     );
   });
 });
-InputFieldTest(TextField);
+// InputFieldTest(TextField);

@@ -1,5 +1,6 @@
 import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
+import type { FileFieldProps } from "fxtsx-html/data-input/FileField/FileField";
 import { FileField } from "fxtsx-html/data-input/FileField/FileField";
 import { fxtsxTest } from "fxtsx/FxTsx/fxtsxTest";
 import { Default } from "fxtsx-html/data-input/FileField/FileField.stories";
@@ -9,7 +10,10 @@ describe("렌더링", () => {
   let renderResult: RenderResult;
   beforeEach(() => {
     renderResult = render(
-      <FileField data-testid={"FileField"} {...Default.args} />
+      <FileField
+        data-testid={"FileField"}
+        {...(Default.args as FileFieldProps)}
+      />
     );
   });
   fxtsxTest(FileField, "data-fx-file-field", true);
@@ -21,13 +25,12 @@ describe("렌더링", () => {
           data-fx-entry="true"
           data-fx-file-field="true"
           data-fx-input-field="true"
-          data-key="키"
           data-testid="FileField"
         >
           <label
-            data-fx-key="true"
             data-fx-label="true"
-            for="키"
+            data-key="file-field"
+            for="file-field"
           >
             <img
               alt="test-img"
@@ -35,14 +38,10 @@ describe("렌더링", () => {
             />
           </label>
           <input
-            data-fx-value="true"
-            id="키"
-            multiple=""
+            data-value="input"
+            id="file-field"
+            name="file-field"
             type="file"
-          />
-          <ol
-            data-fx-list="true"
-            data-fx-ol="true"
           />
         </div>
       </DocumentFragment>

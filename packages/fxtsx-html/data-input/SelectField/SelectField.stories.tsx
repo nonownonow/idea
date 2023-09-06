@@ -10,7 +10,7 @@ type Story = StoryObj<typeof meta>;
 export default meta;
 export const Default: Story = {
   args: {
-    $key: "job",
+    id: "job",
     $label: "직업",
     $data: {
       doctor: "DOCTOR",

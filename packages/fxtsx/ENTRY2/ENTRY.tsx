@@ -1,13 +1,11 @@
-import type { ComponentPropsWithoutRef, FC } from "react";
+import type { FC } from "react";
 import { createElement } from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import { Default } from "fxtsx/Identity/Default";
 import type { RootProps } from "fxtsx/fxtsx.type";
 import type { RestProps } from "fxtsx/COLLECTION/COLLECTION";
 
-export type ENTNRYProps = ENTRY &
-  ENTRYCallback &
-  ComponentPropsWithoutRef<"div">;
+export type ENTNRYProps = ENTRY & ENTRYCallback;
 
 export interface ENTRY {
   /**
@@ -38,7 +36,6 @@ export const ENTRY = Fxtsx(function ENTRY(
     Root = Default,
     Key = Default,
     Value = Default,
-    children,
     $data: [$key, $value],
     $keyLabel,
     $valueLabel,
@@ -70,7 +67,6 @@ export const ENTRY = Fxtsx(function ENTRY(
         },
         $valueLabel || $value
       ),
-      children,
     ]
   );
 });

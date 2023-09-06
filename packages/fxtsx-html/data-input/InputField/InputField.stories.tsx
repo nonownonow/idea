@@ -11,8 +11,8 @@ export default meta;
 
 export const Default: Story = {
   args: {
-    Input: "input",
-    $key: "키",
+    $input: "input",
+    id: "키",
     $error: "error",
   },
 };

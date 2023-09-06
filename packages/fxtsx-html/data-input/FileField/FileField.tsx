@@ -1,4 +1,4 @@
-import type { ChangeEvent } from "react";
+import type { ComponentPropsWithoutRef } from "react";
 import React, { useState } from "react";
 import { InputField } from "fxtsx-html/data-input/InputField/InputField";
 import { identity } from "@fxts/core";
@@ -8,27 +8,28 @@ import "./FileField.css";
 
 export type FileFieldProps = {
   $fileListFormat?: COLLECTION<File>["$itemFormat"];
-} & Omit<InputField, "type">;
+} & Omit<InputField, "type" | "$data" | "$input"> &
+  ComponentPropsWithoutRef<"input">;
 
-export const FileField = function FileField(props: FileFieldProps) {
-  const {
-    onChange = identity,
-    $fileListFormat = (file) => file.name,
-    ...restProps
-  } = props;
+export const FileField = function FileField({
+  onChange = identity,
+  id,
+  $fileListFormat = (file) => file.name,
+  ...restProps
+}: FileFieldProps) {
   const [files, setFiles] = useState<File[]>([]);
-  function onChangeHandler(e: ChangeEvent<HTMLInputElement>) {
-    onChange(e);
-    setFiles([...(e.target.files || [])]);
-  }
   return (
     <InputField
       data-fx-file-field
       {...restProps}
-      Input={"input"}
       type={"file"}
-      multiple={true}
-      onChange={onChangeHandler}
+      $input={"input"}
+      id={id}
+      onChange={(e) => {
+        onChange(e);
+        const target = e.target as HTMLInputElement;
+        setFiles([...(target.files || [])]);
+      }}
     >
       <Ol $data={files} $itemFormat={$fileListFormat} />
     </InputField>

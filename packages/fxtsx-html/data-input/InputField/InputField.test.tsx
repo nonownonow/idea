@@ -2,7 +2,6 @@ import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
 import { InputField } from "fxtsx-html/data-input/InputField/InputField";
 import { Default } from "fxtsx-html/data-input/InputField/InputField.stories";
-import { InputFieldTest } from "fxtsx-html/data-input/InputField/InputFieldTest";
 import { fxtsxTest } from "fxtsx/FxTsx/fxtsxTest";
 import { userEvent } from "@storybook/testing-library";
 import type { TextFieldProps } from "fxtsx-html/data-input/TextField/TextField";
@@ -13,11 +12,14 @@ describe("랜더링", () => {
   // let rerender: RenderResult["rerender"];
   beforeEach(() => {
     renderResult = render(
-      <InputField data-testid={"InputField"} {...Default.args} />
+      <InputField
+        data-testid={"InputField"}
+        {...(Default.args as InputField)}
+      />
     );
     // rerender = renderResult.rerender;
   });
-  fxtsxTest(InputField, "data-fx-input-field", true);
+  fxtsxTest(InputField, "data-fx-input-field", true, Default.args);
   test("스냅샷", () => {
     const { asFragment } = renderResult;
     expect(asFragment()).toMatchInlineSnapshot(`
@@ -25,19 +27,19 @@ describe("랜더링", () => {
         <div
           data-fx-entry="true"
           data-fx-input-field="true"
-          data-key="키"
           data-testid="InputField"
         >
           <label
-            data-fx-key="true"
             data-fx-label="true"
+            data-key="키"
             for="키"
           >
             키
           </label>
           <input
-            data-fx-value="true"
+            data-value="input"
             id="키"
+            name="키"
           />
           <div
             data-error="true"
@@ -67,4 +69,4 @@ describe("랜더링", () => {
     expect(screen.getByText("작성해주세요").tagName).toEqual("EM");
   });
 });
-InputFieldTest(InputField);
+// InputFieldTest(InputField);

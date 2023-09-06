@@ -1,11 +1,11 @@
 import type { ComponentPropsWithoutRef } from "react";
-import React from "react";
+import React, { forwardRef } from "react";
 import { InputField } from "fxtsx-html/data-input/InputField/InputField";
 
-// export type TextAreaFieldProps =
-export type TextAreaFieldProps = InputField &
-  Omit<ComponentPropsWithoutRef<"textarea">, "id">;
-export const TextAreaField = function TextAreaField(props: TextAreaFieldProps) {
-  const { $key } = props;
-  return <InputField {...props} Input={"textarea"} id={$key} />;
-};
+export type TextAreaFieldProps = Omit<InputField, "$input"> &
+  ComponentPropsWithoutRef<"textarea">;
+
+export const TextAreaField = forwardRef<
+  HTMLTextAreaElement,
+  TextAreaFieldProps
+>((props, ref) => <InputField {...props} $input={"textarea"} ref={ref} />);

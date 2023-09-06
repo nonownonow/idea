@@ -1,5 +1,6 @@
 import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
+import type { TextAreaFieldProps } from "fxtsx-html/data-input/TextAreaField/TextAreaField";
 import { TextAreaField } from "fxtsx-html/data-input/TextAreaField/TextAreaField";
 import { Default } from "fxtsx-html/data-input/TextAreaField/TextAreaField.stories";
 
@@ -7,7 +8,10 @@ describe("랜더링", () => {
   let renderResult: RenderResult;
   beforeEach(() => {
     renderResult = render(
-      <TextAreaField data-testid={"TextAreaField"} {...Default.args} />
+      <TextAreaField
+        data-testid={"TextAreaField"}
+        {...(Default.args as TextAreaFieldProps)}
+      />
     );
   });
   test("스냅샷", () => {
@@ -17,19 +21,19 @@ describe("랜더링", () => {
         <div
           data-fx-entry="true"
           data-fx-input-field="true"
-          data-key="k"
           data-testid="TextAreaField"
         >
           <label
-            data-fx-key="true"
             data-fx-label="true"
+            data-key="k"
             for="k"
           >
             이름
           </label>
           <textarea
-            data-fx-value="true"
+            data-value="textarea"
             id="k"
+            name="k"
           />
         </div>
       </DocumentFragment>

@@ -11,7 +11,7 @@ export default meta;
 
 export const Default: Story = {
   args: {
-    $key: "k",
+    id: "k",
     $label: "이름",
   },
 };

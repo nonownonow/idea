@@ -1,27 +1,26 @@
-import type { ComponentPropsWithoutRef, FC, ReactNode } from "react";
-import React from "react";
-import type { ElementNames } from "fxtsx/ENTRY/ENTRY";
-import { ENTRY } from "fxtsx/ENTRY/ENTRY";
+import type { ChangeEvent, FC, ReactNode } from "react";
+import React, { forwardRef } from "react";
+import { ENTRY } from "fxtsx/ENTRY2/ENTRY";
 import { htmlChildren } from "fxtsx/util/util";
 
-export type InputFieldProps = InputField &
-  InputFieldCallback &
-  ComponentPropsWithoutRef<"input">;
+export type InputField =
+  | Omit<ENTRY, "$data"> & {
+      $error?: string;
+      $label?: ReactNode;
+      $input: string | FC<any>;
+      id: string;
+      type?: string;
+      children?: ReactNode;
+      onChange: (e: ChangeEvent<unknown>) => void;
+    };
 
-export type InputField = Omit<ENTRY, "$value"> & {
-  $error?: string;
-  $label?: ReactNode;
-};
-
-export type InputFieldCallback = {
-  Input: ElementNames | FC<any>;
-};
-export const InputField = function InputField(props: InputFieldProps) {
-  const { Input, $error, $label, $key, id = $key, ...restProps } = props;
+export const InputField = forwardRef((props: InputField, ref) => {
+  const { $error, $label, $input, id, ...restProps } = props;
   return (
     <ENTRY
       data-fx-input-field
-      Entry={(entryProps) => (
+      ref={ref}
+      Root={(entryProps) => (
         <div {...entryProps}>
           {entryProps.children}
           {$error ? <div data-error>{$error}</div> : null}
@@ -35,11 +34,9 @@ export const InputField = function InputField(props: InputFieldProps) {
           {...htmlChildren($label || key)}
         />
       )}
-      Value={Input}
-      $value={null}
-      $key={$key}
-      id={id}
+      Value={({ children: Input, ...p }) => <Input id={id} name={id} {...p} />}
+      $data={[id, $input]}
       {...restProps}
     />
   );
-};
+});
