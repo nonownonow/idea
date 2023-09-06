@@ -27,7 +27,7 @@ describe("랜더링", () => {
             data-testid="Entry"
           >
             <div
-              data-fx-key="true"
+              data="name"
               data-key="name"
               data-testid="Key"
             >
@@ -35,8 +35,8 @@ describe("랜더링", () => {
             </div>
             <div
               data="유일환"
-              data-fx-value="true"
               data-testid="Value"
+              data-value="유일환"
             >
               유일환
             </div>
@@ -73,16 +73,17 @@ describe("랜더링", () => {
             data-testid="Entry"
           >
             <div
-              data-fx-key="true"
+              data="name"
               data-key="name"
               data-testid="Key"
+              label="이름"
             >
               이름
             </div>
             <div
               data="유일환"
-              data-fx-value="true"
               data-testid="Value"
+              data-value="유일환"
               label="나의 이름은 유일환"
             >
               나의 이름은 유일환

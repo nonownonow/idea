@@ -23,17 +23,20 @@ describe("Table", () => {
               data-fx-tr="true"
             >
               <th
-                data-fx-key="true"
+                data-fx-value="true"
+                data-key="a"
               >
                 a
               </th>
               <th
-                data-fx-key="true"
+                data-fx-value="true"
+                data-key="b"
               >
                 b
               </th>
               <th
-                data-fx-key="true"
+                data-fx-value="true"
+                data-key="c"
               >
                 c
               </th>
@@ -47,22 +50,19 @@ describe("Table", () => {
             >
               <td
                 data-fx-value="true"
-                name="a"
-                value="1"
+                data-value="1"
               >
                 1
               </td>
               <td
                 data-fx-value="true"
-                name="b"
-                value="2"
+                data-value="2"
               >
                 2
               </td>
               <td
                 data-fx-value="true"
-                name="c"
-                value="3"
+                data-value="3"
               >
                 3
               </td>
@@ -74,22 +74,19 @@ describe("Table", () => {
             >
               <td
                 data-fx-value="true"
-                name="a"
-                value="11"
+                data-value="11"
               >
                 11
               </td>
               <td
                 data-fx-value="true"
-                name="b"
-                value="22"
+                data-value="22"
               >
                 22
               </td>
               <td
                 data-fx-value="true"
-                name="c"
-                value="33"
+                data-value="33"
               >
                 33
               </td>
@@ -101,22 +98,19 @@ describe("Table", () => {
             >
               <td
                 data-fx-value="true"
-                name="a"
-                value="111"
+                data-value="111"
               >
                 111
               </td>
               <td
                 data-fx-value="true"
-                name="b"
-                value="222"
+                data-value="222"
               >
                 222
               </td>
               <td
                 data-fx-value="true"
-                name="c"
-                value="333"
+                data-value="333"
               >
                 333
               </td>

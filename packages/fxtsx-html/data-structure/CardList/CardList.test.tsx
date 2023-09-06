@@ -25,51 +25,48 @@ describe("Card List", () => {
             >
               <div
                 data-fx-entry="true"
-                data-key="a"
               >
                 <dt
-                  data-fx-key="true"
+                  data-fx-value="true"
+                  data-key="a"
                 >
                   a
                 </dt>
                 <dd
                   data-fx-value="true"
-                  name="a"
-                  value="1"
+                  data-value="1"
                 >
                   1
                 </dd>
               </div>
               <div
                 data-fx-entry="true"
-                data-key="b"
               >
                 <dt
-                  data-fx-key="true"
+                  data-fx-value="true"
+                  data-key="b"
                 >
                   b
                 </dt>
                 <dd
                   data-fx-value="true"
-                  name="b"
-                  value="2"
+                  data-value="2"
                 >
                   2
                 </dd>
               </div>
               <div
                 data-fx-entry="true"
-                data-key="c"
               >
                 <dt
-                  data-fx-key="true"
+                  data-fx-value="true"
+                  data-key="c"
                 >
                   c
                 </dt>
                 <dd
                   data-fx-value="true"
-                  name="c"
-                  value="3"
+                  data-value="3"
                 >
                   3
                 </dd>
@@ -84,51 +81,48 @@ describe("Card List", () => {
             >
               <div
                 data-fx-entry="true"
-                data-key="a"
               >
                 <dt
-                  data-fx-key="true"
+                  data-fx-value="true"
+                  data-key="a"
                 >
                   a
                 </dt>
                 <dd
                   data-fx-value="true"
-                  name="a"
-                  value="11"
+                  data-value="11"
                 >
                   11
                 </dd>
               </div>
               <div
                 data-fx-entry="true"
-                data-key="b"
               >
                 <dt
-                  data-fx-key="true"
+                  data-fx-value="true"
+                  data-key="b"
                 >
                   b
                 </dt>
                 <dd
                   data-fx-value="true"
-                  name="b"
-                  value="22"
+                  data-value="22"
                 >
                   22
                 </dd>
               </div>
               <div
                 data-fx-entry="true"
-                data-key="c"
               >
                 <dt
-                  data-fx-key="true"
+                  data-fx-value="true"
+                  data-key="c"
                 >
                   c
                 </dt>
                 <dd
                   data-fx-value="true"
-                  name="c"
-                  value="33"
+                  data-value="33"
                 >
                   33
                 </dd>
@@ -143,51 +137,48 @@ describe("Card List", () => {
             >
               <div
                 data-fx-entry="true"
-                data-key="a"
               >
                 <dt
-                  data-fx-key="true"
+                  data-fx-value="true"
+                  data-key="a"
                 >
                   a
                 </dt>
                 <dd
                   data-fx-value="true"
-                  name="a"
-                  value="111"
+                  data-value="111"
                 >
                   111
                 </dd>
               </div>
               <div
                 data-fx-entry="true"
-                data-key="b"
               >
                 <dt
-                  data-fx-key="true"
+                  data-fx-value="true"
+                  data-key="b"
                 >
                   b
                 </dt>
                 <dd
                   data-fx-value="true"
-                  name="b"
-                  value="222"
+                  data-value="222"
                 >
                   222
                 </dd>
               </div>
               <div
                 data-fx-entry="true"
-                data-key="c"
               >
                 <dt
-                  data-fx-key="true"
+                  data-fx-value="true"
+                  data-key="c"
                 >
                   c
                 </dt>
                 <dd
                   data-fx-value="true"
-                  name="c"
-                  value="333"
+                  data-value="333"
                 >
                   333
                 </dd>

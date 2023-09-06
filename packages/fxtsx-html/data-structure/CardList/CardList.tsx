@@ -4,9 +4,10 @@ import { Ul } from "fxtsx-html/data-structure/Ul/Ul";
 import type { DATAFRAMEProps } from "fxtsx/DATAFRAME/DATAFRAME";
 import { DATAFRAME } from "fxtsx/DATAFRAME/DATAFRAME";
 import { Card } from "fxtsx-html/data-structure/Card/Card";
+import type { DicData } from "fxtsx/fxtsx.type";
 
-export const CardList = forwardRef(function CardList(
-  props: DATAFRAMEProps<any>,
+export const CardList = forwardRef(function CardList<Dic extends DicData>(
+  props: DATAFRAMEProps<Dic>,
   ref: ForwardedRef<HTMLUListElement>
 ) {
   return (

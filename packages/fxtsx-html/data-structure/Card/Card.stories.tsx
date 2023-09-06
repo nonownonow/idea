@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import type { CardProps } from "fxtsx-html/data-structure/Card/Card";
 import { Card } from "fxtsx-html/data-structure/Card/Card";
 
 const meta = {
@@ -11,5 +12,5 @@ export default meta;
 export const Default: Story = {
   args: {
     $data: { a: 1, b: 2, c: 3 },
-  },
+  } as CardProps<any>,
 };

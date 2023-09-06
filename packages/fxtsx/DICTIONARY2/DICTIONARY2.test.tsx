@@ -40,16 +40,17 @@ describe("랜더링", () => {
             data-testid="Entry"
           >
             <div
-              data-fx-key="true"
+              data="keyA"
               data-key="keyA"
               data-testid="Key"
+              label="keyA"
             >
               keyA
             </div>
             <div
               data="ValueA"
-              data-fx-value="true"
               data-testid="Value"
+              data-value="ValueA"
               label="ValueA"
             >
               ValueA
@@ -60,16 +61,17 @@ describe("랜더링", () => {
             data-testid="Entry"
           >
             <div
-              data-fx-key="true"
+              data="keyD"
               data-key="keyD"
               data-testid="Key"
+              label="keyD"
             >
               keyD
             </div>
             <div
               data="ValueD"
-              data-fx-value="true"
               data-testid="Value"
+              data-value="ValueD"
               label="값: ValueD"
             >
               값: ValueD
@@ -80,16 +82,17 @@ describe("랜더링", () => {
             data-testid="Entry"
           >
             <div
-              data-fx-key="true"
+              data="keyB"
               data-key="keyB"
               data-testid="Key"
+              label="키B"
             >
               키B
             </div>
             <div
               data="ValueB"
-              data-fx-value="true"
               data-testid="Value"
+              data-value="ValueB"
               label="[object Object]"
             >
               <em>
@@ -102,9 +105,10 @@ describe("랜더링", () => {
             data-testid="Entry"
           >
             <div
-              data-fx-key="true"
+              data="keyA"
               data-key="keyA"
               data-testid="Key"
+              label="[object Object]"
             >
               *
               <em>
@@ -114,8 +118,8 @@ describe("랜더링", () => {
             </div>
             <div
               data="ValueA"
-              data-fx-value="true"
               data-testid="Value"
+              data-value="ValueA"
               label="값: ValueA"
             >
               값: ValueA
@@ -126,16 +130,17 @@ describe("랜더링", () => {
             data-testid="Entry"
           >
             <div
-              data-fx-key="true"
+              data="keyD"
               data-key="keyD"
               data-testid="Key"
+              label="[object Object]"
             >
               keyD!!
             </div>
             <div
               data="ValueD"
-              data-fx-value="true"
               data-testid="Value"
+              data-value="ValueD"
               label="값: ValueD"
             >
               값: ValueD
@@ -146,9 +151,10 @@ describe("랜더링", () => {
             data-testid="Entry"
           >
             <div
-              data-fx-key="true"
+              data="keyE"
               data-key="keyE"
               data-testid="Key"
+              label="[object Object]"
             >
               *
               <em>
@@ -158,8 +164,8 @@ describe("랜더링", () => {
             </div>
             <div
               data="ValueE"
-              data-fx-value="true"
               data-testid="Value"
+              data-value="ValueE"
               label="값: ValueE"
             >
               값: ValueE

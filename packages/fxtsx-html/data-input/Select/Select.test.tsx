@@ -21,6 +21,7 @@ describe("렌더링", () => {
           <label
             data-fx-check-option="true"
             data-fx-value="true"
+            data-value="DOCTOR"
           >
             <span>
               의사
@@ -44,6 +45,7 @@ describe("렌더링", () => {
           <label
             data-fx-check-option="true"
             data-fx-value="true"
+            data-value="PROGRAMMER"
           >
             <span>
               개발자
@@ -67,6 +69,7 @@ describe("렌더링", () => {
           <label
             data-fx-check-option="true"
             data-fx-value="true"
+            data-value="DRIVER"
           >
             <span>
               운전기사

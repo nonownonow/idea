@@ -38,4 +38,4 @@ export type ElementNames<P = any> = {
 }[keyof JSX.IntrinsicElements];
 
 export type DicValue = string | number | boolean | undefined | null;
-export type DicData = Record<string, DicValue>;
+export type DicData = Record<string, any>;

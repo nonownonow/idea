@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ReactNode, ComponentPropsWithoutRef } from "react";
 import React, { forwardRef } from "react";
 import { entries, map, pipe } from "@fxts/core";
 import { kebabCase } from "lodash";
@@ -42,3 +42,11 @@ export function Component(testId: string, description?: string) {
 
 export const CbComponent = (testId: string) =>
   jest.fn((p) => <div data-testid={testId} children={p.children} />);
+
+export function Identity(p: ComponentPropsWithoutRef<"div">) {
+  return <>{p.children}</>;
+}
+
+export function Noop() {
+  return null;
+}

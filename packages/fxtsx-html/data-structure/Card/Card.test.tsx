@@ -1,12 +1,14 @@
 import type { RenderResult } from "@testing-library/react";
 import { render } from "@testing-library/react";
 import { Default } from "fxtsx-html/data-structure/Card/Card.stories";
+import type { CardProps } from "fxtsx-html/data-structure/Card/Card";
 import { Card } from "fxtsx-html/data-structure/Card/Card";
+import type { DicData } from "fxtsx/fxtsx.type";
 
 describe("순서있는 리스트 Ordered List", () => {
   let renderResult: RenderResult;
   beforeEach(() => {
-    renderResult = render(<Card {...Default.args} />);
+    renderResult = render(<Card {...(Default.args as CardProps<DicData>)} />);
   });
   test("렌더링", () => {
     const { asFragment } = renderResult;
@@ -19,51 +21,48 @@ describe("순서있는 리스트 Ordered List", () => {
         >
           <div
             data-fx-entry="true"
-            data-key="a"
           >
             <dt
-              data-fx-key="true"
+              data-fx-value="true"
+              data-key="a"
             >
               a
             </dt>
             <dd
               data-fx-value="true"
-              name="a"
-              value="1"
+              data-value="1"
             >
               1
             </dd>
           </div>
           <div
             data-fx-entry="true"
-            data-key="b"
           >
             <dt
-              data-fx-key="true"
+              data-fx-value="true"
+              data-key="b"
             >
               b
             </dt>
             <dd
               data-fx-value="true"
-              name="b"
-              value="2"
+              data-value="2"
             >
               2
             </dd>
           </div>
           <div
             data-fx-entry="true"
-            data-key="c"
           >
             <dt
-              data-fx-key="true"
+              data-fx-value="true"
+              data-key="c"
             >
               c
             </dt>
             <dd
               data-fx-value="true"
-              name="c"
-              value="3"
+              data-value="3"
             >
               3
             </dd>
