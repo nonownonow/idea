@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense } from "react";
 import results from "../.jest-test-results.json";
 import { withTests } from "@storybook/addon-jest";
 // storybook 의 iframe 영역에만 적용되어야 하는 css 정의
@@ -25,12 +25,13 @@ const preview = {
 
 export default preview;
 
-const withI18next = (Story, context) => {
-  const { locale } = context.globals;
+const withI18next = (Story) => {
+  // const withI18next = (Story, context) => {
+  // const { locale } = context.globals;
 
-  useEffect(() => {
+  /*  useEffect(() => {
     i18n.changeLanguage(locale);
-  }, [locale]);
+  }, [locale]);*/
 
   return (
     <Suspense fallback={<div>loading translations...</div>}>
