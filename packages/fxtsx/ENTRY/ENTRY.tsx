@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef, FC, JSX, ReactNode } from "react";
+import type { FC } from "react";
 import { createElement } from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import { Default } from "fxtsx/Identity/Default";
@@ -6,58 +6,66 @@ import type { RootProps } from "fxtsx/fxtsx.type";
 import type { RestProps } from "fxtsx/COLLECTION/COLLECTION";
 
 export type ENTNRYProps = ENTRY & ENTRYCallback;
-export type ElementNames<P = any> = {
-  [K in keyof JSX.IntrinsicElements]: P extends JSX.IntrinsicElements[K]
-    ? K
-    : never;
-}[keyof JSX.IntrinsicElements];
 
-/*type IsDataAttribute<K> = K extends `data-${string}` ? K : never;
-
-export type DataAttributes = {
-  [K in string]: K extends IsDataAttribute<K> ? boolean : never;
-};*/
-
-export interface ENTRY extends ComponentPropsWithoutRef<"div"> {
-  $key: string;
-  $value?: ReactNode;
-  name?: string;
-  value?: string;
-  children?: ReactNode;
+export interface ENTRY {
+  /**
+   * 엔트리 형태 = [key, value]
+   * */
+  $data: [string, any];
+  /**
+   * 키의 라벨
+   * */
+  $keyLabel?: string;
+  /**
+   * 값의 라벨
+   * */
+  $valueLabel?: string;
 }
 export interface ENTRYCallback {
-  Entry?: ElementNames | FC<any>;
-  Key?: ElementNames | FC<any>;
-  Value?: ElementNames | FC<any>;
+  Root?: string | FC<any>;
+  Key?: string | FC<any>;
+  Value?: string | FC<any>;
 }
+
+/**
+ * 엔트리의 구조를 구현한 고차 컴포넌트
+ * */
 export const ENTRY = Fxtsx(function ENTRY(
   rootProps: RootProps,
-  restProps: RestProps<ENTNRYProps>
-) {
-  const {
-    Entry = Default,
+  {
+    Root = Default,
     Key = Default,
     Value = Default,
-    $key,
-    $value,
-    children,
-    ...entryProps
-  } = restProps;
+    $data: [$key, $value],
+    $keyLabel,
+    $valueLabel,
+    ...restProps
+  }: RestProps<ENTNRYProps>,
+  ref
+) {
   return createElement(
-    Entry,
+    Root,
     {
       "data-fx-entry": true,
-      "data-key": $key,
+      ref,
       ...rootProps,
     },
     [
-      createElement(Key, { "data-fx-key": true, key: 0 }, $key),
+      createElement(
+        Key,
+        { "data-key": $key, key: 0, $label: $keyLabel },
+        $keyLabel || $key
+      ),
       createElement(
         Value,
-        { "data-fx-value": true, key: 1, ...entryProps },
-        $value
+        {
+          "data-value": $value,
+          key: 1,
+          $label: $valueLabel,
+          ...restProps,
+        },
+        $valueLabel || $value
       ),
-      children,
     ]
   );
 });

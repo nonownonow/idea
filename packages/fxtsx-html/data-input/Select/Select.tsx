@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from "react";
 import React from "react";
-import { DICTIONARY } from "fxtsx/DICTIONARY2/DICTIONARY";
-import { ENTRY } from "fxtsx/ENTRY2/ENTRY";
+import { DICTIONARY } from "fxtsx/DICTIONARY/DICTIONARY";
+import { ENTRY } from "fxtsx/ENTRY/ENTRY";
 import { CheckOption } from "fxtsx-html/Value/CheckOption/CheckOption";
 import { Identity, Noop } from "fxtsx/util/util";
 import type { DicData } from "fxtsx/fxtsx.type";

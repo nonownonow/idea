@@ -1,7 +1,7 @@
 import type { ForwardedRef } from "react";
 import React, { forwardRef } from "react";
-import { DICTIONARY } from "fxtsx/DICTIONARY2/DICTIONARY";
-import { ENTRY } from "fxtsx/ENTRY2/ENTRY";
+import { DICTIONARY } from "fxtsx/DICTIONARY/DICTIONARY";
+import { ENTRY } from "fxtsx/ENTRY/ENTRY";
 import { Dt } from "fxtsx-html/Value/Dt/Dt";
 import { Dd } from "fxtsx-html/Value/Dd/Dd";
 import type { DicData } from "fxtsx/fxtsx.type";

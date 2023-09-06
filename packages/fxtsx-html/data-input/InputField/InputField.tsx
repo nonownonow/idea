@@ -1,6 +1,6 @@
 import type { ChangeEvent, FC, ReactNode } from "react";
 import React, { forwardRef } from "react";
-import { ENTRY } from "fxtsx/ENTRY2/ENTRY";
+import { ENTRY } from "fxtsx/ENTRY/ENTRY";
 import { htmlChildren } from "fxtsx/util/util";
 
 export type InputField =

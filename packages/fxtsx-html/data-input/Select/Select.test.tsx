@@ -32,7 +32,7 @@ describe("렌더링", () => {
               <input
                 name="직업"
                 type="radio"
-                value="DOCTOR"
+                value=""
               />
               <span>
                 [ ]
@@ -56,7 +56,7 @@ describe("렌더링", () => {
               <input
                 name="직업"
                 type="radio"
-                value="PROGRAMMER"
+                value=""
               />
               <span>
                 [ ]
@@ -80,7 +80,7 @@ describe("렌더링", () => {
               <input
                 name="직업"
                 type="radio"
-                value="DRIVER"
+                value=""
               />
               <span>
                 [ ]

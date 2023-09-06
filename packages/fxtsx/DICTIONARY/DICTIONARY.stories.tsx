@@ -1,4 +1,4 @@
-import { DICTIONARY } from "fxtsx/DICTIONARY2/DICTIONARY";
+import { DICTIONARY } from "fxtsx/DICTIONARY/DICTIONARY";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

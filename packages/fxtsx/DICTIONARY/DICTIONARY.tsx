@@ -4,7 +4,7 @@ import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import type { DicData, RootProps } from "fxtsx/fxtsx.type";
 import type { RestProps } from "fxtsx/COLLECTION/COLLECTION";
 import { COLLECTION } from "fxtsx/COLLECTION/COLLECTION";
-import { ENTRY } from "fxtsx/ENTRY2/ENTRY";
+import { ENTRY } from "fxtsx/ENTRY/ENTRY";
 import { identity } from "@fxts/core";
 import { Default } from "fxtsx/Identity/Default";
 

@@ -2,7 +2,7 @@ import type { FC, ReactNode } from "react";
 import React from "react";
 import type { RestProps } from "fxtsx/COLLECTION/COLLECTION";
 import { COLLECTION } from "fxtsx/COLLECTION/COLLECTION";
-import { DICTIONARY } from "fxtsx/DICTIONARY2/DICTIONARY";
+import { DICTIONARY } from "fxtsx/DICTIONARY/DICTIONARY";
 import { identity } from "@fxts/core";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import type { DicData, RootProps } from "fxtsx/fxtsx.type";

@@ -1,7 +1,7 @@
 import type { ForwardedRef } from "react";
 import React, { forwardRef } from "react";
-import { DICTIONARY } from "fxtsx/DICTIONARY2/DICTIONARY";
-import { ENTRY } from "fxtsx/ENTRY2/ENTRY";
+import { DICTIONARY } from "fxtsx/DICTIONARY/DICTIONARY";
+import { ENTRY } from "fxtsx/ENTRY/ENTRY";
 import { Identity, Noop } from "fxtsx/util/util";
 import { Th } from "fxtsx-html/Value/Th";
 import { Td } from "fxtsx-html/Value/Td/Td";

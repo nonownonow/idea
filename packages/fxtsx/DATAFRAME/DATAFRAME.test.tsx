@@ -5,8 +5,8 @@ import { DATAFRAME } from "./DATAFRAME";
 import { COLLECTION } from "fxtsx/COLLECTION/COLLECTION";
 import { Component } from "fxtsx/util/util";
 import { Formatting } from "fxtsx/DATAFRAME/DATAFRAME.stories";
-import { ENTRY } from "fxtsx/ENTRY2/ENTRY";
-import { DICTIONARY } from "fxtsx/DICTIONARY2/DICTIONARY";
+import { ENTRY } from "fxtsx/ENTRY/ENTRY";
+import { DICTIONARY } from "fxtsx/DICTIONARY/DICTIONARY";
 import type { DicData } from "fxtsx/fxtsx.type";
 
 describe("DATAFRAME", () => {
@@ -54,7 +54,6 @@ describe("DATAFRAME", () => {
                   data-fx-entry="true"
                 >
                   <div
-                    data="a"
                     data-key="a"
                     data-testid="Key"
                     label="a"
@@ -62,7 +61,6 @@ describe("DATAFRAME", () => {
                     a
                   </div>
                   <div
-                    data="1"
                     data-testid="Value"
                     data-value="1"
                     label="1"
@@ -74,7 +72,6 @@ describe("DATAFRAME", () => {
                   data-fx-entry="true"
                 >
                   <div
-                    data="b"
                     data-key="b"
                     data-testid="Key"
                     label="b"
@@ -82,7 +79,6 @@ describe("DATAFRAME", () => {
                     b
                   </div>
                   <div
-                    data="2"
                     data-testid="Value"
                     data-value="2"
                     label="2"
@@ -104,7 +100,6 @@ describe("DATAFRAME", () => {
                   data-fx-entry="true"
                 >
                   <div
-                    data="a"
                     data-key="a"
                     data-testid="Key"
                     label="a"
@@ -112,7 +107,6 @@ describe("DATAFRAME", () => {
                     a
                   </div>
                   <div
-                    data="11"
                     data-testid="Value"
                     data-value="11"
                     label="11"
@@ -124,7 +118,6 @@ describe("DATAFRAME", () => {
                   data-fx-entry="true"
                 >
                   <div
-                    data="b"
                     data-key="b"
                     data-testid="Key"
                     label="b"
@@ -132,7 +125,6 @@ describe("DATAFRAME", () => {
                     b
                   </div>
                   <div
-                    data="22"
                     data-testid="Value"
                     data-value="22"
                     label="22"
@@ -216,7 +208,6 @@ describe("DATAFRAME", () => {
                     data-fx-entry="true"
                   >
                     <div
-                      data="a"
                       data-key="a"
                       data-testid="Key"
                       label="a 꾸미기"
@@ -224,7 +215,6 @@ describe("DATAFRAME", () => {
                       a 꾸미기
                     </div>
                     <div
-                      data="1"
                       data-testid="Value"
                       data-value="1"
                       label="꾸며진 1"
@@ -236,7 +226,6 @@ describe("DATAFRAME", () => {
                     data-fx-entry="true"
                   >
                     <div
-                      data="b"
                       data-key="b"
                       data-testid="Key"
                       label="b키 입니다"
@@ -244,7 +233,6 @@ describe("DATAFRAME", () => {
                       b키 입니다
                     </div>
                     <div
-                      data="2"
                       data-testid="Value"
                       data-value="2"
                       label="꾸며진 b값 2"
@@ -271,7 +259,6 @@ describe("DATAFRAME", () => {
                     data-fx-entry="true"
                   >
                     <div
-                      data="a"
                       data-key="a"
                       data-testid="Key"
                       label="a 꾸미기"
@@ -279,7 +266,6 @@ describe("DATAFRAME", () => {
                       a 꾸미기
                     </div>
                     <div
-                      data="11"
                       data-testid="Value"
                       data-value="11"
                       label="꾸며진 11"
@@ -291,7 +277,6 @@ describe("DATAFRAME", () => {
                     data-fx-entry="true"
                   >
                     <div
-                      data="b"
                       data-key="b"
                       data-testid="Key"
                       label="b키 입니다"
@@ -299,7 +284,6 @@ describe("DATAFRAME", () => {
                       b키 입니다
                     </div>
                     <div
-                      data="22"
                       data-testid="Value"
                       data-value="22"
                       label="꾸며진 b값 22"

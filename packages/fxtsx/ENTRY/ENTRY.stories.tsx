@@ -11,7 +11,14 @@ export default meta;
 
 export const Default: Story = {
   args: {
-    $key: "k",
-    $value: "v",
+    $data: ["name", "유일환"],
+  },
+};
+
+export const WithFormat: Story = {
+  args: {
+    ...Default.args,
+    $keyLabel: "이름",
+    $valueLabel: "나의 이름은 유일환",
   },
 };

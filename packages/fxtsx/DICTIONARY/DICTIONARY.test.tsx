@@ -2,9 +2,9 @@ import type { RenderResult } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
 import { DICTIONARY } from "./DICTIONARY";
 import { createRef } from "react";
-import { Default } from "fxtsx/DICTIONARY2/DICTIONARY.stories";
+import { Default } from "fxtsx/DICTIONARY/DICTIONARY.stories";
 import { Component } from "fxtsx/util/util";
-import { ENTRY } from "fxtsx/ENTRY2/ENTRY";
+import { ENTRY } from "fxtsx/ENTRY/ENTRY";
 
 describe("랜더링", () => {
   let renderResult: RenderResult;
@@ -40,7 +40,6 @@ describe("랜더링", () => {
             data-testid="Entry"
           >
             <div
-              data="keyA"
               data-key="keyA"
               data-testid="Key"
               label="keyA"
@@ -48,7 +47,6 @@ describe("랜더링", () => {
               keyA
             </div>
             <div
-              data="ValueA"
               data-testid="Value"
               data-value="ValueA"
               label="ValueA"
@@ -61,7 +59,6 @@ describe("랜더링", () => {
             data-testid="Entry"
           >
             <div
-              data="keyD"
               data-key="keyD"
               data-testid="Key"
               label="keyD"
@@ -69,7 +66,6 @@ describe("랜더링", () => {
               keyD
             </div>
             <div
-              data="ValueD"
               data-testid="Value"
               data-value="ValueD"
               label="값: ValueD"
@@ -82,7 +78,6 @@ describe("랜더링", () => {
             data-testid="Entry"
           >
             <div
-              data="keyB"
               data-key="keyB"
               data-testid="Key"
               label="키B"
@@ -90,7 +85,6 @@ describe("랜더링", () => {
               키B
             </div>
             <div
-              data="ValueB"
               data-testid="Value"
               data-value="ValueB"
               label="[object Object]"
@@ -105,7 +99,6 @@ describe("랜더링", () => {
             data-testid="Entry"
           >
             <div
-              data="keyA"
               data-key="keyA"
               data-testid="Key"
               label="[object Object]"
@@ -117,7 +110,6 @@ describe("랜더링", () => {
               *
             </div>
             <div
-              data="ValueA"
               data-testid="Value"
               data-value="ValueA"
               label="값: ValueA"
@@ -130,7 +122,6 @@ describe("랜더링", () => {
             data-testid="Entry"
           >
             <div
-              data="keyD"
               data-key="keyD"
               data-testid="Key"
               label="[object Object]"
@@ -138,7 +129,6 @@ describe("랜더링", () => {
               keyD!!
             </div>
             <div
-              data="ValueD"
               data-testid="Value"
               data-value="ValueD"
               label="값: ValueD"
@@ -151,7 +141,6 @@ describe("랜더링", () => {
             data-testid="Entry"
           >
             <div
-              data="keyE"
               data-key="keyE"
               data-testid="Key"
               label="[object Object]"
@@ -163,7 +152,6 @@ describe("랜더링", () => {
               *
             </div>
             <div
-              data="ValueE"
               data-testid="Value"
               data-value="ValueE"
               label="값: ValueE"
