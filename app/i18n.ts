@@ -1,4 +1,5 @@
 export default {
+  lang: "ko",
   // This is the list of languages your application supports
   supportedLngs: ["en", "jp", "ko"],
   // This is the language you want to use in case

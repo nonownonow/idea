@@ -2,6 +2,7 @@ import path, { dirname, join } from "path";
 import type { StorybookConfig } from "@storybook/react-webpack5";
 
 const config: StorybookConfig = {
+  staticDirs: ["../public"],
   stories: [
     {
       directory: "../packages",
@@ -23,6 +24,7 @@ const config: StorybookConfig = {
     getAbsolutePath("@storybook/addon-jest"),
     getAbsolutePath("@whitespace/storybook-addon-html"),
     getAbsolutePath("@storybook/addon-mdx-gfm"),
+    "storybook-react-i18next",
   ],
   framework: {
     name: getAbsolutePath("@storybook/react-webpack5"),
