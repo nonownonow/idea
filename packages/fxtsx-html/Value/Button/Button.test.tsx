@@ -19,7 +19,9 @@ describe("랜더링", () => {
           data-fx-button="true"
           data-fx-value="true"
           data-testid="Button"
-        />
+        >
+          버튼
+        </button>
       </DocumentFragment>
     `);
   });
