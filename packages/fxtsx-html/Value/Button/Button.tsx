@@ -10,17 +10,18 @@ export type ButtonProps = (
 export type Button = {
   $label?: ReactNode;
   $url?: string;
-} & VALUE;
+};
 
 export const Button = forwardRef<
   HTMLButtonElement | HTMLAnchorElement,
   ButtonProps
->(({ $url, ...restProps }, ref) => (
+>(({ $url, $label, ...restProps }, ref) => (
   <VALUE
     data-fx-button
     Root={$url ? "a" : "button"}
     href={$url ? $url : undefined}
     ref={ref}
+    $valueLabel={$label}
     {...restProps}
   />
 ));
