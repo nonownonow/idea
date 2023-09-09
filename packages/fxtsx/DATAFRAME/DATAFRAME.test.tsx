@@ -63,7 +63,7 @@ describe("DATAFRAME", () => {
                   <div
                     data-testid="Value"
                     data-value="1"
-                    label="1"
+                    value-label="1"
                   >
                     1
                   </div>
@@ -81,7 +81,7 @@ describe("DATAFRAME", () => {
                   <div
                     data-testid="Value"
                     data-value="2"
-                    label="2"
+                    value-label="2"
                   >
                     2
                   </div>
@@ -109,7 +109,7 @@ describe("DATAFRAME", () => {
                   <div
                     data-testid="Value"
                     data-value="11"
-                    label="11"
+                    value-label="11"
                   >
                     11
                   </div>
@@ -127,7 +127,7 @@ describe("DATAFRAME", () => {
                   <div
                     data-testid="Value"
                     data-value="22"
-                    label="22"
+                    value-label="22"
                   >
                     22
                   </div>
@@ -217,7 +217,7 @@ describe("DATAFRAME", () => {
                     <div
                       data-testid="Value"
                       data-value="1"
-                      label="꾸며진 1"
+                      value-label="꾸며진 1"
                     >
                       꾸며진 1
                     </div>
@@ -235,7 +235,7 @@ describe("DATAFRAME", () => {
                     <div
                       data-testid="Value"
                       data-value="2"
-                      label="꾸며진 b값 2"
+                      value-label="꾸며진 b값 2"
                     >
                       꾸며진 b값 2
                     </div>
@@ -268,7 +268,7 @@ describe("DATAFRAME", () => {
                     <div
                       data-testid="Value"
                       data-value="11"
-                      label="꾸며진 11"
+                      value-label="꾸며진 11"
                     >
                       꾸며진 11
                     </div>
@@ -286,7 +286,7 @@ describe("DATAFRAME", () => {
                     <div
                       data-testid="Value"
                       data-value="22"
-                      label="꾸며진 b값 22"
+                      value-label="꾸며진 b값 22"
                     >
                       꾸며진 b값 22
                     </div>

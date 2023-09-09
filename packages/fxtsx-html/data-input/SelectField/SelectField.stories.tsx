@@ -12,7 +12,7 @@ export const Default: Story = {
   args: {
     id: "job",
     $label: "직업",
-    $data: {
+    $options: {
       doctor: "DOCTOR",
       programmer: "PROGRAMMER",
       driver: "DRIVER",

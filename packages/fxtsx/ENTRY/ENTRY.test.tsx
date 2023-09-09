@@ -80,7 +80,7 @@ describe("랜더링", () => {
             <div
               data-testid="Value"
               data-value="유일환"
-              label="나의 이름은 유일환"
+              value-label="나의 이름은 유일환"
             >
               나의 이름은 유일환
             </div>

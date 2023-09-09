@@ -21,7 +21,7 @@ export type VALUEProps = VALUE &
 
 export type VALUE = {
   $data?: any;
-  $label?: ReactNode;
+  $valueLabel?: ReactNode;
 };
 export interface VALUECallback {
   Root?: string | FC<any>;
@@ -32,14 +32,14 @@ export const VALUE = Fxtsx(function VALUE(
     Root = Default,
     $data,
     children,
-    $label = children,
+    $valueLabel = children,
     ...restProps
   }: RestProps<VALUEProps>,
   ref: ForwardedRef<any>
 ) {
   return (
     <Root ref={ref} data-fx-value {...rootProps} {...restProps}>
-      {$label || $data}
+      {$valueLabel || $data}
     </Root>
   );
 });

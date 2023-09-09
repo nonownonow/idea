@@ -6,13 +6,17 @@ import { CheckOption } from "fxtsx-html/Value/CheckOption/CheckOption";
 import { Identity, Noop } from "fxtsx/util/util";
 import type { DicData } from "fxtsx/fxtsx.type";
 
-export type SelectProps<Dic extends DicData> = DICTIONARY<Dic> &
+export type SelectProps<Dic extends DicData> = Select<Dic> &
   ComponentPropsWithoutRef<"input">;
 
-export type Select<Dic extends DicData> = DICTIONARY<Dic>;
-export const Select = function Select<Dic extends DicData>(
-  props: SelectProps<Dic>
-) {
+export type Select<Dic extends DicData> = {
+  $options: DICTIONARY<Dic>["$data"];
+  $valueFormats?: DICTIONARY<Dic>["$valueFormats"];
+};
+export const Select = function Select<Dic extends DicData>({
+  $options,
+  ...props
+}: SelectProps<Dic>) {
   return (
     <DICTIONARY
       {...props}
@@ -20,6 +24,7 @@ export const Select = function Select<Dic extends DicData>(
       Entry={(p) => (
         <ENTRY {...p} Root={Identity} Key={Noop} Value={CheckOption} />
       )}
+      $data={$options}
     />
   );
 };

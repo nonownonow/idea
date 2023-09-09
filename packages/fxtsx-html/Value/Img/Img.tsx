@@ -19,7 +19,7 @@ export const Img = Fxtsx<HTMLImageElement, ImgProps>(
     rootProps,
     {
       $data,
-      $label = $data,
+      $valueLabel = $data,
       $pcOption,
       $mobileOption,
       $minPcWidth,
@@ -33,7 +33,7 @@ export const Img = Fxtsx<HTMLImageElement, ImgProps>(
       Root={"picture"}
       {...rootProps}
       $data={$data}
-      $label={
+      $valueLabel={
         <>
           <source
             srcSet={getImgOptions($pcOption)}

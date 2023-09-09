@@ -12,7 +12,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    $data: {
+    $options: {
       doctor: "DOCTOR",
       programmer: "PROGRAMMER",
       driver: "DRIVER",

@@ -49,7 +49,7 @@ describe("랜더링", () => {
             <div
               data-testid="Value"
               data-value="ValueA"
-              label="ValueA"
+              value-label="ValueA"
             >
               ValueA
             </div>
@@ -68,7 +68,7 @@ describe("랜더링", () => {
             <div
               data-testid="Value"
               data-value="ValueD"
-              label="값: ValueD"
+              value-label="값: ValueD"
             >
               값: ValueD
             </div>
@@ -87,7 +87,7 @@ describe("랜더링", () => {
             <div
               data-testid="Value"
               data-value="ValueB"
-              label="[object Object]"
+              value-label="[object Object]"
             >
               <em>
                 2번째 ValueB
@@ -112,7 +112,7 @@ describe("랜더링", () => {
             <div
               data-testid="Value"
               data-value="ValueA"
-              label="값: ValueA"
+              value-label="값: ValueA"
             >
               값: ValueA
             </div>
@@ -131,7 +131,7 @@ describe("랜더링", () => {
             <div
               data-testid="Value"
               data-value="ValueD"
-              label="값: ValueD"
+              value-label="값: ValueD"
             >
               값: ValueD
             </div>
@@ -154,7 +154,7 @@ describe("랜더링", () => {
             <div
               data-testid="Value"
               data-value="ValueE"
-              label="값: ValueE"
+              value-label="값: ValueE"
             >
               값: ValueE
             </div>

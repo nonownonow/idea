@@ -11,6 +11,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     $data: "PROGRAMMER",
-    $label: "개발자",
+    $valueLabel: "개발자",
   },
 };

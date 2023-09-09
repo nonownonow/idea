@@ -5,7 +5,7 @@ import { Select } from "fxtsx-html/data-input/Select/Select";
 import type { DicData } from "fxtsx/fxtsx.type";
 
 export type SelectFieldProps<Dic extends DicData> = Omit<InputField, "$input"> &
-  Select<Dic> &
+  Omit<Select<Dic>, "$data"> &
   Omit<ComponentPropsWithoutRef<"input">, "type">;
 export const SelectField = function SelectField<Dic extends DicData>(
   props: SelectFieldProps<Dic>
