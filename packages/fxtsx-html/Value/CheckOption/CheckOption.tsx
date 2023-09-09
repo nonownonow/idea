@@ -8,7 +8,11 @@ import { htmlChildren } from "fxtsx/util/util";
 export type CheckOptionProps = VALUE & ComponentPropsWithoutRef<"input">;
 
 export const CheckOption = Fxtsx<HTMLInputElement, CheckOptionProps>(
-  (rootProps, { $data, $valueLabel = $data, value, ...restProps }, ref) => (
+  (
+    rootProps,
+    { $data, children, $valueLabel = children, value, ...restProps },
+    ref
+  ) => (
     <VALUE
       data-fx-check-option
       Root={"label"}

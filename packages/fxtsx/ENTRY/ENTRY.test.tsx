@@ -33,6 +33,7 @@ describe("랜더링", () => {
               name
             </div>
             <div
+              data="유일환"
               data-testid="Value"
               data-value="유일환"
             >
@@ -78,9 +79,9 @@ describe("랜더링", () => {
               이름
             </div>
             <div
+              data="유일환"
               data-testid="Value"
               data-value="유일환"
-              value-label="나의 이름은 유일환"
             >
               나의 이름은 유일환
             </div>

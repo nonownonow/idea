@@ -89,10 +89,10 @@ export const DICTIONARY = Fxtsx(function DICTIONARY<T, Dic extends DicData>(
           : $valueFormat($data[key], key, index);
       return (
         <Entry
+          {...dictionaryProps}
           $data={[key, $data[key]]}
           $keyLabel={keyLabel}
           $valueLabel={valueLabel}
-          {...dictionaryProps}
         />
       );
     },

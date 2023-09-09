@@ -3,16 +3,15 @@ import React, { forwardRef } from "react";
 import { ENTRY } from "fxtsx/ENTRY/ENTRY";
 import { htmlChildren } from "fxtsx/util/util";
 
-export type InputField =
-  | Omit<ENTRY, "$data"> & {
-      $error?: string;
-      $label?: ReactNode;
-      $input: string | FC<any>;
-      id: string;
-      type?: string;
-      children?: ReactNode;
-      onChange: (e: ChangeEvent<unknown>) => void;
-    };
+export type InputField = {
+  $error?: string;
+  $label?: ReactNode;
+  $input: string | FC<any>;
+  id: string;
+  type?: string;
+  children?: ReactNode;
+  onChange: (e: ChangeEvent<unknown>) => void;
+};
 
 export const InputField = forwardRef((props: InputField, ref) => {
   const { $error, $label, $input, id, ...restProps } = props;

@@ -61,9 +61,9 @@ describe("DATAFRAME", () => {
                     a
                   </div>
                   <div
+                    data="1"
                     data-testid="Value"
                     data-value="1"
-                    value-label="1"
                   >
                     1
                   </div>
@@ -79,9 +79,9 @@ describe("DATAFRAME", () => {
                     b
                   </div>
                   <div
+                    data="2"
                     data-testid="Value"
                     data-value="2"
-                    value-label="2"
                   >
                     2
                   </div>
@@ -107,9 +107,9 @@ describe("DATAFRAME", () => {
                     a
                   </div>
                   <div
+                    data="11"
                     data-testid="Value"
                     data-value="11"
-                    value-label="11"
                   >
                     11
                   </div>
@@ -125,9 +125,9 @@ describe("DATAFRAME", () => {
                     b
                   </div>
                   <div
+                    data="22"
                     data-testid="Value"
                     data-value="22"
-                    value-label="22"
                   >
                     22
                   </div>
@@ -215,9 +215,9 @@ describe("DATAFRAME", () => {
                       a 꾸미기
                     </div>
                     <div
+                      data="1"
                       data-testid="Value"
                       data-value="1"
-                      value-label="꾸며진 1"
                     >
                       꾸며진 1
                     </div>
@@ -233,9 +233,9 @@ describe("DATAFRAME", () => {
                       b키 입니다
                     </div>
                     <div
+                      data="2"
                       data-testid="Value"
                       data-value="2"
-                      value-label="꾸며진 b값 2"
                     >
                       꾸며진 b값 2
                     </div>
@@ -266,9 +266,9 @@ describe("DATAFRAME", () => {
                       a 꾸미기
                     </div>
                     <div
+                      data="11"
                       data-testid="Value"
                       data-value="11"
-                      value-label="꾸며진 11"
                     >
                       꾸며진 11
                     </div>
@@ -284,9 +284,9 @@ describe("DATAFRAME", () => {
                       b키 입니다
                     </div>
                     <div
+                      data="22"
                       data-testid="Value"
                       data-value="22"
-                      value-label="꾸며진 b값 22"
                     >
                       꾸며진 b값 22
                     </div>

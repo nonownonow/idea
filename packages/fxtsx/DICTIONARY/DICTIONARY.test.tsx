@@ -47,9 +47,9 @@ describe("랜더링", () => {
               keyA
             </div>
             <div
+              data="ValueA"
               data-testid="Value"
               data-value="ValueA"
-              value-label="ValueA"
             >
               ValueA
             </div>
@@ -66,9 +66,9 @@ describe("랜더링", () => {
               keyD
             </div>
             <div
+              data="ValueD"
               data-testid="Value"
               data-value="ValueD"
-              value-label="값: ValueD"
             >
               값: ValueD
             </div>
@@ -85,9 +85,9 @@ describe("랜더링", () => {
               키B
             </div>
             <div
+              data="ValueB"
               data-testid="Value"
               data-value="ValueB"
-              value-label="[object Object]"
             >
               <em>
                 2번째 ValueB
@@ -110,9 +110,9 @@ describe("랜더링", () => {
               *
             </div>
             <div
+              data="ValueA"
               data-testid="Value"
               data-value="ValueA"
-              value-label="값: ValueA"
             >
               값: ValueA
             </div>
@@ -129,9 +129,9 @@ describe("랜더링", () => {
               keyD!!
             </div>
             <div
+              data="ValueD"
               data-testid="Value"
               data-value="ValueD"
-              value-label="값: ValueD"
             >
               값: ValueD
             </div>
@@ -152,9 +152,9 @@ describe("랜더링", () => {
               *
             </div>
             <div
+              data="ValueE"
               data-testid="Value"
               data-value="ValueE"
-              value-label="값: ValueE"
             >
               값: ValueE
             </div>

@@ -42,7 +42,9 @@ describe("렌더링", () => {
               data-fx-value="true"
               data-value="DOCTOR"
             >
-              <span />
+              <span>
+                의사
+              </span>
               <label
                 data-fx-input-box="checkbox"
               >
@@ -50,7 +52,7 @@ describe("렌더링", () => {
                   id="job"
                   name="job"
                   type="checkbox"
-                  value=""
+                  value="DOCTOR"
                 />
                 <span>
                   [ ]
@@ -65,7 +67,9 @@ describe("렌더링", () => {
               data-fx-value="true"
               data-value="PROGRAMMER"
             >
-              <span />
+              <span>
+                개발자
+              </span>
               <label
                 data-fx-input-box="checkbox"
               >
@@ -73,7 +77,7 @@ describe("렌더링", () => {
                   id="job"
                   name="job"
                   type="checkbox"
-                  value=""
+                  value="PROGRAMMER"
                 />
                 <span>
                   [ ]
@@ -88,7 +92,9 @@ describe("렌더링", () => {
               data-fx-value="true"
               data-value="DRIVER"
             >
-              <span />
+              <span>
+                운전기사
+              </span>
               <label
                 data-fx-input-box="checkbox"
               >
@@ -96,7 +102,7 @@ describe("렌더링", () => {
                   id="job"
                   name="job"
                   type="checkbox"
-                  value=""
+                  value="DRIVER"
                 />
                 <span>
                   [ ]

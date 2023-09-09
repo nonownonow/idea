@@ -61,7 +61,7 @@ export const ENTRY = Fxtsx(function ENTRY(
         {
           "data-value": $value,
           key: 1,
-          $valueLabel: $valueLabel,
+          $data: $value,
           ...restProps,
         },
         $valueLabel || $value
