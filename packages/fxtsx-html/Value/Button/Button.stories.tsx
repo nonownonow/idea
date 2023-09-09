@@ -11,13 +11,13 @@ export default meta;
 
 export const Default: Story = {
   args: {
-    $label: "버튼",
+    children: "버튼",
   },
 };
 
 export const WithUrl: Story = {
   args: {
-    $label: "버튼",
+    children: "버튼",
     $url: "http://www.naver.com",
   },
 };
