@@ -22,10 +22,9 @@ describe("구조", () => {
     expect(asFragment()).toMatchInlineSnapshot(`
       <DocumentFragment>
         <div
+          dangerously-set-inner-html="[object Object]"
           data-fx-value="true"
-        >
-          개발자
-        </div>
+        />
       </DocumentFragment>
     `);
   });

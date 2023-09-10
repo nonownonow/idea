@@ -35,6 +35,10 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: font },
   { rel: "stylesheet", href: responsiveCss },
   { rel: "stylesheet", href: okinawaTheme },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/icon?family=Material+Icons",
+  },
 ];
 
 export default function App() {

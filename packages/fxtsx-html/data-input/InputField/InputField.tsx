@@ -10,7 +10,7 @@ export type InputField = {
   id: string;
   type?: string;
   children?: ReactNode;
-  onChange: (e: ChangeEvent<unknown>) => void;
+  onChange?: (e: ChangeEvent<unknown>) => void;
 };
 
 export const InputField = forwardRef((props: InputField, ref) => {

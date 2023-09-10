@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "title": "申し込み - マープル パートナー | MARPPLE",
+    "description": "ビジネス成長のパートナー、マープル パートナー",
+    "og_title": "マープル パートナー"
+  },
+  "heading": "マープル パートナー 申し込み",
+  "section1": {
+    "hgroup": {
+      "heading": "パートナー申し込み前に\n<br/>必ずお読みください！",
+      "p1": "必須入力項目です"
+    },
+    "p1": "入店申し込みは(株) マープルコーポレーション(マープル、マープルショップ、\nマープルショップ プラス)との共同審査で行えます。\n<br>申し込み者の権利保護のため、特許出願されていない\n技術またはデザインは詳細な説明を除いて\n記入してください。",
+    "button_open": "詳細を見る",
+    "button_close": "確認"
+  },
+  "fieldset1": {
+    "legend": "どのようなパートナーとして\n<br/>入店申し込みをされますか？",
+    "partner_type": {
+      "label": "パートナー形態",
+      "options": {
+        "supply": "サプライヤー",
+        "produce": "製作パートナー"
+      },
+      "error": {
+        "required": "パートナー形態を選択してください",
+        "data": "誤ったパートナー形態が入力されました。"
+      }
+    }
+  },
+  "fieldset2": {
+    "legend": "入店申し込みの内容を\n<br/>記入してください。",
+    "application": {
+      "title": {
+        "label": "入店申し込みのタイトル",
+        "placeholder": "タイトルを入力してください",
+        "error_required": "入店申し込みのタイトルを入力してください"
+      },
+      "content": {
+        "label": "入店申し込みの内容",
+        "placeholder": "具体的な内容を入力してください。\n1.入店申し込みの背景\n2.詳細な内容\n3.入店期待効果など",
+        "error": {
+          "required": "入店申し込みの内容を入力してください。",
+          "type": "入店申し込みの内容は文字で入力してください。"
+        }
+      }
+    }
+  },
+  "fieldset3": {
+    "legend": "提案書ファイルを\n<br/>添付してください",
+    "proposal": {
+      "label": "入店提案書",
+      "placeholder": "添付ファイルはPDF、DOC、DOCX、PPT、PPTX、\nHWP、GUL、GIF、JPG、PNG、ZIP、TXT形式/\n100MB以内",
+      "error": {
+        "required": "入店提案書を選択してください。",
+        "type": "入店提案書はファイルで入力してください。"
+      }
+    }
+  },
+  "fieldset4": {
+    "legend": "会社を\n<br/>紹介してください。\n<br/>詳細なほど良いです！",
+    "corporation": {
+      "type": {
+        "label": "企業形態",
+        "options": {
+          "private_enterprise": "個人企業",
+          "corporation": "法人企業",
+          "social_enterprise": "社会的企業",
+          "etc": "その他"
+        },
+        "error": {
+          "required": "企業形態を入力してください。",
+          "type": "企業形態は文字で入力してください。"
+        }
+      },
+      "name": {
+        "label": "会社名",
+        "placeholder": "会社名を入力してください",
+        "error": {
+          "required": "会社名を入力してください。",
+          "type": "会社名は文字で入力してください"
+        }
+      },
+      "profile": {
+        "label": "会社紹介書",
+        "placeholder": "添付ファイルはPDF、DOC、DOCX、PPT、PPTX、\nHWP、GUL、GIF、JPG、PNG、ZIP、TXT形式/\n100MB以内",
+        "error": {
+          "required": "会社紹介書を選択してください。",
+          "type": "誤った会社紹介書ファイルが入力されました。"
+        }
+      },
+      "domain": {
+        "label": "ウェブサイトアドレス",
+        "placeholder": "sample.com",
+        "error": {
+          "required": "ウェブサイトアドレスを入力してください。",
+          "type": "誤ったウェブサイトアドレスが入力されました。"
+        }
+      }
+    },
+    "applicant": {
+      "name": {
+        "label": "応募者の名前",
+        "placeholder": "応募者の名前を入力してください。",
+        "error": {
+          "required": "応募者の名前を入力してください。",
+          "type": "応募者の名前は文字で入力してください"
+        }
+      },
+      "rank": {
+        "label": "応募者の職位",
+        "placeholder": "応募者の職位を選択してください。",
+        "options": {
+          "ceo": "最高経営責任者",
+          "general_manager": "総括マネージャー",
+          "manager": "マネージャー",
+          "assistant_manager": "アシスタントマネージャー",
+          "staff": "スタッフ",
+          "etc": "その他"
+        },
+        "error": {
+          "required": "応募者の職位を選択してください。",
+          "type": "誤った応募者の職位が入力されました。"
+        }
+      },
+      "email": {
+        "label": "応募者のメールアドレス",
+        "placeholder": "会社メールアドレスを入力してください",
+        "error": {
+          "required": "応募者のメールアドレスを入力してください。",
+          "type": "誤ったメールアドレスが入力されました。"
+        }
+      },
+      "phone": {
+        "label": "応募者の連絡先",
+        "placeholder": "連絡可能な番号を正確に\n入力してください。",
+        "error": {
+          "required": "応募者の連絡先を入力してください。",
+          "type": "誤った電話番号が入力されました。"
+        }
+      }
+    }
+  }
+}

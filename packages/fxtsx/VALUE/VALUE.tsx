@@ -9,6 +9,7 @@ import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import type { RestProps } from "fxtsx/COLLECTION/COLLECTION";
 import type { RootProps } from "fxtsx/fxtsx.type";
 import { Default } from "fxtsx/Identity/Default";
+import { htmlChildren } from "fxtsx/util/util";
 
 export type VALUEProps = VALUE &
   VALUECallback &
@@ -38,8 +39,12 @@ export const VALUE = Fxtsx(function VALUE(
   ref: ForwardedRef<any>
 ) {
   return (
-    <Root ref={ref} data-fx-value {...rootProps} {...restProps}>
-      {$valueLabel || $data}
-    </Root>
+    <Root
+      ref={ref}
+      data-fx-value
+      {...rootProps}
+      {...restProps}
+      {...htmlChildren($valueLabel || $data)}
+    />
   );
 });

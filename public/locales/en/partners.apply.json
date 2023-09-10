@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "title": "Apply - Marpple Partner | MARPPLE",
+    "description": "Business Growth Partner, Marpple Partner",
+    "og_title": "Marpple Partner"
+  },
+  "heading": "Apply to Become a Marpple Partner",
+  "section1": {
+    "hgroup": {
+      "heading": "Before Applying to Be a Partner,\n<br/>Please Read Carefully!",
+      "p1": "Required Input Fields"
+    },
+    "p1": "The application for entering is reviewed jointly with (주) 마플 코퍼레이션 (Marpple, Marpple Shop, \nMarpple Shop Plus).\n<br>To protect the rights of the applicant, please exclude detailed descriptions of\n technologies or designs that have not been patented,\n except for detailed descriptions.",
+    "button_open": "Learn More",
+    "button_close": "Confirm"
+  },
+  "fieldset1": {
+    "legend": "What Type of Partner Do You Want to Apply As?\n<br/>",
+    "partner_type": {
+      "label": "Partner Type",
+      "options": {
+        "supply": "Supply Partner",
+        "produce": "Production Partner"
+      },
+      "error": {
+        "required": "Please select a partner type",
+        "data": "Invalid partner type entered."
+      }
+    }
+  },
+  "fieldset2": {
+    "legend": "Please Fill in the Entry Application Details.\n<br/>",
+    "application": {
+      "title": {
+        "label": "Entry Application Title",
+        "placeholder": "Please enter a title",
+        "error_required": "Please enter the entry application title"
+      },
+      "content": {
+        "label": "Entry Application Details",
+        "placeholder": "Please provide specific details.\n1. Background of entry application\n2. Specific details\n3. Expected effects of entry",
+        "error": {
+          "required": "Please enter the entry application details.",
+          "type": "Please enter the entry application details in text."
+        }
+      }
+    }
+  },
+  "fieldset3": {
+    "legend": "Please Attach a Proposal File.\n<br/>",
+    "proposal": {
+      "label": "Entry Proposal",
+      "placeholder": "Attachment files are in PDF, DOC, DOCX, PPT, PPTX,\nHWP, GUL, GIF, JPG, PNG, ZIP, TXT format/\n100MB or less",
+      "error": {
+        "required": "Please select an entry proposal.",
+        "type": "Please enter the entry proposal as a file."
+      }
+    }
+  },
+  "fieldset4": {
+    "legend": "Introduce Your Company.\n<br/>The More Details, the Better!\n<br/>",
+    "corporation": {
+      "type": {
+        "label": "Company Type",
+        "options": {
+          "private_enterprise": "Individual Enterprise",
+          "corporation": "Corporate Enterprise",
+          "social_enterprise": "Social Enterprise",
+          "etc": "Other"
+        },
+        "error": {
+          "required": "Please enter the company type.",
+          "type": "Please enter the company type in text."
+        }
+      },
+      "name": {
+        "label": "Company Name",
+        "placeholder": "Please enter the company name",
+        "error": {
+          "required": "Please enter the company name.",
+          "type": "Please enter the company name in text."
+        }
+      },
+      "profile": {
+        "label": "Company Introduction",
+        "placeholder": "Attachment files are in PDF, DOC, DOCX, PPT, PPTX,\nHWP, GUL, GIF, JPG, PNG, ZIP, TXT format/\n100MB or less",
+        "error": {
+          "required": "Please select a company introduction.",
+          "type": "Invalid company introduction file entered."
+        }
+      },
+      "domain": {
+        "label": "Website Address",
+        "placeholder": "sample.com",
+        "error": {
+          "required": "Please enter the website address.",
+          "type": "Invalid website address entered."
+        }
+      }
+    },
+    "applicant": {
+      "name": {
+        "label": "Applicant's Name",
+        "placeholder": "Please enter the applicant's name.",
+        "error": {
+          "required": "Please enter the applicant's name.",
+          "type": "Applicant's name should be in text."
+        }
+      },
+      "rank": {
+        "label": "Applicant's Position",
+        "placeholder": "Please select the applicant's position.",
+        "options": {
+          "ceo": "CEO",
+          "general_manager": "General Manager",
+          "manager": "Manager",
+          "assistant_manager": "Assistant Manager",
+          "staff": "Staff",
+          "etc": "Other"
+        },
+        "error": {
+          "required": "Please select the applicant's position.",
+          "type": "Invalid applicant's position entered."
+        }
+      },
+      "email": {
+        "label": "Applicant's Email",
+        "placeholder": "Please enter the company email address",
+        "error": {
+          "required": "Please enter the applicant's email address.",
+          "type": "Invalid email address entered."
+        }
+      },
+      "phone": {
+        "label": "Applicant's Contact Number",
+        "placeholder": "Please enter an accurate number for contact.",
+        "error": {
+          "required": "Please enter the applicant's contact number.",
+          "type": "Invalid phone number entered."
+        }
+      }
+    }
+  }
+}
