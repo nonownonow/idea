@@ -1,49 +1,53 @@
 import React from "react";
+import type { ArticleProps } from "fxtsx-html/sectioning/Article/Article";
 import { Article } from "fxtsx-html/sectioning/Article/Article";
 import { useTranslation } from "react-i18next";
-import type { SECTIONING } from "fxtsx/SECTIONING/SECTIONING";
 import { Section } from "fxtsx-html/sectioning/Section/Section";
 import { Ul } from "fxtsx-html/data-structure/Ul/Ul";
 
 export const PartnersApplyProcess = function PartnersApplyProcess({
   $level = 1,
   ...restProps
-}: SECTIONING) {
-  const { t } = useTranslation();
+}: ArticleProps) {
+  const { t } = useTranslation("partners.apply.process");
   return (
     <Article
+      data-partners-apply-process
       {...restProps}
-      $title={t("partnersApplyProcess.H")}
+      $title={t("title")}
       $level={$level}
     >
       <Section
-        $title={t("partnersApplyProcess.Section_sec1_H")}
+        data-reception
+        $title={t("reception.title")}
         $level={$level + 1}
         $contents={
           <Ul<ReturnType<typeof t>>
-            $data={t("partnersApplyProcess.Section_sec1_list", {
+            $data={t("reception.list", {
               returnObjects: true,
             })}
           />
         }
       />
       <Section
-        $title={t("partnersApplyProcess.Section_sec2_H")}
+        data-review
+        $title={t("review.title")}
         $level={$level + 1}
         $contents={
           <Ul<ReturnType<typeof t>>
-            $data={t("partnersApplyProcess.Section_sec2_list", {
+            $data={t("review.list", {
               returnObjects: true,
             })}
           />
         }
       />
       <Section
-        $title={t("partnersApplyProcess.Section_sec3_H")}
+        data-completion
+        $title={t("completion.title")}
         $level={$level + 1}
         $contents={
           <Ul<ReturnType<typeof t>>
-            $data={t("partnersApplyProcess.Section_sec3_list", {
+            $data={t("completion.list", {
               returnObjects: true,
             })}
           />

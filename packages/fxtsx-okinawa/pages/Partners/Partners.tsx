@@ -8,6 +8,8 @@ import { P } from "fxtsx-html/Value/P/P";
 import { TextField } from "fxtsx-html/data-input/TextField/TextField";
 import { TextAreaField } from "fxtsx-html/data-input/TextAreaField/TextAreaField";
 import { FileField } from "fxtsx-html/data-input/FileField/FileField";
+import { Button } from "fxtsx-html/Value/Button/Button";
+import { Dialog } from "fxtsx-html/data-view/Dialog/Dialog";
 
 export const Partners = function Partners() {
   const { t, ready } = useTranslation("partners.apply");
@@ -25,7 +27,12 @@ export const Partners = function Partners() {
         $level={level + 1}
         $title={t("section1.hgroup.heading")}
         $subTitle={<P>{t("section1.hgroup.p1")}</P>}
-      ></Section>
+      >
+        <P>{t("section1.p1")}</P>
+        <Dialog open $closeButtonLabel={t("section1.button_close")}>
+          <Button>{t("section1.button_open")}</Button>
+        </Dialog>
+      </Section>
       <form>
         <Fieldset $level={level + 1} $title={t("fieldset1.legend")}>
           <SelectField
