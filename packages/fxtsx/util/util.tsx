@@ -1,11 +1,11 @@
-import type { ReactNode, ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import React, { forwardRef } from "react";
 import { entries, map, pipe } from "@fxts/core";
 import { kebabCase } from "lodash";
 
 export function htmlChildren(html: ReactNode) {
   let result;
-  if (typeof html === "string") {
+  if (["string", "number", "boolean"].includes(typeof html)) {
     result = {
       dangerouslySetInnerHTML: {
         __html: html,

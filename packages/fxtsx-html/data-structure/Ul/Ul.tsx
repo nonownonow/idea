@@ -6,12 +6,5 @@ export const Ul = forwardRef(function Ul<Value>(
   props: COLLECTION<Value>,
   ref: ForwardedRef<HTMLUListElement>
 ) {
-  return (
-    <COLLECTION
-      data-fx-ul
-      {...props}
-      Root={(props) => <ul {...props} ref={ref} />}
-      Item={(props) => <li {...props} />}
-    />
-  );
+  return <COLLECTION data-fx-ul {...props} Root={"ul"} Item={"li"} ref={ref} />;
 });

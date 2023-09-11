@@ -10,6 +10,7 @@ import { TextAreaField } from "fxtsx-html/data-input/TextAreaField/TextAreaField
 import { FileField } from "fxtsx-html/data-input/FileField/FileField";
 import { Button } from "fxtsx-html/Value/Button/Button";
 import { Dialog } from "fxtsx-html/data-view/Dialog/Dialog";
+import { PartnersApplyProcess } from "./PartnersApplyProcess";
 
 export const Partners = function Partners() {
   const { t, ready } = useTranslation("partners.apply");
@@ -30,6 +31,7 @@ export const Partners = function Partners() {
       >
         <P>{t("section1.p1")}</P>
         <Dialog open $closeButtonLabel={t("section1.button_close")}>
+          <PartnersApplyProcess $level={level + 1} />
           <Button>{t("section1.button_open")}</Button>
         </Dialog>
       </Section>

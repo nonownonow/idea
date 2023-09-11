@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "title": "Application Procedure - MARPPLE Partner | MARPPLE",
+    "description": "MARPPLE partner apply process"
+  },
+  "title": "Application Procedure Guide",
+  "reception": {
+    "title": "01. Registration Reception",
+    "list": [
+      "A completion email will be sent to the email address you entered at the time of registration.\n(Please enter the correct email address.)",
+      "Please refrain from applying for partnership that is based on an interview with the responsible person,\nand be sure to complete the rights registration\nfor partnership requests that require the public or sharing\nof intellectual property rights such as patents, designs, and copyrights.",
+      "Also, when applying for partnership, please only describe 'publicly available information'\nthat does not correspond to trade secrets or confidential matters.",
+      "The proposal content and related materials will be used only for the purpose of partnership review."
+    ]
+  },
+  "review": {
+    "title": "02. Proposal Review",
+    "list": [
+      "The content of the partnership application received will be processed within 5 business days\nbased on business days as a basic rule.\n(However, in the case of important matters, it may take some time.)",
+      "During the process of reviewing the content, the responsible person may request additional materials\nor make inquiries.",
+      "If the proposer does not respond for more than 30 days after the responsible person's request for materials\nor re-inquiry, the relevant partnership application will be closed."
+    ]
+  },
+  "completion": {
+    "title": "03. Proposal Completion",
+    "list": [
+      "The results of the partnership application review will be sent to the email address you entered at the time of registration.\n(Please enter the correct email address.)",
+      "When the approval or disapproval of the partnership application is determined,\nthe responsible person will separately guide the procedure for partnership\nand close the relevant proposal.",
+      "If the partnership application is not accepted, the content of the partnership application and related materials\nwill be immediately discarded.",
+      "If you have requested a re-registration of the partnership application,\nbut the proposer does not modify or supplement the content and re-register it within 30 days,\nthe relevant partnership application will be discarded."
+    ]
+  }
+}

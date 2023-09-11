@@ -4,6 +4,7 @@ import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import type { Dataset, RootProps } from "fxtsx/fxtsx.type";
 import { Default } from "fxtsx/Identity/Default";
 import { identity } from "@fxts/core";
+import { htmlChildren } from "fxtsx/util/util";
 
 export type COLLECTIONProps<Value> = COLLECTION<Value> & COLLECTIONCallback;
 
@@ -63,6 +64,7 @@ export const COLLECTION = Fxtsx(function COLLECTION<T, Value>(
       ...listProps,
       ref,
     },
-    $data.map((a, i) => createElement(Item, { key: i }, $itemFormat(a, i)))
+    // $data.map((a, i) => createElement(Item, { key: i }, $itemFormat(a, i)))
+    $data.map((a, i) => <Item key={i} {...htmlChildren($itemFormat(a, i))} />)
   );
 });
