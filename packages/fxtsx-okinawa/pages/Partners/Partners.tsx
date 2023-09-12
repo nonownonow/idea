@@ -44,11 +44,9 @@ export const Partners = function Partners() {
             }}
             id={"partner_type"}
             $label={t("fieldset1.partner_type.label")}
-            $valueFormats={
-              t("fieldset1.partner_type.options", {
-                returnObjects: true,
-              }) as any
-            }
+            $valueFormats={t("fieldset1.partner_type.options", {
+              returnObjects: true,
+            })}
           />
         </Fieldset>
         <Fieldset $level={level + 1} $title={t("fieldset2.legend")}>
