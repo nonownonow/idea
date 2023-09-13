@@ -17,6 +17,7 @@ describe("랜더링", () => {
         <dialog
           data-fx-dialog="true"
           open=""
+          style="z-index: 9999;"
         >
           <form
             method="dialog"
@@ -31,7 +32,10 @@ describe("랜더링", () => {
                 Dialog 테스트 입니다.
               </p>
             </section>
-            <button>
+            <button
+              data-fx-button="true"
+              data-fx-value="true"
+            >
               close
             </button>
           </form>

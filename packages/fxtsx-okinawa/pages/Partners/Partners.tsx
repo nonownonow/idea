@@ -11,67 +11,66 @@ import { FileField } from "fxtsx-html/data-input/FileField/FileField";
 import { Button } from "fxtsx-html/Value/Button/Button";
 import { Dialog } from "fxtsx-html/data-view/Dialog/Dialog";
 import { PartnersApplyProcess } from "./PartnersApplyProcess";
+import { CheckOption } from "fxtsx-html/Value/CheckOption/CheckOption";
+import { PartnersPrivacyTerm } from "./partnersPrivacyTerm";
+import { PartnersApplyNotice } from "./PartnersApplyNotice";
 
 export const Partners = function Partners() {
   const { t, ready } = useTranslation("partners.apply");
 
   const level = 2;
   if (!ready) return null;
-  const type = t("fieldset1.partner_type.options", {
-    returnObjects: true,
-  });
-  console.log(type);
-  console.log(t("fieldset1.legend"));
+
   return (
-    <Article data-mpp-apply $level={level} $title={t("heading")}>
+    <Article data-mpp-apply $level={level} $title={t("h")}>
       <Section
         $level={level + 1}
-        $title={t("section1.hgroup.heading")}
+        $title={t("section1.hgroup.h")}
         $subTitle={<P>{t("section1.hgroup.p1")}</P>}
       >
         <P>{t("section1.p1")}</P>
+        <Button>{t("section1.button_open")}</Button>
         <Dialog open $closeButtonLabel={t("section1.button_close")}>
           <PartnersApplyProcess $level={level + 1} />
-          <Button>{t("section1.button_open")}</Button>
         </Dialog>
       </Section>
       <form>
-        <Fieldset $level={level + 1} $title={t("fieldset1.legend")}>
+        <Fieldset $level={level + 1} $title={t("section2.h")}>
           <SelectField
             $options={{
               supply: "SUPPLY",
               produce: "PRODUCE",
             }}
             id={"partner_type"}
-            $label={t("fieldset1.partner_type.label")}
-            $valueFormats={t("fieldset1.partner_type.options", {
+            $label={t("section2.partner_type.label")}
+            $valueFormats={t("section2.partner_type.options", {
               returnObjects: true,
             })}
           />
         </Fieldset>
-        <Fieldset $level={level + 1} $title={t("fieldset2.legend")}>
+        <Fieldset $level={level + 1} $title={t("section3.h")}>
           <TextField
             id={"application.title"}
-            $label={t("fieldset2.application.title.label")}
-            placeholder={t("fieldset2.application.title.placeholder")}
+            $label={t("section3.application.title.label")}
+            placeholder={t("section3.application.title.placeholder")}
           />
           <TextAreaField
             id={"application.content"}
-            $label={t("fieldset2.application.content.label")}
-            placeholder={t("fieldset2.application.title.placeholder")}
+            $label={t("section3.application.content.label")}
+            placeholder={t("section3.application.title.placeholder")}
           />
         </Fieldset>
-        <Fieldset $level={level + 1} $title={t("fieldset3.legend")}>
+        <Fieldset $level={level + 1} $title={t("section4.h")}>
           <FileField
             id={"proposal"}
-            $label={t("fieldset3.proposal.label")}
-            placeholder={t("fieldset3.proposal.placeholder")}
+            $label={t("section4.proposal.label")}
+            placeholder={t("section4.proposal.placeholder")}
           />
         </Fieldset>
-        <Fieldset $level={level + 1} $title={t("fieldset4.legend")}>
+        <Fieldset $level={level + 1} $title={t("section5.h")}>
           <SelectField
             id={"corporation.type"}
-            $label={t("fieldset4.corporation.type.label")}
+            $label={t("section5.corporation.type.label")}
             $options={{
               private_enterprise: "PRIVATE_ENTERPRISE",
               corporation: "CORPORATION",
@@ -79,25 +78,25 @@ export const Partners = function Partners() {
               etc: "ETC",
             }}
             $valueFormats={
-              t("fieldset4.corporation.type.options", {
+              t("section5.corporation.type.options", {
                 returnObjects: true,
               }) as any
             }
           />
           <TextField
             id={"corporation.name"}
-            $label={t("fieldset4.corporation.name.label")}
-            placeholder={t("fieldset4.corporation.name.placeholder")}
+            $label={t("section5.corporation.name.label")}
+            placeholder={t("section5.corporation.name.placeholder")}
           />
           <TextField
             id={"applicant.name"}
-            $label={t("fieldset4.applicant.name.label")}
-            placeholder={t("fieldset4.applicant.name.placeholder")}
+            $label={t("section5.applicant.name.label")}
+            placeholder={t("section5.applicant.name.placeholder")}
           />
           <SelectField
             id={"applicant.rank"}
-            $label={t("fieldset4.applicant.rank.label")}
-            placeholder={t("fieldset4.applicant.rank.placeholder")}
+            $label={t("section5.applicant.rank.label")}
+            placeholder={t("section5.applicant.rank.placeholder")}
             $options={{
               ceo: "CEO",
               general_manager: "general_manager",
@@ -106,123 +105,62 @@ export const Partners = function Partners() {
               staff: "STAFF",
               etc: "ETC",
             }}
-            $valueFormats={t("fieldset4.applicant.rank.options", {
+            $valueFormats={t("section5.applicant.rank.options", {
               returnObject: true,
             })}
           />
           <TextField
             id={"applicant.email"}
-            $label={t("fieldset4.applicant.email.label")}
-            placeholder={t("fieldset4.applicant.email.placeholder")}
+            $label={t("section5.applicant.email.label")}
+            placeholder={t("section5.applicant.email.placeholder")}
             type={"email"}
             required
           />
           <TextField
             id={"applicant.phone"}
-            $label={t("fieldset4.applicant.phone.label")}
-            placeholder={t("fieldset4.applicant.rank.placeholder")}
+            $label={t("section5.applicant.phone.label")}
+            placeholder={t("section5.applicant.rank.placeholder")}
             type={"tel"}
           />
           <FileField
             id={"corporation.profile"}
-            $label={t("fieldset4.corporation.profile.label")}
-            placeholder={t("fieldset4.corporation.profile.placeholder")}
+            $label={t("section5.corporation.profile.label")}
+            placeholder={t("section5.corporation.profile.placeholder")}
           />
           <TextField
             id={"corporation.domain"}
-            $label={t("fieldset4.corporation.domain.label")}
-            placeholder={t("fieldset4.corporation.domain.placeholder")}
+            $label={t("section5.corporation.domain.label")}
+            placeholder={t("section5.corporation.domain.placeholder")}
           />
         </Fieldset>
-        {/*
-
-
-
-          <Fieldset
-            $level={level + 1}
-            data-privacyTerm
-            $title={t("partnersApply.Fieldset_privacy_term_Legend")}
-          >
-            <CheckOption
-              name={"label_check_all"}
-              $label={t("partnersApply.Input_privacy_term.label_check_all")}
-            />
-            <Select
-              $data={{
-                check_agree: "CHECK_AGREE",
-              }}
-              $valueFormats={{
-                check_agree: t(
-                  "partnersApply.Input_privacy_term.options.check_agree"
-                ),
-              }}
-            />
-            <Button
-              $data={t(
-                "partnersApply.privacy_term_Section_sec1_detail_summary"
-              )}
-              type={"button"}
-            />
-            <Dialog
-              $closeButtonLabel={t(
-                "partnersApply.privacy_term_Button_dialog_close"
-              )}
-            >
-              <Section
-                $level={level + 2}
-                $title={t("partnersApply.privacy_term_Section_sec1_H")}
-                $contents={
-                  <>
-                    <Ul<ReturnType<typeof t>>
-                      $data={t("partnersApply.privacy_term_Section_sec1_list", {
-                        returnObjects: true,
-                      })}
-                    />
-                    <P $data={t("partnersApply.privacy_term_Section_sec1_p")} />
-                  </>
-                }
-              />
-            </Dialog>
-          </Fieldset>
-          <Fieldset
-            $level={level + 1}
-            $title={t("partnersApply.Fieldset_apply_notice_Legend")}
-          >
-            <CheckOption
-              $label={t("partnersApply.Input_apply_notice.label_check_all")}
-            />
-            <Select
-              $data={t("partnersApply.Input_apply_notice.options", {
-                returnObjects: true,
-              })}
-            />
-            <Button
-              $data={t(
-                "partnersApply.apply_notice_Section_sec1_detail_summary"
-              )}
-            />
-            <Dialog
-              $closeButtonLabel={t(
-                "partnersApply.apply_notice_Button_dialog_close"
-              )}
-            >
-              <Section
-                $level={level + 2}
-                $title={t("partnersApply.apply_notice_Section_sec1_H")}
-                $contents={
-                  <>
-                    <Ul<ReturnType<typeof t>>
-                      $data={t("partnersApply.apply_notice_Section_sec1_list", {
-                        returnObjects: true,
-                      })}
-                    />
-                  </>
-                }
-              />
-            </Dialog>
-          </Fieldset>
-          <Button $data={t("partnersApply.Form_Button_ok")} />
-          <Button $data={t("partnersApply.Form_Button_cancel")} />*/}
+        <Fieldset
+          $level={level + 1}
+          data-privacy-term-agree
+          $title={t("section6.h")}
+        >
+          <CheckOption
+            name={"private_term"}
+            $valueLabel={t("section6.privacy_term_agree.label")}
+          />
+          <Button $valueLabel={t("section6.button_open")} type={"button"} />
+          <Dialog $closeButtonLabel={t("section6.button_close")}>
+            <PartnersPrivacyTerm $level={level + 2} />
+          </Dialog>
+        </Fieldset>
+        <Fieldset
+          $level={level + 1}
+          data-privacy-term-agree
+          $title={t("section7.h")}
+        >
+          <CheckOption
+            name={"private_term"}
+            $valueLabel={t("section7.apply_notice_agree.label")}
+          />
+          <Button $valueLabel={t("section7.button_open")} type={"button"} />
+          <Dialog $closeButtonLabel={t("section7.button_close")}>
+            <PartnersApplyNotice $level={level + 2} />
+          </Dialog>
+        </Fieldset>
       </form>
     </Article>
   );

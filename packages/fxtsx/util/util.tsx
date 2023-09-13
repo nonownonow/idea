@@ -5,7 +5,8 @@ import { kebabCase } from "lodash";
 
 export function htmlChildren(html: ReactNode) {
   let result;
-  if (["string", "number", "boolean"].includes(typeof html)) {
+  if (typeof html === "string") {
+    // if (["string", "number", "boolean"].includes(typeof html)) {
     result = {
       dangerouslySetInnerHTML: {
         __html: html,

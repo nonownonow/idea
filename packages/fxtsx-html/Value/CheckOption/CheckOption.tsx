@@ -17,7 +17,6 @@ export const CheckOption = Fxtsx<HTMLInputElement, CheckOptionProps>(
       data-fx-check-option
       Root={"label"}
       {...rootProps}
-      $data={$data}
       $valueLabel={
         <>
           <span {...htmlChildren($valueLabel)} />
