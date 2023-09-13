@@ -5,6 +5,7 @@ import { ENTRY } from "fxtsx/ENTRY/ENTRY";
 import { CheckOption } from "fxtsx-html/Value/CheckOption/CheckOption";
 import { Identity, Noop } from "fxtsx/util/util";
 import type { DicData } from "fxtsx/fxtsx.type";
+import "./Select.css";
 
 export type SelectProps<Dic extends DicData> = Select<Dic> &
   ComponentPropsWithoutRef<"input">;
@@ -19,6 +20,7 @@ export const Select = function Select<Dic extends DicData>({
 }: SelectProps<Dic>) {
   return (
     <DICTIONARY
+      data-select
       {...props}
       Root={"fieldset"}
       Entry={(p) => (

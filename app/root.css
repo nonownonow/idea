@@ -127,3 +127,25 @@ pc view 는 horizontal 이 기본 이기에 vmax 를 사용
     font-size: 0.69444444vmax;
   }
 }
+
+//grid 시스템에서 grid module에서 제외할 태그
+form {
+  display: contents;
+}
+[data-fx-heading],
+legend {
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+[data-fx-value],
+fieldset {
+  padding: 0.5rem;
+  margin: 0;
+}
+legend[data-fx-value] {
+  padding: 0;
+}
+
+[data-fx-sectioning] {
+}

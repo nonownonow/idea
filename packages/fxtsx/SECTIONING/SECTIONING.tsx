@@ -57,7 +57,6 @@ export const SECTIONING = Fxtsx<HTMLElement, SECTIONINGProps>(
       },
       <>
         {createElement(Heading, {
-          "data-heading-level": $level,
           $title,
           ...htmlChildren($title),
           $level,

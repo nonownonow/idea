@@ -4,6 +4,7 @@ import { VALUE } from "fxtsx/VALUE/VALUE";
 import { InputBox } from "fxtsx-html/data-input/InputBox/InputBox";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
 import { htmlChildren } from "fxtsx/util/util";
+import "./CheckOption.css";
 
 export type CheckOptionProps = VALUE & ComponentPropsWithoutRef<"input">;
 

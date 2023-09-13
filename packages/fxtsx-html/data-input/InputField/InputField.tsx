@@ -2,6 +2,7 @@ import type { ChangeEvent, FC, ReactNode } from "react";
 import React, { forwardRef } from "react";
 import { ENTRY } from "fxtsx/ENTRY/ENTRY";
 import { htmlChildren } from "fxtsx/util/util";
+import "./InputField.css";
 
 export type InputField = {
   $error?: string;

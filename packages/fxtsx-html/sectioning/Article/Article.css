@@ -1,0 +1,6 @@
+[data-article] {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 5rem;
+  padding: 1.5rem;
+}

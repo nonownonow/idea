@@ -1,0 +1,6 @@
+[data-select] {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  padding: 1.5rem;
+}

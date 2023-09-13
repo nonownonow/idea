@@ -38,7 +38,7 @@ export interface DICTIONARY<Dic extends DicData> extends Omit<ENTRY, "$data"> {
   $valueFormats?: Record<string, DICTIONARY<Dic>["$valueFormat"] | ReactNode>;
 }
 export interface DICTIONARYCallback {
-  Root?: string | FC<COLLECTION>;
+  Root?: string | FC<any>;
   Entry?: FC<ENTRY>;
 }
 //todo: Dictionary === Form?

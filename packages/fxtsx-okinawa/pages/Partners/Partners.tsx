@@ -30,7 +30,7 @@ export const Partners = function Partners() {
       >
         <P>{t("section1.p1")}</P>
         <Button>{t("section1.button_open")}</Button>
-        <Dialog open $closeButtonLabel={t("section1.button_close")}>
+        <Dialog $closeButtonLabel={t("section1.button_close")}>
           <PartnersApplyProcess $level={level + 1} />
         </Dialog>
       </Section>
