@@ -2,9 +2,11 @@ import type { ComponentPropsWithoutRef } from "react";
 import { forwardRef } from "react";
 import { VALUE } from "fxtsx/VALUE/VALUE";
 
-export type ButtonProps = VALUE & {
-  $url?: string;
-} & (ComponentPropsWithoutRef<"button"> | ComponentPropsWithoutRef<"a">);
+export type ButtonProps = VALUE &
+  (
+    | ({ $url: string } & ComponentPropsWithoutRef<"a">)
+    | ({ $url?: never } & ComponentPropsWithoutRef<"button">)
+  );
 
 export const Button = forwardRef<
   HTMLButtonElement | HTMLAnchorElement,

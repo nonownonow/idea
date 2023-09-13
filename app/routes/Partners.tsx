@@ -1,7 +1,10 @@
-import { Partners } from "packages/fxtsx-okinawa/pages/Partners/Partners";
 import React from "react";
+import { useTranslation } from "react-i18next";
+import { PartnersApplyNotice } from "fxtsx-okinawa/pages/Partners/PartnersApplyNotice";
 
 function PartnersApply() {
-  return <Partners />;
+  const { t, ready } = useTranslation("partners.apply");
+  if (!ready) return null;
+  return <PartnersApplyNotice $level={1} />;
 }
 export default PartnersApply;

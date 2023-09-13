@@ -8,10 +8,11 @@ export const PartnersApplyNotice = function PartnersApplyNotice({
   $level = 0,
   ...props
 }: ArticleProps) {
-  const { t } = useTranslation("partners.apply.notice");
+  const { t, ready } = useTranslation("partners.apply.notice");
+  if (!ready) return null;
   return (
     <Article {...props} $level={$level + 1} $title={t("title")}>
-      <Ul $data={t("list", { returnObject: true })} />
+      <Ul $data={t("list", { returnObjects: true })} />
     </Article>
   );
 };

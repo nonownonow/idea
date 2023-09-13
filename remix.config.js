@@ -6,6 +6,7 @@ module.exports = {
   // serverBuildPath: "build/index.js",
   // publicPath: "/build/",
   serverModuleFormat: "cjs",
+  watchPaths: ["./packages/*"],
   future: {
     v2_errorBoundary: true,
     v2_headers: true,

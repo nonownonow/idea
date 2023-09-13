@@ -1,9 +1,5 @@
 {
-  "include": [
-    "remix.env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-  ],
+  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2019"],
     "isolatedModules": true,
@@ -20,6 +16,7 @@
       "~/*": ["./app/*"],
       "fxtsx/*": ["./packages/fxtsx/*"],
       "fxtsx-html/*": ["./packages/fxtsx-html/*"],
+      "fxtsx-okinawa/*": ["./packages/fxtsx-okinawa/*"],
       "test-utils": ["./utils/test-utils"]
     },
 

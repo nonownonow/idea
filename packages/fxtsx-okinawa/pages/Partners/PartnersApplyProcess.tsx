@@ -9,7 +9,8 @@ export const PartnersApplyProcess = function PartnersApplyProcess({
   $level = 1,
   ...restProps
 }: ArticleProps) {
-  const { t } = useTranslation("partners.apply.process");
+  const { t, ready } = useTranslation("partners.apply.process");
+  if (!ready) return null;
   return (
     <Article
       data-partners-apply-process

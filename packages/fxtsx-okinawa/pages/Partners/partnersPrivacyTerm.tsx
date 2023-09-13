@@ -8,7 +8,8 @@ export const PartnersPrivacyTerm = function PartnersPrivacyTerm({
   $level = 0,
   ...props
 }: ArticleProps) {
-  const { t } = useTranslation("partners.privacy.term");
+  const { t, ready } = useTranslation("partners.privacy.term");
+  if (!ready) return null;
   return (
     <Article {...props} $level={$level + 1} $title={t("title")}>
       <Ul $data={t("list", { returnObject: true })} />
