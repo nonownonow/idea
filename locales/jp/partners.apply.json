@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "title": "応募 - Marpple パートナー | MARPPLE",
+    "description": "ビジネス成長パートナー、Marpple パートナー",
+    "og_title": "Marpple パートナー"
+  },
+  "h": "Marpple パートナーに申し込む",
+  "section1": {
+    "hgroup": {
+      "h": "応募前にお読みください！",
+      "p1": "必須項目です。"
+    },
+    "p1": "Marpple Corporation (Marpple, Marpple Shop, Marpple Shop Plus)と共同で応募をレビューすることができます。応募者の権利を保護するため、特許申請されていない技術やデザインの詳細な説明は書かないでください。",
+    "button_open": "もっと見る",
+    "button_close": "確認"
+  },
+  "section2": {
+    "h": "どのパートナーとして申し込みますか？",
+    "partner_type": {
+      "label": "パートナーのタイプ",
+      "options": {
+        "supply": "供給パートナー",
+        "produce": "生産パートナー"
+      },
+      "error": {
+        "required": "パートナーのタイプを選択してください。",
+        "data": "無効なパートナータイプが入力されました。"
+      }
+    }
+  },
+  "section3": {
+    "h": "応募の詳細を記入してください。",
+    "application": {
+      "title": {
+        "label": "応募のタイトル",
+        "placeholder": "タイトルを入力してください。",
+        "error_required": "応募のタイトルを入力してください。"
+      },
+      "content": {
+        "label": "応募内容",
+        "placeholder": "詳細情報を提供してください。1. 応募の背景 2. 詳細情報 3. リスティングの期待効果など。",
+        "error": {
+          "required": "応募内容を入力してください。",
+          "type": "応募内容はテキストでなければなりません。"
+        }
+      }
+    }
+  },
+  "section4": {
+    "h": "提案ファイルを添付してください。",
+    "proposal": {
+      "label": "リスティングの提案",
+      "placeholder": "添付フォーマット：PDF, DOC, DOCX, PPT, PPTX, HWP, GUL, GIF, JPG, PNG, ZIP, TXT。100MB以下。",
+      "error": {
+        "required": "提案ファイルを選択してください。",
+        "type": "提案はファイルでなければなりません。"
+      }
+    }
+  },
+  "section5": {
+    "h": "あなたの会社を紹介してください。詳細があればあるほど良いです！",
+    "corporation": {
+      "type": {
+        "label": "会社のタイプ",
+        "options": {
+          "private_enterprise": "民間企業",
+          "corporation": "法人",
+          "social_enterprise": "ソーシャルエンタープライズ",
+          "etc": "その他"
+        },
+        "error": {
+          "required": "会社のタイプを入力してください。",
+          "type": "会社のタイプはテキストでなければなりません。"
+        }
+      },
+      "name": {
+        "label": "会社名",
+        "placeholder": "会社名を入力してください。",
+        "error": {
+          "required": "会社名を入力してください。",
+          "type": "会社名はテキストでなければなりません。"
+        }
+      },
+      "profile": {
+        "label": "会社のプロフィール",
+        "placeholder": "添付フォーマット：PDF, DOC, DOCX, PPT, PPTX, HWP, GUL, GIF, JPG, PNG, ZIP, TXT。100MB以下。",
+        "error": {
+          "required": "会社のプロフィールを選択してください。",
+          "type": "無効な会社のプロフィールファイルが入力されました。"
+        }
+      },
+      "domain": {
+        "label": "ホームページのURL",
+        "placeholder": "sample.com",
+        "error": {
+          "required": "ホームページのURLを入力してください。",
+          "type": "無効なホームページのURLが入力されました。"
+        }
+      }
+    },
+    "applicant": {
+      "name": {
+        "label": "応募者の名前",
+        "placeholder": "応募者の名前を入力してください。",
+        "error": {
+          "required": "応募者の名前を入力してください。",
+          "type": "応募者の名前はテキストでなければなりません。"
+        }
+      },
+      "rank": {
+        "label": "応募者の役職",
+        "placeholder": "応募者の役職を選択してください。",
+        "options": {
+          "ceo": "CEO",
+          "general_manager": "一般マネージャー",
+          "manager": "マネージャー",
+          "assistant_manager": "アシスタントマネージャー",
+          "staff": "スタッフ",
+          "etc": "その他"
+        },
+        "error": {
+          "required": "応募者の役職を選択してください。",
+          "type": "無効な応募者の役職が入力されました。"
+        }
+      },
+      "email": {
+        "label": "応募者のメールアドレス",
+        "placeholder": "sample@sample.com",
+        "error": {
+          "required": "応募者のメールアドレスを入力してください。",
+          "type": "無効なメールフォーマットが入力されました。"
+        }
+      },
+      "phone": {
+        "label": "応募者の電話番号",
+        "placeholder": "010-XXXX-XXXX",
+        "error": {
+          "required": "応募者の電話番号を入力してください。",
+          "type": "無効な電話番号フォーマットが入力されました。"
+        }
+      }
+    }
+  }
+}

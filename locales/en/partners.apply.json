@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "title": "Apply - Marpple Partner | MARPPLE",
+    "description": "Business Growth Partner, Marpple Partner",
+    "og_title": "Marpple Partner"
+  },
+  "h": "Apply for Marpple Partner",
+  "section1": {
+    "hgroup": {
+      "h": "Please read before applying!",
+      "p1": "This is a mandatory field."
+    },
+    "p1": "Application can be jointly reviewed by Marpple Corporation (Marpple, Marpple Shop, Marpple Shop Plus). For the protection of the applicant's rights, please write without detailed descriptions of technologies or designs that have not been patent-applied.",
+    "button_open": "View More",
+    "button_close": "Confirm"
+  },
+  "section2": {
+    "h": "Which partner would you like to apply as?",
+    "partner_type": {
+      "label": "Type of Partner",
+      "options": {
+        "supply": "Supply Partner",
+        "produce": "Production Partner"
+      },
+      "error": {
+        "required": "Please select the type of partner.",
+        "data": "Invalid type of partner entered."
+      }
+    }
+  },
+  "section3": {
+    "h": "Please fill out the application details.",
+    "application": {
+      "title": {
+        "label": "Application Title",
+        "placeholder": "Please enter the title.",
+        "error_required": "Please enter the application title."
+      },
+      "content": {
+        "label": "Application Content",
+        "placeholder": "Please provide detailed information. 1. Background of Application 2. Detailed Information 3. Expected Effects of Listing, etc.",
+        "error": {
+          "required": "Please enter the application content.",
+          "type": "Application content should be in text."
+        }
+      }
+    }
+  },
+  "section4": {
+    "h": "Please attach a proposal file.",
+    "proposal": {
+      "label": "Proposal for Listing",
+      "placeholder": "Attachment formats: PDF, DOC, DOCX, PPT, PPTX, HWP, GUL, GIF, JPG, PNG, ZIP, TXT. Under 100MB.",
+      "error": {
+        "required": "Please choose a proposal file.",
+        "type": "Proposal should be a file."
+      }
+    }
+  },
+  "section5": {
+    "h": "Please introduce your company. The more details, the better!",
+    "corporation": {
+      "type": {
+        "label": "Type of Corporation",
+        "options": {
+          "private_enterprise": "Private Enterprise",
+          "corporation": "Corporation",
+          "social_enterprise": "Social Enterprise",
+          "etc": "Others"
+        },
+        "error": {
+          "required": "Please enter the type of corporation.",
+          "type": "Type of corporation should be in text."
+        }
+      },
+      "name": {
+        "label": "Company Name",
+        "placeholder": "Please enter the company name.",
+        "error": {
+          "required": "Please enter the company name.",
+          "type": "Company name should be in text."
+        }
+      },
+      "profile": {
+        "label": "Company Profile",
+        "placeholder": "Attachment formats: PDF, DOC, DOCX, PPT, PPTX, HWP, GUL, GIF, JPG, PNG, ZIP, TXT. Under 100MB.",
+        "error": {
+          "required": "Please choose a company profile.",
+          "type": "Invalid company profile file entered."
+        }
+      },
+      "domain": {
+        "label": "Homepage URL",
+        "placeholder": "sample.com",
+        "error": {
+          "required": "Please enter the homepage URL.",
+          "type": "Invalid homepage URL entered."
+        }
+      }
+    },
+    "applicant": {
+      "name": {
+        "label": "Applicant's Name",
+        "placeholder": "Please enter the applicant's name.",
+        "error": {
+          "required": "Please enter the applicant's name.",
+          "type": "Applicant's name should be in text."
+        }
+      },
+      "rank": {
+        "label": "Applicant's Position",
+        "placeholder": "Please select the applicant's position.",
+        "options": {
+          "ceo": "CEO",
+          "general_manager": "General Manager",
+          "manager": "Manager",
+          "assistant_manager": "Assistant Manager",
+          "staff": "Staff",
+          "etc": "Others"
+        },
+        "error": {
+          "required": "Please select the applicant's position.",
+          "type": "Invalid applicant's position entered."
+        }
+      },
+      "email": {
+        "label": "Applicant's Email Address",
+        "placeholder": "sample@sample.com",
+        "error": {
+          "required": "Please enter the applicant's email address.",
+          "type": "Invalid email format entered."
+        }
+      },
+      "phone": {
+        "label": "Applicant's Phone Number",
+        "placeholder": "010-XXXX-XXXX",
+        "error": {
+          "required": "Please enter the applicant's phone number.",
+          "type": "Invalid phone number format entered."
+        }
+      }
+    }
+  }
+}
