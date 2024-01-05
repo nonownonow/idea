@@ -3,7 +3,6 @@ import type { LinksFunction, LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import responsiveCss from "./root.css";
 import font from "../public/fonts/pretendard/variable/pretendardvariable.css";
-import okinawaTheme from "fxtsx-okinawa/theme.css";
 import { useChangeLanguage } from "remix-i18next";
 import { useTranslation } from "react-i18next";
 import i18next from "~/i18next.server";
@@ -34,7 +33,6 @@ export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
   { rel: "stylesheet", href: font },
   { rel: "stylesheet", href: responsiveCss },
-  { rel: "stylesheet", href: okinawaTheme },
   {
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/icon?family=Material+Icons",

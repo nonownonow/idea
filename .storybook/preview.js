@@ -4,7 +4,6 @@ import { withTests } from "@storybook/addon-jest";
 // storybook 의 iframe 영역에만 적용되어야 하는 css 정의
 import "./preview.css";
 import "../app/root.css";
-import "fxtsx-okinawa/theme.css";
 import i18n from "./i18next";
 
 const preview = {
