@@ -6,6 +6,6 @@ module.exports = {
   moduleDirectories: ["node_modules", "utils", __dirname],
   moduleNameMapper: {
     "\\.(css|less|scss|sass)$": "<rootDir>/__mocks__/fileMock.ts",
-    "\\.(png|svg)$": "<rootDir>/__mocks__/imgFileMock.ts",
+    "\\.(png)$": "<rootDir>/__mocks__/imgFileMock.ts",
   },
 };

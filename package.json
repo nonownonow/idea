@@ -11,7 +11,10 @@
     "storybook": "npm run test:generate-output & storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test-storybook": "test-storybook",
-    "chromatic": "dotenv -- cross-var npx chromatic --project-token=%CHROMATIC_PROJECT_TOKEN%"
+    "chromatic": "dotenv -- cross-var npx chromatic --project-token=%CHROMATIC_PROJECT_TOKEN%",
+    "predeploy": "build-storybook",
+    "deploy": "gh-pages -d storybook-static",
+    "postbuild": "cp storybook-static/index.html storybook-static/404.html"
   },
   "dependencies": {
     "@fxts/core": "^0.17.0",
@@ -81,5 +84,6 @@
     "packages/fxtsx",
     "packages/fxtsx-html",
     "packages/fxtsx-okinawa"
-  ]
+  ],
+  "homepage": "https://nonownonow.github.io/fxtsx/"
 }

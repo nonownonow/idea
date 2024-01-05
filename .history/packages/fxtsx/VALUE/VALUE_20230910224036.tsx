@@ -6,7 +6,8 @@ import type {
 } from "react";
 import React from "react";
 import { Fxtsx } from "fxtsx/FxTsx/FxTsx";
-import type { RestProps, RootProps } from "fxtsx/fxtsx.type";
+import type { RestProps } from "fxtsx/COLLECTION/COLLECTION";
+import type { RootProps } from "fxtsx/fxtsx.type";
 import { Default } from "fxtsx/Identity/Default";
 import { htmlChildren } from "fxtsx/util/util";
 
