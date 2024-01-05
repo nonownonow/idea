@@ -1,0 +1,21 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="idea-html/data-view/Dialog2/Introduction" />
+
+# 모달 제작
+
+## 사용자 경험을 고려한 요구사항
+
+    - 자바스크립트 없이 작동 가능
+        - 필요성 : [리믹스 진영의 이야기](https://remix.run/docs/en/1.19.3/tutorials/jokes#javascript)
+        - 리믹스 공식 홈페이지는 자바스크립트를 개발자 도구를 통해 비활성화 하더라도 동일한 기능을 수행함.
+        > Why does it matter that our app works without JavaScript? Is it because we're worried about the 0.002% of users who run around with JS disabled? Not really. It's because not everyone's connected to your app on a lightning-fast connection and sometimes JavaScript takes some time to load or fails to load at all. Making your app functional without JavaScript means that when that happens, your app still works for your users even before the JavaScript finishes loading.
+    Another point for user experience!
+    There are reasons to include JavaScript on the page. For example, some common UI experiences can't be accessible without JavaScript (focus management in particular is not great when you have full-page reloads all over the place). And we can make an even nicer user experience with optimistic UI (coming soon) when we have JavaScript on the page. But we thought it'd be cool to show you how far you can get with Remix without JavaScript for your users on poor network connections. 💪
+        - 자바스크립트 비활성화 했을 때와 활성화 했을 때, 기능이 정상적으로 수행 되어야 하며 레이아웃은 가능한 유지.
+    - 접근성이 고려되어야 함A
+        - dialog 태그를 이용
+            - 키보드 esc 키를 통해 컨트롤 가능
+            - 브라우저의 기능을 최대한 활용
+
+A

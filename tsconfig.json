@@ -14,9 +14,8 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["./app/*"],
-      "fxtsx/*": ["./packages/fxtsx/*"],
-      "fxtsx-html/*": ["./packages/fxtsx-html/*"],
-      "fxtsx-okinawa/*": ["./packages/fxtsx-okinawa/*"],
+      "idea/*": ["packages/idea/*"],
+      "idea-html/*": ["packages/idea-html/*"],
       "test-utils": ["./utils/test-utils"]
     },
 
