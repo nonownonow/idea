@@ -5,6 +5,7 @@ import { withTests } from "@storybook/addon-jest";
 import "./preview.css";
 import "../app/root.css";
 import i18n from "./i18next";
+import ReactGA from "react-ga4";
 
 const preview = {
   globals: {
@@ -30,6 +31,12 @@ const preview = {
   },
 };
 
+ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_ID, {
+  gtagOptions: {
+    debug_mode: true,
+    content_group: "storybook",
+  },
+});
 export default preview;
 
 export const decorators = [withTests({ results })];
